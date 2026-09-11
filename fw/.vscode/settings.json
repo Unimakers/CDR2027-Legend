@@ -1,0 +1,11 @@
+{
+    "sshfs.configs": [
+        {
+            "name": "luckfox",
+            "host": "172.32.0.93",
+            "root": "/root/scripts_python",
+            "username": "root",
+            "password": "luckfox"
+        }
+    ]
+}
