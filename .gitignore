@@ -7,7 +7,6 @@
 *.dll
 
 ### 3D files ###
-*.stl
 
 ### C ###
 # Prerequisites
@@ -29,7 +28,6 @@
 *.pch
 
 # Libraries
-*.lib
 *.a
 *.la
 *.lo
