@@ -12,3 +12,7 @@ void mpu_update();
 
 // Get the latest Z-axis rotation speed in degrees per second (°/s)
 float mpu_get_gyro_z();
+
+float mpu_get_angle_z();  // Récupère le cap absolu en degrés
+
+void mpu_reset_angle();   // Remet le cap à 0° (à appeler au début du match)

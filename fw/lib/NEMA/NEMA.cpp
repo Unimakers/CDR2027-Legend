@@ -2,33 +2,28 @@
 #include <FastAccelStepper.h>
 #include "pamiboard.h"
 
-// Le moteur central qui gère les timers matériels
 FastAccelStepperEngine engine = FastAccelStepperEngine();
 
-// 3 pointeurs vers les moteurs
 FastAccelStepper *stepper1 = nullptr;
 FastAccelStepper *stepper2 = nullptr;
 FastAccelStepper *stepper3 = nullptr;
 
 void nema_init() {
-    // Configuration des broches de microstepping
     pinMode(PAMI_MS1, OUTPUT);
     pinMode(PAMI_MS2, OUTPUT);
-    nema_set_microstepping(LOW, LOW); // Par défaut
+    nema_set_microstepping(HIGH, HIGH); 
 
-    // Initialisation du moteur hardware
     engine.init();
 
-    // libère entièrement le module LEDC/PWM pour ESP32Servo
-    #if defined(SUPPORT_ESP32_RMT)
     // Attachement Moteur 1
+    #if defined(SUPPORT_ESP32_RMT)
     stepper1 = engine.stepperConnectToPin(PAMI_STEP1, DRIVER_RMT);
     #else
     stepper1 = engine.stepperConnectToPin(PAMI_STEP1);
     #endif
     if (stepper1) {
         stepper1->setDirectionPin(PAMI_DIR1);
-        stepper1->setAutoEnable(false); // Le Enable est géré par le MCP23008
+        stepper1->setAutoEnable(false); 
     }
 
     // Attachement Moteur 2
@@ -52,6 +47,11 @@ void nema_init() {
         stepper3->setDirectionPin(PAMI_DIR3);
         stepper3->setAutoEnable(false);
     }
+
+    // Les profils de vitesse et d'accélération sont définis pour chaque moteur
+    nema_set_profile(1, 4000, 500); 
+    nema_set_profile(2, 4000, 500);  
+    nema_set_profile(3, 4000, 500);  
 }
 
 void nema_set_microstepping(bool ms1_high, bool ms2_high) {
@@ -59,7 +59,6 @@ void nema_set_microstepping(bool ms1_high, bool ms2_high) {
     digitalWrite(PAMI_MS2, ms2_high ? HIGH : LOW);
 }
 
-// Fonction utilitaire cachée pour récupérer le bon pointeur
 FastAccelStepper* get_stepper(uint8_t motor_id) {
     if (motor_id == 1) return stepper1;
     if (motor_id == 2) return stepper2;
@@ -70,8 +69,14 @@ FastAccelStepper* get_stepper(uint8_t motor_id) {
 void nema_set_profile(uint8_t motor_id, uint32_t speed_hz, uint32_t accel) {
     FastAccelStepper* s = get_stepper(motor_id);
     if (s) {
+        // Enregistre les valeurs
         s->setSpeedInHz(speed_hz);
         s->setAcceleration(accel);
+        
+        // Force l'application immédiate dans le timer matériel de l'ESP32
+        s->applySpeedAcceleration(); 
+    } else {
+        Serial.printf("[ERREUR] Moteur %d non initialise !\n", motor_id);
     }
 }
 

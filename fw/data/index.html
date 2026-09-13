@@ -23,38 +23,12 @@
         .slider-row label { display: flex; justify-content: space-between; font-size: 0.85em; font-weight: bold; margin-bottom: 4px; color: var(--acc, #8b4513); }
         .full-slider { width: 100%; accent-color: var(--acc, #8b4513); }
         
-        /* Slider dégradé arc-en-ciel pour la NeoPixel */
         .rainbow-slider {
-            width: 100%;
-            height: 14px;
-            border-radius: 7px;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-            background: linear-gradient(to right, 
-                #ff0000 0%, #ffff00 17%, #00ff00 33%, 
-                #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
-            cursor: pointer;
+            width: 100%; height: 14px; border-radius: 7px; outline: none; -webkit-appearance: none; appearance: none;
+            background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); cursor: pointer;
         }
         .rainbow-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 2px solid #333333;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        .rainbow-slider::-moz-range-thumb {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 2px solid #333333;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #ffffff; border: 2px solid #333333; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
         
         .cmd-container { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: space-between; }
@@ -68,6 +42,10 @@
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: center; }
         .modal-content { background: var(--pan); padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; }
         .modal-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+
+        .nema-block { background: rgba(0,0,0,0.03); border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; margin-top: 10px; }
+        .nema-block input { padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 0.85em; width: 100%; box-sizing: border-box; }
+        .nema-row { display: flex; gap: 8px; margin-top: 8px; }
     </style>
 </head>
 <body>
@@ -126,9 +104,10 @@
                 <li><span>CPU Core 1</span> <div style="text-align: right; color:#e74c3c;"><strong><span id="dC1">0</span> %</strong></div></li>
                 <li><span>Enc G</span> <div style="text-align: right;"><span id="dL">0</span> <strong style="color:var(--acc);" id="dAL">(0.0°)</strong></div></li>
                 <li><span>Enc D</span> <div style="text-align: right;"><span id="dR">0</span> <strong style="color:var(--acc);" id="dAR">(0.0°)</strong></div></li>
-                <li><span>Gyro Z (instant)</span> <div style="text-align: right;"><span id="dGZ">0.00</span> °/s</div></li>
-                <li><span>ToF 1 (Centre)</span> <div style="text-align: right;" id="dToF1">--</div></li>
-                <li><span>ToF 2 (Gauche)</span> <div style="text-align: right;" id="dToF2">--</div></li>
+                <li><span>Gyro Z (Vitesse)</span> <div style="text-align: right;"><span id="dGZ">0.00</span> °/s</div></li>
+                <li><span>Gyro Z (Absolu)</span> <div style="text-align: right; color:var(--acc);"><strong><span id="dGA">0.00</span> °</strong></div></li>
+                <li><span>ToF 1 (Gauche)</span> <div style="text-align: right;" id="dToF1">--</div></li>
+                <li><span>ToF 2 (Centre)</span> <div style="text-align: right;" id="dToF2">--</div></li>
                 <li><span>ToF 3 (Droite)</span> <div style="text-align: right;" id="dToF3">--</div></li>
                 <li><span>ToF 4 (Autre)</span> <div style="text-align: right;" id="dToF4">--</div></li>
             </ul>
@@ -167,7 +146,6 @@
                     <label>Servo 0 (Angle) <span id="val_srv0">90°</span></label>
                     <input type="range" class="full-slider" min="0" max="180" value="90" oninput="document.getElementById('val_srv0').innerText=this.value+'°'; sendCmd('servo', 0, this.value)">
                 </div>
-
                 <div class="slider-row">
                     <label>Servo 1 (Angle) <span id="val_srv1">90°</span></label>
                     <input type="range" class="full-slider" min="0" max="180" value="90" oninput="document.getElementById('val_srv1').innerText=this.value+'°'; sendCmd('servo', 1, this.value)">
@@ -185,31 +163,33 @@
                 </div>
                 <button class="btn" style="height:35px; font-size:0.9em; background:#e74c3c; color:white; border-radius:5px;" onclick="document.getElementById('val_dc2').innerText='0'; sendCmd('dc', 2, '0')">STOP DC 2</button>
 
-                <div>
-                    <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA 1 :</label>
-                    <div style="display:flex; gap:10px; margin-top:5px;">
-                        <button class="btn" style="flex:1; height:35px; font-size:0.9em; border-radius:5px;" onclick="sendCmd('nema', 1, '1000')">Avancer</button>
-                        <button class="btn" style="flex:1; height:35px; font-size:0.9em; border-radius:5px;" onclick="sendCmd('nema', 1, '-1000')">Reculer</button>
-                    </div>
+                <!-- CONTRÔLE AVANCÉ NEMA -->
+                <div id="nema-controls">
+                    <!-- Généré dynamiquement pour NEMA 1, 2, 3 -->
+                    <script>
+                        for(let i=1; i<=3; i++) {
+                            document.write(`
+                            <div class="nema-block">
+                                <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA ${i}</label>
+                                <div class="nema-row">
+                                    <input type="number" id="n${i}_v" placeholder="Vitesse (pas/s)" value="1000" title="Vitesse">
+                                    <input type="number" id="n${i}_a" placeholder="Accel (pas/s²)" value="500" title="Accélération">
+                                </div>
+                                <div class="nema-row">
+                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(${i}, 'CONT', 1)">Rot +</button>
+                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(${i}, 'CONT', -1)">Rot -</button>
+                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#e74c3c; color:white;" onclick="sendNemaCmd(${i}, 'STOP', 0)">STOP</button>
+                                </div>
+                                <div class="nema-row">
+                                    <input type="number" id="n${i}_p" placeholder="Position (pas)" value="0" style="flex:2;">
+                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#2980b9; color:white;" onclick="sendNemaCmd(${i}, 'POS', 0)">Aller</button>
+                                </div>
+                            </div>`);
+                        }
+                    </script>
                 </div>
 
-                <div>
-                    <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA 2 :</label>
-                    <div style="display:flex; gap:10px; margin-top:5px;">
-                        <button class="btn" style="flex:1; height:35px; font-size:0.9em; border-radius:5px;" onclick="sendCmd('nema', 2, '1000')">Avancer</button>
-                        <button class="btn" style="flex:1; height:35px; font-size:0.9em; border-radius:5px;" onclick="sendCmd('nema', 2, '-1000')">Reculer</button>
-                    </div>
-                </div>
-
-                <div>
-                    <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA 3 :</label>
-                    <div style="display:flex; gap:10px; margin-top:5px;">
-                        <button class="btn" style="flex:1; height:35px; font-size:0.9em; border-radius:5px;" onclick="sendCmd('nema', 3, '1000')">Avancer</button>
-                        <button class="btn" style="flex:1; height:35px; font-size:0.9em; border-radius:5px;" onclick="sendCmd('nema', 3, '-1000')">Reculer</button>
-                    </div>
-                </div>
-
-                <!-- CONTROLE NEOPXEL VIA SLIDER ARC-EN-CIEL -->
+                <!-- CONTROLE NEOPIXEL -->
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                         <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NeoPixel :</label>
@@ -232,18 +212,14 @@
         <div class="panel wide">
             <div class="panel-header"><span>🦊 Gestion Luckfox</span></div>
             <div style="display:flex; flex-direction:column; gap:15px;">
-
-                <!-- CONSOLE / TEST LUCKFOX -->
                 <div>
                     <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">💬 Console Luckfox :</label>
                     <div style="display:flex; gap:10px; margin-top:5px;">
                         <input type="text" id="luckfox_input" placeholder="" style="flex:1; padding:8px; border:1px solid #ccc; border-radius:5px;">
                         <button class="btn" style="width:100px; height:38px; font-size:0.9em; background:var(--acc); color:white; border-radius:5px;" onclick="sendLuckfox()">Envoyer</button>
                     </div>
-                    <div style="font-size:0.75em; color:#7f8c8d; margin-top:4px;">Exemple : &lt;PING&gt;</div>
                 </div>
 
-                <!-- SECTION GESTIONNAIRE DE FICHIERS -->
                 <div style="margin-top: 10px; border-top: 1px solid #ccc; padding-top: 15px;">
                     <label style="font-size:0.85em; font-weight:bold; color:#2980b9;">📂 Gestionnaire de Fichiers :</label>
                     <div style="display:flex; gap:10px; margin-top:5px;">
@@ -254,7 +230,6 @@
                     </ul>
                 </div>
 
-                <!-- SECTION OTA -->
                 <div style="margin-top: 10px; border-top: 1px solid #ccc; padding-top: 15px;">
                     <label style="font-size:0.85em; font-weight:bold; color:#8e44ad;">Flasher le Luckfox (OTA) :</label>
                     <div style="display:flex; gap:10px; margin-top:5px;">
@@ -264,7 +239,6 @@
                     <button class="btn" style="width:100%; height:40px; margin-top:8px; background:#8e44ad; color:white; font-size:1em;" onclick="flashLuckfox()">🚀 Transférer le code</button>
                     <div id="ota_status" style="font-size:0.85em; font-weight:bold; margin-top:8px; text-align:center;"></div>
                 </div>
-
             </div>
         </div>
     </template>
@@ -353,13 +327,12 @@
                 document.getElementById('dAR').innerText = "(" + (d.aR ? d.aR.toFixed(1) : 0.0) + "°)";
             }
             if(document.getElementById('dGZ') && d.gz !== undefined) document.getElementById('dGZ').innerText = d.gz.toFixed(2);
+            if(document.getElementById('dGA') && d.ga !== undefined) document.getElementById('dGA').innerText = d.ga.toFixed(2);
 
-            // ---> GESTION DES CAPTEURS ToF <---
             for (let i = 1; i <= 4; i++) {
                 let el = document.getElementById('dToF' + i);
                 if (el && d['tof' + i] !== undefined) {
                     let val = d['tof' + i];
-                    // Si la valeur est négative (ex: -1 envoyé par l'ESP) ou null => Capteur déconnecté
                     if (val < 0 || val === null) {
                         el.innerHTML = '<span style="color:red; font-weight:bold;">Déconnecté</span>';
                     } else {
@@ -398,16 +371,25 @@
 
         function sendCmd(composant, id, valeur) {
             if(ws.readyState === WebSocket.OPEN) {
-                let payload = {
-                    cmd: composant,
-                    id: id,
-                    val: String(valeur)
-                };
+                let payload = { cmd: composant, id: id, val: String(valeur) };
                 ws.send(JSON.stringify(payload));
             }
         }
 
-        // === CONVERSION COULEUR & GESTION NEOPXEl (AVEC THROTTLE) ===
+        // --- NOUVELLE FONCTION NEMA ---
+        function sendNemaCmd(id, mode, dir_or_null) {
+            let v = document.getElementById('n' + id + '_v').value;
+            let a = document.getElementById('n' + id + '_a').value;
+            let target = 0;
+            
+            if (mode === 'CONT') target = dir_or_null;
+            else if (mode === 'POS') target = document.getElementById('n' + id + '_p').value;
+            
+            // Format du payload envoyé : "MODE|VITESSE|ACCEL|CIBLE"
+            let payload = `${mode}|${v}|${a}|${target}`;
+            sendCmd('nema', id, payload);
+        }
+
         let lastNeoSendTime = 0;
         let pendingNeoTimer = null;
 
@@ -424,7 +406,6 @@
 
         function updateNeoColor(hue) {
             let hex = hslToHex(parseInt(hue), 100, 50);
-            
             let prev = document.getElementById('np_preview');
             let txt = document.getElementById('np_hex');
             if (prev) prev.style.backgroundColor = hex;
@@ -460,18 +441,13 @@
             }
         }
 
-        // === LOGIQUE GESTIONNAIRE DE FICHIERS ===
-        function refreshFileList() {
-            sendCmd('luckfox', 0, '<FILE_LIST>');
-        }
-
+        function refreshFileList() { sendCmd('luckfox', 0, '<FILE_LIST>'); }
         function deleteRemoteFile(filename) {
             if(confirm("Voulez-vous vraiment supprimer " + filename + " ?")) {
                 sendCmd('luckfox', 0, '<FILE_DEL:' + filename + '>');
                 setTimeout(refreshFileList, 600);
             }
         }
-
         function renameRemoteFile(filename) {
             let newName = prompt("Nouveau nom pour " + filename + " :", filename);
             if(newName && newName !== filename) {
@@ -479,17 +455,14 @@
                 setTimeout(refreshFileList, 600);
             }
         }
-
         function updateFileListUI(filesString) {
             let container = document.getElementById('file_list_container');
             if(!container) return;
-            
             let files = filesString.split(',').filter(f => f.trim() !== "");
             if(files.length === 0) {
                 container.innerHTML = '<li style="color:#7f8c8d;">Aucun fichier trouvé.</li>';
                 return;
             }
-
             let html = "";
             files.forEach(file => {
                 let isProtected = (file === "uart.py");
@@ -509,39 +482,23 @@
             let statusText = document.getElementById('ota_status');
             let filename = document.getElementById('ota_filename').value;
             if (filename === "") filename = "strategy.py"; 
-
             if(!codeArea || !statusText) return; 
-
             let lines = codeArea.value.split('\n'); 
-            
-            if(lines.length < 5) {
-                alert("Le code semble trop court pour être valide !");
-                return;
-            }
-
-            statusText.style.color = "#d35400";
-            statusText.innerText = "Initialisation du transfert...";
-            
+            if(lines.length < 5) { alert("Le code semble trop court !"); return; }
+            statusText.style.color = "#d35400"; statusText.innerText = "Initialisation...";
             sendCmd('luckfox', 0, '<OTA_START:' + filename + '>');
-            await new Promise(function(r) { setTimeout(r, 40); }); 
-            
+            await new Promise(r => setTimeout(r, 40)); 
             for(let i = 0; i < lines.length; i++) {
                 statusText.innerText = "Transfert : Ligne " + (i+1) + "/" + lines.length;
-                
                 let safeLine = btoa(unescape(encodeURIComponent(lines[i])));
-                
                 sendCmd('luckfox', 0, '<OTA_LINE:' + safeLine + '>');
-                await new Promise(function(r) { setTimeout(r, 100); }); 
+                await new Promise(r => setTimeout(r, 100)); 
             }
-            
-            statusText.innerText = "Compilation et redémarrage en cours...";
+            statusText.innerText = "Compilation et redémarrage...";
             sendCmd('luckfox', 0, '<OTA_END>');
-            
             setTimeout(function() {
-                statusText.style.color = "#27ae60";
-                statusText.innerText = "Transfert terminé ! Vérifie le comportement du robot.";
-                codeArea.value = ""; 
-                refreshFileList();
+                statusText.style.color = "#27ae60"; statusText.innerText = "Terminé !";
+                codeArea.value = ""; refreshFileList();
             }, 3000);
         }
     </script>

@@ -62,7 +62,7 @@ bool web_init(const char* ap_ssid, const char* ap_password) {
     return true;
 }
 
-void web_send_telemetry(float x, float y, long enc_l, long enc_r, float angle_l, float angle_r, float battery, float gyro_z, int cpu_load, int tof1, int tof2, int tof3, int tof4) {
+void web_send_telemetry(float x, float y, long enc_l, long enc_r, float angle_l, float angle_r, float battery, float gyro_z, float gyro_angle, int cpu_load, int tof1, int tof2, int tof3, int tof4) {
     // Ne rien faire s'il n'y a aucun client pour ne pas gaspiller de CPU
     if (ws.count() == 0) return; 
 
@@ -76,6 +76,7 @@ void web_send_telemetry(float x, float y, long enc_l, long enc_r, float angle_l,
     doc["aR"] = angle_r;
     doc["b"] = battery;
     doc["gz"] = gyro_z;
+    doc["ga"] = gyro_angle;
     doc["c1"] = cpu_load;
     doc["tof1"] = tof1;
     doc["tof2"] = tof2;
