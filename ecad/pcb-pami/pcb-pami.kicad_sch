@@ -7783,29 +7783,6 @@
 		)
 		(uuid "15a38e1e-b991-42e9-a0a5-557bf218ed14")
 	)
-	(text "NEMA17"
-		(exclude_from_sim no)
-		(at 75.946 188.468 0)
-		(effects
-			(font
-				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
-				(color 0 194 0 1)
-			)
-		)
-		(uuid "20357b99-96e8-4341-b5cc-144a7305ad31")
-	)
-	(text "28V, 2A MAX"
-		(exclude_from_sim no)
-		(at 108.966 254.254 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "21045769-e995-449e-b9a6-6c26f1741821")
-	)
 	(text "Buttons\n"
 		(exclude_from_sim no)
 		(at 51.816 106.426 0)
@@ -8422,12 +8399,6 @@
 		(uuid "fd4a9417-8c8a-430c-b516-709a56987ede")
 	)
 	(junction
-		(at 106.68 219.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "07c350e6-1db7-43e1-9949-5551b30755bd")
-	)
-	(junction
 		(at 41.91 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8480,12 +8451,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "606a8643-30bb-498d-9b63-0fe17a55b6f3")
-	)
-	(junction
-		(at 43.18 316.23)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "69a9bceb-9f07-46d4-801b-807b9c6e0c12")
 	)
 	(junction
 		(at 142.24 85.09)
@@ -8582,12 +8547,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b62cb3a2-eb6f-441c-bf2c-442282ecff82")
-	)
-	(junction
-		(at 38.1 321.31)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bbd1b9d9-3a94-4cc0-aada-fb03043e28d5")
 	)
 	(junction
 		(at 119.38 334.01)
@@ -8695,16 +8654,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 218.44) (xy 107.95 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a0ac9a1-7cd3-4cb7-a48a-fdfcc0328233")
-	)
-	(wire
-		(pts
 			(xy 60.96 46.99) (xy 80.01 46.99)
 		)
 		(stroke
@@ -8755,16 +8704,6 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 219.71) (xy 106.68 219.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "12b36360-0f3f-483b-a1a3-826b69811141")
-	)
-	(wire
-		(pts
 			(xy 309.88 246.38) (xy 321.31 246.38)
 		)
 		(stroke
@@ -8772,26 +8711,6 @@
 			(type default)
 		)
 		(uuid "14b50b94-c076-47dc-a516-9a938e910c79")
-	)
-	(wire
-		(pts
-			(xy 38.1 316.23) (xy 43.18 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1a630a08-32f7-41e8-9609-ba13f72d8faa")
-	)
-	(wire
-		(pts
-			(xy 106.68 220.98) (xy 106.68 219.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "21b40474-3594-484b-bdfc-105d647a2fda")
 	)
 	(wire
 		(pts
@@ -9105,16 +9024,6 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 316.23) (xy 49.53 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "60ca9f81-c395-41de-a72b-7b5f6afd43fa")
-	)
-	(wire
-		(pts
 			(xy 60.96 54.61) (xy 60.96 57.15)
 		)
 		(stroke
@@ -9255,6 +9164,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 316.23) (xy 49.53 316.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "712d0ca6-649a-4696-b7a1-e0afed5a56e6")
+	)
+	(wire
+		(pts
 			(xy 351.79 231.14) (xy 368.3 231.14)
 		)
 		(stroke
@@ -9315,16 +9234,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 232.41) (xy 62.23 232.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c38e279-a891-4d19-aad8-cfe82d4d0916")
-	)
-	(wire
-		(pts
 			(xy 309.88 254) (xy 321.31 254)
 		)
 		(stroke
@@ -9362,16 +9271,6 @@
 			(type default)
 		)
 		(uuid "81b57d31-ac7e-4218-b66a-2d78a2d69b2e")
-	)
-	(wire
-		(pts
-			(xy 54.61 229.87) (xy 62.23 229.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "834ef67f-0355-4a9e-ae2c-491bc9c0bcfc")
 	)
 	(wire
 		(pts
@@ -9462,16 +9361,6 @@
 			(type default)
 		)
 		(uuid "8bab26b8-3136-424d-bf04-33b920719de1")
-	)
-	(wire
-		(pts
-			(xy 38.1 321.31) (xy 43.18 321.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8efceb13-dd5e-428c-9680-77b3782b133b")
 	)
 	(wire
 		(pts
@@ -9702,16 +9591,6 @@
 			(type default)
 		)
 		(uuid "a978f28d-9bd2-4cb6-80c7-3df7c1be3d5e")
-	)
-	(wire
-		(pts
-			(xy 106.68 219.71) (xy 106.68 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a988d3ec-7ad4-4aca-93a5-8c190cb58eeb")
 	)
 	(wire
 		(pts
@@ -11981,30 +11860,6 @@
 			)
 		)
 	)
-	(global_label "MOTORA3"
-		(shape input)
-		(at 97.79 234.95 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "1d354c06-73bf-4481-9f84-a41285858af7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.4233 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "VCC_12V_BUCK"
 		(shape input)
 		(at 373.38 74.93 0)
@@ -12122,30 +11977,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "SDA1"
-		(shape input)
-		(at 439.42 129.54 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "26b8b1fd-533b-46da-9309-43f7d9a57166")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 431.6572 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -12450,54 +12281,6 @@
 		(uuid "3556ca80-e8b6-41f7-a01e-47f01d89ce95")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 281.6763 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "VCC_5V_GLOBAL"
-		(shape input)
-		(at 469.9 121.92 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "363ac6be-9437-4d44-b1fa-f84b5f236bda")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 452.0376 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "STEP3"
-		(shape input)
-		(at 309.88 251.46 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "3755fbf9-fca9-47d3-b684-0bbbedb1fae7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 301.0892 251.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13085,30 +12868,6 @@
 			)
 		)
 	)
-	(global_label "VCC_12V"
-		(shape input)
-		(at 107.95 218.44 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "51cf8819-a888-4c99-8c36-4f26e0a7b66b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.039 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "UART1_RX-"
 		(shape input)
 		(at 367.03 226.06 0)
@@ -13130,30 +12889,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "MOTORA4"
-		(shape input)
-		(at 41.91 259.08 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5321574b-2aaf-4ea9-9c28-aeb2e7121d42")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.2767 259.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -13229,30 +12964,6 @@
 			)
 		)
 	)
-	(global_label "VCC_5V_GLOBAL"
-		(shape input)
-		(at 439.42 121.92 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5c2524fe-1439-4339-b77c-258dabc184e5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 421.5576 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "SCL2"
 		(shape input)
 		(at 389.89 163.83 0)
@@ -13301,30 +13012,6 @@
 			)
 		)
 	)
-	(global_label "MOTORA3"
-		(shape input)
-		(at 41.91 261.62 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "6224663b-36dc-49d8-a488-ada9a3f09003")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.2767 261.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "VCC_5V_GLOBAL"
 		(shape input)
 		(at 457.2 160.02 180)
@@ -13338,30 +13025,6 @@
 		(uuid "647ab67e-1302-42ae-9151-62f5d2601d09")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 439.3376 160.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "SDA2"
-		(shape input)
-		(at 469.9 129.54 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "647afbea-beec-4339-96c7-a21cd6edd614")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 462.1372 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13458,54 +13121,6 @@
 		(uuid "68850132-c06f-4576-8c87-277b7ae1ea22")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 300.1215 236.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "MOTORA2"
-		(shape input)
-		(at 41.91 264.16 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "6d08b5f8-4c50-483a-8293-4d05e9cbc7a0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.2767 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "EN"
-		(shape input)
-		(at 62.23 224.79 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7036bec1-d6ef-4f9e-9a80-79c035a0bcc4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 56.7653 224.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13698,30 +13313,6 @@
 		(uuid "75cf057a-c135-4a5a-b9d6-e3d66ea5da2b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 457.2 39.2272 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "MOTORA4"
-		(shape input)
-		(at 97.79 240.03 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "75de0243-e767-4553-9ed3-1327a2f8eb19")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.4233 240.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14094,30 +13685,6 @@
 			)
 		)
 	)
-	(global_label "DIR1"
-		(shape input)
-		(at 54.61 232.41 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "86893d61-031a-41af-bf3b-5c62b8aab356")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 47.2705 232.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "MS1"
 		(shape input)
 		(at 190.5 238.76 180)
@@ -14334,30 +13901,6 @@
 			)
 		)
 	)
-	(global_label "MS1"
-		(shape input)
-		(at 62.23 237.49 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "96a78cee-4897-4194-b5a3-b9d647abee89")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 55.3744 237.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "EN"
 		(shape input)
 		(at 190.5 226.06 180)
@@ -14491,30 +14034,6 @@
 		(uuid "9d2bf1b5-5ed7-463e-83d4-aaa0aab94f44")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 281.6763 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "SCL1"
-		(shape input)
-		(at 439.42 127 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9d83bf48-6bba-4a5e-a3d0-27aa3e55acc5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 431.7177 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14910,30 +14429,6 @@
 			)
 		)
 	)
-	(global_label "MOTORA2"
-		(shape input)
-		(at 97.79 232.41 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "abda45cc-e1d3-43ba-9a87-d6fad067035b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.4233 232.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "RST"
 		(shape input)
 		(at 469.9 57.15 0)
@@ -14982,30 +14477,6 @@
 			)
 		)
 	)
-	(global_label "3V3"
-		(shape input)
-		(at 97.79 217.17 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "adca3395-7338-4eea-8874-9738fc2f65d2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 104.2828 217.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "SDA2"
 		(shape input)
 		(at 133.35 157.48 270)
@@ -15019,30 +14490,6 @@
 		(uuid "aef229ad-10f0-43f7-a192-193cfe923e10")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 133.35 165.2428 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "STEP1"
-		(shape input)
-		(at 54.61 229.87 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "af332f0a-dfe1-4acd-9516-bd8fde3fcf67")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 45.8192 229.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15270,30 +14717,6 @@
 			)
 		)
 	)
-	(global_label "MOTORA1"
-		(shape input)
-		(at 97.79 237.49 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "bc67d6f3-6a36-4371-9aa7-883c4200aa3e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.4233 237.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
 	(global_label "3V3"
 		(shape input)
 		(at 336.55 210.82 90)
@@ -15315,30 +14738,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "DIR3"
-		(shape input)
-		(at 309.88 254 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c0fdb4a3-dd44-4bf0-9d3b-45877921181a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 302.5405 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -15531,30 +14930,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "SCL2"
-		(shape input)
-		(at 469.9 127 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c6a8a4b0-1928-4a28-9f85-d95a80380e5b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 462.1977 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -16086,30 +15461,6 @@
 			)
 		)
 	)
-	(global_label "MS2"
-		(shape input)
-		(at 62.23 240.03 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e0d243ef-c50a-4f84-8b24-7903d7f29559")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 55.3744 240.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "MOTORB4"
 		(shape input)
 		(at 163.83 264.16 180)
@@ -16395,30 +15746,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "MOTORA1"
-		(shape input)
-		(at 41.91 266.7 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e98b1eda-69c6-4faa-813d-141157ac2c15")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 30.2767 266.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)
@@ -16880,7 +16207,7 @@
 			(uuid "0dd16d42-a0b1-4174-a5a2-dac597feb731")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C2")
 					(unit 1)
@@ -16961,7 +16288,7 @@
 			(uuid "2923de40-8deb-40d4-bbfd-e893bcb2541e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "SW1")
 					(unit 1)
@@ -17038,7 +16365,7 @@
 			(uuid "8ac57e43-22e1-472f-a9de-b9652a483632")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR018")
 					(unit 1)
@@ -17119,7 +16446,7 @@
 			(uuid "e9f9442b-c46d-4d03-a675-32f22ab6f2c5")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C10")
 					(unit 1)
@@ -17198,7 +16525,7 @@
 			(uuid "b68c41f5-b7ef-4b04-802c-18790491c49f")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "D1")
 					(unit 1)
@@ -17275,7 +16602,7 @@
 			(uuid "e30d0ae0-4961-4cbf-a4fe-128c8924184c")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR041")
 					(unit 1)
@@ -17356,7 +16683,7 @@
 			(uuid "137c8b4a-5abe-4adc-aa76-f70d7591973d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J15")
 					(unit 1)
@@ -17555,7 +16882,7 @@
 			(uuid "959fb54e-f480-4598-ba4f-07e00feef40a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U6")
 					(unit 1)
@@ -17827,7 +17154,7 @@
 			(uuid "dc6ee9cc-75d9-4ea3-a6e3-0401a55cd24f")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U8")
 					(unit 1)
@@ -17922,7 +17249,7 @@
 			(uuid "872530ab-e313-498a-9c6c-194f805fdf36")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J17")
 					(unit 1)
@@ -18058,7 +17385,7 @@
 			(uuid "bf478f03-4e45-48b5-8c0f-5f08aee8f14a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "AO4407A2")
 					(unit 1)
@@ -18167,7 +17494,7 @@
 			(uuid "4d2500fa-ae43-434b-afb1-27d2efa1137a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J2")
 					(unit 1)
@@ -18250,7 +17577,7 @@
 			(uuid "8bd0ca52-144b-4047-b811-7fc2b100b741")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J8")
 					(unit 1)
@@ -18328,7 +17655,7 @@
 			(uuid "82addf25-2037-4bac-9df5-a7d014c5aaa1")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR027")
 					(unit 1)
@@ -18405,7 +17732,7 @@
 			(uuid "ff991428-7594-4e4a-9688-2ac4b06ba0b6")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR059")
 					(unit 1)
@@ -18486,7 +17813,7 @@
 			(uuid "fcf97a84-0078-4e21-968d-6246ad5dd672")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R3")
 					(unit 1)
@@ -18567,7 +17894,7 @@
 			(uuid "45d4827e-3f16-459c-932e-10f48db0700f")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C9")
 					(unit 1)
@@ -18646,7 +17973,7 @@
 			(uuid "a561aeb9-9e70-4409-bd2d-a6fc7ed606b9")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR026")
 					(unit 1)
@@ -18737,7 +18064,7 @@
 			(uuid "013e4031-8b18-4112-b6b0-3681904a8e70")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J16")
 					(unit 1)
@@ -18816,7 +18143,7 @@
 			(uuid "5db9c0ae-62f7-4eca-a726-c64b7f03aead")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR042")
 					(unit 1)
@@ -18904,7 +18231,7 @@
 			(uuid "c8852003-ac62-4612-8e33-2376ea752157")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "MPU1")
 					(unit 1)
@@ -18982,7 +18309,7 @@
 			(uuid "0896aa88-9308-4af9-9e86-49210ffeefaf")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR044")
 					(unit 1)
@@ -19060,7 +18387,7 @@
 			(uuid "7591cb8d-e6f6-49c9-8edb-09234c9e7b25")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR01")
 					(unit 1)
@@ -19141,7 +18468,7 @@
 			(uuid "bb58cc19-18b1-4503-a26b-b8021ab57486")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C18")
 					(unit 1)
@@ -19219,7 +18546,7 @@
 			(uuid "7a948009-1262-4aa4-8a2d-ba8eed95884e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR013")
 					(unit 1)
@@ -19298,7 +18625,7 @@
 			(uuid "685ea0aa-004f-4006-ab23-777b5fad27b5")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R8")
 					(unit 1)
@@ -19399,7 +18726,7 @@
 			(uuid "13c751b2-a4b4-4581-aa31-ee4acc155643")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J3")
 					(unit 1)
@@ -19482,7 +18809,7 @@
 			(uuid "0799899d-05ee-4863-a7fc-be9d1d92b447")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C6")
 					(unit 1)
@@ -19562,97 +18889,9 @@
 			(uuid "77c1dca2-8156-4dc4-a510-ae12f2744b6d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "H3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x04_Pin")
-		(at 444.5 127 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2ecfe4db-3198-407f-b23e-587df9a8ef1e")
-		(property "Reference" "AS1"
-			(at 445.77 125.7299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x04_Pin"
-			(at 447.04 125.73 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 444.5 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 444.5 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 444.5 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e15bdec9-7faa-46ab-ab83-77ab95b1b5c0")
-		)
-		(pin "2"
-			(uuid "4194b6d4-be24-4231-b846-b24254ae741c")
-		)
-		(pin "4"
-			(uuid "9bcfbdc0-22b1-44a1-b835-51198340f917")
-		)
-		(pin "3"
-			(uuid "c0e32e78-b060-4f56-925d-ae41e6d23f8f")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "AS1")
 					(unit 1)
 				)
 			)
@@ -19733,7 +18972,7 @@
 			(uuid "0de4f1d1-de35-4bea-84ae-46eb5aba9555")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J23")
 					(unit 1)
@@ -19814,7 +19053,7 @@
 			(uuid "7a511fa8-c94c-4b51-b6ba-db35b257ab7d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J9")
 					(unit 1)
@@ -19895,7 +19134,7 @@
 			(uuid "408ab4e1-2e7b-4fdf-ba66-2e4eca664cc5")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J27")
 					(unit 1)
@@ -19975,98 +19214,9 @@
 			(uuid "999dc4e6-d8e6-4680-848d-bb0c351bd69f")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x04_Pin")
-		(at 46.99 264.16 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "35aa8806-d5b0-447e-9b61-881bd66587f2")
-		(property "Reference" "J13"
-			(at 48.26 262.8899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x04_Pin"
-			(at 48.26 264.1599 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 46.99 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 46.99 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 46.99 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "c5790371-f664-4da6-990b-5f0a2e1c2743")
-		)
-		(pin "2"
-			(uuid "5cb378bb-61ec-4d3d-80e7-371c264fc957")
-		)
-		(pin "4"
-			(uuid "fc9000d0-4e6d-45cc-b0ae-52089f79a945")
-		)
-		(pin "1"
-			(uuid "08704548-26e2-4ae5-ab99-67bd35fc7eaf")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "J13")
 					(unit 1)
 				)
 			)
@@ -20200,7 +19350,7 @@
 			(uuid "5c3a803a-4fdc-4127-b236-81cf7fa89f7e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "AO4407A1")
 					(unit 1)
@@ -20279,7 +19429,7 @@
 			(uuid "20f2e626-57f9-47bc-ac8d-26b2c52aae61")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R6")
 					(unit 1)
@@ -20357,7 +19507,7 @@
 			(uuid "07f17322-d363-4b40-b550-c4d1137f5f4c")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR020")
 					(unit 1)
@@ -20435,7 +19585,7 @@
 			(uuid "939e461b-598e-4d2e-9e96-0ac8472e236d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR047")
 					(unit 1)
@@ -20513,7 +19663,7 @@
 			(uuid "a6e29fe7-0955-4eb6-be79-add60938d499")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR07")
 					(unit 1)
@@ -20607,282 +19757,9 @@
 			(uuid "bc3cd793-117e-44ec-9da7-5d074f8e9aec")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "TMC2209_SILENTSTEPSTICK:TMC2209_SILENTSTEPSTICK")
-		(at 80.01 234.95 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "433e231f-e2a2-405b-8ca8-3e47b1f7535b")
-		(property "Reference" "U7"
-			(at 80.01 209.55 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TMC2209_SILENTSTEPSTICK"
-			(at 80.01 212.09 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Datasheet" ""
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MF" "Trinamic Motion Control GmbH"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Description_1" "\nTMC2209 Motor Controller/Driver Power Management Evaluation Board\n"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Package" "None"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Price" "None"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=eda"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "STANDARD" "Manufacturer Recommendations"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "PARTREV" "1.20"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=snap"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "MP" "TMC2209 SILENTSTEPSTICK"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "MANUFACTURER" "Trinamic Motion Control GmbH"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Availability" "Not in stock"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "SNAPEDA_PN" "TMC2209 SILENTSTEPSTICK"
-			(at 80.01 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(pin "15"
-			(uuid "eaecc2fa-2de4-4409-9c95-cdf7dcbbfd2e")
-		)
-		(pin "18"
-			(uuid "bdcedfdf-ccf4-433b-90b9-2abdfffc7419")
-		)
-		(pin "13"
-			(uuid "4cbc0e98-eac5-4e62-bc78-c5082d218454")
-		)
-		(pin "8"
-			(uuid "53e2094c-f530-4c0e-a559-971b7b345a29")
-		)
-		(pin "9"
-			(uuid "394366f8-beb1-468c-8c02-63e5de5674a0")
-		)
-		(pin "12"
-			(uuid "df4521ac-417f-432f-88a6-47069951fd85")
-		)
-		(pin "10"
-			(uuid "4ac69267-4e03-49c6-8fdb-f515660d9424")
-		)
-		(pin "2"
-			(uuid "40317cf7-84d5-4ba1-9563-56261a47bbef")
-		)
-		(pin "1"
-			(uuid "99849a1f-04ea-42f2-89c1-0424ad15c0f9")
-		)
-		(pin "5"
-			(uuid "831e7dae-ff85-4c7f-bbd4-a3a69666ee06")
-		)
-		(pin "16"
-			(uuid "88574e74-ddaf-4805-b7df-c77c5f205fca")
-		)
-		(pin "17"
-			(uuid "b62b22f2-9834-44a4-811e-8e1ff53b469c")
-		)
-		(pin "6"
-			(uuid "d5389ce7-d7f5-420c-b695-4a2d781388a0")
-		)
-		(pin "11"
-			(uuid "741671b5-108a-42f1-8511-16db9061bbdf")
-		)
-		(pin "14"
-			(uuid "01838cd9-d1f4-41ee-8ec0-cb90d7d40f38")
-		)
-		(pin "3"
-			(uuid "f2029f62-6977-4453-9f45-bac59d588bd1")
-		)
-		(pin "7"
-			(uuid "386505b4-4b42-4478-a917-1b092ca05b70")
-		)
-		(pin "4"
-			(uuid "ca88b465-4232-4ace-afde-86ea85442d08")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "U7")
 					(unit 1)
 				)
 			)
@@ -20958,7 +19835,7 @@
 			(uuid "74283095-c818-443b-bc88-ac6213c9f92a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR031")
 					(unit 1)
@@ -21037,7 +19914,7 @@
 			(uuid "c3479b46-1c62-436b-82c2-5f2764c6176b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR052")
 					(unit 1)
@@ -21118,7 +19995,7 @@
 			(uuid "02a0fc7a-e09d-45c3-89c3-a9e7546eda23")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C13")
 					(unit 1)
@@ -21198,7 +20075,7 @@
 			(uuid "3447a7ac-5ce4-4d7d-9233-f9f03d30e040")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "H4")
 					(unit 1)
@@ -21280,7 +20157,7 @@
 			(uuid "c3c255bf-7e3d-495c-944f-5c7a3925c7f0")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R14")
 					(unit 1)
@@ -21361,88 +20238,9 @@
 			(uuid "52bd005d-a8fd-4aeb-9210-5376b43dad6c")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 469.9 124.46 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4a8d3a27-f47f-41f6-ba94-f816d7a32305")
-		(property "Reference" "#PWR050"
-			(at 463.55 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 466.09 124.4599 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 469.9 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 469.9 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 469.9 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3d8fb3d5-9a97-475e-bfe6-fe9ac510a1e8")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "#PWR050")
 					(unit 1)
 				)
 			)
@@ -21521,7 +20319,7 @@
 			(uuid "45c1591d-c2ec-46a1-9aff-aacd98e9b64a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J5")
 					(unit 1)
@@ -21603,7 +20401,7 @@
 			(uuid "897006a7-0157-4a61-ac9d-9142c49bb881")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C21")
 					(unit 1)
@@ -21681,7 +20479,7 @@
 			(uuid "ba84c02d-78aa-4b30-ad16-1729caf308b4")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR032")
 					(unit 1)
@@ -21762,7 +20560,7 @@
 			(uuid "20bbee3f-6204-479d-b6a9-e534cbb42bbf")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C20")
 					(unit 1)
@@ -21841,7 +20639,7 @@
 			(uuid "491ef99d-ba13-4a89-90bd-f931190ae5d1")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R5")
 					(unit 1)
@@ -21919,7 +20717,7 @@
 			(uuid "2e3f6f4d-7387-4a1f-8823-e60cdf8d911b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR016")
 					(unit 1)
@@ -21997,7 +20795,7 @@
 			(uuid "3aa86f78-3741-4a11-92f9-1f88f4ed3776")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR046")
 					(unit 1)
@@ -22079,7 +20877,7 @@
 			(uuid "d8c43674-7f4d-46b3-b3b6-d7a7ccdaa5ec")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C11")
 					(unit 1)
@@ -22162,7 +20960,7 @@
 			(uuid "7b452da8-ada0-4d9f-bf0a-1f95b1b1f111")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J26")
 					(unit 1)
@@ -22240,7 +21038,7 @@
 			(uuid "7f2acb1f-425d-4a37-bc31-fd84e89ec69a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR030")
 					(unit 1)
@@ -22322,7 +21120,7 @@
 			(uuid "5122d8e0-7f0f-44f1-92d9-55f99c11d542")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C7")
 					(unit 1)
@@ -22400,7 +21198,7 @@
 			(uuid "4759c1fb-23e7-46b6-af17-bad11695820a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR025")
 					(unit 1)
@@ -22510,7 +21308,7 @@
 			(uuid "348a0b28-2008-40cf-98e1-027c21407214")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J4")
 					(unit 1)
@@ -22589,7 +21387,7 @@
 			(uuid "16bc0506-c2d1-482b-a422-9ae5710d390d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR021")
 					(unit 1)
@@ -22666,7 +21464,7 @@
 			(uuid "44bb18a7-2d5e-4da2-8710-829dc2a7a4e3")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR051")
 					(unit 1)
@@ -22747,7 +21545,7 @@
 			(uuid "1abfcec6-4dfa-41ab-ab86-a86f33bc89c3")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R1")
 					(unit 1)
@@ -22824,7 +21622,7 @@
 			(uuid "42d73a90-ac03-4fa4-8ac3-c9c4e6336c85")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR03")
 					(unit 1)
@@ -22901,7 +21699,7 @@
 			(uuid "fd648d53-e8ed-426d-a197-fd3b722818ed")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR014")
 					(unit 1)
@@ -22911,7 +21709,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 43.18 318.77 0)
+		(at 38.1 318.77 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -22921,7 +21719,7 @@
 		(dnp no)
 		(uuid "71d53aa3-0e6c-4fe3-9800-634d9cbef1a9")
 		(property "Reference" "C16"
-			(at 39.116 314.706 0)
+			(at 34.036 314.706 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22932,7 +21730,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 43.688 320.802 0)
+			(at 38.608 320.802 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22943,7 +21741,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 43.18 318.77 0)
+			(at 38.1 318.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22954,7 +21752,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.18 318.77 0)
+			(at 38.1 318.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22965,7 +21763,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 43.18 318.77 0)
+			(at 38.1 318.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22982,7 +21780,7 @@
 			(uuid "2e342f9b-a2d8-4e98-bbc9-b664f6ac8c4b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C16")
 					(unit 1)
@@ -23060,7 +21858,7 @@
 			(uuid "c792c5a9-588b-4189-8415-806bf99b524b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR023")
 					(unit 1)
@@ -23140,7 +21938,7 @@
 			(uuid "9741abe7-883c-4ebf-86a2-19d3344a13ad")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "H1")
 					(unit 1)
@@ -23221,7 +22019,7 @@
 			(uuid "7d35e6aa-e8cb-48f0-84b3-52c00f43bbb2")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C19")
 					(unit 1)
@@ -23298,7 +22096,7 @@
 			(uuid "217498a1-a056-4a0a-95a2-7b978ca6e8ff")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR012")
 					(unit 1)
@@ -23379,7 +22177,7 @@
 			(uuid "35464171-a211-479e-b785-437368886d83")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J12")
 					(unit 1)
@@ -23466,7 +22264,7 @@
 			(uuid "0c1b9089-ebbc-468b-9da9-c9211aca4925")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "UART1")
 					(unit 1)
@@ -23545,7 +22343,7 @@
 			(uuid "8e6145f7-c23f-47c8-9112-5ab198a92e49")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R7")
 					(unit 1)
@@ -23622,7 +22420,7 @@
 			(uuid "08a8f0c9-e043-42ff-b187-d34c53f5bb3e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR010")
 					(unit 1)
@@ -23699,7 +22497,7 @@
 			(uuid "cde015bc-18ca-49d3-939b-1adf6b24edc0")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR06")
 					(unit 1)
@@ -23780,7 +22578,7 @@
 			(uuid "eee64e0d-f3b7-4bfd-9665-a4f3307c9f5b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C12")
 					(unit 1)
@@ -23862,7 +22660,7 @@
 			(uuid "f01d4f3b-1384-4da1-8f8e-d1d2c428fbf0")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C5")
 					(unit 1)
@@ -23942,7 +22740,7 @@
 			(uuid "4ac15cea-ed97-4190-a1fe-7fc0770b1116")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R12")
 					(unit 1)
@@ -24025,7 +22823,7 @@
 			(uuid "49ae56ed-80d1-4b77-ac78-9220097e4160")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C4")
 					(unit 1)
@@ -24104,7 +22902,7 @@
 			(uuid "1be475ce-f3fb-404f-a0cc-09e2449d7742")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R13")
 					(unit 1)
@@ -24181,7 +22979,7 @@
 			(uuid "1fc0e8d3-30a1-4924-bbc9-4ea86a8da383")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR037")
 					(unit 1)
@@ -24311,7 +23109,7 @@
 			(uuid "06eb0008-af61-4106-a3ca-93856e635a5b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U10")
 					(unit 1)
@@ -24389,87 +23187,9 @@
 			(uuid "5e679366-7729-4492-8341-5dfe3d2063aa")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR045")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 97.79 252.73 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "92b42960-bfb0-46c1-bfb6-14d82f2a3a46")
-		(property "Reference" "#PWR035"
-			(at 97.79 259.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 97.79 257.81 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 97.79 252.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 97.79 252.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 97.79 252.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c5351cb8-8dab-4ee5-b2dd-7dcbbe6118ce")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -24544,7 +23264,7 @@
 			(uuid "3b81edbe-ce17-4d2b-96f6-c9bc349f4b5c")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR011")
 					(unit 1)
@@ -24626,88 +23346,9 @@
 			(uuid "5aae5a1f-a7c9-4cf4-8cf6-4bf8b8752c61")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 439.42 124.46 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9a8b01a4-e769-4f07-a0f2-b5112c38848d")
-		(property "Reference" "#PWR049"
-			(at 433.07 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 435.61 124.4599 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 439.42 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 439.42 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 439.42 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2480dcc5-e65e-4ec2-bcf3-2ff269374299")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -24831,7 +23472,7 @@
 			(uuid "2f61f494-c436-494a-9962-9a2330bf4ec6")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J1")
 					(unit 1)
@@ -24925,7 +23566,7 @@
 			(uuid "fe613154-b1e7-4e23-967a-29ff19759d3e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U3")
 					(unit 1)
@@ -25004,7 +23645,7 @@
 			(uuid "1f652f2f-5369-485b-8b8b-18b194c595db")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR024")
 					(unit 1)
@@ -25091,7 +23732,7 @@
 			(uuid "26483f00-c4b8-4f67-8296-ad768bf5f73a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "D6")
 					(unit 1)
@@ -25169,7 +23810,7 @@
 			(uuid "4b88879a-a393-4f67-a8c1-353e8a20053e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR04")
 					(unit 1)
@@ -25252,7 +23893,7 @@
 			(uuid "651cbfb1-9947-4f9c-8ebe-c97896e2a15d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U4")
 					(unit 1)
@@ -25335,7 +23976,7 @@
 			(uuid "0c9385d5-c158-4a09-aca4-462aa7d3874a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "UART0")
 					(unit 1)
@@ -25412,7 +24053,7 @@
 			(uuid "e13b4d78-c8ed-4af5-be0a-dad9bfc98dea")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR08")
 					(unit 1)
@@ -25684,7 +24325,7 @@
 			(uuid "773c9bf5-24e0-49a6-b99e-c2a1f521168e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U9")
 					(unit 1)
@@ -25762,7 +24403,7 @@
 			(uuid "ea152ad5-a1dd-4cd3-b6d3-85c51114b5f5")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR017")
 					(unit 1)
@@ -25853,92 +24494,9 @@
 			(uuid "2af447fa-7490-4307-a584-b2ad4361db05")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_Small")
-		(at 106.68 223.52 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b2776e4e-d523-45b1-88d8-0d0078be133e")
-		(property "Reference" "C3"
-			(at 109.22 221.7038 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100u"
-			(at 109.22 224.2438 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Radial_D8.0mm_H11.5mm_P3.50mm"
-			(at 106.68 223.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 106.68 223.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor, small symbol"
-			(at 106.68 223.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c5bbd56c-3f7b-42c2-a8ad-27a298db2f91")
-		)
-		(pin "2"
-			(uuid "1169432d-f374-4582-ba11-ddbfe4106324")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -26017,7 +24575,7 @@
 			(uuid "fa4f1756-ba27-4752-b199-201e9f72e1cb")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J6")
 					(unit 1)
@@ -26098,7 +24656,7 @@
 			(uuid "b98e95eb-f89b-4afb-881f-2bb13684f658")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "R2")
 					(unit 1)
@@ -26176,7 +24734,7 @@
 			(uuid "b51b6a82-5c9a-41be-8907-9b2fcdb92ef6")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR028")
 					(unit 1)
@@ -26257,7 +24815,7 @@
 			(uuid "a6e658e0-4fb3-4882-a0d9-7f194c59c0b0")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J7")
 					(unit 1)
@@ -26336,7 +24894,7 @@
 			(uuid "5dcbcbcf-87e3-4fc8-909c-020117cb80f1")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR039")
 					(unit 1)
@@ -26414,97 +24972,9 @@
 			(uuid "cbc7ae24-42a5-42f8-b9c6-f721cea2e49a")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR015")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x04_Pin")
-		(at 474.98 127 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bbf1a8f0-2489-42ed-a07f-e02895b5ef9e")
-		(property "Reference" "AS2"
-			(at 476.25 125.7299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x04_Pin"
-			(at 477.52 125.73 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 474.98 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 474.98 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 474.98 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d485726c-1d01-4645-b917-608eedb4d759")
-		)
-		(pin "2"
-			(uuid "c7069afd-4f29-4417-b0bd-2e943e6d24cd")
-		)
-		(pin "4"
-			(uuid "423f0293-ac61-4e8d-affc-c48c810daab6")
-		)
-		(pin "3"
-			(uuid "7dd459c8-88c1-496b-b0ef-aeca47a15382")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "AS2")
 					(unit 1)
 				)
 			)
@@ -26580,7 +25050,7 @@
 			(uuid "8beb2595-fa44-4140-8a37-14bb6c540909")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR029")
 					(unit 1)
@@ -26661,7 +25131,7 @@
 			(uuid "2020aba7-e2ea-47e1-be1b-c23685366fe8")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "C17")
 					(unit 1)
@@ -26750,7 +25220,7 @@
 			(uuid "7170e155-2b85-42f7-a01f-cb69918d2f36")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J14")
 					(unit 1)
@@ -26831,7 +25301,7 @@
 			(uuid "2f843c43-5767-4639-b1c9-b4f7fcfbbf32")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "SW2")
 					(unit 1)
@@ -26922,7 +25392,7 @@
 			(uuid "961fbe11-eac7-4ec5-987e-3986a3d8a351")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J11")
 					(unit 1)
@@ -26999,7 +25469,7 @@
 			(uuid "8fbd4509-a855-44a0-93bb-61f23b13ee43")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR054")
 					(unit 1)
@@ -27079,91 +25549,9 @@
 			(uuid "c0d04abf-4700-4664-9bd6-574eacc02d5b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "H2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_Small")
-		(at 38.1 318.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "cd5a98c9-05bf-4e0d-b114-66c7c7ca92ef")
-		(property "Reference" "C8"
-			(at 34.29 315.976 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "470u"
-			(at 40.64 319.4938 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Radial_D8.0mm_H11.5mm_P3.50mm"
-			(at 38.1 318.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 38.1 318.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor, small symbol"
-			(at 38.1 318.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "075f0adc-e231-420c-8659-8d0d4f0320fe")
-		)
-		(pin "2"
-			(uuid "929df7ca-53a0-4d57-b04f-818864bbe579")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -27238,7 +25626,7 @@
 			(uuid "694f0f16-ca4d-429c-aa61-62b993048c84")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR055")
 					(unit 1)
@@ -27317,7 +25705,7 @@
 			(uuid "0ccc2657-3ad9-4eef-9b49-b65233b00e4d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR048")
 					(unit 1)
@@ -27394,7 +25782,7 @@
 			(uuid "e6da7a6d-0336-4beb-bcb0-e516cf78b809")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR040")
 					(unit 1)
@@ -27473,7 +25861,7 @@
 			(uuid "11fd983a-dd2e-43a7-b100-bd37f33ef93b")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR034")
 					(unit 1)
@@ -27550,7 +25938,7 @@
 			(uuid "c8dec74b-060f-4faf-830c-ae5c6ddd414f")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR038")
 					(unit 1)
@@ -27629,86 +26017,9 @@
 			(uuid "f08d5dc5-c915-4305-b780-8622c0c6b25e")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR056")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 106.68 226.06 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e4b44c59-5853-4153-8cf9-e15a6a7a8711")
-		(property "Reference" "#PWR036"
-			(at 106.68 232.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 106.68 229.87 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 106.68 226.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 106.68 226.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 226.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c5e46efa-f45d-4575-8c98-d2fb7e6020bd")
-		)
-		(instances
-			(project "PCB"
-				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
-					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -27842,7 +26153,7 @@
 			(uuid "a9612cc9-8060-4a9e-91eb-81c47098ee26")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "AO4407A4")
 					(unit 1)
@@ -27921,7 +26232,7 @@
 			(uuid "1d62301f-7ac5-47fc-8b35-2fa71ad8b725")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR053")
 					(unit 1)
@@ -28021,7 +26332,7 @@
 			(uuid "6cee7bfd-f32d-4060-8585-0f121ecc8761")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U5")
 					(unit 1)
@@ -28098,7 +26409,7 @@
 			(uuid "b7d15de2-0ae9-454f-9eeb-ff0b2a4471d9")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR058")
 					(unit 1)
@@ -28189,7 +26500,7 @@
 			(uuid "309628b5-155e-4874-9fb3-adc7e0e0c175")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "VL0")
 					(unit 1)
@@ -28289,7 +26600,7 @@
 			(uuid "df88d66c-ab33-48a6-b4f8-3e2e134fa835")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "U1")
 					(unit 1)
@@ -28367,7 +26678,7 @@
 			(uuid "62d65ad3-93ea-4ac8-857f-d8848765b196")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR05")
 					(unit 1)
@@ -28444,7 +26755,7 @@
 			(uuid "14aba520-f0ca-4d2c-a1d5-30636c2f7c8d")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR02")
 					(unit 1)
@@ -28525,7 +26836,7 @@
 			(uuid "8c671dac-9978-4cf7-ad9c-fb45f66894f2")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J10")
 					(unit 1)
@@ -28602,7 +26913,7 @@
 			(uuid "2956b329-52d8-4782-abf6-5e1f2c4b0c28")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "#PWR043")
 					(unit 1)
@@ -28691,7 +27002,7 @@
 			(uuid "fb750c7c-8ab4-4d75-98ac-185043fc8702")
 		)
 		(instances
-			(project "PCB"
+			(project "pcb-pami"
 				(path "/ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
 					(reference "J22")
 					(unit 1)

@@ -11,11 +11,10 @@ FastAccelStepper *stepper3 = nullptr;
 void nema_init() {
     pinMode(PAMI_MS1, OUTPUT);
     pinMode(PAMI_MS2, OUTPUT);
-    nema_set_microstepping(HIGH, HIGH); 
+    nema_set_microstepping(HIGH, HIGH);
 
     engine.init();
 
-    // Attachement Moteur 1
     #if defined(SUPPORT_ESP32_RMT)
     stepper1 = engine.stepperConnectToPin(PAMI_STEP1, DRIVER_RMT);
     #else
@@ -23,10 +22,9 @@ void nema_init() {
     #endif
     if (stepper1) {
         stepper1->setDirectionPin(PAMI_DIR1);
-        stepper1->setAutoEnable(false); 
+        stepper1->setAutoEnable(false);
     }
 
-    // Attachement Moteur 2
     #if defined(SUPPORT_ESP32_RMT)
     stepper2 = engine.stepperConnectToPin(PAMI_STEP2, DRIVER_RMT);
     #else
@@ -37,7 +35,6 @@ void nema_init() {
         stepper2->setAutoEnable(false);
     }
 
-    // Attachement Moteur 3
     #if defined(SUPPORT_ESP32_RMT)
     stepper3 = engine.stepperConnectToPin(PAMI_STEP3, DRIVER_RMT);
     #else
@@ -48,10 +45,9 @@ void nema_init() {
         stepper3->setAutoEnable(false);
     }
 
-    // Les profils de vitesse et d'accélération sont définis pour chaque moteur
-    nema_set_profile(1, 4000, 500); 
-    nema_set_profile(2, 4000, 500);  
-    nema_set_profile(3, 4000, 500);  
+    nema_set_profile(1, 4000, 500);
+    nema_set_profile(2, 4000, 500);
+    nema_set_profile(3, 4000, 500);
 }
 
 void nema_set_microstepping(bool ms1_high, bool ms2_high) {
@@ -66,23 +62,19 @@ FastAccelStepper* get_stepper(uint8_t motor_id) {
     return nullptr;
 }
 
-void nema_set_profile(uint8_t motor_id, uint32_t speed_hz, uint32_t accel) {
-    FastAccelStepper* s = get_stepper(motor_id);
-    if (s) {
-        // Enregistre les valeurs
-        s->setSpeedInHz(speed_hz);
-        s->setAcceleration(accel);
-        
-        // Force l'application immédiate dans le timer matériel de l'ESP32
-        s->applySpeedAcceleration(); 
-    } else {
-        Serial.printf("[ERREUR] Moteur %d non initialise !\n", motor_id);
-    }
-}
-
 void nema_move(uint8_t motor_id, long steps) {
     FastAccelStepper* s = get_stepper(motor_id);
     if (s) s->move(steps);
+}
+
+void nema_set_profile(uint8_t motor_id, uint32_t speed_hz, uint32_t accel) {
+    FastAccelStepper* s = get_stepper(motor_id);
+    if (s) {
+        s->setSpeedInHz(speed_hz);
+        s->setAcceleration(accel);
+    } else {
+        Serial.printf("[ERREUR] Moteur %d non initialise !\n", motor_id);
+    }
 }
 
 void nema_run_forward(uint8_t motor_id) {
@@ -104,4 +96,19 @@ void nema_stop(uint8_t motor_id, bool force_stop) {
             s->stopMove();
         }
     }
+}
+
+long nema_get_position(uint8_t motor_id) {
+    FastAccelStepper* s = get_stepper(motor_id);
+    return s ? s->getCurrentPosition() : 0;
+}
+
+void nema_move_to(uint8_t motor_id, long absolute_position) {
+    FastAccelStepper* s = get_stepper(motor_id);
+    if (s) s->moveTo(absolute_position);
+}
+
+bool nema_is_running(uint8_t motor_id) {
+    FastAccelStepper* s = get_stepper(motor_id);
+    return s ? s->isRunning() : false;
 }

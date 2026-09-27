@@ -62,7 +62,7 @@ void mpu_update() {
             current_gyro_z = corrected_z / GYRO_SCALE_FACTOR;
             
             // Zone mort
-            if (abs(current_gyro_z) < 0.02f) {
+            if (abs(current_gyro_z) < 0.4f) {
                 current_gyro_z = 0.0f;
             }
             

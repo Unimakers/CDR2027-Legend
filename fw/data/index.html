@@ -7,30 +7,45 @@
     <style>
         :root { --bg: #f5f5dc; --pan: #fffaf0; --txt: #4a4a4a; --rob: #d2691e; }
         body { font-family: sans-serif; background: var(--bg); color: var(--txt); margin: 0; padding: 10px; }
-        
+
         .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; max-width: 1400px; margin-inline: auto; }
         .dashboard { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 15px; max-width: 1400px; margin: auto; }
-        
+
         .panel { background: var(--pan); padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); display: flex; flex-direction: column; border-top: 5px solid var(--acc, #8b4513); }
         .wide { grid-column: span 1; }
         @media (min-width: 900px) { .wide { grid-column: span 2; } }
         .panel-header { display: flex; justify-content: space-between; border-bottom: 2px solid #e9e4d4; margin-bottom: 12px; font-weight: bold; color: var(--acc, #8b4513); }
-        
-        .grid-view { width: 100%; aspect-ratio: 2/3; background: #e9e4d4; border: 2px solid var(--acc, #8b4513); position: relative; cursor: crosshair; background-size: 100% 100%; background-repeat: no-repeat; }
+
+        .grid-view { width: 100%; aspect-ratio: 2/3; background: #e9e4d4; border: 2px solid var(--acc, #8b4513); position: relative; cursor: crosshair; background-size: 100% 100%; background-repeat: no-repeat; overflow: hidden; }
         #robot { width: 16px; height: 16px; background: var(--rob); border-radius: 50%; position: absolute; transform: translate(-50%, -50%); border: 2px solid #fff; z-index: 10; transition: 0.1s linear; }
-        .waypoint { width: 14px; height: 14px; background: rgba(68, 68, 68, 0.7); color: #fff; border-radius: 50%; position: absolute; transform: translate(-50%, -50%); font-size: 10px; text-align: center; line-height: 14px; }
+        #robot-arrow {
+            position: absolute; top: 50%; left: 50%;
+            width: 0; height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 10px solid #fff;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+            pointer-events: none;
+        }
+        #home-marker {
+            position: absolute; left: 0%; top: 100%;
+            transform: translate(-50%, -50%);
+            width: 24px; height: 24px;
+            border: 2px dashed #27ae60; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: none; z-index: 4;
+        }
+
+        .waypoint { width: 16px; height: 16px; background: rgba(68, 68, 68, 0.9); color: #fff; border-radius: 50%; position: absolute; transform: translate(-50%, -50%); font-size: 10px; text-align: center; line-height: 16px; font-weight: bold; z-index: 5;}
+
         .pid-container { display: flex; flex-direction: column; gap: 12px; }
         .slider-row label { display: flex; justify-content: space-between; font-size: 0.85em; font-weight: bold; margin-bottom: 4px; color: var(--acc, #8b4513); }
         .full-slider { width: 100%; accent-color: var(--acc, #8b4513); }
-        
-        .rainbow-slider {
-            width: 100%; height: 14px; border-radius: 7px; outline: none; -webkit-appearance: none; appearance: none;
-            background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); cursor: pointer;
-        }
-        .rainbow-slider::-webkit-slider-thumb {
-            -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #ffffff; border: 2px solid #333333; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        
+
+        .rainbow-slider { width: 100%; height: 14px; border-radius: 7px; outline: none; -webkit-appearance: none; appearance: none; background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); cursor: pointer; }
+        .rainbow-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #ffffff; border: 2px solid #333333; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+
         .cmd-container { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: space-between; }
         .arrows { display: grid; grid-template-columns: repeat(3, 55px); grid-template-rows: repeat(2, 55px); gap: 8px; }
         .btn { background: #d2b48c; border: none; border-radius: 8px; color: var(--acc, #8b4513); font-size: 1.5em; cursor: pointer; height: 55px; font-weight: bold;}
@@ -38,7 +53,7 @@
         .btn-s { width: 42px; height: 42px; border: none; border-radius: 8px; font-weight: bold; color: white; cursor: pointer; }
         .stats-list { font-size: 0.9em; list-style: none; padding: 0; margin: 0; }
         .stats-list li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #eee; }
-        
+
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: center; }
         .modal-content { background: var(--pan); padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; }
         .modal-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
@@ -70,17 +85,54 @@
     <template id="tpl-map">
         <div class="panel wide">
             <div class="panel-header">
-                <span>Navigation (2x3m)</span>
+                <span>Navigation & Séquence (2x3m)</span>
                 <div style="display:flex; gap:10px; align-items:center;">
-                    <label for="bg-up" style="cursor:pointer; font-size:0.7em; background:var(--acc); color:white; padding:3px 8px; border-radius:4px;">Image</label>
+                    <label for="bg-up" style="cursor:pointer; font-size:0.7em; background:var(--acc); color:white; padding:3px 8px; border-radius:4px;">Fond</label>
                     <input type="file" id="bg-up" accept="image/*" style="display:none" onchange="loadPlan(this)">
                     <span id="pos" style="font-size:0.8em">0.0,0.0</span>
                 </div>
             </div>
-            <div class="grid-view" id="map" onclick="handleMapClick(event)"><div id="robot"></div></div>
-            <div style="display:flex; gap:10px; margin-top:10px;">
-                <button class="btn" style="flex:2; font-size:0.8em; height:40px;" onclick="sendTraj()">ENVOYER</button>
-                <button class="btn" style="flex:1; font-size:0.8em; height:40px; background:#e74c3c; color:white;" onclick="clearTraj()">CLEAR</button>
+
+            <div style="display:flex; flex-wrap:wrap; gap:15px;">
+                <div style="flex:2; min-width:300px;">
+                    <div class="grid-view" id="map" onclick="handleMapClick(event)">
+                        <div id="home-marker" title="Position de départ requise (0,0 - cap 0°)">
+                            <span style="color:#27ae60; font-size:13px;">➤</span>
+                        </div>
+                        <div id="robot"><div id="robot-arrow"></div></div>
+                    </div>
+                    <div id="strat_debug" style="font-size:0.75em; background:rgba(0,0,0,0.05); border-radius:4px; padding:4px 8px; margin-top:5px; display:none;">
+                        État: <b id="dbg_state">-</b> | Étape: <b id="dbg_step">-</b> | Cible: <b id="dbg_target">-</b>° | Cap: <b id="dbg_current">-</b>° | Erreur: <b id="dbg_error">-</b>°
+                    </div>
+                </div>
+
+                <div style="flex:1; min-width:260px; display:flex; flex-direction:column; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid #e9e4d4; padding:10px; max-height: 500px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                        <strong style="color:var(--acc); font-size:0.9em;">Stratégie</strong>
+                        <button class="btn" style="height:30px; font-size:0.75em; padding:0 10px; background:#3498db; color:white;" onclick="addSeqAction()">+ ACTION</button>
+                    </div>
+
+                    <div id="timeline-list" style="flex-grow:1; overflow-y:auto; padding-right:5px;"></div>
+
+                    <div style="background:rgba(0,0,0,0.03); border-radius:6px; padding:8px; margin-top:10px; font-size:0.8em;">
+                        <div style="display:flex; gap:5px; margin-bottom:6px;">
+                            <input type="text" id="strat_name" placeholder="Nom de la stratégie" style="flex:1; border:1px solid #ccc; border-radius:4px; padding:4px;">
+                            <button class="btn" style="height:30px; font-size:0.75em; background:#27ae60; color:white;" onclick="saveStrategy()">Sauver</button>
+                        </div>
+                        <div style="display:flex; gap:5px;">
+                            <select id="strat_select" style="flex:1; border:1px solid #ccc; border-radius:4px;"><option value="">-- Stratégies --</option></select>
+                            <button class="btn" style="height:30px; font-size:0.75em; background:#2980b9; color:white;" onclick="loadStrategy()">Charger</button>
+                            <button class="btn" style="height:30px; font-size:0.75em; background:#f39c12; color:white;" onclick="renameStrategy()">Renommer</button>
+                            <button class="btn" style="height:30px; font-size:0.75em; background:#e74c3c; color:white;" onclick="deleteStrategy()">Suppr.</button>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:5px; margin-top:10px;">
+                        <button class="btn" style="flex:2; font-size:0.8em; height:40px; background:#27ae60; color:white;" onclick="playStrategy()">▶ JOUER</button>
+                        <button class="btn" style="flex:1; font-size:0.8em; height:40px; background:#c0392b; color:white;" onclick="stopStrategy()">■ STOP</button>
+                        <button class="btn" style="flex:1; font-size:0.8em; height:40px; background:#7f8c8d; color:white;" onclick="clearTraj()">VIDER</button>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
@@ -141,7 +193,7 @@
         <div class="panel wide">
             <div class="panel-header"><span>🛠️ Contrôle Manuel Matériel</span></div>
             <div style="display:flex; flex-direction:column; gap:15px;">
-                
+
                 <div class="slider-row">
                     <label>Servo 0 (Angle) <span id="val_srv0">90°</span></label>
                     <input type="range" class="full-slider" min="0" max="180" value="90" oninput="document.getElementById('val_srv0').innerText=this.value+'°'; sendCmd('servo', 0, this.value)">
@@ -163,33 +215,57 @@
                 </div>
                 <button class="btn" style="height:35px; font-size:0.9em; background:#e74c3c; color:white; border-radius:5px;" onclick="document.getElementById('val_dc2').innerText='0'; sendCmd('dc', 2, '0')">STOP DC 2</button>
 
-                <!-- CONTRÔLE AVANCÉ NEMA -->
                 <div id="nema-controls">
-                    <!-- Généré dynamiquement pour NEMA 1, 2, 3 -->
-                    <script>
-                        for(let i=1; i<=3; i++) {
-                            document.write(`
-                            <div class="nema-block">
-                                <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA ${i}</label>
-                                <div class="nema-row">
-                                    <input type="number" id="n${i}_v" placeholder="Vitesse (pas/s)" value="1000" title="Vitesse">
-                                    <input type="number" id="n${i}_a" placeholder="Accel (pas/s²)" value="500" title="Accélération">
-                                </div>
-                                <div class="nema-row">
-                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(${i}, 'CONT', 1)">Rot +</button>
-                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(${i}, 'CONT', -1)">Rot -</button>
-                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#e74c3c; color:white;" onclick="sendNemaCmd(${i}, 'STOP', 0)">STOP</button>
-                                </div>
-                                <div class="nema-row">
-                                    <input type="number" id="n${i}_p" placeholder="Position (pas)" value="0" style="flex:2;">
-                                    <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#2980b9; color:white;" onclick="sendNemaCmd(${i}, 'POS', 0)">Aller</button>
-                                </div>
-                            </div>`);
-                        }
-                    </script>
+                    <div class="nema-block">
+                        <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA 1</label>
+                        <div class="nema-row">
+                            <input type="number" id="n1_v" placeholder="Vitesse (pas/s)" value="1000" title="Vitesse">
+                            <input type="number" id="n1_a" placeholder="Accel (pas/s²)" value="500" title="Accélération">
+                        </div>
+                        <div class="nema-row">
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(1, 'CONT', 1)">Rot +</button>
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(1, 'CONT', -1)">Rot -</button>
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#e74c3c; color:white;" onclick="sendNemaCmd(1, 'STOP', 0)">STOP</button>
+                        </div>
+                        <div class="nema-row">
+                            <input type="number" id="n1_p" placeholder="Position (pas)" value="0" style="flex:2;">
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#2980b9; color:white;" onclick="sendNemaCmd(1, 'POS', 0)">Aller</button>
+                        </div>
+                    </div>
+                    <div class="nema-block">
+                        <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA 2</label>
+                        <div class="nema-row">
+                            <input type="number" id="n2_v" placeholder="Vitesse (pas/s)" value="1000" title="Vitesse">
+                            <input type="number" id="n2_a" placeholder="Accel (pas/s²)" value="500" title="Accélération">
+                        </div>
+                        <div class="nema-row">
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(2, 'CONT', 1)">Rot +</button>
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(2, 'CONT', -1)">Rot -</button>
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#e74c3c; color:white;" onclick="sendNemaCmd(2, 'STOP', 0)">STOP</button>
+                        </div>
+                        <div class="nema-row">
+                            <input type="number" id="n2_p" placeholder="Position (pas)" value="0" style="flex:2;">
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#2980b9; color:white;" onclick="sendNemaCmd(2, 'POS', 0)">Aller</button>
+                        </div>
+                    </div>
+                    <div class="nema-block">
+                        <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NEMA 3</label>
+                        <div class="nema-row">
+                            <input type="number" id="n3_v" placeholder="Vitesse (pas/s)" value="1000" title="Vitesse">
+                            <input type="number" id="n3_a" placeholder="Accel (pas/s²)" value="500" title="Accélération">
+                        </div>
+                        <div class="nema-row">
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(3, 'CONT', 1)">Rot +</button>
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em;" onclick="sendNemaCmd(3, 'CONT', -1)">Rot -</button>
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#e74c3c; color:white;" onclick="sendNemaCmd(3, 'STOP', 0)">STOP</button>
+                        </div>
+                        <div class="nema-row">
+                            <input type="number" id="n3_p" placeholder="Position (pas)" value="0" style="flex:2;">
+                            <button class="btn" style="flex:1; height:35px; font-size:0.85em; background:#2980b9; color:white;" onclick="sendNemaCmd(3, 'POS', 0)">Aller</button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- CONTROLE NEOPIXEL -->
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                         <label style="font-size:0.85em; font-weight:bold; color:var(--acc);">NeoPixel :</label>
@@ -257,8 +333,8 @@
 
         function renderDashboard() {
             const dash = document.getElementById('dash');
-            dash.innerHTML = ''; 
-            
+            dash.innerHTML = '';
+
             currentConfig.forEach(widget => {
                 if(widget.show) {
                     const template = document.getElementById('tpl-' + widget.id);
@@ -270,6 +346,7 @@
                 }
             });
             buildSettingsForm();
+            setTimeout(updateTimeline, 100);
         }
 
         function buildSettingsForm() {
@@ -295,17 +372,20 @@
             });
             localStorage.setItem('pamiConfig', JSON.stringify(currentConfig));
             document.getElementById('settingsModal').style.display = 'none';
-            renderDashboard(); 
+            renderDashboard();
         }
 
-        renderDashboard(); 
-
         var ws = new WebSocket(`ws://${window.location.hostname}/ws`);
-        var pts = [];
-        
+
+        var seq = [];
+
+        const STRAT_STATE_NAMES = ['IDLE','ROTATE_TO_TARGET','DRIVING','ROTATE_FINAL','ACTION_WAIT','ACTION_INSTANT'];
+
+        ws.onopen = () => refreshStrategyList();
+
         ws.onmessage = (e) => {
             var d = JSON.parse(e.data);
-            
+
             if (d.x !== undefined) {
                 const elRobot = document.getElementById('robot');
                 if(elRobot) {
@@ -315,9 +395,14 @@
                 }
             }
 
+            if (d.ga !== undefined) {
+                const elArrow = document.getElementById('robot-arrow');
+                if (elArrow) elArrow.style.transform = `translate(-50%, -50%) rotate(${-d.ga}deg)`;
+            }
+
             if(document.getElementById('dB') && d.b !== undefined) document.getElementById('dB').innerText = d.b.toFixed(1);
             if(d.c1 !== undefined && document.getElementById('dC1')) document.getElementById('dC1').innerText = d.c1;
-            
+
             if(document.getElementById('dL') && d.eL !== undefined) {
                 document.getElementById('dL').innerText = d.eL;
                 document.getElementById('dAL').innerText = "(" + (d.aL ? d.aL.toFixed(1) : 0.0) + "°)";
@@ -344,28 +429,196 @@
             if (d.type === 'file_list' && d.files) {
                 updateFileListUI(d.files);
             }
+
+            if (d.type === 'strategy_list' && d.list !== undefined) {
+                let sel = document.getElementById('strat_select');
+                if (sel) {
+                    let current = sel.value;
+                    let files = d.list.split(',').filter(f => f.trim() !== "");
+                    sel.innerHTML = '<option value="">-- Stratégies --</option>' +
+                        files.map(f => `<option value="${f}">${f}</option>`).join('');
+                    if (files.includes(current)) sel.value = current;
+                }
+            }
+
+            if (d.type === 'strategy_data' && d.steps) {
+                seq = d.steps;
+                let nameInput = document.getElementById('strat_name');
+                if (nameInput) nameInput.value = d.name || '';
+                updateTimeline();
+            }
+
+            if (d.type === 'strat_debug') {
+                let box = document.getElementById('strat_debug');
+                if (box) {
+                    box.style.display = 'block';
+                    document.getElementById('dbg_state').innerText = STRAT_STATE_NAMES[d.state] || d.state;
+                    document.getElementById('dbg_step').innerText = (d.stepIdx + 1) + '/' + d.stepCount;
+                    document.getElementById('dbg_target').innerText = d.targetHeading.toFixed(1);
+                    document.getElementById('dbg_current').innerText = d.currentHeading.toFixed(1);
+                    document.getElementById('dbg_error').innerText = d.error.toFixed(1);
+                }
+            }
         };
 
         function loadPlan(i) { if(i.files && i.files[0]) { var r = new FileReader(); r.onload=(e)=>{document.getElementById('map').style.backgroundImage="url('"+e.target.result+"')";}; r.readAsDataURL(i.files[0]); } }
+
         function handleMapClick(e) {
-            if(e.target.id === 'robot') return;
+            if(e.target.id === 'robot' || e.target.id === 'robot-arrow' || e.target.id === 'home-marker') return;
             var r = document.getElementById('map').getBoundingClientRect();
-            var px = (e.clientX-r.left)/r.width*2; var py = (1-(e.clientY-r.top)/r.height)*3;
-            var idx = pts.findIndex(p => Math.sqrt((p.x-px)**2 + (p.y-py)**2) < 0.15);
-            if(idx > -1) pts.splice(idx,1); else pts.push({x:px, y:py});
-            drawW();
+            var px = (e.clientX-r.left)/r.width*2;
+            var py = (1-(e.clientY-r.top)/r.height)*3;
+
+            var idx = seq.findIndex(p => p.type === 'MOVE' && Math.sqrt((p.x-px)**2 + (p.y-py)**2) < 0.15);
+            if(idx > -1) {
+                seq.splice(idx,1);
+            } else {
+                seq.push({type:'MOVE', x:parseFloat(px.toFixed(2)), y:parseFloat(py.toFixed(2)), theta:0});
+            }
+            updateTimeline();
         }
-        function drawW() {
-            var m = document.getElementById('map'); m.querySelectorAll('.waypoint').forEach(n => n.remove());
-            pts.forEach((p,i) => {
-                var d = document.createElement('div'); d.className='waypoint';
-                d.style.left=(p.x/2*100)+'%'; d.style.top=(100-(p.y/3*100))+'%'; d.innerText=i+1; m.appendChild(d);
+
+        function addSeqAction() {
+            seq.push({ type: 'ACTION', cmd: 'ATTENTE', param: 1000 });
+            updateTimeline();
+        }
+
+        function updateTimeline() {
+            drawW();
+            let list = document.getElementById('timeline-list');
+            if(!list) return;
+            list.innerHTML = '';
+
+            seq.forEach((item, index) => {
+                let html = `<div style="background:white; border-left:4px solid ${item.type === 'MOVE' ? '#3498db' : '#f1c40f'}; padding:8px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1); margin-bottom:8px; font-size:0.85em;">
+                    <div style="display:flex; justify-content:space-between; font-weight:bold; margin-bottom:5px;">
+                        <span>${index + 1}. ${item.type === 'MOVE' ? '📍 Déplacement' : '⚙️ Action'}</span>
+                        <div>
+                            <button onclick="moveSeq(${index}, -1)" ${index===0?'disabled':''} style="cursor:pointer; border:none; border-radius:3px; padding:2px 5px;">▲</button>
+                            <button onclick="moveSeq(${index}, 1)" ${index===seq.length-1?'disabled':''} style="cursor:pointer; border:none; border-radius:3px; padding:2px 5px;">▼</button>
+                            <button onclick="delSeq(${index})" style="color:#e74c3c; cursor:pointer; border:none; border-radius:3px; padding:2px 5px; font-weight:bold;">✖</button>
+                        </div>
+                    </div>`;
+
+                if(item.type === 'MOVE') {
+                    html += `<div style="display:flex; gap:5px; align-items:center;">
+                        X: <input type="number" step="0.01" value="${item.x}" onchange="editSeq(${index}, 'x', this.value)" style="width:100%; border:1px solid #ccc; border-radius:3px;">
+                        Y: <input type="number" step="0.01" value="${item.y}" onchange="editSeq(${index}, 'y', this.value)" style="width:100%; border:1px solid #ccc; border-radius:3px;">
+                        θ°: <input type="number" step="1" value="${item.theta}" onchange="editSeq(${index}, 'theta', this.value)" style="width:100%; border:1px solid #ccc; border-radius:3px;">
+                    </div>`;
+                } else {
+                    html += `<div style="display:flex; gap:5px; align-items:center;">
+                        <select onchange="editSeq(${index}, 'cmd', this.value)" style="width:100%; border:1px solid #ccc; border-radius:3px;">
+                            <option value="ATTENTE" ${item.cmd==='ATTENTE'?'selected':''}>Attendre (ms)</option>
+                            <option value="DEPLOY_BRAS" ${item.cmd==='DEPLOY_BRAS'?'selected':''}>Sortir Bras</option>
+                            <option value="RETRACT_BRAS" ${item.cmd==='RETRACT_BRAS'?'selected':''}>Rentrer Bras</option>
+                            <option value="SERVO_ANGLE" ${item.cmd==='SERVO_ANGLE'?'selected':''}>Servo Angle</option>
+                        </select>
+                        <input type="number" value="${item.param}" onchange="editSeq(${index}, 'param', this.value)" placeholder="Valeur" style="width:100%; border:1px solid #ccc; border-radius:3px;">
+                    </div>`;
+                }
+                html += `</div>`;
+                list.innerHTML += html;
             });
         }
+
+        function editSeq(idx, key, val) {
+            if(key === 'x' || key === 'y' || key === 'theta' || key === 'param') val = parseFloat(val);
+            seq[idx][key] = val;
+            if(seq[idx].type === 'MOVE') drawW();
+        }
+
+        function moveSeq(idx, dir) {
+            let temp = seq[idx];
+            seq[idx] = seq[idx+dir];
+            seq[idx+dir] = temp;
+            updateTimeline();
+        }
+
+        function delSeq(idx) {
+            seq.splice(idx, 1);
+            updateTimeline();
+        }
+
+        function drawW() {
+            var m = document.getElementById('map');
+            if(!m) return;
+            m.querySelectorAll('.waypoint').forEach(n => n.remove());
+
+            let moveIndex = 1;
+            seq.forEach((p) => {
+                if(p.type === 'MOVE') {
+                    var d = document.createElement('div');
+                    d.className='waypoint';
+                    d.style.left=(p.x/2*100)+'%';
+                    d.style.top=(100-(p.y/3*100))+'%';
+                    d.innerText = moveIndex++;
+
+                    var v = document.createElement('div');
+                    v.style.position = 'absolute';
+                    v.style.width = '2px';
+                    v.style.height = '20px';
+                    v.style.background = '#e74c3c';
+                    v.style.bottom = '50%';
+                    v.style.left = '50%';
+                    v.style.transformOrigin = 'bottom center';
+                    v.style.transform = `translate(-50%, 0) rotate(${p.theta}deg)`;
+                    v.style.zIndex = '-1';
+
+                    d.appendChild(v);
+                    m.appendChild(d);
+                }
+            });
+        }
+
+        function saveStrategy() {
+            let name = document.getElementById('strat_name').value.trim();
+            if (!name) return alert("Donne un nom !");
+            if (seq.length === 0) return alert("Séquence vide !");
+            ws.send(JSON.stringify({ cmd:'strategy', action:'save', name, steps: seq }));
+            setTimeout(refreshStrategyList, 200);
+        }
+
+        function refreshStrategyList() {
+            ws.send(JSON.stringify({ cmd:'strategy', action:'list' }));
+        }
+
+        function loadStrategy() {
+            let name = document.getElementById('strat_select').value;
+            if (!name) return alert("Choisis une stratégie !");
+            ws.send(JSON.stringify({ cmd:'strategy', action:'load', name }));
+        }
+
+        function renameStrategy() {
+            let name = document.getElementById('strat_select').value;
+            if (!name) return alert("Choisis une stratégie !");
+            let newName = prompt("Nouveau nom :", name);
+            if (newName && newName !== name) {
+                ws.send(JSON.stringify({ cmd:'strategy', action:'rename', name, newName }));
+            }
+        }
+
+        function deleteStrategy() {
+            let name = document.getElementById('strat_select').value;
+            if (!name) return alert("Choisis une stratégie !");
+            if (confirm("Supprimer " + name + " ?")) {
+                ws.send(JSON.stringify({ cmd:'strategy', action:'delete', name }));
+            }
+        }
+
+        function playStrategy() {
+            if (seq.length === 0) return alert("La séquence est vide !");
+            ws.send(JSON.stringify({ cmd:'strategy', action:'play', steps: seq }));
+        }
+
+        function stopStrategy() {
+            ws.send(JSON.stringify({ cmd:'strategy', action:'stop' }));
+        }
+
+        function clearTraj(){ seq=[]; updateTimeline(); }
+
         function sP(t,v){ if(document.getElementById(t+'_v')) document.getElementById(t+'_v').innerText=v; ws.send(JSON.stringify({type:t,value:parseFloat(v)})); }
         function sM(x,y){ ws.send(JSON.stringify({type:'move',x:x,y:y})); }
-        function sendTraj(){ ws.send(JSON.stringify({type:'traj',pts:pts})); }
-        function clearTraj(){ pts=[]; drawW(); }
         function sA(b){ ws.send(JSON.stringify({type:'action',btn:b})); }
         function sS(id,v){ if(document.getElementById('s'+id+'_v')) document.getElementById('s'+id+'_v').innerText=v; ws.send(JSON.stringify({type:'slider',id:id,val:parseFloat(v)})); }
 
@@ -373,19 +626,17 @@
             if(ws.readyState === WebSocket.OPEN) {
                 let payload = { cmd: composant, id: id, val: String(valeur) };
                 ws.send(JSON.stringify(payload));
+            } else {
+                console.warn("WebSocket déconnecté, la commande n'a pas pu partir :", composant);
             }
         }
 
-        // --- NOUVELLE FONCTION NEMA ---
         function sendNemaCmd(id, mode, dir_or_null) {
             let v = document.getElementById('n' + id + '_v').value;
             let a = document.getElementById('n' + id + '_a').value;
             let target = 0;
-            
             if (mode === 'CONT') target = dir_or_null;
             else if (mode === 'POS') target = document.getElementById('n' + id + '_p').value;
-            
-            // Format du payload envoyé : "MODE|VITESSE|ACCEL|CIBLE"
             let payload = `${mode}|${v}|${a}|${target}`;
             sendCmd('nema', id, payload);
         }
@@ -437,7 +688,7 @@
             let input = document.getElementById('luckfox_input');
             if (input && input.value !== "") {
                 sendCmd('luckfox', 0, input.value);
-                input.value = ""; 
+                input.value = "";
             }
         }
 
@@ -481,18 +732,18 @@
             let codeArea = document.getElementById('luckfox_code');
             let statusText = document.getElementById('ota_status');
             let filename = document.getElementById('ota_filename').value;
-            if (filename === "") filename = "strategy.py"; 
-            if(!codeArea || !statusText) return; 
-            let lines = codeArea.value.split('\n'); 
+            if (filename === "") filename = "strategy.py";
+            if(!codeArea || !statusText) return;
+            let lines = codeArea.value.split('\n');
             if(lines.length < 5) { alert("Le code semble trop court !"); return; }
             statusText.style.color = "#d35400"; statusText.innerText = "Initialisation...";
             sendCmd('luckfox', 0, '<OTA_START:' + filename + '>');
-            await new Promise(r => setTimeout(r, 40)); 
+            await new Promise(r => setTimeout(r, 40));
             for(let i = 0; i < lines.length; i++) {
                 statusText.innerText = "Transfert : Ligne " + (i+1) + "/" + lines.length;
                 let safeLine = btoa(unescape(encodeURIComponent(lines[i])));
                 sendCmd('luckfox', 0, '<OTA_LINE:' + safeLine + '>');
-                await new Promise(r => setTimeout(r, 100)); 
+                await new Promise(r => setTimeout(r, 100));
             }
             statusText.innerText = "Compilation et redémarrage...";
             sendCmd('luckfox', 0, '<OTA_END>');
@@ -501,6 +752,8 @@
                 codeArea.value = ""; refreshFileList();
             }, 3000);
         }
+
+        renderDashboard();
     </script>
 </body>
 </html>
