@@ -16,3 +16,5 @@ float mpu_get_gyro_z();
 float mpu_get_angle_z();  // Récupère le cap absolu en degrés
 
 void mpu_reset_angle();   // Remet le cap à 0° (à appeler au début du match)
+
+void mpu_set_angle(float deg);  // Impose le cap courant (orientation de départ du robot)

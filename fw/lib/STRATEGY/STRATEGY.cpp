@@ -8,7 +8,7 @@
 #include <math.h>
 
 enum class StepType : uint8_t { MOVE, ACTION };
-enum class RunState : uint8_t { IDLE, ROTATE_TO_TARGET, DRIVING, ROTATE_FINAL, ACTION_WAIT, ACTION_INSTANT };
+enum class RunState : uint8_t { IDLE, ROTATE_TO_TARGET, DRIVING, ROTATE_FINAL, ACTION_WAIT, ACTION_INSTANT, WAIT_STOP };
 
 struct StrategyStep {
     StepType type;
@@ -24,6 +24,13 @@ static unsigned long _action_start_ms = 0;
 static unsigned long _step_start_ms = 0;
 static float _target_heading_deg = 0;
 
+// _seq/_state sont modifies par le websocket (tache AsyncTCP) et lus par TaskControl
+static SemaphoreHandle_t _mutex = nullptr;
+
+// Repere de la carte web : X vers la droite (2 m), Y vers le haut (3 m), angles positifs a gauche.
+// Au depart, le robot est pose en (0,0) face au haut de la carte (+Y) => cap 90 deg.
+static const float START_HEADING_DEG = 90.0f;
+
 static const float ANGLE_TOLERANCE_DEG = 3.0f;
 static const float ROTATE_MAX_SPEED_STEPS = 1500.0f;
 static const float ROTATE_MIN_SPEED_STEPS = 400.0f;
@@ -35,8 +42,10 @@ static const uint32_t DRIVE_ACCEL_STEPS_S2 = 2000;
 
 static const unsigned long ROTATE_TIMEOUT_MS = 3000;
 static const unsigned long DRIVE_TIMEOUT_MS = 6000;
+static const unsigned long STOP_TIMEOUT_MS = 500;
 
 void strategy_init() {
+    if (!_mutex) _mutex = xSemaphoreCreateMutex();
     if (!LittleFS.exists("/strategies")) LittleFS.mkdir("/strategies");
 }
 
@@ -143,36 +152,64 @@ static void execute_action(const StrategyStep& s) {
 }
 
 void strategy_start(JsonArray steps) {
+    xSemaphoreTake(_mutex, portMAX_DELAY);
     _seq.clear();
     for (JsonObject obj : steps) {
         StrategyStep s;
         if (step_from_json(obj, s)) _seq.push_back(s);
     }
     Serial.printf("[STRATEGY] %d etapes chargees, demarrage\n", _seq.size());
-    if (_seq.empty()) { _running = false; return; }
+    if (_seq.empty()) { _running = false; xSemaphoreGive(_mutex); return; }
 
-    mpu_reset_angle();
-    motion_set_position(0.0f, 0.0f, 0.0f);
+    mpu_set_angle(START_HEADING_DEG);
+    motion_set_position(0.0f, 0.0f, START_HEADING_DEG);
 
     _idx = 0; _state = RunState::IDLE; _running = true;
+    xSemaphoreGive(_mutex);
 }
 
 void strategy_stop() {
+    xSemaphoreTake(_mutex, portMAX_DELAY);
     _running = false; _state = RunState::IDLE;
-    nema_stop(1, true); nema_stop(2, true);
+    nema_halt(1); nema_halt(2);
+    xSemaphoreGive(_mutex);
 }
 
 bool strategy_is_running() { return _running; }
 
-static void abort_current_step(const char* reason) {
-    Serial.printf("[STRATEGY] Etape %d abandonnee (%s)\n", _idx, reason);
-    nema_stop(1, false); nema_stop(2, false);
-    _idx++; _state = RunState::IDLE;
+static const char* STATE_NAMES[] = {"IDLE","ROTATE_TO_TARGET","DRIVING","ROTATE_FINAL","ACTION_WAIT","ACTION_INSTANT","WAIT_STOP"};
+
+// Toute transition passe par ici : trace Serial exploitable meme quand l'interface web decroche
+static void set_state(RunState next) {
+    if (next == _state) return;
+    Serial.printf("[STRATEGY] etape %d/%d %s -> %s | cap %.1f cible %.1f | pos %ld/%ld run %d/%d\n",
+                  (int)_idx + 1, (int)_seq.size(), STATE_NAMES[(int)_state], STATE_NAMES[(int)next],
+                  mpu_get_angle_z(), _target_heading_deg,
+                  nema_get_position(1), nema_get_position(2),
+                  nema_is_running(1), nema_is_running(2));
+    _state = next;
 }
 
+static void abort_current_step(const char* reason) {
+    Serial.printf("[STRATEGY] Etape %d abandonnee (%s)\n", _idx, reason);
+    nema_halt(1); nema_halt(2);
+    set_state(RunState::IDLE); _idx++;
+}
+
+static void strategy_step();
+
 void strategy_update() {
+    if (xSemaphoreTake(_mutex, pdMS_TO_TICKS(5)) != pdTRUE) return;
+    strategy_step();
+    xSemaphoreGive(_mutex);
+}
+
+static void strategy_step() {
     if (!_running) return;
-    if (_idx >= _seq.size()) { _running = false; nema_stop(1,false); nema_stop(2,false); return; }
+    if (_idx >= _seq.size()) {
+        Serial.println("[STRATEGY] Sequence terminee");
+        _running = false; nema_halt(1); nema_halt(2); return;
+    }
 
     StrategyStep& s = _seq[_idx];
 
@@ -183,7 +220,7 @@ void strategy_update() {
         if (_state == RunState::IDLE) {
             _target_heading_deg = atan2(dy, dx) * 180.0f / PI;
             _step_start_ms = millis();
-            _state = RunState::ROTATE_TO_TARGET;
+            set_state(RunState::ROTATE_TO_TARGET);
         }
 
         if (_state == RunState::ROTATE_TO_TARGET || _state == RunState::ROTATE_FINAL) {
@@ -193,23 +230,42 @@ void strategy_update() {
             float err = wrap_180(targetAngle - mpu_get_angle_z());
 
             if (fabs(err) < ANGLE_TOLERANCE_DEG) {
-                nema_stop(1,false); nema_stop(2,false);
+                // stopMove() (rampe) ne stoppait pas le mode runForward/runBackward :
+                // arret immediat, sans risque a la vitesse de fin de rotation (~550 pas/s)
+                nema_halt(1); nema_halt(2);
                 if (_state == RunState::ROTATE_TO_TARGET) {
-                    float distance_mm = sqrt(dx*dx + dy*dy);
-                    long deltaSteps = (long)motion_mm_to_steps(distance_mm);
-
-                    nema_set_profile(1, DRIVE_SPEED_STEPS_S, DRIVE_ACCEL_STEPS_S2);
-                    nema_set_profile(2, DRIVE_SPEED_STEPS_S, DRIVE_ACCEL_STEPS_S2);
-                    nema_move(1, deltaSteps);
-                    nema_move(2, deltaSteps);
-
+                    // On attend l'arret complet des moteurs avant de lancer la ligne droite
                     _step_start_ms = millis();
-                    _state = RunState::DRIVING;
+                    set_state(RunState::WAIT_STOP);
                 } else {
-                    _idx++; _state = RunState::IDLE;
+                    set_state(RunState::IDLE); _idx++;
                 }
             } else {
-                set_rotation_speeds(compute_rotation_speed(err));
+                float w = compute_rotation_speed(err);
+                set_rotation_speeds(w);
+                static unsigned long last_log_ms = 0;
+                if (millis() - last_log_ms > 200) {
+                    last_log_ms = millis();
+                    Serial.printf("[STRATEGY]   rot cap %.1f err %.1f w %.0f | pos %ld/%ld\n",
+                                  mpu_get_angle_z(), err, w, nema_get_position(1), nema_get_position(2));
+                }
+            }
+        }
+        else if (_state == RunState::WAIT_STOP) {
+            if (millis() - _step_start_ms > STOP_TIMEOUT_MS) { abort_current_step("moteurs non arretes"); return; }
+            if (!nema_is_running(1) && !nema_is_running(2)) {
+                float distance_mm = sqrt(dx*dx + dy*dy);
+                long deltaSteps = (long)motion_mm_to_steps(distance_mm);
+
+                // Cible absolue depuis la position reelle : apres un runForward/runBackward,
+                // un move() relatif peut partir d'une cible obsolete et defaire la rotation
+                nema_set_profile(1, DRIVE_SPEED_STEPS_S, DRIVE_ACCEL_STEPS_S2);
+                nema_set_profile(2, DRIVE_SPEED_STEPS_S, DRIVE_ACCEL_STEPS_S2);
+                nema_move_to(1, nema_get_position(1) + deltaSteps);
+                nema_move_to(2, nema_get_position(2) + deltaSteps);
+
+                _step_start_ms = millis();
+                set_state(RunState::DRIVING);
             }
         }
         else if (_state == RunState::DRIVING) {
@@ -219,15 +275,15 @@ void strategy_update() {
             }
             if (!nema_is_running(1) && !nema_is_running(2)) {
                 _step_start_ms = millis();
-                _state = RunState::ROTATE_FINAL;
+                set_state(RunState::ROTATE_FINAL);
             }
         }
     } else {
         if (_state == RunState::IDLE) execute_action(s);
         else if (_state == RunState::ACTION_WAIT) {
-            if (millis() - _action_start_ms >= (unsigned long)s.param) { _idx++; _state = RunState::IDLE; }
+            if (millis() - _action_start_ms >= (unsigned long)s.param) { set_state(RunState::IDLE); _idx++; }
         } else if (_state == RunState::ACTION_INSTANT) {
-            _idx++; _state = RunState::IDLE;
+            set_state(RunState::IDLE); _idx++;
         }
     }
 }

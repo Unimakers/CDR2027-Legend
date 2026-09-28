@@ -120,8 +120,9 @@ void TaskUI(void *pvParameters) {
 
         screen_draw_dashboard(battery_get_voltage(), robot_x, robot_y, "RUNNING");
 
+        // Odometrie en mm, la carte web travaille en metres
         web_send_telemetry(
-            robot_x, robot_y,
+            robot_x / 1000.0f, robot_y / 1000.0f,
             encodeurG.get_total_ticks(), encodeurD.get_total_ticks(),
             encodeurG.get_angle_degrees(), encodeurD.get_angle_degrees(),
             battery_get_voltage(), mpu_get_gyro_z(), mpu_get_angle_z(), cpuLoadC1,
@@ -218,13 +219,17 @@ void setup() {
     neopixel_init();
     battery_init();
     dcmotors_init();
+
+    // Activation des drivers avant nema_init() pour que le self-test NEMA puisse faire tourner les moteurs
+    if (battery_get_voltage() > 10.0f) {
+        mcp_enable_motors(true);
+    } else {
+        Serial.printf("[NEMA] Batterie %.2fV < 10V : drivers desactives\n", battery_get_voltage());
+    }
+
     nema_init();
     servos_init();
     tof_init();
-
-    if (battery_get_voltage() > 10.0f) {
-        mcp_enable_motors(true);
-    }
 
     if (!encodeurG.init(&Wire))  Serial.println("Erreur : encodeur gauche introuvable !");
     if (!encodeurD.init(&Wire1)) Serial.println("Erreur : encodeur droit introuvable !");

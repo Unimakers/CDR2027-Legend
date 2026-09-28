@@ -8,42 +8,67 @@ FastAccelStepper *stepper1 = nullptr;
 FastAccelStepper *stepper2 = nullptr;
 FastAccelStepper *stepper3 = nullptr;
 
+// Diagnostic : impulsions STEP generees a la main, sans FastAccelStepper.
+// Un moteur qui ne bouge pas pendant ce test a un probleme materiel (piste, soudure, driver).
+// Decommenter pour relancer le test (les roues tournent au demarrage : robot sur cales).
+// #define NEMA_GPIO_SELFTEST
+
+#ifdef NEMA_GPIO_SELFTEST
+static void nema_gpio_selftest() {
+    const uint8_t step_pins[3] = {PAMI_STEP1, PAMI_STEP2, PAMI_STEP3};
+    const uint8_t dir_pins[3]  = {PAMI_DIR1, PAMI_DIR2, PAMI_DIR3};
+    for (int m = 0; m < 3; m++) {
+        pinMode(step_pins[m], OUTPUT);
+        pinMode(dir_pins[m], OUTPUT);
+        digitalWrite(dir_pins[m], HIGH);
+        Serial.printf("[NEMA] Self-test moteur %d (STEP GPIO%d, DIR GPIO%d) : 1/4 de tour\n",
+                      m + 1, step_pins[m], dir_pins[m]);
+        for (int i = 0; i < 800; i++) {
+            digitalWrite(step_pins[m], HIGH); delayMicroseconds(10);
+            digitalWrite(step_pins[m], LOW);  delayMicroseconds(1240);
+        }
+        delay(500);
+    }
+}
+#endif
+
+// Driver RMT : les pas sont comptes en logiciel.
+// Le driver MCPWM/PCNT relit la broche STEP par l'IOMUX (Arduino core 2.x = IDF 4.4) :
+// sur l'ESP32-S3 ca ne comptait que sur GPIO16 (moteur 2), les moteurs 1 et 3 restaient bloques.
+static const FasDriver NEMA_DRIVER = DRIVER_RMT;
+
+static FastAccelStepper* connect_stepper(uint8_t step_pin, uint8_t dir_pin) {
+    FastAccelStepper* s = engine.stepperConnectToPin(step_pin, NEMA_DRIVER);
+    if (s) {
+        s->setDirectionPin(dir_pin);
+        s->setAutoEnable(false);
+    }
+    return s;
+}
+
+static void log_stepper(uint8_t id, FastAccelStepper* s) {
+    if (s) Serial.printf("[NEMA] Moteur %d connecte, driver %s\n", id, s->driverTypeString());
+    else   Serial.printf("[NEMA] Moteur %d NON connecte\n", id);
+}
+
 void nema_init() {
     pinMode(PAMI_MS1, OUTPUT);
     pinMode(PAMI_MS2, OUTPUT);
     nema_set_microstepping(HIGH, HIGH);
 
+#ifdef NEMA_GPIO_SELFTEST
+    nema_gpio_selftest();
+#endif
+
     engine.init();
 
-    #if defined(SUPPORT_ESP32_RMT)
-    stepper1 = engine.stepperConnectToPin(PAMI_STEP1, DRIVER_RMT);
-    #else
-    stepper1 = engine.stepperConnectToPin(PAMI_STEP1);
-    #endif
-    if (stepper1) {
-        stepper1->setDirectionPin(PAMI_DIR1);
-        stepper1->setAutoEnable(false);
-    }
+    stepper1 = connect_stepper(PAMI_STEP1, PAMI_DIR1);
+    stepper2 = connect_stepper(PAMI_STEP2, PAMI_DIR2);
+    stepper3 = connect_stepper(PAMI_STEP3, PAMI_DIR3);
 
-    #if defined(SUPPORT_ESP32_RMT)
-    stepper2 = engine.stepperConnectToPin(PAMI_STEP2, DRIVER_RMT);
-    #else
-    stepper2 = engine.stepperConnectToPin(PAMI_STEP2);
-    #endif
-    if (stepper2) {
-        stepper2->setDirectionPin(PAMI_DIR2);
-        stepper2->setAutoEnable(false);
-    }
-
-    #if defined(SUPPORT_ESP32_RMT)
-    stepper3 = engine.stepperConnectToPin(PAMI_STEP3, DRIVER_RMT);
-    #else
-    stepper3 = engine.stepperConnectToPin(PAMI_STEP3);
-    #endif
-    if (stepper3) {
-        stepper3->setDirectionPin(PAMI_DIR3);
-        stepper3->setAutoEnable(false);
-    }
+    log_stepper(1, stepper1);
+    log_stepper(2, stepper2);
+    log_stepper(3, stepper3);
 
     nema_set_profile(1, 4000, 500);
     nema_set_profile(2, 4000, 500);
@@ -96,6 +121,12 @@ void nema_stop(uint8_t motor_id, bool force_stop) {
             s->stopMove();
         }
     }
+}
+
+// Arret immediat sans rampe, en conservant la position (odometrie intacte)
+void nema_halt(uint8_t motor_id) {
+    FastAccelStepper* s = get_stepper(motor_id);
+    if (s) s->forceStop();
 }
 
 long nema_get_position(uint8_t motor_id) {

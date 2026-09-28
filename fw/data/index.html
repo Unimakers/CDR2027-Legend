@@ -34,7 +34,7 @@
             width: 24px; height: 24px;
             border: 2px dashed #27ae60; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            pointer-events: none; z-index: 4;
+            pointer-events: none; z-index: 11;
         }
 
         .waypoint { width: 16px; height: 16px; background: rgba(68, 68, 68, 0.9); color: #fff; border-radius: 50%; position: absolute; transform: translate(-50%, -50%); font-size: 10px; text-align: center; line-height: 16px; font-weight: bold; z-index: 5;}
@@ -96,11 +96,12 @@
             <div style="display:flex; flex-wrap:wrap; gap:15px;">
                 <div style="flex:2; min-width:300px;">
                     <div class="grid-view" id="map" onclick="handleMapClick(event)">
-                        <div id="home-marker" title="Position de départ requise (0,0 - cap 0°)">
-                            <span style="color:#27ae60; font-size:13px;">➤</span>
+                        <div id="home-marker" title="Position de départ requise (0,0 - cap 90°, avant du robot vers le haut)">
+                            <span style="color:#27ae60; font-size:13px; display:inline-block; transform:rotate(-90deg);">➤</span>
                         </div>
                         <div id="robot"><div id="robot-arrow"></div></div>
                     </div>
+                    <div style="font-size:0.75em; color:#27ae60; margin-top:4px;">Départ : coin bas-gauche (0,0), avant du robot vers le haut de la carte ↑</div>
                     <div id="strat_debug" style="font-size:0.75em; background:rgba(0,0,0,0.05); border-radius:4px; padding:4px 8px; margin-top:5px; display:none;">
                         État: <b id="dbg_state">-</b> | Étape: <b id="dbg_step">-</b> | Cible: <b id="dbg_target">-</b>° | Cap: <b id="dbg_current">-</b>° | Erreur: <b id="dbg_error">-</b>°
                     </div>
@@ -375,15 +376,22 @@
             renderDashboard();
         }
 
-        var ws = new WebSocket(`ws://${window.location.hostname}/ws`);
+        var ws;
 
         var seq = [];
 
-        const STRAT_STATE_NAMES = ['IDLE','ROTATE_TO_TARGET','DRIVING','ROTATE_FINAL','ACTION_WAIT','ACTION_INSTANT'];
+        const STRAT_STATE_NAMES = ['IDLE','ROTATE_TO_TARGET','DRIVING','ROTATE_FINAL','ACTION_WAIT','ACTION_INSTANT','WAIT_STOP'];
 
-        ws.onopen = () => refreshStrategyList();
+        // Reconnexion automatique : si l'ESP coupe la socket, la page n'a plus besoin d'etre rechargee
+        function connectWs() {
+            ws = new WebSocket(`ws://${window.location.hostname}/ws`);
+            ws.onopen = () => refreshStrategyList();
+            ws.onmessage = onWsMessage;
+            ws.onclose = () => setTimeout(connectWs, 1000);
+            ws.onerror = () => ws.close();
+        }
 
-        ws.onmessage = (e) => {
+        function onWsMessage(e) {
             var d = JSON.parse(e.data);
 
             if (d.x !== undefined) {
@@ -459,7 +467,9 @@
                     document.getElementById('dbg_error').innerText = d.error.toFixed(1);
                 }
             }
-        };
+        }
+
+        connectWs();
 
         function loadPlan(i) { if(i.files && i.files[0]) { var r = new FileReader(); r.onload=(e)=>{document.getElementById('map').style.backgroundImage="url('"+e.target.result+"')";}; r.readAsDataURL(i.files[0]); } }
 
@@ -473,7 +483,7 @@
             if(idx > -1) {
                 seq.splice(idx,1);
             } else {
-                seq.push({type:'MOVE', x:parseFloat(px.toFixed(2)), y:parseFloat(py.toFixed(2)), theta:0});
+                seq.push({type:'MOVE', x:parseFloat(px.toFixed(2)), y:parseFloat(py.toFixed(2)), theta:90});
             }
             updateTimeline();
         }

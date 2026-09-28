@@ -92,7 +92,8 @@ bool web_init(const char* ap_ssid, const char* ap_password) {
 }
 
 void web_send_telemetry(float x, float y, long enc_l, long enc_r, float angle_l, float angle_r, float battery, float gyro_z, float gyro_angle, int cpu_load, int tof1, int tof2, int tof3, int tof4) {
-    if (ws.count() == 0) return;
+    // File pleine : on saute cette trame plutot que de saturer/deconnecter le client
+    if (ws.count() == 0 || !ws.availableForWriteAll()) return;
 
     StaticJsonDocument<512> doc;
     doc["x"] = x;
@@ -116,7 +117,8 @@ void web_send_telemetry(float x, float y, long enc_l, long enc_r, float angle_l,
 }
 
 void web_send_strategy_debug(int state, int stepIdx, int stepCount, float targetHeading, float currentHeading) {
-    if (ws.count() == 0) return;
+    // File pleine : on saute cette trame plutot que de saturer/deconnecter le client
+    if (ws.count() == 0 || !ws.availableForWriteAll()) return;
     StaticJsonDocument<256> doc;
     doc["type"] = "strat_debug";
     doc["state"] = state;
