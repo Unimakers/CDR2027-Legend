@@ -28,6 +28,7 @@ static float _target_heading_deg = 0;
 static SemaphoreHandle_t _mutex = nullptr;
 
 // Repere de la carte web : X vers la droite (2 m), Y vers le haut (3 m), angles positifs a gauche.
+// Convention : 0 deg = face a droite, 90 deg = face en haut, 180 deg = face a gauche.
 // Au depart, le robot est pose en (0,0) face au haut de la carte (+Y) => cap 90 deg.
 static const float START_HEADING_DEG = 90.0f;
 
@@ -43,6 +44,9 @@ static const uint32_t DRIVE_ACCEL_STEPS_S2 = 2000;
 static const unsigned long ROTATE_TIMEOUT_MS = 3000;
 static const unsigned long DRIVE_TIMEOUT_MS = 6000;
 static const unsigned long STOP_TIMEOUT_MS = 500;
+
+// En dessous de cette distance, le point est considere comme atteint (cap atan2 instable)
+static const float MIN_MOVE_DIST_MM = 15.0f;
 
 void strategy_init() {
     if (!_mutex) _mutex = xSemaphoreCreateMutex();
@@ -191,9 +195,22 @@ static void set_state(RunState next) {
 }
 
 static void abort_current_step(const char* reason) {
-    Serial.printf("[STRATEGY] Etape %d abandonnee (%s)\n", _idx, reason);
+    Serial.printf("[STRATEGY] Etape %d abandonnee (%s)\n", (int)_idx, reason);
     nema_halt(1); nema_halt(2);
     set_state(RunState::IDLE); _idx++;
+}
+
+// Fin d'un MOVE : rotation finale (theta) seulement si le prochain pas n'est pas un MOVE.
+// Si le suivant est un MOVE, il orientera lui-meme le robot vers sa cible.
+static void finish_move() {
+    bool next_is_move = (_idx + 1 < _seq.size()) && _seq[_idx + 1].type == StepType::MOVE;
+    if (next_is_move) {
+        set_state(RunState::IDLE);
+        _idx++;
+    } else {
+        _step_start_ms = millis();
+        set_state(RunState::ROTATE_FINAL);
+    }
 }
 
 static void strategy_step();
@@ -218,6 +235,10 @@ static void strategy_step() {
         float dy = (s.y * 1000.0f) - robot_y;
 
         if (_state == RunState::IDLE) {
+            if (sqrt(dx*dx + dy*dy) < MIN_MOVE_DIST_MM) {
+                finish_move();      // deja arrive : pas de rotation vers un cap indefini
+                return;
+            }
             _target_heading_deg = atan2(dy, dx) * 180.0f / PI;
             _step_start_ms = millis();
             set_state(RunState::ROTATE_TO_TARGET);
@@ -274,8 +295,7 @@ static void strategy_step() {
                 return;
             }
             if (!nema_is_running(1) && !nema_is_running(2)) {
-                _step_start_ms = millis();
-                set_state(RunState::ROTATE_FINAL);
+                finish_move();      // au lieu de ROTATE_FINAL systematique
             }
         }
     } else {

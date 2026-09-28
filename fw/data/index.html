@@ -101,7 +101,7 @@
                         </div>
                         <div id="robot"><div id="robot-arrow"></div></div>
                     </div>
-                    <div style="font-size:0.75em; color:#27ae60; margin-top:4px;">Départ : coin bas-gauche (0,0), avant du robot vers le haut de la carte ↑</div>
+                    <div style="font-size:0.75em; color:#27ae60; margin-top:4px;">Départ : coin bas-gauche (0,0), avant du robot vers le haut de la carte ↑ | Caps : 0° = droite, 90° = haut, 180° = gauche</div>
                     <div id="strat_debug" style="font-size:0.75em; background:rgba(0,0,0,0.05); border-radius:4px; padding:4px 8px; margin-top:5px; display:none;">
                         État: <b id="dbg_state">-</b> | Étape: <b id="dbg_step">-</b> | Cible: <b id="dbg_target">-</b>° | Cap: <b id="dbg_current">-</b>° | Erreur: <b id="dbg_error">-</b>°
                     </div>
@@ -483,7 +483,11 @@
             if(idx > -1) {
                 seq.splice(idx,1);
             } else {
-                seq.push({type:'MOVE', x:parseFloat(px.toFixed(2)), y:parseFloat(py.toFixed(2)), theta:90});
+                // Cap par defaut = direction du deplacement (0° = droite, 90° = haut, 180° = gauche)
+                const prev = [...seq].reverse().find(p => p.type === 'MOVE') || {x:0, y:0};
+                let th = Math.round(Math.atan2(py - prev.y, px - prev.x) * 180 / Math.PI);
+                th = (th + 360) % 360;
+                seq.push({type:'MOVE', x:parseFloat(px.toFixed(2)), y:parseFloat(py.toFixed(2)), theta:th});
             }
             updateTimeline();
         }
@@ -572,7 +576,8 @@
                     v.style.bottom = '50%';
                     v.style.left = '50%';
                     v.style.transformOrigin = 'bottom center';
-                    v.style.transform = `translate(-50%, 0) rotate(${p.theta}deg)`;
+                    // CSS : rotate(0deg) = haut, sens horaire. Convention robot : 0° = droite, 90° = haut, anti-horaire.
+                    v.style.transform = `translate(-50%, 0) rotate(${90 - p.theta}deg)`;
                     v.style.zIndex = '-1';
 
                     d.appendChild(v);
