@@ -22,16 +22,20 @@
         .grid-view { position: absolute; left: 6.5217%; top: 4.5455%; width: 86.9565%; height: 90.9091%; background: #e9e4d4; outline: 2px solid var(--acc, #8b4513); cursor: crosshair; }
         #table-svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
         /* Robot 100x100 mm = un carreau de la table = 5 % de la largeur */
-        #robot { width: 5%; aspect-ratio: 1; box-sizing: border-box; background: var(--rob); border-radius: 50%; position: absolute; left: 0%; top: 100%; transform: translate(-50%, -50%); border: 2px solid #fff; z-index: 10; transition: 0.1s linear; }
+        /* Le carre entier tourne avec le cap (0° = avant vers la droite) ; pas de transition sur la rotation pour eviter un tour complet au passage 180/-180 */
+        #robot { width: 5%; aspect-ratio: 1; box-sizing: border-box; background: var(--rob); border-radius: 12%; position: absolute; left: 0%; top: 100%; transform: translate(-50%, -50%); border: 2px solid #fff; z-index: 10; transition: left 0.1s linear, top 0.1s linear; overflow: hidden; }
+        /* Avant du robot : bandeau jaune (cote capteurs) + fleche blanche qui pointe dessus */
+        #robot-front { position: absolute; right: 0; top: 0; width: 26%; height: 100%; background: #ffd400; pointer-events: none; }
         #robot-arrow {
-            position: absolute; top: 50%; left: 50%;
-            width: 55%; height: 50%;
+            position: absolute; top: 50%; left: 14%;
+            width: 46%; height: 60%;
             background: #fff;
             clip-path: polygon(0 0, 100% 50%, 0 100%);
-            transform: translate(-50%, -50%);
-            transform-origin: center;
+            transform: translate(0, -50%);
             pointer-events: none;
         }
+        /* Impact mesure par un ToF (diametre ~40 mm sur la table) */
+        .tof-dot { display: none; position: absolute; width: 2%; aspect-ratio: 1; box-sizing: border-box; background: #e60000; border: 1px solid #fff; border-radius: 50%; transform: translate(-50%, -50%); z-index: 9; pointer-events: none; transition: left 0.1s linear, top 0.1s linear; }
         #home-marker {
             position: absolute; left: 0%; top: 100%;
             transform: translate(-50%, -50%);
@@ -195,7 +199,10 @@
                         <div id="home-marker" title="Position de départ requise (0,0 - cap 90°, avant du robot vers le haut)">
                             <span style="color:#27ae60; font-size:13px; display:inline-block; transform:rotate(-90deg);">➤</span>
                         </div>
-                        <div id="robot"><div id="robot-arrow"></div></div>
+                        <div class="tof-dot" id="tof-dot1"></div>
+                        <div class="tof-dot" id="tof-dot2"></div>
+                        <div class="tof-dot" id="tof-dot3"></div>
+                        <div id="robot"><div id="robot-front"></div><div id="robot-arrow"></div></div>
                     </div>
                     </div>
                     <div style="font-size:0.75em; color:#27ae60; margin-top:4px;">Départ : coin bas-gauche (0,0), avant du robot vers le haut de la carte ↑ | Caps : 0° = droite, 90° = haut, 180° = gauche</div>
@@ -506,6 +513,9 @@
             ws.onerror = () => ws.close();
         }
 
+        // ToF1 gauche, ToF2 centre, ToF3 droite : angle par rapport au cap (cf. SENSOR_ANGLE_DEG dans AVOIDANCE.cpp)
+        const TOF_ANGLES_DEG = [35, 0, -35];
+
         function onWsMessage(e) {
             var d = JSON.parse(e.data);
 
@@ -519,8 +529,23 @@
             }
 
             if (d.ga !== undefined) {
-                const elArrow = document.getElementById('robot-arrow');
-                if (elArrow) elArrow.style.transform = `translate(-50%, -50%) rotate(${-d.ga}deg)`;
+                const elRobot = document.getElementById('robot');
+                if (elRobot) elRobot.style.transform = `translate(-50%, -50%) rotate(${-d.ga}deg)`;
+            }
+
+            // Points vus par les ToF : meme calcul que AVOIDANCE.cpp (depuis le centre du robot, cap + angle du capteur)
+            if (d.x !== undefined && d.ga !== undefined) {
+                TOF_ANGLES_DEG.forEach((rel, i) => {
+                    const dot = document.getElementById('tof-dot' + (i + 1));
+                    if (!dot) return;
+                    const mm = d['tof' + (i + 1)];
+                    // -1 = capteur absent, 8190 = rien a portee
+                    if (mm === undefined || mm === null || mm < 0 || mm >= 8190) { dot.style.display = 'none'; return; }
+                    const a = (d.ga + rel) * Math.PI / 180;
+                    dot.style.left = ((d.x + mm / 1000 * Math.cos(a)) / 2 * 100) + '%';
+                    dot.style.top = (100 - ((d.y + mm / 1000 * Math.sin(a)) / 3 * 100)) + '%';
+                    dot.style.display = 'block';
+                });
             }
 
             if(document.getElementById('dB') && d.b !== undefined) document.getElementById('dB').innerText = d.b.toFixed(1);
@@ -598,7 +623,7 @@
         }
 
         function handleMapClick(e) {
-            if(e.target.id === 'robot' || e.target.id === 'robot-arrow' || e.target.id === 'home-marker') return;
+            if(e.target.closest && e.target.closest('#robot, #home-marker')) return;
             var r = document.getElementById('map').getBoundingClientRect();
             var px = (e.clientX-r.left)/r.width*2;
             var py = (1-(e.clientY-r.top)/r.height)*3;
