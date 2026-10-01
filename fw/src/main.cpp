@@ -19,6 +19,7 @@
 #include "LUCKFOX.h"
 #include "RFM69HCW.h"
 #include "WEB_INTERFACE.h"
+#include "OTA.h"
 #include "STRATEGY.h"
 #include "TIMER.h"
 #include "AVOIDANCE.h"
@@ -51,6 +52,13 @@ void TaskControl(void *pvParameters) {
     const TickType_t xFrequency = pdMS_TO_TICKS(20);
 
     for (;;) {
+        // OTA en cours : robot a l'arret, on laisse le CPU a l'ecriture en flash
+        if (ota_is_active()) {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            xLastWakeTime = xTaskGetTickCount();
+            continue;
+        }
+
         loopTimer.start();
 
         if (xSemaphoreTake(mutex_Wire, pdMS_TO_TICKS(15)) == pdTRUE) {
@@ -82,6 +90,11 @@ void TaskControl(void *pvParameters) {
 
 void TaskToF(void *pvParameters) {
     for (;;) {
+        if (ota_is_active()) {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            continue;
+        }
+
         if (xSemaphoreTake(mutex_Wire, pdMS_TO_TICKS(15)) == pdTRUE) {
             int d = tof_get_distance(0);
             tof_distances[0] = (d == 0) ? -1 : d;
@@ -116,8 +129,21 @@ void TaskToF(void *pvParameters) {
 void TaskUI(void *pvParameters) {
     TickType_t xLastWakeTime = xTaskGetTickCount();
     const TickType_t xFrequency = pdMS_TO_TICKS(100);
+    bool ota_affiche = false;
 
     for (;;) {
+        // OTA en cours : un seul affichage "OTA", puis ni ecran ni telemetrie pour ne pas affamer le coeur 0 (watchdog)
+        if (ota_is_active()) {
+            if (!ota_affiche) {
+                screen_draw_dashboard(battery_get_voltage(), robot_x, robot_y, "OTA");
+                ota_affiche = true;
+            }
+            vTaskDelay(pdMS_TO_TICKS(100));
+            xLastWakeTime = xTaskGetTickCount();
+            continue;
+        }
+        ota_affiche = false;
+
         battery_update();
 
         screen_draw_dashboard(battery_get_voltage(), robot_x, robot_y, "RUNNING");
@@ -209,6 +235,13 @@ void executer_commande_web(String composant, int id, String valeur) {
     }
 }
 
+// Robot immobile pendant l'ecriture en flash
+void arret_pour_ota() {
+    strategy_stop();
+    nema_halt(3);
+    dcmotors_stop_all();
+}
+
 void setup() {
     Serial.begin(115200);
 
@@ -262,6 +295,8 @@ void setup() {
     web_init("PAMI Unimakers", "unimakers");
     strategy_init();
     web_set_command_handler(executer_commande_web);
+    ota_init("pami");
+    ota_set_start_handler(arret_pour_ota);
 
     last_time_micros = micros();
 
@@ -271,6 +306,7 @@ void setup() {
 }
 
 void loop() {
+    ota_handle();
     web_cleanup();
 
     String luckfox_msg;
