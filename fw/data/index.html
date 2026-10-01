@@ -128,6 +128,12 @@
                         </div>
                     </div>
 
+                    <select id="avoid_mode" onchange="sendCmd('avoid', 0, this.value)" style="width:100%; margin-top:10px; border:1px solid #ccc; border-radius:4px; padding:4px; font-size:0.8em;">
+                        <option value="AVOID">Évitement : vectoriel</option>
+                        <option value="STOP">Évitement : arrêt simple</option>
+                        <option value="OFF">Évitement : désactivé</option>
+                    </select>
+
                     <div style="display:flex; gap:5px; margin-top:10px;">
                         <button class="btn" style="flex:2; font-size:0.8em; height:40px; background:#27ae60; color:white;" onclick="playStrategy()">▶ JOUER</button>
                         <button class="btn" style="flex:1; font-size:0.8em; height:40px; background:#c0392b; color:white;" onclick="stopStrategy()">■ STOP</button>
@@ -380,7 +386,7 @@
 
         var seq = [];
 
-        const STRAT_STATE_NAMES = ['IDLE','ROTATE_TO_TARGET','DRIVING','ROTATE_FINAL','ACTION_WAIT','ACTION_INSTANT','WAIT_STOP'];
+        const STRAT_STATE_NAMES = ['IDLE','ROTATE_TO_TARGET','DRIVING','ROTATE_FINAL','ACTION_WAIT','ACTION_INSTANT','WAIT_STOP','OBSTACLE_WAIT'];
 
         // Reconnexion automatique : si l'ESP coupe la socket, la page n'a plus besoin d'etre rechargee
         function connectWs() {
@@ -623,6 +629,9 @@
 
         function playStrategy() {
             if (seq.length === 0) return alert("La séquence est vide !");
+            // Re-synchronise le mode d'évitement choisi dans le sélecteur avant de partir
+            let sel = document.getElementById('avoid_mode');
+            if (sel) sendCmd('avoid', 0, sel.value);
             ws.send(JSON.stringify({ cmd:'strategy', action:'play', steps: seq }));
         }
 

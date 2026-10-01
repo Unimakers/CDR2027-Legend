@@ -3,17 +3,20 @@
 #include "NEMA.h"
 #include "SERVO.h"
 #include "MPU9250.h"
+#include "AVOIDANCE.h"
 #include <LittleFS.h>
 #include <vector>
 #include <math.h>
 
 enum class StepType : uint8_t { MOVE, ACTION };
-enum class RunState : uint8_t { IDLE, ROTATE_TO_TARGET, DRIVING, ROTATE_FINAL, ACTION_WAIT, ACTION_INSTANT, WAIT_STOP };
+enum class RunState : uint8_t { IDLE, ROTATE_TO_TARGET, DRIVING, ROTATE_FINAL, ACTION_WAIT, ACTION_INSTANT, WAIT_STOP, OBSTACLE_WAIT };
 
 struct StrategyStep {
     StepType type;
     float x = 0, y = 0, theta = 0;
     String cmd; long param = 0;
+    float orig_x = 0, orig_y = 0;   // position d'origine (m) : centre du rayon de deplacement autorise
+    uint8_t detours = 0;            // nombre de detours deja inseres pour atteindre ce point
 };
 
 static std::vector<StrategyStep> _seq;
@@ -101,6 +104,7 @@ static bool step_from_json(JsonObject obj, StrategyStep& out) {
     if (type == "MOVE") {
         out.type = StepType::MOVE;
         out.x = obj["x"] | 0.0f; out.y = obj["y"] | 0.0f; out.theta = obj["theta"] | 0.0f;
+        out.orig_x = out.x; out.orig_y = out.y; out.detours = 0;
         return true;
     } else if (type == "ACTION") {
         out.type = StepType::ACTION;
@@ -155,6 +159,11 @@ static void execute_action(const StrategyStep& s) {
     }
 }
 
+// Evitement : etat interne (declare ici car strategy_start/stop le reinitialisent)
+static bool _obst_seen = false;
+static unsigned long _obst_since_ms = 0;
+static unsigned long _clear_since_ms = 0;
+
 void strategy_start(JsonArray steps) {
     xSemaphoreTake(_mutex, portMAX_DELAY);
     _seq.clear();
@@ -168,6 +177,7 @@ void strategy_start(JsonArray steps) {
     mpu_set_angle(START_HEADING_DEG);
     motion_set_position(0.0f, 0.0f, START_HEADING_DEG);
 
+    _obst_seen = false; _clear_since_ms = 0;
     _idx = 0; _state = RunState::IDLE; _running = true;
     xSemaphoreGive(_mutex);
 }
@@ -175,13 +185,14 @@ void strategy_start(JsonArray steps) {
 void strategy_stop() {
     xSemaphoreTake(_mutex, portMAX_DELAY);
     _running = false; _state = RunState::IDLE;
+    _obst_seen = false; _clear_since_ms = 0;
     nema_halt(1); nema_halt(2);
     xSemaphoreGive(_mutex);
 }
 
 bool strategy_is_running() { return _running; }
 
-static const char* STATE_NAMES[] = {"IDLE","ROTATE_TO_TARGET","DRIVING","ROTATE_FINAL","ACTION_WAIT","ACTION_INSTANT","WAIT_STOP"};
+static const char* STATE_NAMES[] = {"IDLE","ROTATE_TO_TARGET","DRIVING","ROTATE_FINAL","ACTION_WAIT","ACTION_INSTANT","WAIT_STOP","OBSTACLE_WAIT"};
 
 // Toute transition passe par ici : trace Serial exploitable meme quand l'interface web decroche
 static void set_state(RunState next) {
@@ -211,6 +222,122 @@ static void finish_move() {
         _step_start_ms = millis();
         set_state(RunState::ROTATE_FINAL);
     }
+}
+
+// ---------------- Evitement ----------------
+// Robot 100 x 100 mm, ToF a l'avant : 0° (priorite absolue) et +-35° (lateraux).
+// Seul le ToF central declenche l'arret / bloque la reprise. Les lateraux ne bloquent jamais :
+// ils servent uniquement a choisir le cote de contournement et a verifier qu'un point est libre.
+static const float OBSTACLE_STOP_MM        = 200.0f;  // portee max consideree + seuil d'arret du ToF central
+static const float OBSTACLE_RELEASE_MM     = 240.0f;  // seuil de liberation du ToF central (hysteresis)
+static const unsigned long OBSTACLE_CONFIRM_MS = 40;  // obstacle central vu en continu avant reaction
+static const unsigned long OBSTACLE_CLEAR_MS   = 300; // voie libre en continu avant reprise
+static const float BLOCK_CLEARANCE_MM      = 100.0f;  // centre robot <-> surface obstacle (demi-diagonale 71 mm + marge)
+static const float MAX_SHIFT_MM            = 150.0f;  // RAYON X : deplacement max d'un point de passage
+static const float SHIFT_STEP_MM           = 25.0f;
+static const float DETOUR_LAT_MM           = 150.0f;  // decalage lateral du point de detour
+static const float DETOUR_FWD_MM           = 100.0f;
+static const uint8_t MAX_DETOURS           = 5;
+static const float ROBOT_MARGIN_MM         = 60.0f;   // demi-largeur 50 mm + marge, aux bords de table
+
+static ObstacleInfo _last_obst;
+
+// Obstacle detecte en continu depuis OBSTACLE_CONFIRM_MS ?
+static bool obstacle_confirmed() {
+    if (avoidance_get_mode() == AvoidMode::OFF) return false;
+    ObstacleInfo o;
+    if (avoidance_scan(robot_x, robot_y, mpu_get_angle_z(), OBSTACLE_STOP_MM, o)) {
+        if (!_obst_seen) { _obst_seen = true; _obst_since_ms = millis(); }
+        if (millis() - _obst_since_ms >= OBSTACLE_CONFIRM_MS) { _last_obst = o; return true; }
+    } else {
+        _obst_seen = false;
+    }
+    return false;
+}
+
+// Un point de passage suivi d'une ACTION est intouchable
+static bool is_before_action(size_t idx) {
+    return (idx + 1 < _seq.size()) && _seq[idx + 1].type == StepType::ACTION;
+}
+
+static bool near_obstacle(float px, float py, const ObstacleInfo& o) {
+    for (uint8_t i = 0; i < o.n_points; i++) {
+        if (hypotf(px - o.px[i], py - o.py[i]) < BLOCK_CLEARANCE_MM) return true;
+    }
+    return false;
+}
+
+static bool point_free(float px, float py, const ObstacleInfo& o) {
+    if (px < ROBOT_MARGIN_MM || px > TABLE_W_MM - ROBOT_MARGIN_MM ||
+        py < ROBOT_MARGIN_MM || py > TABLE_L_MM - ROBOT_MARGIN_MM) return false;
+    return !near_obstacle(px, py, o);
+}
+
+// Cherche un point libre dans un rayon MAX_SHIFT_MM autour de la position D'ORIGINE du point.
+// Priorite : le plus proche, et dans la direction qui s'eloigne de l'obstacle.
+static bool try_shift_waypoint(StrategyStep& s, const ObstacleInfo& o) {
+    float ox = s.orig_x * 1000.0f, oy = s.orig_y * 1000.0f;
+    float base = atan2f(s.y * 1000.0f - o.cy, s.x * 1000.0f - o.cx);
+    for (float r = SHIFT_STEP_MM; r <= MAX_SHIFT_MM; r += SHIFT_STEP_MM) {
+        for (int k = 0; k < 12; k++) {                       // 0, +30, -30, +60, -60 ... 180
+            int m = (k + 1) / 2;
+            float off = (float)m * 30.0f * DEG_TO_RAD * ((k & 1) ? 1.0f : -1.0f);
+            float px = ox + r * cosf(base + off);
+            float py = oy + r * sinf(base + off);
+            if (point_free(px, py, o)) {
+                s.x = px / 1000.0f; s.y = py / 1000.0f;
+                Serial.printf("[AVOID] point %d deplace de %.0f mm -> (%.0f, %.0f)\n", (int)_idx, r, px, py);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+// Insere un point de passage temporaire sur le cote (cote fuyant l'obstacle) devant le pas courant.
+// ATTENTION : invalide les references sur _seq[...] -> retourner juste apres.
+static bool try_insert_detour(const ObstacleInfo& o) {
+    if (_seq[_idx].detours >= MAX_DETOURS) return false;
+    float h = mpu_get_angle_z() * DEG_TO_RAD;
+    float fx = cosf(h), fy = sinf(h);
+    float nx = -fy, ny = fx;                                  // normale gauche
+    float first = (o.lateral >= 0.0f) ? 1.0f : -1.0f;        // > 0 : l'obstacle est a droite -> on part a gauche
+    for (int t = 0; t < 2; t++) {
+        float sign = (t == 0) ? first : -first;
+        float px = robot_x + fx * DETOUR_FWD_MM + nx * sign * DETOUR_LAT_MM;
+        float py = robot_y + fy * DETOUR_FWD_MM + ny * sign * DETOUR_LAT_MM;
+        if (point_free(px, py, o)) {
+            StrategyStep tmp;
+            tmp.type = StepType::MOVE;
+            tmp.x = px / 1000.0f; tmp.y = py / 1000.0f; tmp.theta = 0;
+            tmp.orig_x = tmp.x; tmp.orig_y = tmp.y;
+            tmp.detours = _seq[_idx].detours + 1;
+            _seq.insert(_seq.begin() + _idx, tmp);
+            Serial.printf("[AVOID] detour insere (%.0f, %.0f)\n", px, py);
+            return true;
+        }
+    }
+    return false;
+}
+
+static void handle_obstacle(StrategyStep& s) {
+    nema_halt(1); nema_halt(2);
+    _obst_seen = false;
+    const ObstacleInfo o = _last_obst;
+
+    if (avoidance_get_mode() == AvoidMode::AVOID) {
+        bool blocked = near_obstacle(s.x * 1000.0f, s.y * 1000.0f, o);
+        if (blocked) {
+            // Point bloque : on le deplace (sauf s'il precede une action)
+            if (!is_before_action(_idx) && try_shift_waypoint(s, o)) { set_state(RunState::IDLE); return; }
+        } else {
+            // Obstacle sur le trajet : detour (s est invalidee par l'insertion)
+            if (try_insert_detour(o)) { set_state(RunState::IDLE); return; }
+        }
+    }
+    // Mode STOP, point intouchable, hors rayon, ou plus de detours : arret simple
+    _clear_since_ms = 0;
+    set_state(RunState::OBSTACLE_WAIT);
 }
 
 static void strategy_step();
@@ -290,12 +417,27 @@ static void strategy_step() {
             }
         }
         else if (_state == RunState::DRIVING) {
+            if (obstacle_confirmed()) { handle_obstacle(s); return; }
             if (millis() - _step_start_ms > DRIVE_TIMEOUT_MS) {
                 abort_current_step("timeout deplacement (blocage moteur ?)");
                 return;
             }
             if (!nema_is_running(1) && !nema_is_running(2)) {
                 finish_move();      // au lieu de ROTATE_FINAL systematique
+            }
+        }
+        else if (_state == RunState::OBSTACLE_WAIT) {
+            ObstacleInfo o;
+            bool blocked = (avoidance_get_mode() != AvoidMode::OFF) &&
+                           avoidance_scan(robot_x, robot_y, mpu_get_angle_z(), OBSTACLE_RELEASE_MM, o);
+            if (blocked) {
+                _clear_since_ms = 0;
+            } else {
+                if (_clear_since_ms == 0) _clear_since_ms = millis();
+                if (millis() - _clear_since_ms >= OBSTACLE_CLEAR_MS) {
+                    _clear_since_ms = 0;
+                    set_state(RunState::IDLE);   // recalcule cap + trajet depuis la position reelle
+                }
             }
         }
     } else {

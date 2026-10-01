@@ -21,6 +21,7 @@
 #include "WEB_INTERFACE.h"
 #include "STRATEGY.h"
 #include "TIMER.h"
+#include "AVOIDANCE.h"
 
 extern AsyncWebSocket ws;
 
@@ -42,6 +43,7 @@ void IRAM_ATTR matchTimeoutCallback() {}
 unsigned long last_time_micros = 0;
 int cpuLoadC1 = 0;
 
+// Lu par AVOIDANCE.cpp (extern) : 0 = gauche, 1 = centre, 2 = droite, 3 = autre
 volatile int tof_distances[NUM_TOF_SENSORS] = {-1, -1, -1, -1};
 
 void TaskControl(void *pvParameters) {
@@ -196,6 +198,12 @@ void executer_commande_web(String composant, int id, String valeur) {
             }
         }
     }
+    else if (composant == "avoid") {
+        if (valeur == "OFF")       avoidance_set_mode(AvoidMode::OFF);
+        else if (valeur == "STOP") avoidance_set_mode(AvoidMode::STOP);
+        else                       avoidance_set_mode(AvoidMode::AVOID);
+        Serial.printf("[AVOID] mode %s\n", valeur.c_str());
+    }
     else if (composant == "luckfox") {
         luckfox_send(valeur);
     }
@@ -229,6 +237,17 @@ void setup() {
 
     nema_init();
     servos_init();
+
+    // --- TEST PWM DC (a retirer une fois le probleme resolu) ---
+    dcmotors_pwm_selftest("(apres servos_init)");
+    servos_set_angle(0, 45);
+    servos_set_angle(1, 135);
+    delay(300);
+    dcmotors_pwm_selftest("(servos en mouvement)");
+    servos_set_angle(0, 90);
+    servos_set_angle(1, 90);
+    // ---------------------------------------------------------
+    
     tof_init();
 
     if (!encodeurG.init(&Wire))  Serial.println("Erreur : encodeur gauche introuvable !");
