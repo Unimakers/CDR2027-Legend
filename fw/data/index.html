@@ -281,6 +281,15 @@
                             <span id="np_hex" style="font-size:0.85em; font-family:monospace; font-weight:bold;">#FF0000</span>
                         </div>
                     </div>
+                    <select id="np_anim" onchange="setNeoAnim(this.value)" style="width:100%; margin-bottom:8px; border:1px solid #ccc; border-radius:4px; padding:4px; font-size:0.8em;">
+                        <option value="0">Couleur fixe</option>
+                        <option value="1">Respiration (prêt)</option>
+                        <option value="2">Battement (alerte)</option>
+                        <option value="3">Balayage (déplacement)</option>
+                        <option value="4">Vague (obstacle)</option>
+                        <option value="5">Chargement (init)</option>
+                        <option value="6">Arc-en-ciel (fin de match)</option>
+                    </select>
                     <div style="display:flex; gap:10px; align-items:center;">
                         <input type="range" class="rainbow-slider" min="0" max="360" value="0" style="flex:1;" oninput="updateNeoColor(this.value)">
                         <button class="btn" style="width:65px; height:32px; font-size:0.8em; border-radius:5px; background:#34495e; color:white;" onclick="setNeoOff()">OFF</button>
@@ -679,8 +688,17 @@
             return `#${f(0)}${f(8)}${f(4)}`.toUpperCase();
         }
 
+        let neoAnim = 0;
+        let neoHex = '#FF0000';
+
+        function setNeoAnim(anim) {
+            neoAnim = parseInt(anim);
+            sendCmd('neopixel', neoAnim, neoHex);
+        }
+
         function updateNeoColor(hue) {
             let hex = hslToHex(parseInt(hue), 100, 50);
+            neoHex = hex;
             let prev = document.getElementById('np_preview');
             let txt = document.getElementById('np_hex');
             if (prev) prev.style.backgroundColor = hex;
@@ -689,12 +707,12 @@
             const now = Date.now();
             if (now - lastNeoSendTime >= 50) {
                 lastNeoSendTime = now;
-                sendCmd('neopixel', 0, hex);
+                sendCmd('neopixel', neoAnim, hex);
             } else {
                 clearTimeout(pendingNeoTimer);
                 pendingNeoTimer = setTimeout(() => {
                     lastNeoSendTime = Date.now();
-                    sendCmd('neopixel', 0, hex);
+                    sendCmd('neopixel', neoAnim, hex);
                 }, 50);
             }
         }

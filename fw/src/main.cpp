@@ -165,7 +165,7 @@ void TaskUI(void *pvParameters) {
         }
 
         if (battery_get_voltage() > 0 && battery_get_voltage() < 11.0f) {
-            neopixel_set_color_all(255, 0, 0);
+            neopixel_set_animation(NeoAnim::BATTEMENT, 255, 30, 0);
         }
 
         vTaskDelayUntil(&xLastWakeTime, xFrequency);
@@ -189,7 +189,9 @@ void executer_commande_web(String composant, int id, String valeur) {
             uint8_t r = (number >> 16) & 0xFF;
             uint8_t g = (number >> 8) & 0xFF;
             uint8_t b = number & 0xFF;
-            if (r == 0 && g == 0 && b == 0) neopixel_clear();
+            // id = animation (0 = couleur fixe), voir l'enum NeoAnim
+            if (id > 0 && id < NEO_ANIM_COUNT) neopixel_set_animation((NeoAnim)id, r, g, b);
+            else if (r == 0 && g == 0 && b == 0) neopixel_clear();
             else neopixel_set_color_all(r, g, b);
         }
         else neopixel_clear();
@@ -240,6 +242,7 @@ void arret_pour_ota() {
     strategy_stop();
     nema_halt(3);
     dcmotors_stop_all();
+    neopixel_set_color_all(120, 0, 255);
 }
 
 void setup() {
@@ -258,6 +261,7 @@ void setup() {
 
     screen_init();
     neopixel_init();
+    neopixel_set_animation(NeoAnim::CHARGEMENT, 0, 120, 255);
     battery_init();
     dcmotors_init();
 
@@ -297,6 +301,9 @@ void setup() {
     web_set_command_handler(executer_commande_web);
     ota_init("pami");
     ota_set_start_handler(arret_pour_ota);
+
+    // Initialisation terminee : robot pret
+    neopixel_set_animation(NeoAnim::RESPIRATION, 0, 120, 255);
 
     last_time_micros = micros();
 
