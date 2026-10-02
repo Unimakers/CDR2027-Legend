@@ -63,7 +63,7 @@ sources: ["85ec12de94f3", "9128d147b4c3", "1a2b3c4d5e6f"]
 | `vignette` | Facultatif. Nom d'une photo de `medias/` affichée dans la liste des logs. |
 | `sources` | Identifiants des blocs du Google Doc (paragraphes et images) dont le log est tiré. |
 
-Ne pas écrire `layout`, `parent`, `nav_exclude` ni `journal` : ils sont fixés pour tout le dossier dans `docs/_config.yml`. Le titre, la date, la description et les liens « précédent / suivant » sont affichés par le gabarit `docs/_layouts/log.html` : le corps du fichier commence directement par une section `##`.
+Ne pas écrire `layout`, `parent`, `nav_exclude` ni `journal` : ils sont fixés pour tout le dossier dans `docs/_config.yml`. Le titre, la date, la description et les liens « précédent / suivant » sont affichés par le gabarit `docs/_layouts/log.html` : le corps du fichier commence directement par le détail, sans titre `#`.
 
 ### Médias dans un log
 
@@ -85,7 +85,7 @@ La légende décrit ce qui est visible ou ce que dit la note voisine. Regarder l
 ## Rédaction
 
 - En français, phrases complètes, ton factuel. Corriger les fautes et les abréviations des notes, garder tous les chiffres et les noms de composants.
-- Une section `##` par sujet à l'intérieur du log.
+- Un log court sur un seul sujet n'a pas besoin de sous-titre. S'il couvre plusieurs sujets, une section `##` par sujet.
 - Quand la note s'y prête, structurer avec des étiquettes en gras : **Constat**, **Problème**, **Décision**, **Résultat**, **À prévoir**. Ne pas forcer une étiquette qui ne correspond à rien dans la note.
 - Pas d'emoji, pas de formule d'introduction ou de conclusion.
 
@@ -128,6 +128,8 @@ Lire `tmp/blocs.json` en entier, pas seulement les blocs nouveaux : le contexte 
 **Quel journal ?** Celui de `journal_suppose`. S'il est `null`, se fier au contenu seulement s'il est sans ambiguïté (la note nomme le robot). Sinon, ne pas l'intégrer et le signaler.
 
 **Quelle date ?** Celle du champ `date`. S'il est `null`, chercher une date écrite dans le paragraphe lui-même. À défaut, prendre la date du jour de la synchronisation avec `date_estimee: true`.
+
+Cas particulier des premières notes : dans le Google Doc, toutes les notes prises avant le 2 octobre 2026 sont sous la seule date « 10 août 2026 ». Elles ont été réparties à la main sur des dates estimées, du 10 août au 1er octobre 2026 (logs marqués `date_estimee: true`). Ces logs ne se redatent pas. Un paragraphe nouveau qui hérite encore du 10 août 2026 alors qu'il est placé après les notes déjà journalisées n'a donc pas de date fiable : le traiter comme un bloc sans date.
 
 **Nouveau log ou log existant ?**
 

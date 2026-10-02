@@ -1,11 +1,11 @@
 ---
 title: "Firmware réorganisé en components"
-date: 2026-08-10
+date: 2026-09-12
+date_estimee: true
 sujet: Firmware
 description: "La première version sans classes multipliait les fichiers. Le code passe en « components » et la configuration de la carte est regroupée dans pamiboard.h."
 sources: ["a1b194a93166"]
 ---
-
 ## Architecture du code
 
 **Constat** : la première version était écrite sans classes, en séparant bien les fichiers.
