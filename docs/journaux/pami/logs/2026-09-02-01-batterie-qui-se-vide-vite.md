@@ -1,7 +1,6 @@
 ---
 title: "La batterie se vide vite : mesure de consommation"
 date: 2026-09-02
-date_estimee: true
 sujet: Alimentation
 description: "La batterie semble se vider rapidement, mais l'ampèremètre ne montre pas de consommation excessive."
 sources: ["b15ffb40d8e7"]

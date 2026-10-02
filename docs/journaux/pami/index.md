@@ -26,7 +26,6 @@ Les sujets qui ne sont pas encore tranchés. Ils sortent du tableau une fois la 
 | Nouvelle carte 4 couches | En préparation. |
 | Supports capteurs ToF | Pas assez solides sur la première version, vis extérieures inaccessibles. |
 | Capteurs ToF à 35° | Frôlent un pilier du châssis, bloque les tests d'évitement. |
-| Rehausse du support batterie (environ 1 cm) | À faire. |
 | Support écran élargi de 3 mm | À faire. |
 | Autonomie de la batterie | Pas de consommation excessive mesurée, batterie en fin de vie à confirmer. |
 | Choix de la batterie | En cours, selon courant instantané et couple des NEMA 17. |

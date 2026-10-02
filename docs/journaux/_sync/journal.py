@@ -58,7 +58,8 @@ RE_DATE_LETTRES = re.compile(
 RE_DATE_CHIFFRES = re.compile(r"^(?:le\s+)?(\d{1,2})[/.\-](\d{1,2})[/.\-](\d{2}|\d{4})\s*:?$")
 RE_NOM_LOG = re.compile(r"^(\d{4}-\d{2}-\d{2})-(\d{2})-[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
 RE_HASH = re.compile(r"\b[0-9a-f]{12}\b")
-RE_INCLUDE_MEDIA = re.compile(r"{%-?\s*include\s+media\.html\s+[^%]*?fichier=\"([^\"]+)\"")
+RE_LEGENDE = re.compile(r"^l[ée]gendes?\s*:\s*", re.I)
+RE_INCLUDE_MEDIA =re.compile(r"{%-?\s*include\s+media\.html\s+[^%]*?fichier=\"([^\"]+)\"")
 
 
 # ---------------------------------------------------------------------------
@@ -275,6 +276,11 @@ def lire_date(texte):
     return None
 
 
+def ressemble_a_un_titre(texte):
+    """Titre de section écrit comme un paragraphe ordinaire : court, fini par « : »."""
+    return len(texte) <= 80 and texte.rstrip().endswith(":")
+
+
 def journal_suppose(titre):
     titre = sans_accents(titre).lower()
     if "pami" in titre:
@@ -358,7 +364,16 @@ def cmd_extraire(args):
         if jour_lu:
             jour = jour_lu
             ajouter({"type": "date", "texte": texte, "date": jour})
-        elif texte and brut["titre"]:
+        elif texte and RE_LEGENDE.match(texte):
+            # « Légende : ... » décrit la ou les images placées juste au-dessus.
+            legende = RE_LEGENDE.sub("", texte).strip()
+            for precedent in reversed(blocs):
+                if precedent["type"] != "image" or "legende" in precedent:
+                    break
+                precedent["legende"] = legende
+            ajouter({"type": "legende", "id": hash_texte(texte), "texte": legende,
+                     "date": jour, "section": section, "journal_suppose": journal})
+        elif texte and (brut["titre"] or ressemble_a_un_titre(texte)):
             section, jour = texte, None
             journal = journal_suppose(texte) or journal
             ajouter({"type": "titre", "texte": texte, "journal_suppose": journal})
@@ -449,23 +464,23 @@ def trouver_ffmpeg():
 def compresser_image(source, cible_sans_ext):
     Image, ImageOps = charger_pillow()
     image = ImageOps.exif_transpose(Image.open(source))
-    transparente = image.mode in ("RGBA", "LA") or "transparency" in image.info
+    # Google exporte tout en PNG avec un canal alpha, photos comprises. On aplatit
+    # sur fond blanc (la couleur des pages du site) pour tout publier en JPEG.
+    if image.mode in ("RGBA", "LA", "P"):
+        image = image.convert("RGBA")
+        fond = Image.new("RGBA", image.size, "white")
+        fond.alpha_composite(image)
+        image = fond
+    image = image.convert("RGB")
     cote = COTE_MAX_IMAGE
     while True:
         reduite = image.copy()
         reduite.thumbnail((cote, cote), Image.LANCZOS)
-        if transparente:
-            # La transparence impose le PNG (schémas, captures d'écran détourées).
+        for qualite in (82, 72, 62, 50):
             tampon = io.BytesIO()
-            reduite.save(tampon, "PNG", optimize=True)
+            reduite.save(tampon, "JPEG", quality=qualite, optimize=True, progressive=True)
             if tampon.tell() < TAILLE_MAX:
-                return ecrire(cible_sans_ext.with_suffix(".png"), tampon.getvalue())
-        else:
-            for qualite in (82, 72, 62, 50):
-                tampon = io.BytesIO()
-                reduite.convert("RGB").save(tampon, "JPEG", quality=qualite, optimize=True, progressive=True)
-                if tampon.tell() < TAILLE_MAX:
-                    return ecrire(cible_sans_ext.with_suffix(".jpg"), tampon.getvalue())
+                return ecrire(cible_sans_ext.with_suffix(".jpg"), tampon.getvalue())
         cote = int(cote * 0.8)
         if cote < 320:
             raise RuntimeError("image impossible à ramener sous 2 Mo")

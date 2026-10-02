@@ -1,10 +1,9 @@
 ---
 title: "MPU déplacé au-dessus des moteurs"
 date: 2026-09-25
-date_estimee: true
 sujet: Capteurs
 description: "Le MPU passe au-dessus des NEMA. Le champ magnétique des moteurs ne dégrade pas la précision, et un seuil de 1° limite le drift."
-sources: ["ab4778c38bd2"]
+sources: ["6fd085da46fa"]
 ---
 **Décision** : le MPU a été déplacé au-dessus des NEMA.
 

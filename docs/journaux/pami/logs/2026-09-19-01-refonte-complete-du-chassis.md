@@ -1,11 +1,15 @@
 ---
 title: "Refonte complète du châssis, moteurs encastrés"
 date: 2026-09-19
-date_estimee: true
 sujet: Châssis
-description: "Le châssis repart de zéro en ne gardant que ce qui marche. Les moteurs sont désormais encastrés dans une boîte fermée par de l'acrylique."
-sources: ["85ec12de94f3", "9128d147b4c3"]
+description: "Supports de capteurs trop fragiles, fixations peu solides : le châssis repart de zéro, avec des moteurs encastrés dans une boîte."
+vignette: 2026-09-19-chassis-fb29de47f2b1.jpg
+sources: ["5f003514c796", "85ec12de94f3", "9128d147b4c3", "fb29de47f2b1"]
 ---
+## Supports des capteurs trop fragiles
+
+**Problème** : le support des capteurs n'est pas assez solide et les vis extérieures sont impossibles à visser. La plateforme est à modifier.
+
 ## Pourquoi repartir de zéro
 
 **Problème** : les problèmes de fixation et de solidité se retrouvaient un peu partout.
@@ -19,3 +23,5 @@ sources: ["85ec12de94f3", "9128d147b4c3"]
 **Décision** : ils sont maintenant encastrés dans une boîte, fermée par une épaisseur d'acrylique qui verrouille le NEMA en position, l'arbre d'entraînement sortant de la boîte.
 
 **Résultat** : le montage est bien plus droit et bien plus solide.
+
+{% include media.html fichier="2026-09-19-chassis-fb29de47f2b1.jpg" legende="Le nouveau châssis : le moteur s'encastre dans une boîte" %}

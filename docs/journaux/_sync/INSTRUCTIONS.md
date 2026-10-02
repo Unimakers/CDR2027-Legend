@@ -97,22 +97,32 @@ Les commandes se lancent depuis la racine du dépôt. Les fichiers de travail vo
 
 L'identifiant du document est donné dans la consigne de la tâche (il n'est pas écrit dans ce dépôt).
 
-Avec le connecteur Google Drive, appeler `download_file_content` avec `exportMimeType: "application/zip"`. Le résultat contient l'export (page HTML et dossier d'images) encodé en base64.
+**Voie normale : téléchargement direct.** Le document est partagé en lecture à toute personne disposant du lien. L'export complet (page HTML et dossier d'images) se télécharge donc sans authentification :
 
-- Si le résultat est trop gros pour être affiché et a été enregistré dans un fichier, passer ce fichier tel quel à l'étape 2.
+```bash
+mkdir -p docs/journaux/_sync/tmp
+curl -sSL -o docs/journaux/_sync/tmp/export.zip "https://docs.google.com/document/d/<IDENTIFIANT>/export?format=zip"
+```
+
+Si le fichier obtenu n'est pas une archive ZIP (page de connexion, erreur), c'est que le partage par lien a été retiré ou que la machine n'a pas accès à Google : passer à la voie de secours.
+
+**Voie de secours : connecteur Google Drive.** Appeler `download_file_content` avec `exportMimeType: "application/zip"`. Le résultat contient l'export encodé en base64.
+
+- Si le résultat a été enregistré dans un fichier, passer ce fichier tel quel à l'étape 2.
 - Sinon, recopier exactement la valeur du champ `content` dans `docs/journaux/_sync/tmp/export.b64`.
 
-Si l'export ZIP échoue ou est signalé comme abîmé à l'étape 2, recommencer une fois. En dernier recours, lire le texte avec `read_file_content`, l'enregistrer dans `tmp/doc.txt` et continuer avec ce fichier : les images ne seront pas traitées cette semaine, et il faut le dire dans le compte rendu.
+Le connecteur refuse les documents de plus de 10 Mo environ (« File too large for export »), ce qui arrive vite avec des photos. Dans ce cas, lire le texte avec `read_file_content`, l'enregistrer dans `tmp/doc.txt` et continuer avec ce fichier : les images ne seront pas traitées cette semaine, et il faut le dire clairement dans le compte rendu.
 
 ### 2. Lister ce qui est nouveau
 
 ```bash
-python3 docs/journaux/_sync/journal.py extraire docs/journaux/_sync/tmp/export.b64
+python3 docs/journaux/_sync/journal.py extraire docs/journaux/_sync/tmp/export.zip
 ```
 
-La commande découpe le document en blocs, écrit `tmp/blocs.json` et extrait les images dans `tmp/images/`. Chaque bloc de contenu a :
+La commande découpe le document en blocs, écrit `tmp/blocs.json` et extrait les images dans `tmp/images/`. Les blocs sont de type `titre`, `date`, `texte`, `image` ou `legende`. Chaque bloc de contenu a :
 
 - `id` : son identifiant ;
+- `legende` (images seulement) : le texte de la ligne « Légende : ... » écrite juste sous l'image, s'il y en a une ;
 - `nouveau` : `true` s'il n'est cité par aucun log et n'a pas été écarté ;
 - `date` : la date écrite au-dessus de lui dans le document (`null` s'il n'y en a pas) ;
 - `journal_suppose` : le journal déduit du titre de section (`null` si le titre ne le dit pas) ;
@@ -129,13 +139,14 @@ Lire `tmp/blocs.json` en entier, pas seulement les blocs nouveaux : le contexte 
 
 **Quelle date ?** Celle du champ `date`. S'il est `null`, chercher une date écrite dans le paragraphe lui-même. À défaut, prendre la date du jour de la synchronisation avec `date_estimee: true`.
 
-Cas particulier des premières notes : dans le Google Doc, toutes les notes prises avant le 2 octobre 2026 sont sous la seule date « 10 août 2026 ». Elles ont été réparties à la main sur des dates estimées, du 10 août au 1er octobre 2026 (logs marqués `date_estimee: true`). Ces logs ne se redatent pas. Un paragraphe nouveau qui hérite encore du 10 août 2026 alors qu'il est placé après les notes déjà journalisées n'a donc pas de date fiable : le traiter comme un bloc sans date.
+Cas particulier des premières notes : dans le Google Doc, toutes les notes prises avant le 2 octobre 2026 sont sous la seule date « 10 août 2026 ». Elles ont été réparties à la main sur des dates allant du 10 août au 1er octobre 2026, choisies par l'équipe. Ces logs ne se redatent pas et ne reçoivent pas `date_estimee`. Un paragraphe nouveau qui hérite encore du 10 août 2026 alors qu'il est placé après les notes déjà journalisées n'a donc pas de date fiable : le traiter comme un bloc sans date.
 
 **Nouveau log ou log existant ?**
 
 - Un paragraphe sur un sujet et une date qui ont déjà un log dans ce journal : l'ajouter à ce log, dans une nouvelle section ou à la fin de la section concernée.
 - Un paragraphe qui reprend, en le modifiant, un paragraphe déjà journalisé (même sujet, texte proche) : n'ajouter au log que l'information réellement nouvelle. S'il n'y en a pas, ajouter seulement l'identifiant à `sources`.
 - Une image : elle va dans le log qui cite le paragraphe juste au-dessus d'elle dans le document (à défaut, le plus proche). C'est le cas des photos oubliées, ajoutées plus tard sous une ancienne note.
+- Une légende (bloc `legende`) : elle n'est pas un paragraphe du log, elle devient la légende de l'image qu'elle suit. Corriger ses fautes sans en changer le sens. Une image sans légende reçoit une légende courte déduite de ce qu'on y voit et de la note voisine, sans rien affirmer que la note ne dit pas. L'identifiant de la légende va lui aussi dans `sources`.
 - Sinon : créer un nouveau log. Regrouper dans un même log les paragraphes nouveaux qui partagent la date et le sujet.
 
 Dans tous les cas, ajouter l'identifiant du bloc au champ `sources` du log. C'est ce qui évite de le reprendre la semaine suivante.
@@ -178,7 +189,7 @@ La page de chaque journal (`docs/journaux/<journal>/index.md`) se termine par un
 
 ```bash
 python3 docs/journaux/_sync/journal.py verifier
-python3 docs/journaux/_sync/journal.py extraire docs/journaux/_sync/tmp/export.b64
+python3 docs/journaux/_sync/journal.py extraire docs/journaux/_sync/tmp/export.zip
 ```
 
 `verifier` doit finir sans erreur (les alertes sont à lire et à corriger si elles sont justifiées). La seconde commande ne doit plus lister comme nouveaux que les blocs volontairement laissés de côté à l'étape 3.

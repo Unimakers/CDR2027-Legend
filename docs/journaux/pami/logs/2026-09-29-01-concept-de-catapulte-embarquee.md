@@ -1,7 +1,6 @@
 ---
 title: "Concept de catapulte embarquée"
 date: 2026-09-29
-date_estimee: true
 sujet: Catapulte
 description: "Une catapulte à ressort au centre de chaque PAMI, chargée à la main et libérée par un servomoteur."
 sources: ["31abb6890a6f"]
