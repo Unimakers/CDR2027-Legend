@@ -1,0 +1,38 @@
+{%- comment -%}
+  Liste des logs d'un journal, du plus récent au plus ancien.
+  Utilisation : include journal_liste.html journal="pami"
+  Chaque log est une page de journaux/<journal>/logs/ (voir _config.yml).
+{%- endcomment -%}
+{%- assign _logs = site.pages | where: "journal", include.journal | sort: "path" | reverse -%}
+{%- if _logs.size == 0 -%}
+<p class="journal-vide">Aucun log pour l'instant. Les premières entrées apparaîtront ici à la prochaine synchronisation.</p>
+{%- else -%}
+<p class="journal-compteur">{{ _logs.size }} log{% if _logs.size > 1 %}s{% endif %} · dernière entrée le {% include journal_date.html date=_logs.first.date estimee=_logs.first.date_estimee %}</p>
+<ol class="journal-liste">
+{%- assign _mois_courts = "janv.,févr.,mars,avr.,mai,juin,juil.,août,sept.,oct.,nov.,déc." | split: "," -%}
+{%- assign _jour_precedent = "" -%}
+{%- for _log in _logs -%}
+{%- assign _jour = _log.date | date: "%Y-%m-%d" -%}
+{%- assign _m = _log.date | date: "%-m" | minus: 1 -%}
+<li class="journal-item{% if _jour != _jour_precedent %} journal-item-nouveau-jour{% endif %}">
+<time class="journal-jour" datetime="{{ _jour }}"{% if _jour == _jour_precedent %} aria-hidden="true"{% endif %}>
+{%- if _jour != _jour_precedent -%}
+<span class="journal-jour-numero">{% if _log.date_estimee %}≈{% endif %}{{ _log.date | date: "%-d" }}</span>
+<span class="journal-jour-mois">{{ _mois_courts[_m] }} {{ _log.date | date: "%Y" }}</span>
+{%- endif -%}
+</time>
+<a class="journal-carte" href="{{ _log.url | relative_url }}">
+{%- if _log.vignette -%}
+<img class="journal-carte-vignette" src="{{ '/journaux/' | append: include.journal | append: '/medias/' | append: _log.vignette | relative_url }}" alt="" loading="lazy">
+{%- endif -%}
+<span class="journal-carte-corps">
+{%- if _log.sujet -%}<span class="journal-carte-sujet">{{ _log.sujet }}</span>{%- endif -%}
+<span class="journal-carte-titre">{{ _log.title }}</span>
+{%- if _log.description -%}<span class="journal-carte-description">{{ _log.description }}</span>{%- endif -%}
+</span>
+</a>
+</li>
+{%- assign _jour_precedent = _jour -%}
+{%- endfor -%}
+</ol>
+{%- endif -%}

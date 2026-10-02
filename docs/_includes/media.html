@@ -1,0 +1,17 @@
+{%- comment -%}
+  Photo ou vidéo d'un log, rangée dans journaux/<journal>/medias/.
+  Utilisation dans un log :
+    include media.html fichier="2026-08-10-chassis-1a2b3c4d5e6f.jpg" legende="Le châssis sans ses murs"
+  Paramètres : fichier (nom seul, sans dossier), legende (facultatif), alt (facultatif).
+  Une vidéo (.mp4, .webm) est affichée avec un lecteur.
+{%- endcomment -%}
+{%- assign _src = '/journaux/' | append: page.journal | append: '/medias/' | append: include.fichier | relative_url -%}
+{%- assign _ext = include.fichier | split: '.' | last | downcase -%}
+<figure class="log-media">
+{%- if _ext == "mp4" or _ext == "webm" -%}
+<video src="{{ _src }}" controls preload="metadata" playsinline></video>
+{%- else -%}
+<a href="{{ _src }}"><img src="{{ _src }}" alt="{{ include.alt | default: include.legende | escape }}" loading="lazy"></a>
+{%- endif -%}
+{%- if include.legende -%}<figcaption>{{ include.legende }}</figcaption>{%- endif -%}
+</figure>

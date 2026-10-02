@@ -1,0 +1,21 @@
+{%- comment -%}
+  Cartes d'accès aux journaux (page d'accueil des journaux).
+  Un journal est une page qui déclare `journal_id` dans son en-tête.
+{%- endcomment -%}
+{%- assign _journaux = site.pages | where_exp: "p", "p.journal_id" | sort: "nav_order" -%}
+<div class="journaux-apercu">
+{%- for _journal in _journaux -%}
+{%- assign _logs = site.pages | where: "journal", _journal.journal_id | sort: "path" | reverse -%}
+<a class="journaux-apercu-carte" href="{{ _journal.url | relative_url }}">
+<span class="journaux-apercu-titre">{{ _journal.title }}</span>
+<span class="journaux-apercu-texte">{{ _journal.description }}</span>
+<span class="journaux-apercu-pied">
+{%- if _logs.size == 0 -%}
+Aucun log pour l'instant
+{%- else -%}
+{{ _logs.size }} log{% if _logs.size > 1 %}s{% endif %} · dernière entrée le {% include journal_date.html date=_logs.first.date estimee=_logs.first.date_estimee %}
+{%- endif -%}
+</span>
+</a>
+{%- endfor -%}
+</div>

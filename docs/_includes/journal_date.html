@@ -1,0 +1,10 @@
+{%- comment -%}
+  Date en français : « 10 août 2026 ».
+  Paramètres : date (obligatoire), estimee (true => préfixe « ≈ »).
+{%- endcomment -%}
+{%- assign _mois = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign _m = include.date | date: "%-m" | minus: 1 -%}
+{%- assign _j = include.date | date: "%-d" -%}
+{%- if _j == "1" -%}{%- assign _j = "1er" -%}{%- endif -%}
+{%- if include.estimee -%}≈ {% endif -%}
+{{- _j }} {{ _mois[_m] }} {{ include.date | date: "%Y" -}}

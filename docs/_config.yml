@@ -13,3 +13,26 @@ just_the_docs:
   navigation_depth: 5
   search_enabled: true
   search_indexing: true
+
+# Journaux de bord : réglages communs à tous les logs d'un journal.
+# Un log n'a donc à déclarer que son titre, sa date, sa description et son sujet.
+# Procédure complète : docs/journaux/_sync/INSTRUCTIONS.md
+defaults:
+  - scope:
+      path: "journaux/pami/logs"
+    values:
+      layout: log
+      journal: pami
+      parent: PAMI
+      grand_parent: Journaux
+      nav_exclude: true
+      has_toc: false
+  - scope:
+      path: "journaux/robot-principal/logs"
+    values:
+      layout: log
+      journal: robot-principal
+      parent: Robot principal
+      grand_parent: Journaux
+      nav_exclude: true
+      has_toc: false

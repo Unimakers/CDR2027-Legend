@@ -1,0 +1,300 @@
+// Styles des journaux de bord (docs/journaux).
+// Ils reprennent les variables du thème pour suivre ses couleurs et ses espacements.
+
+// Les logs sont rattachés à leur journal mais masqués du menu (nav_exclude) :
+// le journal garde alors un sous-menu vide, dont on retire le chevron.
+.nav-list-item:has(> .nav-list:empty) > .nav-list-expander {
+  display: none;
+}
+
+// ---------------------------------------------------------------------------
+// Accueil des journaux : une carte par journal
+// ---------------------------------------------------------------------------
+
+.journaux-apercu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: $sp-4;
+  margin: $sp-5 0;
+}
+
+.main-content a.journaux-apercu-carte {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-2;
+  padding: $sp-5;
+  color: $body-text-color;
+  white-space: normal;
+  text-decoration: none;
+  background-image: none;
+  border: $border $border-color;
+  border-top: 3px solid $link-color;
+  border-radius: $border-radius;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.journaux-apercu-titre {
+  @include fs-6;
+
+  font-weight: 600;
+  color: $body-heading-color;
+}
+
+.journaux-apercu-texte {
+  flex-grow: 1;
+}
+
+.journaux-apercu-pied {
+  @include fs-2;
+
+  color: $grey-dk-000;
+}
+
+// ---------------------------------------------------------------------------
+// Page d'un journal : frise des logs
+// ---------------------------------------------------------------------------
+
+.journal-compteur,
+.journal-vide {
+  @include fs-3;
+
+  color: $grey-dk-000;
+}
+
+.journal-vide {
+  padding: $sp-5;
+  text-align: center;
+  border: 1px dashed $border-color;
+  border-radius: $border-radius;
+}
+
+.main-content ol.journal-liste {
+  padding-left: 0;
+  margin: $sp-4 0 $sp-6;
+  list-style: none;
+
+  > li.journal-item {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: $sp-4;
+    margin: 0;
+
+    // Le thème numérote les listes ordonnées : on retire ce compteur.
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.journal-item-nouveau-jour:not(:first-child) {
+  padding-top: $sp-4;
+}
+
+.journal-jour {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: $sp-3;
+  line-height: 1.15;
+  text-align: right;
+}
+
+.journal-jour-numero {
+  @include fs-7;
+
+  font-weight: 600;
+  color: $body-heading-color;
+}
+
+.journal-jour-mois {
+  @include fs-2;
+
+  color: $grey-dk-000;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.main-content a.journal-carte {
+  display: flex;
+  gap: $sp-4;
+  align-items: center;
+  padding: $sp-3 $sp-4;
+  margin-bottom: $sp-2;
+  color: $body-text-color;
+  white-space: normal;
+  text-decoration: none;
+  background-image: none;
+  border: $border $border-color;
+  border-left: 3px solid $link-color;
+  border-radius: $border-radius;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(2px);
+
+    .journal-carte-titre {
+      color: $link-color;
+    }
+  }
+}
+
+.journal-carte-corps {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.journal-carte-sujet,
+.log-sujet {
+  @include fs-1;
+
+  align-self: flex-start;
+  padding: 0.1em 0.6em;
+  font-weight: 600;
+  color: $link-color;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid $link-color;
+  border-radius: 1em;
+}
+
+.journal-carte-titre {
+  font-weight: 600;
+  color: $body-heading-color;
+}
+
+.journal-carte-description {
+  @include fs-3;
+}
+
+.journal-carte-vignette {
+  flex: 0 0 auto;
+  order: 2;
+  width: 5.5rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: $border-radius;
+}
+
+// ---------------------------------------------------------------------------
+// Page d'un log
+// ---------------------------------------------------------------------------
+
+.log-retour {
+  @include fs-3;
+
+  margin: 0 0 $sp-3;
+}
+
+.main-content h1.log-titre {
+  margin: 0 0 $sp-2;
+}
+
+.log-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-3;
+  align-items: center;
+  margin: 0 0 $sp-4;
+  color: $grey-dk-000;
+}
+
+.log-description {
+  @include fs-5;
+
+  padding-bottom: $sp-4;
+  margin: 0 0 $sp-5;
+  color: $body-heading-color;
+  border-bottom: $border $border-color;
+}
+
+.log-media {
+  margin: $sp-5 0;
+  text-align: center;
+
+  img,
+  video {
+    max-width: 100%;
+    max-height: 32rem;
+    border: $border $border-color;
+    border-radius: $border-radius;
+  }
+
+  figcaption {
+    @include fs-2;
+
+    margin-top: $sp-2;
+    color: $grey-dk-000;
+  }
+}
+
+// Plusieurs médias côte à côte : <div class="log-galerie"> ... </div>
+.log-galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: $sp-4;
+  align-items: start;
+  margin: $sp-5 0;
+
+  .log-media {
+    margin: 0;
+  }
+}
+
+.log-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $sp-4;
+  padding-top: $sp-5;
+  margin-top: $sp-8;
+  border-top: $border $border-color;
+}
+
+.main-content a.log-navigation-lien {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-1;
+  white-space: normal;
+  text-decoration: none;
+  background-image: none;
+}
+
+.log-navigation-suivant {
+  text-align: right;
+}
+
+.log-navigation-sens {
+  @include fs-2;
+
+  color: $grey-dk-000;
+}
+
+.log-navigation-titre {
+  font-weight: 600;
+}
+
+@media (max-width: 31.25rem) {
+  .main-content ol.journal-liste > li.journal-item {
+    grid-template-columns: 1fr;
+    gap: $sp-1;
+  }
+
+  .journal-jour {
+    flex-direction: row;
+    gap: $sp-2;
+    align-items: baseline;
+    padding-top: 0;
+  }
+
+  .journal-carte-vignette {
+    display: none;
+  }
+}

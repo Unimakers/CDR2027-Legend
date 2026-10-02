@@ -477,3 +477,9 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,kicad,jekyll,freecad,platformio,c,python,java,node
+
+### Journaux de bord (docs/journaux) ###
+# La regle "logs" ci-dessus (bloc Node) ignorerait les logs des journaux.
+!/docs/journaux/*/logs/
+# Fichiers de travail de la synchro (exports du Google Doc, originaux non compresses)
+/docs/journaux/_sync/tmp/

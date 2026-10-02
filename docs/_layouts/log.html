@@ -1,0 +1,47 @@
+---
+layout: default
+---
+{%- comment -%}
+  Page d'un log de journal. L'en-tête (retour, titre, date, sujet, description)
+  et la navigation entre logs sont générés ici : le fichier du log ne contient
+  que le détail.
+{%- endcomment -%}
+{%- assign _journal = site.pages | where: "journal_id", page.journal | first -%}
+{%- assign _logs = site.pages | where: "journal", page.journal | sort: "path" -%}
+{%- for _log in _logs -%}
+  {%- if _log.url == page.url -%}
+    {%- unless forloop.first -%}
+      {%- assign _i = forloop.index0 | minus: 1 -%}
+      {%- assign _precedent = _logs[_i] -%}
+    {%- endunless -%}
+    {%- unless forloop.last -%}
+      {%- assign _suivant = _logs[forloop.index] -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+<article class="log">
+<header class="log-entete">
+<p class="log-retour"><a href="{{ _journal.url | relative_url }}">← {{ _journal.retour | default: _journal.title }}</a></p>
+<h1 class="log-titre">{{ page.title }}</h1>
+<p class="log-meta">
+<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{% include journal_date.html date=page.date estimee=page.date_estimee %}</time>
+{%- if page.sujet %}<span class="log-sujet">{{ page.sujet }}</span>{% endif -%}
+</p>
+{%- if page.description %}<p class="log-description">{{ page.description }}</p>{% endif -%}
+</header>
+<div class="log-corps">
+{{ content }}
+</div>
+{%- if _precedent or _suivant -%}
+<nav class="log-navigation" aria-label="Logs voisins">
+{%- if _precedent -%}
+<a class="log-navigation-lien" href="{{ _precedent.url | relative_url }}"><span class="log-navigation-sens">← Log précédent</span><span class="log-navigation-titre">{{ _precedent.title }}</span></a>
+{%- else -%}
+<span></span>
+{%- endif -%}
+{%- if _suivant -%}
+<a class="log-navigation-lien log-navigation-suivant" href="{{ _suivant.url | relative_url }}"><span class="log-navigation-sens">Log suivant →</span><span class="log-navigation-titre">{{ _suivant.title }}</span></a>
+{%- endif -%}
+</nav>
+{%- endif -%}
+</article>
