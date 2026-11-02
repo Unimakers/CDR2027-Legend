@@ -1,23 +1,27 @@
 #!/usr/bin/env python3
-"""Outils de synchronisation des journaux de bord avec le Google Doc de notes.
+"""Outils de synchronisation des journaux de bord avec le Google Form de notes.
 
 La procédure complète est dans INSTRUCTIONS.md (même dossier). Sous-commandes :
 
-  extraire   Lit un export du Google Doc et liste ses blocs (paragraphes,
-             images), en signalant ceux qui ne sont pas encore dans un log.
+  formulaire Lit l'export CSV de la feuille de réponses du formulaire et liste
+             les notes et fichiers qui ne sont pas encore dans un log.
+  extraire   Lit un export de l'ancien Google Doc et liste ses blocs
+             (paragraphes, images), en signalant ceux qui ne sont pas encore
+             dans un log.
   decoder    Écrit sur disque un fichier Drive reçu en base64 (photo, vidéo).
   compresser Compresse photos et vidéos sous 2 Mo et les range dans medias/.
   ignorer    Marque un bloc comme volontairement laissé hors des journaux.
   hash       Affiche l'identifiant d'un texte ou d'un fichier.
   verifier   Contrôle les logs et les médias avant un commit.
 
-Chaque bloc du document a un identifiant (12 caractères) calculé sur son
-contenu. Un log liste dans son en-tête `sources` les identifiants des blocs
+Chaque note du formulaire (et chaque bloc de l'ancien document) a un
+identifiant (12 caractères) calculé sur son contenu. Un log liste dans son en-tête `sources` les identifiants des blocs
 dont il est tiré : c'est ce qui permet de ne reprendre que ce qui est nouveau.
 """
 
 import argparse
 import base64
+import csv
 import binascii
 import hashlib
 import html
@@ -45,6 +49,9 @@ COTE_MAX_IMAGE = 1600  # pixels, plus grand côté d'une photo
 
 EXT_IMAGES = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".tif", ".tiff", ".heic"}
 EXT_VIDEOS = {".mp4", ".mov", ".m4v", ".webm", ".avi", ".mkv", ".3gp"}
+# Documents joints (BOM, schéma, notice) : copiés tels quels s'ils font moins de 2 Mo.
+EXT_DOCUMENTS = {".pdf", ".xlsx", ".xls", ".ods", ".csv", ".docx", ".odt", ".pptx", ".txt",
+                 ".zip", ".step", ".stp", ".stl", ".3mf"}
 
 MOIS = {
     "janvier": 1, "fevrier": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6,
@@ -420,6 +427,112 @@ def cmd_extraire(args):
 
 
 # ---------------------------------------------------------------------------
+# Lecture de la feuille de réponses du Google Form
+# ---------------------------------------------------------------------------
+
+# Colonne du formulaire -> clé, repérée par le début de l'intitulé (minuscules, sans accents).
+COLONNES_FORMULAIRE = {
+    "horodateur": "horodateur",
+    "robot": "robot",
+    "date": "date",
+    "sujet": "sujet",
+    "ce qui a avance": "texte",
+    "photo": "fichiers",
+}
+
+
+def id_fichier_drive(identifiant_drive):
+    """Identifiant d'un fichier envoyé, stable même si son contenu est remplacé."""
+    return hashlib.sha1(f"drive:{identifiant_drive}".encode("utf-8")).hexdigest()[:12]
+
+
+def journal_du_robot(valeur):
+    valeur = sans_accents(valeur or "").lower()
+    if "pami" in valeur:
+        return "pami"
+    if "principal" in valeur:
+        return "robot-principal"
+    return None
+
+
+def date_iso(valeur):
+    trouve = re.match(r"\s*(\d{1,2})/(\d{1,2})/(\d{4})", valeur or "")
+    if not trouve:
+        return None
+    try:
+        return date(int(trouve[3]), int(trouve[2]), int(trouve[1])).isoformat()
+    except ValueError:
+        return None
+
+
+def cmd_formulaire(args):
+    sortie = Path(args.sortie) if args.sortie else DOSSIER_TMP
+    sortie.mkdir(parents=True, exist_ok=True)
+    texte = charger_octets(Path(args.source)).decode("utf-8-sig", errors="replace")
+    lignes = list(csv.reader(io.StringIO(texte)))
+    if not lignes:
+        sys.exit("Export vide : refaire l'export CSV de la feuille de réponses.")
+
+    colonnes = {}
+    for index, intitule in enumerate(lignes[0]):
+        normalise = sans_accents(intitule).lower()
+        for mot, cle in COLONNES_FORMULAIRE.items():
+            if normalise.startswith(mot) and cle not in colonnes:
+                colonnes[cle] = index
+    manquantes = [c for c in COLONNES_FORMULAIRE.values() if c not in colonnes]
+    if manquantes:
+        sys.exit(f"Colonnes introuvables dans l'export : {', '.join(manquantes)}. Le formulaire a-t-il changé ?")
+
+    connues = sources_connues()
+    ignores = lire_etat().get("ignores", {})
+    notes = []
+    for numero, ligne in enumerate(lignes[1:], start=2):
+        if not any(cellule.strip() for cellule in ligne):
+            continue
+        valeur = {cle: (ligne[i].strip() if i < len(ligne) else "") for cle, i in colonnes.items()}
+        identifiant = hash_texte(valeur["horodateur"] + valeur["sujet"] + valeur["texte"])
+        logs = connues.get(identifiant, [])
+        fichiers = []
+        for lien in re.split(r"[\s,]+", valeur["fichiers"]):
+            id_drive_lien = id_drive(lien) if lien else None
+            if not id_drive_lien:
+                continue
+            id_f = id_fichier_drive(id_drive_lien)
+            fichiers.append({
+                "id": id_f, "id_drive": id_drive_lien, "url": lien,
+                "logs": connues.get(id_f, []),
+                "nouveau": id_f not in connues and id_f not in ignores,
+            })
+        notes.append({
+            "ligne": numero, "id": identifiant,
+            "horodateur": valeur["horodateur"],
+            "journal": journal_du_robot(valeur["robot"]), "robot": valeur["robot"],
+            "date": date_iso(valeur["date"]), "date_brute": valeur["date"],
+            "sujet": valeur["sujet"], "texte": valeur["texte"],
+            "fichiers": fichiers, "logs": logs, "ignore": ignores.get(identifiant),
+            "nouveau": not logs and identifiant not in ignores,
+        })
+
+    (sortie / "notes.json").write_text(
+        json.dumps(notes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    nouvelles = [n for n in notes if n["nouveau"]]
+    fichiers_nouveaux = [(n, f) for n in notes if not n["nouveau"] for f in n["fichiers"] if f["nouveau"]]
+    publies = [f for n in notes if n["logs"] for f in n["fichiers"] if f["logs"]]
+    print(f"{len(notes)} note(s) lue(s), {len(nouvelles)} nouvelle(s). "
+          f"Détail complet : {(sortie / 'notes.json').as_posix()}")
+    for note in nouvelles:
+        apercu = note["texte"][:80].replace("\n", " ")
+        print(f"  NOTE    {note['id']} {note['date'] or '?'} {note['journal'] or '?'} "
+              f"« {note['sujet']} » {apercu}... ({len(note['fichiers'])} fichier(s))")
+    for note, fichier in fichiers_nouveaux:
+        print(f"  FICHIER {fichier['id']} drive {fichier['id_drive']} ajouté après coup à la note {note['id']}")
+    if publies:
+        print(f"{len(publies)} fichier(s) déjà publié(s) dans un log (id Drive) : "
+              + ", ".join(f["id_drive"] for f in publies))
+
+
+# ---------------------------------------------------------------------------
 # Fichiers Drive et compression
 # ---------------------------------------------------------------------------
 
@@ -547,6 +660,10 @@ def cmd_compresser(args):
                 produit = ecrire(cible.with_suffix(".gif"), source.read_bytes())  # animation conservée
             elif extension in EXT_IMAGES:
                 produit = compresser_image(source, cible)
+            elif extension in EXT_DOCUMENTS:
+                if source.stat().st_size >= TAILLE_MAX:
+                    raise RuntimeError(f"document de {source.stat().st_size / 1e6:.2f} Mo, limite 2 Mo : mettre un lien")
+                produit = ecrire(cible.with_suffix(extension), source.read_bytes())
             else:
                 raise RuntimeError(f"type de fichier non géré ({extension or 'sans extension'})")
             resultats.append({"source": nom, "id": identifiant, "fichier": produit.name,
@@ -644,7 +761,12 @@ def main():
     analyseur = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     commandes = analyseur.add_subparsers(dest="commande", required=True)
 
-    c = commandes.add_parser("extraire", help="liste les blocs d'un export du Google Doc")
+    c = commandes.add_parser("formulaire", help="liste les notes nouvelles de l'export CSV du formulaire")
+    c.add_argument("source", help="export CSV de la feuille de réponses, ou résultat d'outil JSON contenant du base64")
+    c.add_argument("--sortie", help=f"dossier de travail (défaut : {DOSSIER_TMP.name}/)")
+    c.set_defaults(action=cmd_formulaire)
+
+    c = commandes.add_parser("extraire", help="liste les blocs d'un export de l'ancien Google Doc")
     c.add_argument("source", help="export ZIP/HTML/texte, ou résultat d'outil JSON contenant du base64")
     c.add_argument("--sortie", help=f"dossier de travail (défaut : {DOSSIER_TMP.name}/)")
     c.set_defaults(action=cmd_extraire)
@@ -654,7 +776,7 @@ def main():
     c.add_argument("sortie")
     c.set_defaults(action=cmd_decoder)
 
-    c = commandes.add_parser("compresser", help="compresse des médias sous 2 Mo dans medias/")
+    c = commandes.add_parser("compresser", help="compresse des médias (et copie les documents) sous 2 Mo dans medias/")
     c.add_argument("--journal", required=True, choices=JOURNAUX)
     c.add_argument("--prefixe", required=True, help="début du nom, ex. 2026-08-10-chassis")
     c.add_argument("fichiers", nargs="+")

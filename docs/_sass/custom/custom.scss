@@ -249,6 +249,24 @@
   }
 }
 
+.log-fichier {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-3;
+  padding: $sp-3 $sp-4;
+  border: $border $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+}
+
+.log-fichier-ext {
+  padding: 0 $sp-2;
+  font-size: $font-size-2;
+  font-weight: 600;
+  border: $border $border-color;
+  border-radius: $border-radius;
+}
+
 .log-navigation {
   display: grid;
   grid-template-columns: 1fr 1fr;

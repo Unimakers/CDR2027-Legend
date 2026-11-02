@@ -30,11 +30,6 @@ Les anciens logs ne sont pas réécrits, même si la solution a été abandonné
 
 ## Comment les journaux sont alimentés
 
-Les notes sont prises en vrac dans un Google Doc partagé par l'équipe : texte, photos et vidéos, sans mise en forme particulière. Une fois par semaine, une tâche automatique relit ce document, y repère ce qui est nouveau, compresse les médias (moins de 2 Mo par fichier) et range le tout dans les logs.
-
-Pour qu'une note arrive dans le bon log, il suffit dans le Google Doc de :
-
-- écrire la date sur une ligne à part au-dessus des notes du jour (par exemple `10 août 2026`) ;
-- garder un titre de section qui dit de quel robot il s'agit (`PAMI` ou `Robot principal`).
+Les notes sont envoyées par l'équipe avec un formulaire : le robot concerné, la date, le sujet, ce qui a avancé (écrit en vrac) et, si besoin, des photos, des vidéos ou des documents. Une fois par semaine, une tâche automatique relit les réponses, met chaque note au propre, compresse les médias (moins de 2 Mo par fichier) et range le tout dans le bon journal.
 
 La procédure complète suivie par la tâche est dans [`docs/journaux/_sync/INSTRUCTIONS.md`](https://github.com/Unimakers/CDR2027-Legend/blob/main/docs/journaux/_sync/INSTRUCTIONS.md).
