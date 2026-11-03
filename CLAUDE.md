@@ -8,9 +8,10 @@ Dépôt de l'équipe **Unimakers** (MakerSpace Amiens) pour la **Coupe de France
 |:--|:--|:--|
 | `fw/` | Firmware PAMI ESP32-S3 (PlatformIO, Arduino) + `fw-luckfox/` (Python, Linux) | `firmware-pami` |
 | `ecad/pcb-pami/` | Carte PAMI sous KiCad | `electronique-pami` |
-| `mcad/` | Vide : la CAO est sur Onshape (lien dans `docs/index.md`) | `etat-projet` |
+| `mcad/` | Vide : la CAO est sur Onshape (lien dans `docs/index.md`) | `conception-3d` |
 | `docs/` | Site Jekyll « Just the Docs », publié sur GitHub Pages | `site-doc` |
 | `docs/journaux/` | Journaux de bord (PAMI, robot principal) | `journaux` |
+| (hors dépôt) | Règlement CDR/Eurobot 2027 « Legend of Camelot » | `reglement-2027` |
 
 Le robot principal n'a encore **ni code, ni carte, ni log** dans le dépôt : tout ce qui existe concerne les PAMI.
 
