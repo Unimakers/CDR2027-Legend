@@ -5,7 +5,7 @@ Création d'un PCB pour la robotique.
 ## Objectif :
 
 Carte électronique ESP32-S3-WROOM-U1 permettant : 
-- Jusqu'à 3 NEMA 17 (28V 2A max)
+- 2 NEMA 17 (28V 2A max), 2 drivers TMC2209
 - 2 moteurs DC (3 à 20V 3A max)
 - 2 servomoteurs (5V)
 - 4 Capteurs TOF VL53L0X (I2C)
@@ -14,7 +14,7 @@ Carte électronique ESP32-S3-WROOM-U1 permettant :
 - 1 module radio RFM69HCW (SPI)
 - LiDAR 5V (UART0)
 - LED Neopixel + sa guirlande (60mA/LED)
-- Récuparation tension d'alimentation (0 à 23V)
+- Récupération tension d'alimentation (0 à 23V environ avec le pont 200k/33k soudé ; la plage dépend des résistances réellement soudées, voir `fw/include/pamiboard.h`)
 - Coopération Master/Slave avec Luckfox Pico Mini B (UART1)
 - Bouton d'arrêt d'urgence de puissance (30V 12A max)
 - Bouton d'équipe (jaune/bleu)

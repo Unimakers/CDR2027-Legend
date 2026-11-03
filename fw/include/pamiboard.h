@@ -21,7 +21,7 @@ constexpr uint8_t PAMI_SDA1 = 2;
 constexpr uint8_t PAMI_SCL2 = 42;
 constexpr uint8_t PAMI_SDA2 = 41;
 
-// NEMA x3 //
+// NEMA : 2 sur les PAMI (2 TMC2209). La voie 3 n'est pas cablee sur la carte PAMI. //
 constexpr uint8_t PAMI_DIR1 = 14;
 constexpr uint8_t PAMI_STEP1 = 13;
 constexpr uint8_t PAMI_DIR2 = 17;
@@ -55,7 +55,9 @@ constexpr uint8_t PAMI_MCP_XSHUT2 = 5; // TOF OFF PIN
 constexpr uint8_t PAMI_MCP_XSHUT1 = 6; // TOF OFF PIN
 constexpr uint8_t PAMI_MCP_XSHUT0 = 7; // TOF OFF PIN
 
-// VOLTAGE CALCULATOR 0 to 28,4V +-50mV //
+// VOLTAGE CALCULATOR //
+// R1/R2 = valeurs REELLEMENT soudees (pas celles du schema). Plage max = 3.3V * (R1 + R2) / R2
+// Avec 200k / 33k : environ 0 a 23,3V //
 constexpr uint8_t PAMI_VCC_CALC = 4;
 constexpr float R1 = 200000.0f; // ACCORDING TO THE VALUE (R) ON PCB
 constexpr float R2 = 33000.0f; // ACCORDING TO THE VALUE (R) ON PCB
