@@ -30,4 +30,4 @@ Les sujets qui ne sont pas encore tranchés. Ils sortent du tableau une fois la 
 | Autonomie de la batterie | Pas de consommation excessive mesurée, batterie en fin de vie à confirmer. |
 | Choix de la batterie | En cours, selon courant instantané et couple des NEMA 17. |
 | Appui au sol | Têtes de vis à la place de la bille folle : idée à valider. |
-| Catapulte | Au stade de concept. |
+| Catapulte | Premier test : portée insuffisante, encoche du projectile cassée (renforcer ou imprimer autrement). |

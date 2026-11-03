@@ -58,7 +58,7 @@ Rien dans le dépôt (pas de code, pas de carte, journal vide).
 ## Points ouverts
 
 Copie du tableau de `docs/journaux/pami/index.md` (c'est lui qui fait foi) :
-câble management ; nouvelle carte 4 couches ; supports ToF ; ToF à 35° gênés par un pilier ; support écran +3 mm ; autonomie batterie ; choix de la batterie (courant instantané vs couple NEMA 17, piste : batterie d'appareil photo 7 V USB-C) ; appui sur têtes de vis à valider ; catapulte au stade de concept (ressort chargé à la main, libéré par servo, tir à ~70° à plus de 40 cm).
+câble management ; nouvelle carte 4 couches ; supports ToF ; ToF à 35° gênés par un pilier ; support écran +3 mm ; autonomie batterie ; choix de la batterie (courant instantané vs couple NEMA 17, piste : batterie d'appareil photo 7 V USB-C) ; appui sur têtes de vis à valider ; catapulte (ressort chargé à la main, libéré par servo, tir visé ~70° à plus de 40 cm) : premier test le 2026-11-03, portée insuffisante selon les ressorts, encoche de retenue du projectile cassée lors d’un déclenchement manuel (renforcer ou imprimer autrement).
 
 ## Historique mécanique (résumé des logs)
 

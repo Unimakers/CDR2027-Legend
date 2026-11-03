@@ -54,4 +54,4 @@ Contrôle de forme complet : commande `/verifier-journaux`.
 
 ## État
 
-Synchro par formulaire depuis le 2026-10-02 (`_sync/etat.json` : aucune synchro encore enregistrée). PAMI : 21 logs du 2026-08-10 au 2026-10-01. Robot principal : aucun log.
+Synchro par formulaire depuis le 2026-10-02 (`_sync/etat.json` : aucune synchro encore enregistrée). PAMI : 22 logs du 2026-08-10 au 2026-11-03. Robot principal : aucun log.
