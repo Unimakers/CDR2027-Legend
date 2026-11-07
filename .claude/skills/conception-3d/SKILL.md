@@ -75,7 +75,7 @@ Dimensions, masse, BAU, batteries, boulet Ø 45 mm, écurie 200 × 300 mm : skil
 
 ## Robot principal
 
-Aucune CAO connue dans le dépôt. Créer une section ici quand elle existera.
+Module encodeur (AMT 102-V, roue codeuse à joint torique, rail, ressort) : v2 développée le 2026-10-22, détails dans `docs/journaux/robot-principal/logs/`. Lien de la CAO et cotes non notés.
 
 ## À compléter
 

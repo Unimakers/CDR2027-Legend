@@ -13,7 +13,7 @@ Dépôt de l'équipe **Unimakers** (MakerSpace Amiens) pour la **Coupe de France
 | `docs/journaux/` | Journaux de bord (PAMI, robot principal) | `journaux` |
 | (hors dépôt) | Règlement CDR/Eurobot 2027 « Legend of Camelot » | `reglement-2027` |
 
-Le robot principal n'a encore **ni code, ni carte, ni log** dans le dépôt : tout ce qui existe concerne les PAMI.
+Le robot principal n'a encore **ni code ni carte** dans le dépôt : seul son journal a commencé (module encodeur). Tout le reste concerne les PAMI.
 
 ## Comment se contextualiser (économie de tokens)
 

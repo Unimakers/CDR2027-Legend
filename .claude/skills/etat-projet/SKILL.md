@@ -10,7 +10,7 @@ Sources : `docs/journaux/pami/logs/`, tableau « Points ouverts » de `docs/jour
 
 ## Robot principal
 
-Rien dans le dépôt (pas de code, pas de carte, journal vide).
+Pas de code ni de carte dans le dépôt. Journal commencé le 2026-10-21 : module encodeur (AMT 102-V, roue codeuse, rails) testé le 2026-10-22, v2 corrigée développée mais pas de test noté. Roulement non démontable à la main, sans correction notée. Voir `docs/journaux/robot-principal/`.
 
 ## PAMI : ce qui fonctionne
 
