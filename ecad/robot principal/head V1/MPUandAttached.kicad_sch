@@ -570,7 +570,7 @@
 					)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x11, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "luckfox mpu"
 				(at -0.254 0.254 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1225,7 +1225,7 @@
 					)
 				)
 				(pin power_out line
-					(at -12.7608 10.1552 0)
+					(at -12.7 10.16 0)
 					(length 3.81)
 					(name "1V8_O"
 						(effects
@@ -1362,13 +1362,13 @@
 		)
 	)
 	(junction
-		(at 205.74 97.79)
+		(at 203.2 97.79)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3088d51d-8dc7-40f1-8451-c59fd224448d")
 	)
 	(junction
-		(at 208.28 95.25)
+		(at 205.74 95.25)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "35eee1b2-6098-4a00-8b3d-e4160ec4371c")
@@ -1547,7 +1547,7 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 113.03) (xy 181.61 113.03)
+			(xy 140.97 113.03) (xy 181.61 113.03)
 		)
 		(stroke
 			(width 0)
@@ -1567,7 +1567,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 110.49) (xy 205.74 110.49)
+			(xy 213.36 110.49) (xy 203.2 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1617,7 +1617,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 107.95) (xy 208.28 107.95)
+			(xy 213.36 107.95) (xy 205.74 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1627,7 +1627,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 97.79) (xy 205.74 110.49)
+			(xy 203.2 97.79) (xy 203.2 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1637,7 +1637,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 107.95) (xy 208.28 95.25)
+			(xy 205.74 107.95) (xy 205.74 95.25)
 		)
 		(stroke
 			(width 0)
@@ -1647,7 +1647,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape input)
-		(at 142.24 113.03 180)
+		(at 140.97 113.03 180)
 		(effects
 			(font
 				(size 1.27 1.27)

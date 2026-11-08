@@ -536,6 +536,15 @@
     },
     "net_colors": {},
     "netclass_assignments": {
+      "+24V": [
+        "Puissances"
+      ],
+      "+3.3V": [
+        "Puissances"
+      ],
+      "+5V": [
+        "Puissances"
+      ],
       "/MPU and co/UART3_RX-": [
         "Com "
       ],
@@ -548,17 +557,8 @@
       "/USB/USB D-": [
         "Com "
       ],
-      "24V": [
-        "Puissances"
-      ],
-      "3V3": [
-        "Puissances"
-      ],
-      "5V": [
-        "Puissances"
-      ],
-      "5V_USB": [
-        "Puissances"
+      "RX-LIDAR": [
+        "Com "
       ]
     },
     "netclass_patterns": []
@@ -704,7 +704,7 @@
         "uuid": "b0306bf7-4fe9-406b-bc9c-1a8a198c5765"
       }
     ],
-    "used_designators": "#PWR1-13,#PWR24,#PWR26,#PWR29-32,C1-5,C9-10,D1,H1-4,J1-8,JP1-8,R1-8,R10,SW1-2,U1-8",
+    "used_designators": "#PWR1-20,#PWR24,#PWR26,#PWR29-32,#PWR42,#PWR148,C1-11,D1,H1-4,J1-10,J12,JP1-8,R1-10,SW1-2,U1-8",
     "variants": []
   },
   "sheets": [
@@ -723,6 +723,10 @@
     [
       "fd42298f-8f64-4550-8af3-77919ada2813",
       "MPU and co"
+    ],
+    [
+      "e3c46b78-8586-4d53-824b-a513dc83397a",
+      "capteurs"
     ]
   ],
   "text_variables": {},
