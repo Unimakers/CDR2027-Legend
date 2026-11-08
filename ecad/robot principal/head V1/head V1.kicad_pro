@@ -519,14 +519,28 @@
       {
         "name": "Com ",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 2,
         "schematic_color": "rgb(0, 0, 255)",
+        "tuning_profile": ""
+      },
+      {
+        "name": "GND",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgb(91, 140, 135)",
+        "tuning_profile": ""
+      },
+      {
+        "name": "I2C",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgb(255, 0, 255)",
         "tuning_profile": ""
       },
       {
         "name": "Puissances",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 3,
         "schematic_color": "rgb(255, 0, 0)",
         "tuning_profile": ""
       }
@@ -536,6 +550,9 @@
     },
     "net_colors": {},
     "netclass_assignments": {
+      "+12V": [
+        "Puissances"
+      ],
       "+24V": [
         "Puissances"
       ],
@@ -557,7 +574,31 @@
       "/USB/USB D-": [
         "Com "
       ],
-      "RX-LIDAR": [
+      "/capteurs/TX-ESP": [
+        "Com "
+      ],
+      "GND": [
+        "GND"
+      ],
+      "SCL1": [
+        "I2C"
+      ],
+      "SCL2": [
+        "I2C"
+      ],
+      "SDA1": [
+        "I2C"
+      ],
+      "SDA2": [
+        "I2C"
+      ],
+      "TX-LIDAR": [
+        "Com "
+      ],
+      "UART1_RX-": [
+        "Com "
+      ],
+      "UART1_TX+": [
         "Com "
       ]
     },
@@ -677,7 +718,7 @@
       "intersheets_ref_short": false,
       "intersheets_ref_show": false,
       "intersheets_ref_suffix": "",
-      "junction_size_choice": 3,
+      "junction_size_choice": 2,
       "label_size_ratio": 0.375,
       "operating_point_overlay_i_precision": 3,
       "operating_point_overlay_i_range": "~A",
@@ -704,7 +745,7 @@
         "uuid": "b0306bf7-4fe9-406b-bc9c-1a8a198c5765"
       }
     ],
-    "used_designators": "#PWR1-20,#PWR24,#PWR26,#PWR29-32,#PWR42,#PWR148,C1-11,D1,H1-4,J1-10,J12,JP1-8,R1-10,SW1-2,U1-8",
+    "used_designators": "#PWR1-22,#PWR24,#PWR26,#PWR29-32,#PWR42-45,#PWR102,#PWR104,#PWR148,C1-45,D1-10,H1-4,IC1-10,J1-33,JP1-8,Q1-8,R1-36,SW1-8,U1-11",
     "variants": []
   },
   "sheets": [
@@ -727,6 +768,14 @@
     [
       "e3c46b78-8586-4d53-824b-a513dc83397a",
       "capteurs"
+    ],
+    [
+      "a8cdf3c4-46d1-452b-a193-2db2397c1a47",
+      "IHM"
+    ],
+    [
+      "b0578549-5098-4bd2-9cba-8eae320f6000",
+      "actionneurs"
     ]
   ],
   "text_variables": {},

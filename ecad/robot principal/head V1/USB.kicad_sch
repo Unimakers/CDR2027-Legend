@@ -1514,6 +1514,12 @@
 		(uuid "1d6d8efc-9fb8-4291-aa48-052ffd04977c")
 	)
 	(junction
+		(at 87.63 80.01)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "52ff44cd-e3ee-47b5-a0af-4beadf03ca77")
+	)
+	(junction
 		(at 90.17 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1577,13 +1583,23 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 80.01) (xy 116.84 82.55)
+			(xy 69.85 80.01) (xy 69.85 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "547f0422-3955-48d6-9af3-f68da5425d80")
+	)
+	(wire
+		(pts
+			(xy 71.12 33.02) (xy 96.52 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6418c1f2-303b-4b6f-9849-a2fccbc2f54a")
 	)
 	(wire
 		(pts
@@ -1637,23 +1653,13 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 33.02) (xy 96.52 31.75)
+			(xy 71.12 33.02) (xy 71.12 31.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "88651a3c-c63a-4b54-a9ed-ea6d07e7d693")
-	)
-	(wire
-		(pts
-			(xy 90.17 80.01) (xy 96.52 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d96494e-e711-4434-8954-528b80e0f7f1")
 	)
 	(wire
 		(pts
@@ -1664,16 +1670,6 @@
 			(type default)
 		)
 		(uuid "973028c1-951b-423c-a35e-fddc2fd47432")
-	)
-	(wire
-		(pts
-			(xy 87.63 80.01) (xy 90.17 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99f3a801-961e-43a1-a86d-0bd67b4b557a")
 	)
 	(wire
 		(pts
@@ -1717,16 +1713,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 80.01) (xy 116.84 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c311984e-db58-4666-aa3b-b4374ce688ae")
-	)
-	(wire
-		(pts
 			(xy 101.6 49.53) (xy 90.17 49.53)
 		)
 		(stroke
@@ -1734,6 +1720,26 @@
 			(type default)
 		)
 		(uuid "cc6283a0-256f-4a8f-8da1-08f24f2f6d2f")
+	)
+	(wire
+		(pts
+			(xy 69.85 80.01) (xy 87.63 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7f949a7-912e-42a4-b4d3-db29289df8ac")
+	)
+	(wire
+		(pts
+			(xy 87.63 80.01) (xy 116.84 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ddac9207-fb71-4476-ab08-4a102e26ed5f")
 	)
 	(wire
 		(pts
@@ -1747,7 +1753,7 @@
 	)
 	(hierarchical_label "5V"
 		(shape output)
-		(at 96.52 31.75 90)
+		(at 71.12 31.75 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1758,7 +1764,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
-		(at 116.84 82.55 270)
+		(at 69.85 83.82 270)
 		(effects
 			(font
 				(size 1.27 1.27)

@@ -1,0 +1,29 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model RZ7889
+#/1552281/1813238/2.50/8/3/Integrated Circuit
+DEF RZ7889 IC 0 30 Y Y 1 F N
+F0 "IC" 950 300 50 H V L CNN
+F1 "RZ7889" 950 200 50 H V L CNN
+F2 "SOIC127P600X175-8N" 950 100 50 H I L CNN
+F3 "http://www.rz-mic.com/uploadfile/fj/2011122615211.pdf" 950 0 50 H I L CNN
+F4 "SOP-8 3A Single-CH DC Motor Driver Circuit" 950 -100 50 H I L CNN "Description"
+F5 "1.75" 950 -200 50 H I L CNN "Height"
+F6 "" 950 -300 50 H I L CNN "Mouser Part Number"
+F7 "" 950 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "RZ" 950 -500 50 H I L CNN "Manufacturer_Name"
+F9 "RZ7889" 950 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X BI 1 0 0 200 R 50 50 0 0 P
+X FI 2 0 -100 200 R 50 50 0 0 P
+X GND 3 0 -200 200 R 50 50 0 0 P
+X VCC 4 0 -300 200 R 50 50 0 0 P
+X BO_2 8 1100 0 200 L 50 50 0 0 P
+X BO_1 7 1100 -100 200 L 50 50 0 0 P
+X FO_2 6 1100 -200 200 L 50 50 0 0 P
+X FO_1 5 1100 -300 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 900 100 900 -400 200 -400 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

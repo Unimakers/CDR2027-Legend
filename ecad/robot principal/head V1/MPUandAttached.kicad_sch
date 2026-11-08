@@ -1426,10 +1426,6 @@
 		(uuid "4bc5ddf0-44a3-435e-a1ac-bbd4633405cf")
 	)
 	(no_connect
-		(at 168.91 80.01)
-		(uuid "55c18333-425f-4ed1-81f7-372904b4f5a8")
-	)
-	(no_connect
 		(at 194.31 77.47)
 		(uuid "852e096f-2860-4f10-8113-9a6323c33d30")
 	)
@@ -1637,6 +1633,16 @@
 	)
 	(wire
 		(pts
+			(xy 166.37 80.01) (xy 168.91 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fbecf49f-b75f-4643-b8e8-b2f5590653eb")
+	)
+	(wire
+		(pts
 			(xy 205.74 107.95) (xy 205.74 95.25)
 		)
 		(stroke
@@ -1677,6 +1683,17 @@
 			(justify left)
 		)
 		(uuid "9d858d31-1339-4425-8ffb-06754c840498")
+	)
+	(hierarchical_label "TX-LIDAR"
+		(shape input)
+		(at 166.37 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d9a228ea-c950-4688-a20d-e350900712cd")
 	)
 	(hierarchical_label "UART3_TX+"
 		(shape output)

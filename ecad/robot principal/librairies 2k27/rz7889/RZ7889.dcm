@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RZ7889
+D SOP-8 3A Single-CH DC Motor Driver Circuit
+K
+F http://www.rz-mic.com/uploadfile/fj/2011122615211.pdf
+$ENDCMP
+#
+#End Doc Library

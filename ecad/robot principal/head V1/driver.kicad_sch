@@ -221,6 +221,340 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:C_Polarized_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Polarized_Small"
+				(at 0.254 -2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Polarized capacitor, small symbol"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Polarized_Small_0_1"
+				(rectangle
+					(start -1.524 0.6858)
+					(end 1.524 0.3048)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.524 -0.3048)
+					(end 1.524 -0.6858)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 1.524) (xy -0.762 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 1.27) (xy -1.016 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Polarized_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.8542)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.8542)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:C_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Small"
+				(at 0.254 -2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor, small symbol"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "capacitor cap"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Jumper:SolderJumper_2_Open"
 			(pin_numbers
 				(hide yes)
@@ -947,190 +1281,330 @@
 		)
 	)
 	(junction
-		(at 143.51 25.4)
+		(at 269.24 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "01f480eb-b943-477c-922f-d38d69849ce7")
+	)
+	(junction
+		(at 208.28 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "03c86cbc-11fc-4c5f-978a-fa95dfb09b2b")
+	)
+	(junction
+		(at 208.28 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0b7b1a94-c7b9-42e5-80a3-c13a96775ae7")
+	)
+	(junction
+		(at 132.08 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1713e662-4fd0-46ce-a275-8d47f97b9b17")
 	)
 	(junction
-		(at 140.97 29.21)
+		(at 140.97 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "17bb193d-53aa-45d6-8b10-c8131864ee5e")
+	)
+	(junction
+		(at 64.77 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "256d8e09-1569-4910-af97-89675eb5bc64")
+	)
+	(junction
+		(at 62.23 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2ea38f58-46c1-4587-9c2b-e721d6ec9b04")
+	)
+	(junction
+		(at 134.62 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "31cd23ce-edb2-4f2a-9ced-1938fff5ae26")
+	)
+	(junction
+		(at 129.54 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "33667ab9-f784-4645-8ef5-b28d54984b7d")
 	)
 	(junction
-		(at 224.79 29.21)
+		(at 218.44 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4cb83cd7-7e11-4093-80e1-a848614ec61c")
 	)
 	(junction
-		(at 160.02 29.21)
+		(at 151.13 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "516cad7b-d0f8-4fa4-814f-36f9ae21abb1")
 	)
 	(junction
-		(at 95.25 63.5)
+		(at 129.54 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "59a75fca-2913-4354-b670-561758cbaabf")
+	)
+	(junction
+		(at 83.82 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5b4c5b03-b8e8-4d64-b072-8435314354ac")
 	)
 	(junction
-		(at 208.28 25.4)
+		(at 199.39 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5d1f0fbd-714d-4975-8ba5-08ccab0a9922")
 	)
 	(junction
-		(at 140.97 88.9)
+		(at 129.54 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "613861e1-d5b9-4ad4-8358-6eee05998734")
 	)
 	(junction
-		(at 95.25 29.21)
+		(at 83.82 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "618b1abb-6883-4e1f-a62d-8bbd3cb9e08f")
 	)
 	(junction
-		(at 76.2 29.21)
+		(at 201.93 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "780774dc-14a4-4dab-80f8-6dc2ecc9c358")
+	)
+	(junction
+		(at 62.23 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "823f6f92-1ddc-4cfe-a741-315cf66624e1")
 	)
 	(junction
-		(at 205.74 88.9)
+		(at 264.16 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8ec124ca-4e3a-414b-bc42-a75657d78dad")
+	)
+	(junction
+		(at 266.7 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "98eaebbe-dc24-41dd-ba68-b9ae0cdac470")
+	)
+	(junction
+		(at 275.59 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9c2af80d-6c1b-4e48-a259-9e005966c85a")
+	)
+	(junction
+		(at 196.85 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9d27e400-0238-4286-ae9f-5b54ecdffba4")
 	)
 	(junction
-		(at 160.02 63.5)
+		(at 73.66 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aeb8fcfa-6eb2-4064-bd42-bdbd15559a46")
+	)
+	(junction
+		(at 140.97 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b361f264-f4e5-46c1-813a-5768dd715359")
+	)
+	(junction
+		(at 151.13 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "be6c50bc-7505-45a5-8898-260ad59a25bb")
 	)
 	(junction
-		(at 30.48 29.21)
+		(at 132.08 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bf34cd5a-d391-4d22-97b7-779dfb94da12")
+	)
+	(junction
+		(at 199.39 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c4280567-482c-481f-97f0-65cb7b01b868")
+	)
+	(junction
+		(at 264.16 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c5166fae-9fc7-4a98-b88c-2276bd76c1d1")
+	)
+	(junction
+		(at 16.51 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cc0ff413-6f12-4b6e-bf78-94214d5d4c72")
 	)
 	(junction
-		(at 224.79 63.5)
+		(at 67.31 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ce14732f-a54c-4800-b337-be23125a51a1")
+	)
+	(junction
+		(at 218.44 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "da8ba403-04a9-4d5a-830a-afbb5bca8cc4")
 	)
 	(junction
-		(at 78.74 25.4)
+		(at 64.77 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e4470e64-a8da-4a53-88f4-860a557a31ed")
 	)
 	(junction
-		(at 76.2 88.9)
+		(at 62.23 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e5664b3e-0391-472b-9af8-565a7e7c1542")
 	)
 	(junction
-		(at 30.48 63.5)
+		(at 16.51 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e6772d50-8e63-42c9-9425-d36b971c6f4d")
 	)
 	(junction
-		(at 205.74 29.21)
+		(at 73.66 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e6f60eae-8439-499e-bbf3-99be8f62e736")
+	)
+	(junction
+		(at 196.85 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ecec9fa4-e01d-4fb0-8872-ddbeae6ad7d8")
+	)
+	(junction
+		(at 196.85 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f8af9118-99ce-4c2d-b550-c06bce23f04e")
 	)
 	(no_connect
-		(at 140.97 50.8)
+		(at 129.54 50.8)
 		(uuid "0bc504c8-75ce-4987-9d9a-7e5725cfec36")
 	)
 	(no_connect
-		(at 105.41 73.66)
+		(at 93.98 73.66)
 		(uuid "157719f5-85fb-4ea3-9854-8dc9510ea0a0")
 	)
 	(no_connect
-		(at 234.95 68.58)
+		(at 228.6 68.58)
 		(uuid "16f90a09-db95-4faf-8bce-73c315fe5a3e")
 	)
 	(no_connect
-		(at 140.97 53.34)
+		(at 129.54 53.34)
 		(uuid "1d93e2b9-f55f-469a-8af6-6d6d7e37c136")
 	)
 	(no_connect
-		(at 105.41 71.12)
+		(at 93.98 71.12)
 		(uuid "32111891-b7b9-4fc5-9acd-fa751c962554")
 	)
 	(no_connect
-		(at 170.18 68.58)
+		(at 161.29 68.58)
 		(uuid "428d46b3-6b80-4f9a-87a5-6cc9022a2863")
 	)
 	(no_connect
-		(at 170.18 73.66)
+		(at 161.29 73.66)
 		(uuid "4597e278-23d7-4ffc-9f3c-c67b4bddb963")
 	)
 	(no_connect
-		(at 76.2 50.8)
+		(at 62.23 50.8)
 		(uuid "5be36f2d-b105-40f0-b6df-babfd55b4bc0")
 	)
 	(no_connect
-		(at 205.74 50.8)
+		(at 196.85 50.8)
 		(uuid "5dd63d4b-62ea-44f7-9e88-ffe7ddd1bb55")
 	)
 	(no_connect
-		(at 234.95 71.12)
+		(at 228.6 71.12)
 		(uuid "633b7721-81da-4e56-a43a-83c8a272c9ee")
 	)
 	(no_connect
-		(at 40.64 71.12)
+		(at 26.67 71.12)
 		(uuid "7a41116b-6edb-4ad2-9b2f-57e5376b5ecd")
 	)
 	(no_connect
-		(at 105.41 68.58)
+		(at 93.98 68.58)
 		(uuid "8522e803-d575-435a-a986-8012157b39ff")
 	)
 	(no_connect
-		(at 170.18 71.12)
+		(at 161.29 71.12)
 		(uuid "8fa67aab-2d3a-4ecc-ad53-6f44ff43b2a9")
 	)
 	(no_connect
-		(at 234.95 73.66)
+		(at 228.6 73.66)
 		(uuid "9524ebc0-489c-4554-8838-f592a0f8e97e")
 	)
 	(no_connect
-		(at 40.64 68.58)
+		(at 26.67 68.58)
 		(uuid "9ae5f866-b1b9-4f1d-bc91-02baaa883855")
 	)
 	(no_connect
-		(at 205.74 53.34)
+		(at 196.85 53.34)
 		(uuid "9fd9b718-f760-4594-8ae8-9aeadbccaae5")
 	)
 	(no_connect
-		(at 76.2 53.34)
+		(at 62.23 53.34)
 		(uuid "ad0fcf08-afaf-4bed-97ca-3e0f8dcdc751")
 	)
 	(no_connect
-		(at 270.51 53.34)
+		(at 264.16 53.34)
 		(uuid "d97453a0-24a1-4f98-a27e-9619118e38c0")
 	)
 	(no_connect
-		(at 40.64 73.66)
+		(at 26.67 73.66)
 		(uuid "e45196d3-4177-4e96-b2fe-6560b5a04c37")
 	)
 	(no_connect
-		(at 270.51 50.8)
+		(at 264.16 50.8)
 		(uuid "feab2efc-50b8-47ec-ad07-68450b130292")
 	)
 	(wire
 		(pts
-			(xy 30.48 63.5) (xy 30.48 29.21)
+			(xy 73.66 45.72) (xy 73.66 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0666c1f0-2182-4b8f-b072-fbfa1760e808")
+	)
+	(wire
+		(pts
+			(xy 19.05 25.4) (xy 64.77 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "077f0837-d78c-45e0-9918-9b659477c935")
+	)
+	(wire
+		(pts
+			(xy 16.51 63.5) (xy 16.51 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1140,7 +1614,57 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 29.21) (xy 205.74 29.21)
+			(xy 269.24 53.34) (xy 275.59 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09565425-aee8-4b23-b68d-6ea63c28ef18")
+	)
+	(wire
+		(pts
+			(xy 19.05 21.59) (xy 19.05 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c3fbff6-61ee-4b41-8411-403a31e4f1c1")
+	)
+	(wire
+		(pts
+			(xy 73.66 53.34) (xy 80.01 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fa78a77-8342-42aa-a5ba-9709bd521517")
+	)
+	(wire
+		(pts
+			(xy 62.23 43.18) (xy 80.01 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "118e05dc-638c-4011-987f-ae6995caa7d5")
+	)
+	(wire
+		(pts
+			(xy 147.32 52.07) (xy 147.32 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12186069-aefa-4760-a934-a3fb512fa5d8")
+	)
+	(wire
+		(pts
+			(xy 151.13 29.21) (xy 196.85 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1150,7 +1674,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 78.74) (xy 76.2 88.9)
+			(xy 62.23 78.74) (xy 62.23 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1160,7 +1684,17 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 88.9) (xy 140.97 88.9)
+			(xy 208.28 45.72) (xy 208.28 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "162da011-9142-45d8-9986-6fe9962d3eb8")
+	)
+	(wire
+		(pts
+			(xy 62.23 88.9) (xy 73.66 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1170,7 +1704,17 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 45.72) (xy 140.97 45.72)
+			(xy 214.63 43.18) (xy 214.63 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b9eb1e0-7457-4464-a256-07ec6e8683e5")
+	)
+	(wire
+		(pts
+			(xy 132.08 45.72) (xy 129.54 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1180,7 +1724,27 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 45.72) (xy 76.2 45.72)
+			(xy 201.93 45.72) (xy 208.28 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25b6ce8f-3153-4aa7-b0da-477c5f15c1bc")
+	)
+	(wire
+		(pts
+			(xy 281.94 52.07) (xy 281.94 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "28ec5efd-7f9c-42a9-aa5d-a9d0d3475573")
+	)
+	(wire
+		(pts
+			(xy 64.77 45.72) (xy 62.23 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1190,7 +1754,7 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 29.21) (xy 224.79 63.5)
+			(xy 218.44 29.21) (xy 218.44 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1200,7 +1764,7 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 29.21) (xy 270.51 29.21)
+			(xy 218.44 29.21) (xy 264.16 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1210,7 +1774,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 88.9) (xy 205.74 88.9)
+			(xy 129.54 88.9) (xy 140.97 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1220,7 +1784,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 29.21) (xy 76.2 43.18)
+			(xy 62.23 29.21) (xy 62.23 43.18)
 		)
 		(stroke
 			(width 0)
@@ -1230,7 +1794,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 25.4) (xy 143.51 45.72)
+			(xy 132.08 25.4) (xy 132.08 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1240,17 +1804,97 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 29.21) (xy 30.48 29.21)
+			(xy 201.93 53.34) (xy 208.28 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "595ab8cb-387d-4e80-9cf0-6538e5e72311")
+		(uuid "44c99b95-f7c9-4333-a134-8b5068a64053")
 	)
 	(wire
 		(pts
-			(xy 273.05 45.72) (xy 270.51 45.72)
+			(xy 201.93 45.72) (xy 201.93 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45a2d4a7-cf30-44fa-b50c-5bfb18a96107")
+	)
+	(wire
+		(pts
+			(xy 132.08 45.72) (xy 134.62 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4cfccb95-bb7d-40b4-9249-16785972a6d0")
+	)
+	(wire
+		(pts
+			(xy 73.66 53.34) (xy 73.66 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "506fe107-1309-450f-a701-742560ad5853")
+	)
+	(wire
+		(pts
+			(xy 134.62 45.72) (xy 134.62 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55114c1c-3c4b-4987-8800-49555fb6152d")
+	)
+	(wire
+		(pts
+			(xy 196.85 43.18) (xy 214.63 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5569f07b-d0dc-483e-a0e1-2454ae33bea0")
+	)
+	(wire
+		(pts
+			(xy 275.59 45.72) (xy 275.59 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55901cfa-ab8f-47d4-b326-f0d7e883fac1")
+	)
+	(wire
+		(pts
+			(xy 140.97 53.34) (xy 140.97 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a7decd8-e051-429e-a5a6-816912929111")
+	)
+	(wire
+		(pts
+			(xy 64.77 45.72) (xy 67.31 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5dde709a-6d23-443c-94e7-f3a0047c4210")
+	)
+	(wire
+		(pts
+			(xy 266.7 45.72) (xy 264.16 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1260,7 +1904,27 @@
 	)
 	(wire
 		(pts
-			(xy 270.51 29.21) (xy 270.51 43.18)
+			(xy 208.28 88.9) (xy 264.16 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "687809ad-a2c6-4d69-8f19-478fc9f5b805")
+	)
+	(wire
+		(pts
+			(xy 147.32 43.18) (xy 147.32 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68abd5b5-bb55-426d-826d-452f8df6e222")
+	)
+	(wire
+		(pts
+			(xy 264.16 29.21) (xy 264.16 43.18)
 		)
 		(stroke
 			(width 0)
@@ -1270,7 +1934,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 25.4) (xy 208.28 25.4)
+			(xy 132.08 25.4) (xy 199.39 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1280,7 +1944,57 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 29.21) (xy 76.2 29.21)
+			(xy 269.24 45.72) (xy 275.59 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "797b32fe-de64-4b7b-ac87-c1dad13da218")
+	)
+	(wire
+		(pts
+			(xy 269.24 45.72) (xy 269.24 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b4965b2-a037-4fc1-aa99-90a3bf9103d6")
+	)
+	(wire
+		(pts
+			(xy 275.59 52.07) (xy 275.59 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e7a00b3-ab74-4eb2-b2b9-e244b33c521d")
+	)
+	(wire
+		(pts
+			(xy 140.97 88.9) (xy 196.85 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81791c98-70c6-4b6a-b70e-10a0ecb33890")
+	)
+	(wire
+		(pts
+			(xy 129.54 43.18) (xy 147.32 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83050d06-945f-4f88-8841-fc08806c0956")
+	)
+	(wire
+		(pts
+			(xy 16.51 29.21) (xy 62.23 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1290,7 +2004,17 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 29.21) (xy 140.97 29.21)
+			(xy 281.94 43.18) (xy 281.94 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "898c062e-abfe-4f36-bab8-efa8c339c6b3")
+	)
+	(wire
+		(pts
+			(xy 83.82 29.21) (xy 129.54 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1300,7 +2024,17 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 29.21) (xy 140.97 43.18)
+			(xy 269.24 52.07) (xy 269.24 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f2cc7e6-25f3-4606-af0f-6acbc8ac2fd2")
+	)
+	(wire
+		(pts
+			(xy 129.54 29.21) (xy 129.54 43.18)
 		)
 		(stroke
 			(width 0)
@@ -1310,7 +2044,17 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 88.9) (xy 76.2 88.9)
+			(xy 134.62 52.07) (xy 134.62 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9150fc58-ee71-4c76-8953-13c97a2d10f1")
+	)
+	(wire
+		(pts
+			(xy 16.51 88.9) (xy 62.23 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1320,7 +2064,57 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 78.74) (xy 140.97 88.9)
+			(xy 264.16 88.9) (xy 275.59 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9619d5f6-ffef-47c1-932b-18aab2fcc326")
+	)
+	(wire
+		(pts
+			(xy 199.39 45.72) (xy 201.93 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96810080-bc2b-4637-8fbe-57a43c9ad173")
+	)
+	(wire
+		(pts
+			(xy 275.59 53.34) (xy 281.94 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97b53bf6-47de-4847-8274-c9da4705bff8")
+	)
+	(wire
+		(pts
+			(xy 264.16 43.18) (xy 281.94 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e78061c-2bb1-4894-8162-9ca81ebabc90")
+	)
+	(wire
+		(pts
+			(xy 140.97 52.07) (xy 140.97 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ea9780e-62f3-4baf-8bb6-cbedff2a5190")
+	)
+	(wire
+		(pts
+			(xy 129.54 78.74) (xy 129.54 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1330,7 +2124,27 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 25.4) (xy 273.05 45.72)
+			(xy 67.31 45.72) (xy 73.66 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0a56084-98fb-4739-ae54-09c00b3f4f76")
+	)
+	(wire
+		(pts
+			(xy 201.93 52.07) (xy 201.93 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0e32b25-5c87-4590-9ed0-246d2ae959ea")
+	)
+	(wire
+		(pts
+			(xy 266.7 25.4) (xy 266.7 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1340,17 +2154,27 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 25.4) (xy 78.74 25.4)
+			(xy 134.62 53.34) (xy 140.97 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a43c6f14-b62a-43e0-b77e-81cd16f718ca")
+		(uuid "a430c926-445e-4684-90d8-ec7dd6a93e65")
 	)
 	(wire
 		(pts
-			(xy 95.25 29.21) (xy 95.25 63.5)
+			(xy 208.28 53.34) (xy 214.63 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4f59946-88f7-43b5-a594-a973186fa03b")
+	)
+	(wire
+		(pts
+			(xy 83.82 29.21) (xy 83.82 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1360,7 +2184,17 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 25.4) (xy 208.28 45.72)
+			(xy 214.63 52.07) (xy 214.63 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b651f493-0677-4014-b860-b251fd6d204f")
+	)
+	(wire
+		(pts
+			(xy 199.39 25.4) (xy 199.39 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1370,7 +2204,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 45.72) (xy 205.74 45.72)
+			(xy 199.39 45.72) (xy 196.85 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1380,7 +2214,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 29.21) (xy 224.79 29.21)
+			(xy 196.85 29.21) (xy 218.44 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1390,7 +2224,27 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 66.04) (xy 30.48 63.5)
+			(xy 208.28 52.07) (xy 208.28 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf91a3f7-b4c1-4a76-a226-6b024e067443")
+	)
+	(wire
+		(pts
+			(xy 73.66 88.9) (xy 129.54 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4a1fd95-bf80-403f-8f18-479a5febc0f4")
+	)
+	(wire
+		(pts
+			(xy 16.51 66.04) (xy 16.51 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1400,7 +2254,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 66.04) (xy 95.25 63.5)
+			(xy 83.82 66.04) (xy 83.82 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1410,7 +2264,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 25.4) (xy 143.51 25.4)
+			(xy 64.77 25.4) (xy 132.08 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1420,7 +2274,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 25.4) (xy 78.74 45.72)
+			(xy 64.77 25.4) (xy 64.77 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1430,7 +2284,27 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 29.21) (xy 205.74 43.18)
+			(xy 140.97 53.34) (xy 147.32 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd5b5ace-8ea2-4dd9-8b6b-af8c5fd05337")
+	)
+	(wire
+		(pts
+			(xy 67.31 52.07) (xy 67.31 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce225c5f-0332-4bb8-8161-ed8549a5cab3")
+	)
+	(wire
+		(pts
+			(xy 196.85 29.21) (xy 196.85 43.18)
 		)
 		(stroke
 			(width 0)
@@ -1440,7 +2314,17 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 25.4) (xy 273.05 25.4)
+			(xy 266.7 45.72) (xy 269.24 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2f63be3-3a88-4ec2-b069-b282a8aacc77")
+	)
+	(wire
+		(pts
+			(xy 199.39 25.4) (xy 266.7 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1450,7 +2334,27 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 63.5) (xy 160.02 66.04)
+			(xy 16.51 26.67) (xy 16.51 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7357f74-1876-4d61-a3ee-2b88748c18cf")
+	)
+	(wire
+		(pts
+			(xy 134.62 45.72) (xy 140.97 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dcacaed2-c235-490a-9365-ce77295848f3")
+	)
+	(wire
+		(pts
+			(xy 151.13 63.5) (xy 151.13 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1460,7 +2364,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 88.9) (xy 270.51 88.9)
+			(xy 196.85 88.9) (xy 208.28 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1470,7 +2374,17 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 29.21) (xy 160.02 63.5)
+			(xy 67.31 53.34) (xy 73.66 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df8c4192-5d1b-4425-b847-7fc45890c922")
+	)
+	(wire
+		(pts
+			(xy 151.13 29.21) (xy 151.13 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1480,7 +2394,17 @@
 	)
 	(wire
 		(pts
-			(xy 270.51 78.74) (xy 270.51 88.9)
+			(xy 80.01 43.18) (xy 80.01 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e53cd4bf-5c94-4c40-8d98-7f560fc0dc9a")
+	)
+	(wire
+		(pts
+			(xy 264.16 78.74) (xy 264.16 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1490,7 +2414,27 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 29.21) (xy 76.2 29.21)
+			(xy 275.59 53.34) (xy 275.59 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea919392-389e-40d8-b67c-d0122a5f5b44")
+	)
+	(wire
+		(pts
+			(xy 80.01 52.07) (xy 80.01 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ecb55c6b-fe9d-4b48-a8e6-ea47b19d531a")
+	)
+	(wire
+		(pts
+			(xy 62.23 29.21) (xy 83.82 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1500,7 +2444,17 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 63.5) (xy 224.79 66.04)
+			(xy 140.97 45.72) (xy 140.97 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5c9435d-6581-4d09-9648-e20cf3843766")
+	)
+	(wire
+		(pts
+			(xy 218.44 63.5) (xy 218.44 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1510,7 +2464,17 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 78.74) (xy 205.74 88.9)
+			(xy 73.66 52.07) (xy 73.66 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f88f2d47-2535-452f-85e6-e66bacf35dba")
+	)
+	(wire
+		(pts
+			(xy 196.85 78.74) (xy 196.85 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1520,7 +2484,27 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 29.21) (xy 160.02 29.21)
+			(xy 67.31 45.72) (xy 67.31 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fcd2434c-1d56-47bb-b8c9-e0e72903f1c6")
+	)
+	(wire
+		(pts
+			(xy 208.28 53.34) (xy 208.28 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd5f1f5e-ec8b-48c1-9a99-77f64491c5e7")
+	)
+	(wire
+		(pts
+			(xy 129.54 29.21) (xy 151.13 29.21)
 		)
 		(stroke
 			(width 0)
@@ -1530,7 +2514,7 @@
 	)
 	(hierarchical_label "STEP 1"
 		(shape input)
-		(at 40.64 55.88 180)
+		(at 26.67 55.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1541,7 +2525,7 @@
 	)
 	(hierarchical_label "EN 2"
 		(shape input)
-		(at 234.95 50.8 180)
+		(at 228.6 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1552,7 +2536,7 @@
 	)
 	(hierarchical_label "STEP 4"
 		(shape input)
-		(at 234.95 55.88 180)
+		(at 228.6 55.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1563,7 +2547,7 @@
 	)
 	(hierarchical_label "DIR 3"
 		(shape input)
-		(at 170.18 58.42 180)
+		(at 161.29 58.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1574,7 +2558,7 @@
 	)
 	(hierarchical_label "DIR 1"
 		(shape input)
-		(at 40.64 58.42 180)
+		(at 26.67 58.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1585,7 +2569,7 @@
 	)
 	(hierarchical_label "DIR 2"
 		(shape input)
-		(at 105.41 58.42 180)
+		(at 93.98 58.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1596,7 +2580,7 @@
 	)
 	(hierarchical_label "EN 2"
 		(shape input)
-		(at 170.18 50.8 180)
+		(at 161.29 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1607,7 +2591,7 @@
 	)
 	(hierarchical_label "EN 1"
 		(shape input)
-		(at 40.64 50.8 180)
+		(at 26.67 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1616,20 +2600,20 @@
 		)
 		(uuid "5dac15c8-76c0-4be2-95cc-70d0e7c2be29")
 	)
-	(hierarchical_label "3.3V"
+	(hierarchical_label "3V3"
 		(shape input)
-		(at 26.67 29.21 180)
+		(at 16.51 26.67 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "63b821aa-2f75-42fa-b9c0-abfb135e6650")
 	)
 	(hierarchical_label "EN 1"
 		(shape input)
-		(at 105.41 50.8 180)
+		(at 93.98 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1640,7 +2624,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
-		(at 26.67 88.9 180)
+		(at 16.51 88.9 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1651,7 +2635,7 @@
 	)
 	(hierarchical_label "STEP 2"
 		(shape input)
-		(at 105.41 55.88 180)
+		(at 93.98 55.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1662,7 +2646,7 @@
 	)
 	(hierarchical_label "STEP 3"
 		(shape input)
-		(at 170.18 55.88 180)
+		(at 161.29 55.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1673,18 +2657,18 @@
 	)
 	(hierarchical_label "24V"
 		(shape input)
-		(at 26.67 25.4 180)
+		(at 19.05 21.59 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "b90c5170-7f70-494f-a46c-2c11182cfdc5")
 	)
 	(hierarchical_label "DIR 4"
 		(shape input)
-		(at 234.95 58.42 180)
+		(at 228.6 58.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1695,7 +2679,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 100.33 63.5 0)
+		(at 88.9 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1706,7 +2690,7 @@
 		(fields_autoplaced yes)
 		(uuid "04615064-3f72-4456-b0ae-29bb68eeb5c6")
 		(property "Reference" "JP3"
-			(at 100.33 59.69 0)
+			(at 88.9 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1717,7 +2701,7 @@
 			)
 		)
 		(property "Value" "SolderJumper_2_Open"
-			(at 100.33 59.69 0)
+			(at 88.9 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1728,7 +2712,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 63.5 0)
+			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1739,7 +2723,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 71.12 0)
+			(at 88.9 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1750,7 +2734,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 100.33 68.58 0)
+			(at 88.9 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1777,7 +2761,7 @@
 	)
 	(symbol
 		(lib_id "Yosh's lib:TMC2209_SILENTSTEPSTICK")
-		(at 252.73 60.96 0)
+		(at 246.38 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1788,7 +2772,7 @@
 		(fields_autoplaced yes)
 		(uuid "07b9375e-7f52-4c41-b9f1-c0c4c2882127")
 		(property "Reference" "U6"
-			(at 252.73 35.56 0)
+			(at 246.38 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1798,7 +2782,7 @@
 			)
 		)
 		(property "Value" "TMC2209_SILENTSTEPSTICK"
-			(at 252.73 38.1 0)
+			(at 246.38 38.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1808,7 +2792,7 @@
 			)
 		)
 		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1820,7 +2804,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1831,7 +2815,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1842,7 +2826,7 @@
 			)
 		)
 		(property "MF" "Trinamic Motion Control GmbH"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1854,7 +2838,7 @@
 			)
 		)
 		(property "Description_1" "\nTMC2209 Motor Controller/Driver Power Management Evaluation Board\n"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1866,7 +2850,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1878,7 +2862,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1890,7 +2874,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=eda"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1902,7 +2886,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1914,7 +2898,7 @@
 			)
 		)
 		(property "PARTREV" "1.20"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1926,7 +2910,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=snap"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1938,7 +2922,7 @@
 			)
 		)
 		(property "MP" "TMC2209 SILENTSTEPSTICK"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1950,7 +2934,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Trinamic Motion Control GmbH"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1962,7 +2946,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1974,7 +2958,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "TMC2209 SILENTSTEPSTICK"
-			(at 252.73 60.96 0)
+			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2049,8 +3033,89 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small")
+		(at 67.31 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1c761263-4532-4042-b96f-4d04269b205c")
+		(property "Reference" "C10"
+			(at 61.722 47.752 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uF 35V"
+			(at 62.23 55.118 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, small symbol"
+			(at 67.31 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5a6ac85d-9a34-4640-a1b1-19a0f9672ae3")
+		)
+		(pin "2"
+			(uuid "098a8d86-3d59-4507-8187-650b845d0721")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 275.59 60.96 0)
+		(at 269.24 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2061,7 +3126,7 @@
 		(fields_autoplaced yes)
 		(uuid "1d3f3fda-65e8-422d-8dcc-fd99611e5b37")
 		(property "Reference" "J5"
-			(at 278.13 62.2299 0)
+			(at 271.78 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2072,7 +3137,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 278.13 63.4999 0)
+			(at 271.78 63.4999 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2084,7 +3149,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 275.59 60.96 0)
+			(at 269.24 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2095,7 +3160,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 275.59 60.96 0)
+			(at 269.24 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2106,7 +3171,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 275.59 60.96 0)
+			(at 269.24 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2139,7 +3204,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 165.1 63.5 0)
+		(at 156.21 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2150,7 +3215,7 @@
 		(fields_autoplaced yes)
 		(uuid "25ba26a4-f0d9-40a0-940a-136d0ed51112")
 		(property "Reference" "JP5"
-			(at 165.1 59.69 0)
+			(at 156.21 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2161,7 +3226,7 @@
 			)
 		)
 		(property "Value" "SolderJumper_2_Open"
-			(at 165.1 59.69 0)
+			(at 156.21 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2172,7 +3237,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 165.1 63.5 0)
+			(at 156.21 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2183,7 +3248,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 71.12 0)
+			(at 156.21 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2194,7 +3259,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 165.1 68.58 0)
+			(at 156.21 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2221,7 +3286,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 229.87 66.04 0)
+		(at 223.52 66.04 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2232,7 +3297,7 @@
 		(fields_autoplaced yes)
 		(uuid "2dc29635-6f83-4dd3-9ac1-62749c918aa7")
 		(property "Reference" "JP8"
-			(at 229.87 62.23 0)
+			(at 223.52 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2243,7 +3308,7 @@
 			)
 		)
 		(property "Value" "SolderJumper_2_Open"
-			(at 229.87 62.23 0)
+			(at 223.52 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2254,7 +3319,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 229.87 66.04 0)
+			(at 223.52 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2265,7 +3330,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 229.87 73.66 0)
+			(at 223.52 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2276,7 +3341,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 229.87 71.12 0)
+			(at 223.52 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2302,8 +3367,89 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small")
+		(at 201.93 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2fbbb24a-6866-46ca-811f-3bcaa41310e0")
+		(property "Reference" "C16"
+			(at 196.342 47.752 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uF 35V"
+			(at 196.85 55.118 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 201.93 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 201.93 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, small symbol"
+			(at 201.93 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7e3b0e05-098e-4e98-b80a-8ba4c40e7a79")
+		)
+		(pin "2"
+			(uuid "34af8bea-875f-4c7c-b73a-e2c70e03efc7")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Yosh's lib:TMC2209_SILENTSTEPSTICK")
-		(at 187.96 60.96 0)
+		(at 179.07 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2314,7 +3460,7 @@
 		(fields_autoplaced yes)
 		(uuid "33534209-59e6-4510-8c5b-d33578f029ca")
 		(property "Reference" "U5"
-			(at 187.96 35.56 0)
+			(at 179.07 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2324,7 +3470,7 @@
 			)
 		)
 		(property "Value" "TMC2209_SILENTSTEPSTICK"
-			(at 187.96 38.1 0)
+			(at 179.07 38.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2334,7 +3480,7 @@
 			)
 		)
 		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2346,7 +3492,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2357,7 +3503,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2368,7 +3514,7 @@
 			)
 		)
 		(property "MF" "Trinamic Motion Control GmbH"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2380,7 +3526,7 @@
 			)
 		)
 		(property "Description_1" "\nTMC2209 Motor Controller/Driver Power Management Evaluation Board\n"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2392,7 +3538,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2404,7 +3550,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2416,7 +3562,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=eda"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2428,7 +3574,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2440,7 +3586,7 @@
 			)
 		)
 		(property "PARTREV" "1.20"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2452,7 +3598,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=snap"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2464,7 +3610,7 @@
 			)
 		)
 		(property "MP" "TMC2209 SILENTSTEPSTICK"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2476,7 +3622,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Trinamic Motion Control GmbH"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2488,7 +3634,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2500,7 +3646,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "TMC2209 SILENTSTEPSTICK"
-			(at 187.96 60.96 0)
+			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2576,7 +3722,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 35.56 63.5 0)
+		(at 21.59 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2587,7 +3733,7 @@
 		(fields_autoplaced yes)
 		(uuid "3595a4ab-98ab-4b8d-b6ca-66d5b160852c")
 		(property "Reference" "JP1"
-			(at 35.56 59.69 0)
+			(at 21.59 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2598,7 +3744,7 @@
 			)
 		)
 		(property "Value" "SolderJumper_2_Open"
-			(at 35.56 59.69 0)
+			(at 21.59 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2609,7 +3755,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 35.56 63.5 0)
+			(at 21.59 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2620,7 +3766,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 71.12 0)
+			(at 21.59 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2631,7 +3777,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 35.56 68.58 0)
+			(at 21.59 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2658,7 +3804,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 210.82 60.96 0)
+		(at 201.93 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2669,7 +3815,7 @@
 		(fields_autoplaced yes)
 		(uuid "46424c8e-0b26-48a3-8869-59fa6495cd24")
 		(property "Reference" "J4"
-			(at 213.36 62.2299 0)
+			(at 204.47 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2680,7 +3826,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 213.36 63.4999 0)
+			(at 204.47 63.4999 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2692,7 +3838,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 210.82 60.96 0)
+			(at 201.93 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2703,7 +3849,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 210.82 60.96 0)
+			(at 201.93 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2714,7 +3860,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 60.96 0)
+			(at 201.93 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2746,41 +3892,40 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 229.87 63.5 0)
+		(lib_id "Device:C_Small")
+		(at 73.66 49.53 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4bb2aea9-ea1e-4de8-a0da-32c1b8303e31")
-		(property "Reference" "JP7"
-			(at 229.87 59.69 0)
-			(hide yes)
+		(uuid "47cee6db-43e5-4aca-a2a6-7fd6a6ac0479")
+		(property "Reference" "C11"
+			(at 69.342 47.752 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 229.87 59.69 0)
-			(hide yes)
+		(property "Value" "100nF"
+			(at 67.31 51.308 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 229.87 63.5 0)
+			(at 73.66 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2791,7 +3936,89 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 229.87 71.12 0)
+			(at 73.66 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 73.66 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "59581357-8820-47be-9fc0-b8861134880f")
+		)
+		(pin "1"
+			(uuid "f3dd5073-1032-4b0d-ae20-d944b3d94f59")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:SolderJumper_2_Open")
+		(at 223.52 63.5 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4bb2aea9-ea1e-4de8-a0da-32c1b8303e31")
+		(property "Reference" "JP7"
+			(at 223.52 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SolderJumper_2_Open"
+			(at 223.52 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 223.52 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2802,7 +4029,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 229.87 68.58 0)
+			(at 223.52 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2828,8 +4055,89 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small")
+		(at 269.24 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "62d5e2d3-8a7d-47fa-984d-6f931e1d9fc5")
+		(property "Reference" "C19"
+			(at 263.652 47.752 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uF 35V"
+			(at 264.16 55.118 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 269.24 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 269.24 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, small symbol"
+			(at 269.24 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "45a96052-6ef8-499e-9758-0c113a9918cc")
+		)
+		(pin "2"
+			(uuid "4fbfc6b0-0de6-460d-83d6-01511f74c584")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Yosh's lib:TMC2209_SILENTSTEPSTICK")
-		(at 58.42 60.96 0)
+		(at 44.45 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2840,7 +4148,7 @@
 		(fields_autoplaced yes)
 		(uuid "7e6517a3-47d8-48a1-b0b8-3df38962fc1d")
 		(property "Reference" "U3"
-			(at 58.42 35.56 0)
+			(at 44.45 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2850,7 +4158,7 @@
 			)
 		)
 		(property "Value" "TMC2209_SILENTSTEPSTICK"
-			(at 58.42 38.1 0)
+			(at 44.45 38.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2860,7 +4168,7 @@
 			)
 		)
 		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2872,7 +4180,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2883,7 +4191,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2894,7 +4202,7 @@
 			)
 		)
 		(property "MF" "Trinamic Motion Control GmbH"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2906,7 +4214,7 @@
 			)
 		)
 		(property "Description_1" "\nTMC2209 Motor Controller/Driver Power Management Evaluation Board\n"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2918,7 +4226,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2930,7 +4238,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2942,7 +4250,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=eda"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2954,7 +4262,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2966,7 +4274,7 @@
 			)
 		)
 		(property "PARTREV" "1.20"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2978,7 +4286,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=snap"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2990,7 +4298,7 @@
 			)
 		)
 		(property "MP" "TMC2209 SILENTSTEPSTICK"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3002,7 +4310,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Trinamic Motion Control GmbH"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3014,7 +4322,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3026,7 +4334,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "TMC2209 SILENTSTEPSTICK"
-			(at 58.42 60.96 0)
+			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3101,8 +4409,170 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 281.94 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "83bf5bda-a5f8-4d40-965b-ede60759fbdc")
+		(property "Reference" "C21"
+			(at 277.622 48.006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 275.59 51.308 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 281.94 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 281.94 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 281.94 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "05efe21c-d10d-4787-b425-baf9027b8966")
+		)
+		(pin "1"
+			(uuid "e22bf24c-dcb9-4973-873d-ec644c33908a")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small")
+		(at 134.62 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8f9affc6-171d-41fb-aeb2-8e8f964281d0")
+		(property "Reference" "C13"
+			(at 129.032 47.752 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uF 35V"
+			(at 129.54 55.118 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 134.62 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, small symbol"
+			(at 134.62 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "376fb755-22cc-45d1-b9f7-b98394e30dcf")
+		)
+		(pin "2"
+			(uuid "379739bd-a991-4cc4-82c7-930030b120f8")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 81.28 60.96 0)
+		(at 67.31 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3113,7 +4583,7 @@
 		(fields_autoplaced yes)
 		(uuid "96b9c0f2-7cd9-4b0f-9729-6c11a0cc85cc")
 		(property "Reference" "J1"
-			(at 83.82 62.2299 0)
+			(at 69.85 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3124,7 +4594,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 83.82 63.4999 0)
+			(at 69.85 63.4999 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3136,7 +4606,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 81.28 60.96 0)
+			(at 67.31 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3147,7 +4617,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 81.28 60.96 0)
+			(at 67.31 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3158,7 +4628,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 81.28 60.96 0)
+			(at 67.31 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3191,7 +4661,7 @@
 	)
 	(symbol
 		(lib_id "Yosh's lib:TMC2209_SILENTSTEPSTICK")
-		(at 123.19 60.96 0)
+		(at 111.76 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3202,7 +4672,7 @@
 		(fields_autoplaced yes)
 		(uuid "a51d14f8-51a4-4209-bf05-9c5c31d6ef7f")
 		(property "Reference" "U4"
-			(at 123.19 35.56 0)
+			(at 111.76 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3212,7 +4682,7 @@
 			)
 		)
 		(property "Value" "TMC2209_SILENTSTEPSTICK"
-			(at 123.19 38.1 0)
+			(at 111.76 38.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3222,7 +4692,7 @@
 			)
 		)
 		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3234,7 +4704,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3245,7 +4715,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3256,7 +4726,7 @@
 			)
 		)
 		(property "MF" "Trinamic Motion Control GmbH"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3268,7 +4738,7 @@
 			)
 		)
 		(property "Description_1" "\nTMC2209 Motor Controller/Driver Power Management Evaluation Board\n"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3280,7 +4750,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3292,7 +4762,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3304,7 +4774,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=eda"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3316,7 +4786,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3328,7 +4798,7 @@
 			)
 		)
 		(property "PARTREV" "1.20"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3340,7 +4810,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TMC2209%20SILENTSTEPSTICK/Trinamic+Motion+Control+GmbH/view-part/?ref=snap"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3352,7 +4822,7 @@
 			)
 		)
 		(property "MP" "TMC2209 SILENTSTEPSTICK"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3364,7 +4834,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Trinamic Motion Control GmbH"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3376,7 +4846,7 @@
 			)
 		)
 		(property "Availability" "Not in stock"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3388,7 +4858,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "TMC2209 SILENTSTEPSTICK"
-			(at 123.19 60.96 0)
+			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3463,41 +4933,40 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 100.33 66.04 0)
+		(lib_id "Device:C_Small")
+		(at 140.97 49.53 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b866ca98-3a08-46b6-bbc2-8c68fa7cb2ec")
-		(property "Reference" "JP4"
-			(at 100.33 62.23 0)
-			(hide yes)
+		(uuid "adf3bd1c-d4cc-4500-97c7-f4e7457d9be5")
+		(property "Reference" "C14"
+			(at 136.652 47.752 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 100.33 62.23 0)
-			(hide yes)
+		(property "Value" "100nF"
+			(at 134.62 51.308 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 66.04 0)
+			(at 140.97 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3508,7 +4977,170 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 73.66 0)
+			(at 140.97 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 140.97 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b5b0c655-3aa0-4751-a0e6-3b8cbf8379af")
+		)
+		(pin "1"
+			(uuid "ab7c5d70-8030-4f33-8ad4-f7ec9b4df1ca")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 214.63 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "af121676-05a9-444b-ac55-f848c5ef1987")
+		(property "Reference" "C18"
+			(at 210.312 48.006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 208.28 51.308 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 214.63 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 214.63 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 214.63 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2058b2cc-bc9a-4a40-9ce2-906f492a00c4")
+		)
+		(pin "1"
+			(uuid "508a582a-9110-4fec-b8f6-ef4e0f132808")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:SolderJumper_2_Open")
+		(at 88.9 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b866ca98-3a08-46b6-bbc2-8c68fa7cb2ec")
+		(property "Reference" "JP4"
+			(at 88.9 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SolderJumper_2_Open"
+			(at 88.9 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3519,7 +5151,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 100.33 71.12 0)
+			(at 88.9 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3545,41 +5177,40 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 35.56 66.04 0)
+		(lib_id "Device:C_Small")
+		(at 275.59 49.53 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bf6451e4-8021-4424-86ad-2ff66b837770")
-		(property "Reference" "JP2"
-			(at 35.56 62.23 0)
-			(hide yes)
+		(uuid "be617b7e-0b82-47c9-8c9e-1553146b050b")
+		(property "Reference" "C20"
+			(at 271.272 47.752 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 35.56 62.23 0)
-			(hide yes)
+		(property "Value" "100nF"
+			(at 269.24 51.308 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 35.56 66.04 0)
+			(at 275.59 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3590,7 +5221,89 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 73.66 0)
+			(at 275.59 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 275.59 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "35133a73-9c5d-4a80-b356-3f5517ff33a4")
+		)
+		(pin "1"
+			(uuid "c2a7b6da-262f-4a01-b2b1-517c659f36cf")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:SolderJumper_2_Open")
+		(at 21.59 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bf6451e4-8021-4424-86ad-2ff66b837770")
+		(property "Reference" "JP2"
+			(at 21.59 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SolderJumper_2_Open"
+			(at 21.59 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 21.59 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 21.59 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3601,7 +5314,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 35.56 71.12 0)
+			(at 21.59 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3628,7 +5341,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 165.1 66.04 0)
+		(at 156.21 66.04 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3639,7 +5352,7 @@
 		(fields_autoplaced yes)
 		(uuid "c98e08ce-3eba-4555-9fc4-36c0c08b2ed8")
 		(property "Reference" "JP6"
-			(at 165.1 62.23 0)
+			(at 156.21 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3650,7 +5363,7 @@
 			)
 		)
 		(property "Value" "SolderJumper_2_Open"
-			(at 165.1 62.23 0)
+			(at 156.21 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3661,7 +5374,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 165.1 66.04 0)
+			(at 156.21 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3672,7 +5385,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 73.66 0)
+			(at 156.21 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3683,7 +5396,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 165.1 71.12 0)
+			(at 156.21 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3709,8 +5422,170 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 147.32 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d9172e2c-d175-404f-a5b5-037529189f86")
+		(property "Reference" "C15"
+			(at 143.002 48.006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 140.97 51.308 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 147.32 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "dc943b2f-695b-45e7-93d3-fc82c73fb6ab")
+		)
+		(pin "1"
+			(uuid "f44d35c9-0684-4901-bb61-688e53fc4226")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 208.28 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e12ff205-d0b4-4b19-87df-232ff4697819")
+		(property "Reference" "C17"
+			(at 203.962 47.752 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 201.93 51.308 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 208.28 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c013489c-5610-43f7-8b2b-215faa638b64")
+		)
+		(pin "1"
+			(uuid "48208879-5bdd-4a70-b9f0-7394920c83c9")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 146.05 60.96 0)
+		(at 134.62 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3721,7 +5596,7 @@
 		(fields_autoplaced yes)
 		(uuid "ea2a549b-519f-4e9f-b853-8d751dba37da")
 		(property "Reference" "J3"
-			(at 148.59 62.2299 0)
+			(at 137.16 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3732,7 +5607,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 148.59 63.4999 0)
+			(at 137.16 63.4999 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3744,7 +5619,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 146.05 60.96 0)
+			(at 134.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3755,7 +5630,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 146.05 60.96 0)
+			(at 134.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3766,7 +5641,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 146.05 60.96 0)
+			(at 134.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3792,6 +5667,87 @@
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
 					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 80.01 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fd82af56-43b6-4c79-9132-6abe5c22c4ee")
+		(property "Reference" "C12"
+			(at 75.692 48.006 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 73.66 51.308 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 80.01 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bc445550-b480-48a1-a33d-e6ef4c611d84")
+		)
+		(pin "1"
+			(uuid "52364d46-a9d5-4e72-9373-db9156da32b8")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a282347e-199d-4bca-8f5c-46ffe1df5902"
+					(reference "C12")
 					(unit 1)
 				)
 			)
