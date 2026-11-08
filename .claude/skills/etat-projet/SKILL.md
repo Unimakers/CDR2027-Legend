@@ -10,7 +10,7 @@ Sources : `docs/journaux/pami/logs/`, tableau « Points ouverts » de `docs/jour
 
 ## Robot principal
 
-Pas de code ni de carte dans le dépôt. Journal commencé le 2026-10-21 : module encodeur (AMT 102-V, roue codeuse, rails) testé le 2026-10-22, v2 corrigée développée mais pas de test noté. Roulement non démontable à la main, sans correction notée. Voir `docs/journaux/robot-principal/`.
+Pas de code. Carte électronique : schéma KiCad commencé le 2026-11-07 (ESP32-S3, 4 × TMC2209, Luckfox, lidar LD06, codeurs AMT102-V), puissance, I2C, switchs et écrans à faire ; skill `electronique-robot-principal`. Journal commencé le 2026-10-21 : module encodeur (AMT 102-V, roue codeuse, rails) testé le 2026-10-22, v2 corrigée développée mais pas de test noté. Roulement non démontable à la main, sans correction notée. Voir `docs/journaux/robot-principal/`.
 
 ## PAMI : ce qui fonctionne
 
