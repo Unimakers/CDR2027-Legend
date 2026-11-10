@@ -2974,7 +2974,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "224421a2-17bf-4d2d-be73-cf3610212801")
-		(property "Reference" "J15"
+		(property "Reference" "J14"
 			(at 157.48 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -3037,7 +3037,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J15")
+					(reference "J14")
 					(unit 1)
 				)
 			)
@@ -3055,7 +3055,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a12ac73-3afc-442d-ad88-ee0a51a74b27")
-		(property "Reference" "U10"
+		(property "Reference" "U12"
 			(at 139.3033 78.74 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3167,7 +3167,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "U10")
+					(reference "U12")
 					(unit 1)
 				)
 			)
@@ -3207,7 +3207,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 107.6452 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -3266,7 +3266,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3f004d47-3b28-4222-9496-8c544bf31a38")
-		(property "Reference" "J14"
+		(property "Reference" "J15"
 			(at 157.48 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -3329,7 +3329,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J14")
+					(reference "J15")
 					(unit 1)
 				)
 			)
@@ -3347,7 +3347,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "49eca714-847a-4ef9-a14e-fa1bd93f0bca")
-		(property "Reference" "J18"
+		(property "Reference" "J19"
 			(at 220.98 104.1399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3414,7 +3414,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J18")
+					(reference "J19")
 					(unit 1)
 				)
 			)
@@ -3431,7 +3431,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "69f6aa13-5faf-4e31-b5da-5049309d2f4a")
-		(property "Reference" "J10"
+		(property "Reference" "J18"
 			(at 184.658 79.756 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3513,7 +3513,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J10")
+					(reference "J18")
 					(unit 1)
 				)
 			)
@@ -3530,7 +3530,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8440d5df-a586-44f2-b92a-32e1a59c8388")
-		(property "Reference" "J11"
+		(property "Reference" "J17"
 			(at 166.37 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -3593,7 +3593,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J11")
+					(reference "J17")
 					(unit 1)
 				)
 			)
@@ -3611,7 +3611,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "866d64a2-c05e-4f02-b00c-3b24f733bb2f")
-		(property "Reference" "R12"
+		(property "Reference" "R15"
 			(at 120.65 81.2799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3675,7 +3675,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "R12")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -3692,7 +3692,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a9d44516-cbb5-4530-a17e-fd4913759698")
-		(property "Reference" "J13"
+		(property "Reference" "J16"
 			(at 157.48 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -3755,7 +3755,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J13")
+					(reference "J16")
 					(unit 1)
 				)
 			)
@@ -3854,7 +3854,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bd2c569d-2114-4d3e-b474-c3b678db02f1")
-		(property "Reference" "R14"
+		(property "Reference" "R17"
 			(at 181.61 99.06 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3916,7 +3916,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "R14")
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -3955,7 +3955,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 155.9052 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -4014,7 +4014,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ca155084-b55f-4e64-9265-89f8cb02794b")
-		(property "Reference" "J17"
+		(property "Reference" "J12"
 			(at 157.48 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -4077,7 +4077,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J17")
+					(reference "J12")
 					(unit 1)
 				)
 			)
@@ -4095,7 +4095,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ca3722d9-e925-4de9-b50c-5938e9df749e")
-		(property "Reference" "R13"
+		(property "Reference" "R16"
 			(at 170.18 96.5199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4159,7 +4159,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "R13")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -4176,7 +4176,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cdd9dd7e-bb1e-41e9-968f-5bcba5a18822")
-		(property "Reference" "J16"
+		(property "Reference" "J13"
 			(at 157.48 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -4239,7 +4239,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "J16")
+					(reference "J13")
 					(unit 1)
 				)
 			)
@@ -4256,7 +4256,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ed581b3c-dc53-4cf0-8158-920a77259483")
-		(property "Reference" "D6"
+		(property "Reference" "D2"
 			(at 197.358 98.298 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4326,7 +4326,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "D6")
+					(reference "D2")
 					(unit 1)
 				)
 			)

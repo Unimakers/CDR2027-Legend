@@ -1463,7 +1463,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 57.15) (xy 152.4 57.15)
+			(xy 137.16 57.15) (xy 152.4 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1664,12 +1664,12 @@
 	)
 	(hierarchical_label "5V"
 		(shape input)
-		(at 140.97 57.15 180)
+		(at 137.16 57.15 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "64b802bc-ad14-4de4-b5c2-4c7cbd88121d")
 	)
@@ -1718,7 +1718,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "12090f0b-8503-4d09-b1f3-caa752bcbc71")
-		(property "Reference" "R7"
+		(property "Reference" "R12"
 			(at 196.85 100.33 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1780,7 +1780,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "R7")
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -1798,7 +1798,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4945c344-b241-4a99-9384-5141b85d4c62")
-		(property "Reference" "C5"
+		(property "Reference" "C17"
 			(at 160.02 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1862,7 +1862,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "C5")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -1880,7 +1880,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5964fcd4-7fea-4e4b-927f-9c5946cb3e5b")
-		(property "Reference" "J6"
+		(property "Reference" "J7"
 			(at 220.98 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1950,7 +1950,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "J6")
+					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -1968,7 +1968,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7a7c6259-cfcf-4e7e-8287-294d04a108c2")
-		(property "Reference" "R8"
+		(property "Reference" "R11"
 			(at 196.85 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2030,7 +2030,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "R8")
+					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -2048,7 +2048,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9149b764-5c08-425f-8296-27baabdc79f6")
-		(property "Reference" "J8"
+		(property "Reference" "J6"
 			(at 183.7533 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2172,7 +2172,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "J8")
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -2190,7 +2190,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a65a51a1-7cf2-458f-9b7f-52a35d963dd1")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR020"
 			(at 148.59 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -2250,7 +2250,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "#PWR08")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -2268,7 +2268,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "caf619dc-8786-4391-ad83-87abcc5bc72e")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR021"
 			(at 156.21 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -2328,7 +2328,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "#PWR09")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -2346,7 +2346,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f77b7e94-7484-4b16-ba9d-39bda964212b")
-		(property "Reference" "C4"
+		(property "Reference" "C16"
 			(at 144.78 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2410,7 +2410,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/fd42298f-8f64-4550-8af3-77919ada2813"
-					(reference "C4")
+					(reference "C16")
 					(unit 1)
 				)
 			)

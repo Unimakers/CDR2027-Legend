@@ -1,0 +1,27 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model TEN_50-2411
+#/485184/1813238/2.50/6/2/Undefined or Miscellaneous
+DEF TEN_50-2411 U 0 30 Y Y 1 F N
+F0 "U" 1450 300 50 H V L CNN
+F1 "TEN_50-2411" 1450 200 50 H V L CNN
+F2 "TEN_50-2411" 1450 100 50 H I L CNN
+F3 "https://tracopower.com/ten50-datasheet/" 1450 0 50 H I L CNN
+F4 "50 Watt DC/DC converter, industrial, 2:1 input, encapsulated, 2\" x 1\" metal package" 1450 -100 50 H I L CNN "Description"
+F5 "" 1450 -200 50 H I L CNN "Height"
+F6 "495-TEN-50-2411" 1450 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/TRACO-Power/TEN-50-2411?qs=ckJk83FOD0XKLX515xI8rA%3D%3D" 1450 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Traco Power" 1450 -500 50 H I L CNN "Manufacturer_Name"
+F9 "TEN 50-2411" 1450 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X +VIN_(VCC) 1 0 -200 200 R 50 50 0 0 P
+X -VIN_(GND) 2 0 -100 200 R 50 50 0 0 P
+X REMOTE_ON/OFF 3 0 0 200 R 50 50 0 0 P
+X +VOUT 4 1600 -200 200 L 50 50 0 0 P
+X -VOUT 5 1600 -100 200 L 50 50 0 0 P
+X TRIM 6 1600 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1400 100 1400 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

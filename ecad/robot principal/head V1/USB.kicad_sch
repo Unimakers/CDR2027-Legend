@@ -1807,7 +1807,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d332a3e-3aef-4dae-b9fb-c2e682dabd8d")
-		(property "Reference" "J2"
+		(property "Reference" "J1"
 			(at 128.27 57.1499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1916,7 +1916,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/de67b283-e41f-474d-84f3-f1999e631f43"
-					(reference "J2")
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -2016,7 +2016,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7b6ec933-5858-4d63-b283-abdcc9721223")
-		(property "Reference" "R3"
+		(property "Reference" "R9"
 			(at 90.17 66.0399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2080,7 +2080,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/de67b283-e41f-474d-84f3-f1999e631f43"
-					(reference "R3")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -2097,7 +2097,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "afb9fade-60d5-4d1a-8b9a-9f60a80c09ee")
-		(property "Reference" "R4"
+		(property "Reference" "R10"
 			(at 91.948 73.914 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2161,7 +2161,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/de67b283-e41f-474d-84f3-f1999e631f43"
-					(reference "R4")
+					(reference "R10")
 					(unit 1)
 				)
 			)
