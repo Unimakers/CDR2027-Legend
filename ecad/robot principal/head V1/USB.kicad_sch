@@ -1502,12 +1502,6 @@
 		)
 	)
 	(junction
-		(at 101.6 57.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1205f3c7-4752-4507-b1f1-15e648673c7d")
-	)
-	(junction
 		(at 96.52 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1532,16 +1526,22 @@
 		(uuid "b6c5cd18-00aa-4297-94fd-63692865443b")
 	)
 	(junction
-		(at 101.6 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bc2111de-4d3a-477a-8944-30426ebf0bbb")
-	)
-	(junction
 		(at 116.84 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bc631975-37db-402a-addf-1fdecbc9c625")
+	)
+	(junction
+		(at 101.6 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d732bbb9-de9d-4524-9323-75375ef7644d")
+	)
+	(junction
+		(at 101.6 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e2710a19-b9c2-40f4-b013-79b48ce00cfe")
 	)
 	(no_connect
 		(at 101.6 72.39)
@@ -1805,7 +1805,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "1d332a3e-3aef-4dae-b9fb-c2e682dabd8d")
 		(property "Reference" "J1"
 			(at 128.27 57.1499 0)

@@ -3779,7 +3779,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 243.84 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -3859,7 +3859,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "ten50 2411:TEN_50-2411"
 			(at 205.74 157.15 0)
 			(hide yes)
 			(show_name no)
@@ -4014,7 +4014,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 256.54 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -4096,7 +4096,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 269.24 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -4188,7 +4188,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 262.89 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -4270,7 +4270,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 250.19 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -4363,7 +4363,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 243.84 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -4790,7 +4790,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "ten50 2412:TEN502412"
 			(at 207.01 174.93 0)
 			(hide yes)
 			(show_name no)
@@ -4945,7 +4945,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 275.59 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -5273,7 +5273,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 256.54 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -5366,7 +5366,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 262.89 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -5459,7 +5459,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 275.59 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -5636,7 +5636,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 250.19 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -5958,7 +5958,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 269.24 52.07 0)
 			(hide yes)
 			(show_name no)
