@@ -4256,7 +4256,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ed581b3c-dc53-4cf0-8158-920a77259483")
-		(property "Reference" "D2"
+		(property "Reference" "D3"
 			(at 197.358 98.298 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4326,7 +4326,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/a8cdf3c4-46d1-452b-a193-2db2397c1a47"
-					(reference "D2")
+					(reference "D3")
 					(unit 1)
 				)
 			)

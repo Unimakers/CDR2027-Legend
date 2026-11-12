@@ -1193,7 +1193,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "C6 C7 au plus proche du lidar\nC8 C9 au plus proche des encodeurs"
+	(text "CA CB au plus proche du lidar\nCC CD au plus proche des encodeurs"
 		(exclude_from_sim no)
 		(at 171.704 75.692 0)
 		(effects
