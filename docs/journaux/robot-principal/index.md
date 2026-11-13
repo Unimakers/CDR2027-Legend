@@ -24,4 +24,4 @@ Les sujets qui ne sont pas encore tranchés. Ils sortent du tableau une fois la 
 |:--|:--|
 | Module encodeur v2 | Développée le 2026-10-22, aucun test noté pour l'instant. |
 | Roulement du module encodeur | Il ne peut pas être sorti manuellement ; aucune correction notée. |
-| Carte électronique | Schéma complet en 8 feuilles le 2026-11-13 ; le PCB reste à faire. |
+| Carte électronique | Schéma complet en 8 feuilles le 2026-11-12 ; le PCB reste à faire. |

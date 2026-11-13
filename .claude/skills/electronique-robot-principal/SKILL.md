@@ -5,7 +5,7 @@ description: Carte électronique du robot principal (KiCad, ecad/robot principal
 
 # Électronique du robot principal
 
-Projet KiCad : `ecad/robot principal/head V1/head V1.kicad_pro`. Schéma commencé le 2026-11-07, 8 feuilles au 2026-11-13, PCB pas commencé. Logs : `docs/journaux/robot-principal/logs/2026-11-07-01-*` et `2026-11-13-01-*`.
+Projet KiCad : `ecad/robot principal/head V1/head V1.kicad_pro`. Schéma commencé le 2026-11-07, 8 feuilles au 2026-11-12, PCB pas commencé. Logs : `docs/journaux/robot-principal/logs/2026-11-07-01-*` et `2026-11-12-01-*`.
 
 ## Lire le schéma sans l'ouvrir
 
@@ -19,7 +19,7 @@ Librairies du projet : `ecad/robot principal/librairies 2k27/`.
 ## Décisions
 
 - 2026-11-07 : carte custom (même logique que la carte PAMI, skill `electronique-pami`), ESP32-S3-WROOM-1, 4 × TMC2209 SilentStepStick, Luckfox Pico Mini B, lidar LD06 sans pilotage de vitesse (d'après la note, mais un net PWM-lidar existe), codeurs AMT102-V sans index.
-- 2026-11-13 : ESP32 version sans PSRAM, deux bus I2C, deux connecteurs LD06 (Luckfox ou ESP32), Dynamixel sur l'UART0, empreinte EZ2209 en alternative au TMC2209 pour chaque moteur (U4, U6, U8, U10, valeur vide dans KiCad).
+- 2026-11-12 : ESP32 version sans PSRAM, deux bus I2C, deux connecteurs LD06 (Luckfox ou ESP32), Dynamixel sur l'UART0, empreinte EZ2209 en alternative au TMC2209 pour chaque moteur (U4, U6, U8, U10, valeur vide dans KiCad).
 
 ## Feuilles
 
