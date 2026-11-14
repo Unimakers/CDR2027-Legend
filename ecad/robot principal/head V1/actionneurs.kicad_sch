@@ -10742,7 +10742,7 @@
 		(uuid "fc59b000-8e64-400a-adbd-2bdc2bc577ab")
 	)
 	(hierarchical_label "GND"
-		(shape input)
+		(shape bidirectional)
 		(at 274.32 238.76 180)
 		(effects
 			(font
@@ -10753,7 +10753,7 @@
 		(uuid "18cfb707-4d43-4e5b-bddc-a647be4a6d4f")
 	)
 	(hierarchical_label "GND"
-		(shape input)
+		(shape bidirectional)
 		(at 34.29 186.69 180)
 		(effects
 			(font

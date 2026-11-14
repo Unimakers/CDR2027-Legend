@@ -1756,7 +1756,7 @@
 		(uuid "dd89bd1e-f7d5-4015-960b-33ff5039555c")
 	)
 	(hierarchical_label "GND"
-		(shape input)
+		(shape bidirectional)
 		(at 140.97 113.03 180)
 		(effects
 			(font
