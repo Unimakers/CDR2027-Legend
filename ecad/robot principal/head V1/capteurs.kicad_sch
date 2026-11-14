@@ -2572,7 +2572,7 @@
 				)
 			)
 		)
-		(property "Footprint" "BOB-12009:CONV_BOB-12009"
+		(property "Footprint" "bob 12009:CONV_BOB-12009"
 			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)

@@ -143,8 +143,8 @@
 				)
 			)
 			(rectangle
-				(start 6.35 3.683)
-				(end 5.08 3.937)
+				(start 5.08 3.937)
+				(end 6.35 3.683)
 				(stroke
 					(width 0.1524)
 					(type default)
@@ -254,10 +254,11 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 10.16 1.27 180)
+			(pin power_in line
+				(at 10.16 3.81 180)
 				(length 3.81)
-				(name "GND"
+				(hide yes)
+				(name "VDD"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -291,11 +292,11 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 10.16 1.27 180)
+			(pin power_in line
+				(at 10.16 3.81 180)
 				(length 3.81)
 				(hide yes)
-				(name "GND"
+				(name "VDD"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -310,11 +311,10 @@
 					)
 				)
 			)
-			(pin power_in line
-				(at 10.16 3.81 180)
+			(pin passive line
+				(at 10.16 1.27 180)
 				(length 3.81)
-				(hide yes)
-				(name "VDD"
+				(name "GND"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -348,11 +348,11 @@
 					)
 				)
 			)
-			(pin power_in line
-				(at 10.16 3.81 180)
+			(pin passive line
+				(at 10.16 1.27 180)
 				(length 3.81)
 				(hide yes)
-				(name "VDD"
+				(name "GND"
 					(effects
 						(font
 							(size 1.27 1.27)

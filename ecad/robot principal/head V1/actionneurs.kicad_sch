@@ -11549,7 +11549,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:servo"
 			(at 138.43 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -11741,7 +11741,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 131.75 0)
 			(hide yes)
 			(show_name no)
@@ -11903,7 +11903,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -11991,7 +11991,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_SPOX_5267-03A_1x03_P2.50mm_Vertical"
 			(at 337.82 224.79 0)
 			(hide yes)
 			(show_name no)
@@ -12329,7 +12329,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 150.8 0)
 			(hide yes)
 			(show_name no)
@@ -12674,7 +12674,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:servo"
 			(at 138.43 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -12785,7 +12785,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 349.25 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -12950,7 +12950,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_SPOX_5267-03A_1x03_P2.50mm_Vertical"
 			(at 337.82 214.63 0)
 			(hide yes)
 			(show_name no)
@@ -13363,7 +13363,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 169.85 0)
 			(hide yes)
 			(show_name no)
@@ -13523,7 +13523,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 246.05 0)
 			(hide yes)
 			(show_name no)
@@ -14097,7 +14097,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 166.0652 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -14428,7 +14428,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -14602,7 +14602,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 166.0652 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -14850,7 +14850,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 227 0)
 			(hide yes)
 			(show_name no)
@@ -15178,7 +15178,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -15596,7 +15596,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 188.9 0)
 			(hide yes)
 			(show_name no)
@@ -16028,7 +16028,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -16220,7 +16220,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 166.0652 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -16301,7 +16301,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 349.25 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -16485,7 +16485,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 265.1 0)
 			(hide yes)
 			(show_name no)
@@ -16647,7 +16647,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -16735,7 +16735,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -16906,7 +16906,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -17181,7 +17181,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 360.68 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -17518,7 +17518,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:servo"
 			(at 138.43 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -17628,7 +17628,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "sn74lvc2g241dcur:SOP50P310X90-8N"
 			(at 311.15 314.63 0)
 			(hide yes)
 			(show_name no)
@@ -17977,7 +17977,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 166.0652 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -18223,7 +18223,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "rz7889:SOIC127P600X175-8N"
 			(at 303.53 207.95 0)
 			(hide yes)
 			(show_name no)
@@ -18800,7 +18800,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:servo"
 			(at 138.43 134.62 0)
 			(hide yes)
 			(show_name no)

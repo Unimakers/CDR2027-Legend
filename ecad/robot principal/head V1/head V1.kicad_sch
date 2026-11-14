@@ -2436,6 +2436,12 @@
 		(uuid "377d3397-d00f-4281-b326-a9660722cf76")
 	)
 	(junction
+		(at 76.2 96.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3d3a0b0f-ea0a-4806-b15d-aa64e82d5b19")
+	)
+	(junction
 		(at 97.79 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3795,7 +3801,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 101.6) (xy 76.2 96.52)
+			(xy 76.2 99.06) (xy 76.2 96.52)
 		)
 		(stroke
 			(width 0)
@@ -4761,6 +4767,25 @@
 		(dnp no)
 		(polyline
 			(pts
+				(xy 246.38 60.96) (xy 246.38 58.42) (xy 243.84 58.42) (xy 243.84 60.96)
+			)
+			(stroke
+				(width 0)
+				(type dash)
+			)
+			(fill
+				(type none)
+			)
+			(uuid "0de6dc5e-a3ce-4e51-b52f-f45f1bb4fe60")
+		)
+	)
+	(rule_area
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(polyline
+			(pts
 				(xy 114.3 134.6199) (xy 119.38 134.6199) (xy 119.38 137.1599) (xy 114.3 137.1599)
 			)
 			(stroke
@@ -4771,25 +4796,6 @@
 				(type none)
 			)
 			(uuid "1c41dd1a-9b9c-47ef-9b7a-0d78834d09ae")
-		)
-	)
-	(rule_area
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(polyline
-			(pts
-				(xy 77.47 97.79) (xy 74.93 97.79) (xy 74.93 100.33) (xy 77.47 100.33)
-			)
-			(stroke
-				(width 0)
-				(type dash)
-			)
-			(fill
-				(type none)
-			)
-			(uuid "32b9725d-0ff5-4fff-83be-1f423af1edd7")
 		)
 	)
 	(rule_area
@@ -4894,7 +4900,7 @@
 			(justify right bottom)
 		)
 		(uuid "68bb042c-fdd5-4855-92d6-9eaecd8e762d")
-		(property "Netclass" "Com "
+		(property "Netclass" "Com"
 			(at 160.782 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4928,7 +4934,7 @@
 			(justify left bottom)
 		)
 		(uuid "af7c3374-b761-491c-a026-57bc4d0cfb5a")
-		(property "Netclass" "Com "
+		(property "Netclass" "Com"
 			(at 158.75 133.35 90)
 			(hide yes)
 			(show_name no)
@@ -4991,16 +4997,16 @@
 	(netclass_flag ""
 		(length 2.54)
 		(shape round)
-		(at 74.93 99.06 90)
+		(at 245.11 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "d25a33f2-7760-41de-944d-354dac48723d")
+		(uuid "c31454bf-3453-41c1-b37b-7c5754bffffd")
 		(property "Netclass" "GND"
-			(at 72.644 93.726 90)
+			(at 250.444 56.134 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5012,7 +5018,7 @@
 			)
 		)
 		(property "Component Class" ""
-			(at 208.28 175.26 0)
+			(at 168.91 191.77 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5689,7 +5695,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 48.26 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -6240,7 +6246,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 30.48 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -7398,7 +7404,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 76.2 101.6 0)
+		(at 76.2 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7409,7 +7415,7 @@
 		(fields_autoplaced yes)
 		(uuid "96e84065-6aac-405f-802f-7db4d656b755")
 		(property "Reference" "#PWR010"
-			(at 76.2 107.95 0)
+			(at 76.2 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7420,7 +7426,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 76.2 106.68 0)
+			(at 76.2 104.14 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7430,7 +7436,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 76.2 101.6 0)
+			(at 76.2 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7441,7 +7447,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 101.6 0)
+			(at 76.2 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7452,7 +7458,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 76.2 101.6 0)
+			(at 76.2 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8367,7 +8373,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 39.37 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -8686,7 +8692,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
 			(at 21.59 21.59 0)
 			(hide yes)
 			(show_name no)

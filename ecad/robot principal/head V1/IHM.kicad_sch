@@ -2995,7 +2995,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 156.21 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -3287,7 +3287,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 156.21 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -3358,7 +3358,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x03"
+		(property "Value" "neopixel+"
 			(at 220.98 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3369,7 +3369,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical"
 			(at 218.44 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -3453,7 +3453,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical"
 			(at 181.61 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -3551,7 +3551,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 160.02 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -3713,7 +3713,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 156.21 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -4035,7 +4035,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 156.21 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -4197,7 +4197,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
 			(at 156.21 91.44 0)
 			(hide yes)
 			(show_name no)

@@ -2004,7 +2004,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 160.02 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -2172,7 +2172,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:Luckfox_Pico_Mini_THT_2x11_P2.54mm_Row17.78mm"
 			(at 181.61 85.09 0)
 			(hide yes)
 			(show_name no)

@@ -4243,7 +4243,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 88.9 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -4323,7 +4323,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 246.38 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -4596,7 +4596,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:ez 2209"
 			(at 44.45 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -4801,7 +4801,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 156.21 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -4883,7 +4883,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 223.52 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -4965,7 +4965,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 279.4 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -5132,7 +5132,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 179.07 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -5405,7 +5405,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:ez 2209"
 			(at 179.07 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -5529,7 +5529,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 21.59 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -5692,7 +5692,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 223.52 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -5856,7 +5856,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 144.78 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -5942,7 +5942,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 44.45 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6377,7 +6377,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:ez 2209"
 			(at 111.76 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -6499,7 +6499,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TMC2209:MODULE_TMC2209_SILENTSTEPSTICK"
+		(property "Footprint" "TMC2209_SILENTSTEPSTICK:MODULE_TMC2209_SILENTSTEPSTICK"
 			(at 111.76 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6936,7 +6936,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 88.9 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -7099,7 +7099,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 21.59 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -7182,7 +7182,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 212.09 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -7270,7 +7270,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 156.21 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -7350,7 +7350,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:ez 2209"
 			(at 246.38 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -7637,7 +7637,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
 			(at 77.47 129.54 0)
 			(hide yes)
 			(show_name no)

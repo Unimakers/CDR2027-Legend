@@ -5155,7 +5155,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 176.53 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -5235,7 +5235,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TEN_50-2411"
+		(property "Footprint" "ten50 2411:TEN_50-2411"
 			(at 219.71 240.97 0)
 			(hide yes)
 			(show_name no)
@@ -5389,7 +5389,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:Module_Buck_LMR51450_1x06_P2.54mm"
 			(at 238.76 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -5576,7 +5576,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 219.71 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6027,7 +6027,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 229.87 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -6286,7 +6286,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 205.74 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -6366,7 +6366,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Fuse:Fuseholder_Blade_Mini_Keystone_3568"
 			(at 64.77 86.868 90)
 			(hide yes)
 			(show_name no)
@@ -6448,7 +6448,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 200.66 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -6530,7 +6530,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 248.92 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -6612,7 +6612,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
 			(at 195.58 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6694,7 +6694,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 190.5 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6776,7 +6776,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 233.68 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6856,7 +6856,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:Module_Buck_LMR51450_1x06_P2.54mm"
 			(at 195.58 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -6948,7 +6948,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:Module_Buck_LMR51450_1x06_P2.54mm"
 			(at 228.6 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -7164,7 +7164,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Yosh's lib:Module_Buck_LMR51450_1x06_P2.54mm"
 			(at 185.42 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -7340,7 +7340,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 243.84 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -7690,7 +7690,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
 			(at 238.76 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -7772,7 +7772,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 186.69 90.17 0)
 			(hide yes)
 			(show_name no)
