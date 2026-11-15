@@ -1,0 +1,236 @@
+(footprint "Module_Buck_LMR51450_KK254_RightAngle_1x06_P2.54mm"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Module buck LMR51450 5A monte debout devant une embase Molex KK-254 coudee 1x06 (face avant). Zone occupee 15 x 15 mm embase comprise, hauteur ~25 mm au-dessus du PCB. 1-2 VIN, 3-4 GND, 5-6 VOUT. Cotes de l embase coudee approximatives : verifier sur la datasheet Molex.")
+	(tags "buck LMR51450 Molex KK-254 right-angle horizontal 1x06")
+	(property "Reference" "U**"
+		(at 0 -3.8 0)
+		(layer "F.SilkS")
+		(uuid "6dbc044c-151e-4b2f-ab74-dc9a30c61795")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "LMR51450_5A_coude"
+		(at 0 5.5 0)
+		(layer "F.Fab")
+		(uuid "d9dc544d-6753-4f7f-b521-0063222dc219")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.ti.com/product/LMR51450"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "16510640-f74a-48df-8aa2-cb429d7b6c77")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Module buck 5A LMR51450 debout sur Molex KK-254 coude 1x06"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cbb37b69-d685-4c8d-9317-7e53a0a495e9")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -7.95 -2.6)
+		(end -6.35 -2.6)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "f7569999-6f79-4b73-9487-301452d025f4")
+	)
+	(fp_rect
+		(start -7.61 -2.11)
+		(end 7.61 4)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "58ed15f9-06a5-4f98-8bf9-d4aae1858fa0")
+	)
+	(fp_rect
+		(start -7.75 -2.25)
+		(end 7.75 4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "1444d5a7-0ccb-4afa-a349-c4ff144792c3")
+	)
+	(fp_line
+		(start -7.5 3.5)
+		(end 7.5 3.5)
+		(stroke
+			(width 0.1)
+			(type dash)
+		)
+		(layer "F.Fab")
+		(uuid "f6dde191-753d-41ed-8bbe-88a780a772f8")
+	)
+	(fp_rect
+		(start -7.62 -2.1)
+		(end 7.62 4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "9d665566-d771-4ee2-9722-37d80792ca91")
+	)
+	(fp_text user "VIN"
+		(at -5.08 2.6 0)
+		(layer "F.SilkS")
+		(uuid "ca1e10c8-0186-4001-a02a-76110ee3fdb3")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.12)
+			)
+		)
+	)
+	(fp_text user "BUCK h=25mm"
+		(at 0 -1.5 0)
+		(layer "F.SilkS")
+		(uuid "5bc97c91-04cf-405b-9cf9-171f94bbe30b")
+		(effects
+			(font
+				(size 0.9 0.9)
+				(thickness 0.13)
+			)
+		)
+	)
+	(fp_text user "GND"
+		(at 0 2.6 0)
+		(layer "F.SilkS")
+		(uuid "217d8c71-a7a1-47c7-9448-fe97af09f8aa")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.12)
+			)
+		)
+	)
+	(fp_text user "VOUT"
+		(at 5.08 2.6 0)
+		(layer "F.SilkS")
+		(uuid "038534f0-6274-475f-8fba-d7b05d6a9f87")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.12)
+			)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 -3 0)
+		(layer "F.Fab")
+		(uuid "2c65752e-30ab-4b0a-97fe-7d22322866a5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "PCB module"
+		(at 0 1.5 0)
+		(layer "F.Fab")
+		(uuid "76685efd-5282-4cfc-abdb-10ad8064bff7")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.09)
+			)
+		)
+	)
+	(fp_text user "composants"
+		(at 0 7 0)
+		(layer "F.Fab")
+		(uuid "c9e8bee5-15bd-4bdd-a08b-76f85ab526a8")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.12)
+			)
+		)
+	)
+	(pad "1" thru_hole roundrect
+		(at -6.35 0)
+		(size 1.74 2.2)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.1436)
+		(uuid "4ed18c83-2e13-4e55-b971-577db98e175b")
+	)
+	(pad "2" thru_hole oval
+		(at -3.81 0)
+		(size 1.74 2.2)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7b6fd0ed-6d40-46c2-91d6-27a15cd806ae")
+	)
+	(pad "3" thru_hole oval
+		(at -1.27 0)
+		(size 1.74 2.2)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "1b6a4af3-34c6-4e05-8490-397db812cca6")
+	)
+	(pad "4" thru_hole oval
+		(at 1.27 0)
+		(size 1.74 2.2)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "56694cda-3697-460f-98c0-77922d7e2f2a")
+	)
+	(pad "5" thru_hole oval
+		(at 3.81 0)
+		(size 1.74 2.2)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "538ac130-0a31-4149-9298-83ef43322b07")
+	)
+	(pad "6" thru_hole oval
+		(at 6.35 0)
+		(size 1.74 2.2)
+		(drill 1.2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "39d89d6e-c9fc-495b-97b6-8db4dbd95756")
+	)
+	(embedded_fonts no)
+)

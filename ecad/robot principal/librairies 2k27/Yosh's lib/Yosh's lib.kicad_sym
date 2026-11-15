@@ -165,7 +165,7 @@
 				)
 			)
 			(pin input line
-				(at -10.16 3.81 0)
+				(at -10.16 -3.81 0)
 				(length 3.81)
 				(name "PWM"
 					(effects
@@ -183,7 +183,7 @@
 				)
 			)
 			(pin input line
-				(at -10.16 1.27 0)
+				(at -10.16 -1.27 0)
 				(length 3.81)
 				(name "PWM"
 					(effects
@@ -201,7 +201,7 @@
 				)
 			)
 			(pin input line
-				(at -10.16 -1.27 0)
+				(at -10.16 1.27 0)
 				(length 3.81)
 				(name "PWM"
 					(effects
@@ -219,7 +219,7 @@
 				)
 			)
 			(pin input line
-				(at -10.16 -3.81 0)
+				(at -10.16 3.81 0)
 				(length 3.81)
 				(name "PWM"
 					(effects
