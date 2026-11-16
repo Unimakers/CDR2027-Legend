@@ -1790,7 +1790,7 @@
 	)
 	(hierarchical_label "UART3_RX-"
 		(shape input)
-		(at 217.17 95.25 0)
+		(at 217.17 97.79 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1801,7 +1801,7 @@
 	)
 	(hierarchical_label "UART3_TX+"
 		(shape output)
-		(at 217.17 97.79 0)
+		(at 217.17 95.25 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2004,7 +2004,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 160.02 82.55 0)
 			(hide yes)
 			(show_name no)

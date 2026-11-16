@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.0,
-          "height": 1.508,
-          "width": 1.508
+          "drill": 0.0,
+          "height": 1.45,
+          "width": 1.175
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -76,7 +76,24 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "courtyards_overlap|162430000|-38067500|880194b1-466b-409e-b419-3cd82265984a|d045abb5-5cf2-4ee1-9cff-2b919f36b701",
+          ""
+        ],
+        [
+          "courtyards_overlap|162457500|-14952500|2ca34776-1059-4639-910e-8bedfae0c3f7|2fdc478b-ebb1-4721-803d-859a51ad600c",
+          ""
+        ],
+        [
+          "courtyards_overlap|218759571|-30795000|0c8910a9-c755-43e9-bc17-ee021455dd2a|f7a660ab-9410-4b5a-8611-878727323c33",
+          ""
+        ],
+        [
+          "courtyards_overlap|218784571|-3445000|a037c9c0-fb30-4dfc-ac8a-454247ddba72|df65425b-d4d7-4f94-a25d-60f6e2ac8f3c",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -146,21 +163,21 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
-        "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.0,
+        "min_clearance": 0.16,
+        "min_connection": 0.2,
+        "min_copper_edge_clearance": 0.2,
         "min_groove_width": 0.0,
-        "min_hole_clearance": 0.0,
+        "min_hole_clearance": 0.2,
         "min_hole_to_hole": 0.0,
-        "min_microvia_diameter": 0.2,
-        "min_microvia_drill": 0.1,
+        "min_microvia_diameter": 0.3,
+        "min_microvia_drill": 0.2,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.1,
         "min_text_thickness": 0.01,
         "min_through_hole_diameter": 0.508,
-        "min_track_width": 0.0,
-        "min_via_annular_width": 0.0,
+        "min_track_width": 0.16,
+        "min_via_annular_width": 0.15,
         "min_via_diameter": 0.0,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
@@ -258,10 +275,18 @@
         },
         {
           "diameter": 0.4,
+          "drill": 0.25
+        },
+        {
+          "diameter": 0.4,
           "drill": 0.3
         },
         {
           "diameter": 0.5,
+          "drill": 0.3
+        },
+        {
+          "diameter": 0.6,
           "drill": 0.3
         },
         {
@@ -757,6 +782,8 @@
         "wire_width": 6
       },
       {
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.27,
         "name": "Com",
         "pcb_color": "rgb(0, 0, 255)",
         "priority": 1,

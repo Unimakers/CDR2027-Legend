@@ -783,7 +783,7 @@
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J2"
+			(property "Reference" "J1"
 				(at 11.43 0.0001 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1489,7 +1489,7 @@
 							)
 						)
 					)
-					(number "S1"
+					(number "SH"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1973,7 +1973,7 @@
 		(pin "B12"
 			(uuid "4d4ca16d-64c0-4acf-a0a7-f35609f507bb")
 		)
-		(pin "S1"
+		(pin "SH"
 			(uuid "0a91e379-18df-4722-a501-fe9fdaa3307e")
 		)
 		(instances

@@ -5865,9 +5865,9 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board no)
+		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6f7e8d3f-0a53-4a92-9dcd-8073f17e1bf3")
 		(property "Reference" "C26"
@@ -6220,9 +6220,9 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board no)
+		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b64990c9-3182-4496-b6a4-fd4813d55dba")
 		(property "Reference" "C25"

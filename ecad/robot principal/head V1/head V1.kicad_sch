@@ -8837,7 +8837,7 @@
 			)
 		)
 		(pin "EN 1" input
-			(at 109.22 121.92 0)
+			(at 109.22 124.46 0)
 			(uuid "55127a0c-613e-41eb-b518-e87bbdbeb500")
 			(effects
 				(font
@@ -8847,7 +8847,7 @@
 			)
 		)
 		(pin "EN 2" input
-			(at 109.22 124.46 0)
+			(at 109.22 121.92 0)
 			(uuid "0ab4d624-0fde-45e5-a04b-2946466faead")
 			(effects
 				(font

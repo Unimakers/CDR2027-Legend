@@ -2690,6 +2690,12 @@
 		(uuid "7d1a3cba-05c7-478c-81c7-7677b42383e2")
 	)
 	(junction
+		(at 120.65 146.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7e3de601-33fa-4218-8d93-59365f7771c0")
+	)
+	(junction
 		(at 219.71 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2814,6 +2820,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d8d88790-5ac8-49c8-962d-a3ea7e3bb423")
+	)
+	(junction
+		(at 118.11 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "db169196-ced7-4d73-892c-a6f6ec577cb8")
 	)
 	(junction
 		(at 219.71 63.5)
@@ -3078,6 +3090,16 @@
 			(type default)
 		)
 		(uuid "1f844d49-076f-4c09-9a62-3c0363fb6469")
+	)
+	(wire
+		(pts
+			(xy 123.19 156.21) (xy 120.65 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21e0020a-2df9-485f-b15d-bab085e10629")
 	)
 	(wire
 		(pts
@@ -3368,6 +3390,16 @@
 			(type default)
 		)
 		(uuid "50972066-246b-4b80-b1a5-5fab3f01beda")
+	)
+	(wire
+		(pts
+			(xy 118.11 148.59) (xy 118.11 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53484957-ec88-4eee-af7c-4901769a3e55")
 	)
 	(wire
 		(pts
@@ -3671,6 +3703,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 156.21) (xy 120.65 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a2522a2-04a3-4146-86e5-8ca2b8bf6049")
+	)
+	(wire
+		(pts
 			(xy 273.05 67.31) (xy 273.05 132.08)
 		)
 		(stroke
@@ -3788,6 +3830,16 @@
 			(type default)
 		)
 		(uuid "86ef15fa-342a-4c98-bc5e-c3bac05d1826")
+	)
+	(wire
+		(pts
+			(xy 115.57 158.75) (xy 123.19 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87f6cd85-77e2-4af4-8fc4-5bfd4cf739a1")
 	)
 	(wire
 		(pts
@@ -4191,6 +4243,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 146.05) (xy 120.65 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c29bddd9-85ad-48e7-805a-c46ffe4db2d6")
+	)
+	(wire
+		(pts
 			(xy 53.34 87.63) (xy 58.42 87.63)
 		)
 		(stroke
@@ -4271,6 +4333,16 @@
 	)
 	(wire
 		(pts
+			(xy 123.19 148.59) (xy 118.11 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d15a1188-df97-429e-91c0-3c7aa5e23b5d")
+	)
+	(wire
+		(pts
 			(xy 176.53 58.42) (xy 179.07 58.42)
 		)
 		(stroke
@@ -4298,6 +4370,16 @@
 			(type default)
 		)
 		(uuid "d416d4c8-b8b5-47a7-88cb-e40ef9cbea46")
+	)
+	(wire
+		(pts
+			(xy 120.65 146.05) (xy 123.19 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d43ed1a5-2f56-459d-9e6c-776ca02da682")
 	)
 	(wire
 		(pts
@@ -4529,6 +4611,28 @@
 		)
 		(uuid "3183e619-efce-4c50-8bcb-4028e05e1c5e")
 	)
+	(hierarchical_label "5VP1"
+		(shape input)
+		(at 115.57 146.05 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "00bb37e9-9784-405d-81ca-8e83e3fec994")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 115.57 158.75 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1a5a93f5-0a39-475b-82eb-1975e5432a5e")
+	)
 	(hierarchical_label "GND"
 		(shape input)
 		(at 223.52 148.59 0)
@@ -4671,6 +4775,88 @@
 			(justify right)
 		)
 		(uuid "f7ac3a03-bc27-4cb9-bb4f-bfa36c50e7e1")
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 128.27 156.21 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "051801eb-458f-4925-859a-8dec9d137af9")
+		(property "Reference" "J36"
+			(at 130.81 156.2099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ventilo 2"
+			(at 130.81 158.7499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
+			(at 128.27 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 128.27 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9a64d433-f6f7-4db2-b8ea-c8fbcf68915b")
+		)
+		(pin "2"
+			(uuid "d7e10d72-908d-4607-8152-a6305616a705")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/af4d29fd-cbf6-499c-9d0e-837357c8c92b"
+					(reference "J36")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:C_Polarized_Small")
@@ -6448,6 +6634,88 @@
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/af4d29fd-cbf6-499c-9d0e-837357c8c92b"
 					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 128.27 146.05 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6b1cc8d8-f6bc-4171-9808-a88503084917")
+		(property "Reference" "J35"
+			(at 130.81 146.0499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ventilo 1"
+			(at 130.81 148.5899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical"
+			(at 128.27 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 128.27 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c4470cb5-347c-4248-af66-6d9b062dc670")
+		)
+		(pin "2"
+			(uuid "5fcaceea-a82f-499b-aec4-fd3dc846a7b8")
+		)
+		(instances
+			(project "head V1"
+				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/af4d29fd-cbf6-499c-9d0e-837357c8c92b"
+					(reference "J35")
 					(unit 1)
 				)
 			)

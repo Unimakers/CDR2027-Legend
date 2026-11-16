@@ -2872,9 +2872,9 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "84696577-4b92-459f-88ee-74f17b782677")
 		(property "Reference" "R14"
 			(at 153.162 77.216 90)
