@@ -5,7 +5,7 @@ description: Carte électronique du robot principal (KiCad, ecad/robot principal
 
 # Électronique du robot principal
 
-Projet KiCad : `ecad/robot principal/head V1/head V1.kicad_pro`. Schéma commencé le 2026-11-07, 8 feuilles au 2026-11-12, PCB pas commencé. Logs : `docs/journaux/robot-principal/logs/2026-11-07-01-*` et `2026-11-12-01-*`.
+Projet KiCad : `ecad/robot principal/head V1/head V1.kicad_pro`. Schéma commencé le 2026-11-07, 8 feuilles au 2026-11-12, routage du PCB commencé le 2026-11-16 (`head V1.kicad_pcb`, ne pas lire en entier). Logs : `docs/journaux/robot-principal/logs/2026-11-07-01-*` et `2026-11-12-01-*`.
 
 ## Lire le schéma sans l'ouvrir
 
@@ -60,4 +60,4 @@ U15 → `+3.3V`, U16 → `+5V`, U18 → `+12V1`, U20 → `+12V2`, U19 → `+5VP1
 
 ## Reste à faire
 
-Routage du PCB.
+Routage du PCB : logique presque finie (2026-11-16) ; restent les moteurs puis les actionneurs. Carte d’environ 170 mm avec un trou central pour le passage des câbles. Ventilateurs : J35 « ventilo 1 », J36 « ventilo 2 » (feuille puissance).
