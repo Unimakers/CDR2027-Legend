@@ -12,6 +12,7 @@ description: Firmware des PAMI (ESP32-S3, PlatformIO/Arduino, FreeRTOS) et copro
 - L'interface web est dans `fw/data/` (LittleFS) : après modification, **Upload Filesystem Image**.
 - Pas de CI firmware (la CI ne construit que le site). Vérifier soi-même que ça compile : `pio run` dans `fw/`.
 - Dépendances : ESPAsyncWebServer, ArduinoJson 6, Adafruit MCP23008 / VL53L0X / GFX / ST7735-ST7789, FastAccelStepper, ESP32Servo.
+- Plateforme figée `espressif32 @ 6.13.0` (Arduino core 2.0.17, IDF 4.4), 2026-11-17. Ne pas passer en core 3.x : ESP32Servo (MCPWM legacy) + FastAccelStepper (MCPWM nouveau driver) => `mcpwm(legacy): CONFLICT!` et reboot en boucle. FastAccelStepper figé à **1.3.4** (la 1.4.0 ne compile pas sur ESP32). `NEOPIXEL.cpp` inclut `soc/gpio_struct.h` explicitement.
 
 ## Architecture
 
