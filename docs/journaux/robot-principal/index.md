@@ -25,3 +25,4 @@ Les sujets qui ne sont pas encore tranchés. Ils sortent du tableau une fois la 
 | Module encodeur v2 | Développée le 2026-10-22, aucun test noté pour l'instant. |
 | Roulement du module encodeur | Il ne peut pas être sorti manuellement ; aucune correction notée. |
 | Carte électronique | Routage du PCB commencé le 2026-11-16, logique presque finie ; restent les moteurs, puis les actionneurs (pompes, servomoteurs, Dynamixel). |
+| Actionneur de levage des murs | Prototype monté le 2026-11-17 ; le système d'aspiration et le système de rotation des murs ne sont pas encore conçus. |

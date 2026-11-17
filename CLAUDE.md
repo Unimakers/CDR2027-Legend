@@ -9,12 +9,12 @@ Dépôt de l'équipe **Unimakers** (MakerSpace Amiens) pour la **Coupe de France
 | `fw/` | Firmware PAMI ESP32-S3 (PlatformIO, Arduino) + `fw-luckfox/` (Python, Linux) | `firmware-pami` |
 | `ecad/pcb-pami/` | Carte PAMI sous KiCad | `electronique-pami` |
 | `ecad/robot principal/` | Carte du robot principal sous KiCad (`head V1`) | `electronique-robot-principal` |
-| `mcad/` | Vide : la CAO est sur Onshape (lien dans `docs/index.md`) | `conception-3d` |
+| `mcad/` | Exports seulement (STL de l'actionneur du robot principal) : la CAO est sur Onshape (lien dans `docs/index.md`) | `conception-3d` |
 | `docs/` | Site Jekyll « Just the Docs », publié sur GitHub Pages | `site-doc` |
 | `docs/journaux/` | Journaux de bord (PAMI, robot principal) | `journaux` |
 | (hors dépôt) | Règlement CDR/Eurobot 2027 « Legend of Camelot » | `reglement-2027` |
 
-Le robot principal n'a encore **pas de code** ; son schéma KiCad est commencé et son journal couvre le module encodeur et la carte. Le firmware et le reste concernent les PAMI.
+Le robot principal n'a encore **pas de code** ; son schéma KiCad est commencé et son journal couvre le module encodeur, la carte et l'actionneur de levage des murs. Le firmware et le reste concernent les PAMI.
 
 ## Comment se contextualiser (économie de tokens)
 

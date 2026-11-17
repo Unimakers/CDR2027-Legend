@@ -8,7 +8,7 @@ description: Conception mécanique / CAO 3D des robots CDR2027 (PAMI et robot pr
 ## Où sont les modèles
 
 - **Source de vérité : Onshape** (lien dans `docs/index.md`, bouton « Notre projet sur Onshape »). Claude n'a pas d'accès à Onshape.
-- `mcad/` ne contient qu'un `README.md` (« TODO lien Onshape3D »). **Aucun STEP/STL dans le dépôt** : ne pas chercher ailleurs.
+- `mcad/` : un `README.md` (« TODO lien Onshape ») et un seul export, `mcad/robot-principal/actionneur/actionneur-cdri5.stl` (assemblage de l'actionneur, 2026-11-17). Aucun STEP dans le dépôt : ne pas chercher ailleurs.
 - `ecad/pcb-pami/3D/` contient seulement les modèles des composants de la carte (bouton, ESP32, TMC2209, USB-C). Ne pas les lire.
 
 Pour travailler sur une pièce, demander à l'utilisateur, dans cet ordre de préférence :
@@ -76,6 +76,13 @@ Dimensions, masse, BAU, batteries, boulet Ø 45 mm, écurie 200 × 300 mm : skil
 ## Robot principal
 
 Module encodeur (AMT 102-V, roue codeuse à joint torique, rail, ressort) : v2 développée le 2026-10-22, détails dans `docs/journaux/robot-principal/logs/`. Lien de la CAO et cotes non notés.
+
+Actionneur de levage des murs (log 2026-11-17, STL `mcad/robot-principal/actionneur/actionneur-cdri5.stl`, 10 pièces, repère : Z vertical) :
+- MakerBeam 10 × 10 de 300 mm, avec la crémaillère (150 mm) sur une face et le rail igus (220 mm) + chariot sur la face opposée.
+- Servo FS5115M → roue dentée (Ø ≈ 23 mm) → réducteur qui coulisse sur la crémaillère et lève l'ensemble.
+- Servo SG90 sur la face avant, pour la future rotation des murs (seulement positionné).
+- Corps du chariot imprimé ≈ 47 × 65 × 60 mm. Cotes lues sur le STL, pas mesurées sur la pièce.
+- Reste à concevoir : aspiration des murs, mécanisme de rotation.
 
 ## À compléter
 
