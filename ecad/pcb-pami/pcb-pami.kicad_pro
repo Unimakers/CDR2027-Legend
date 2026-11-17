@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.4,
+          "min_clearance": 0.2,
           "min_island_area": 0.001316,
           "min_thickness": 0.25,
           "pad_connection": 1,
@@ -536,9 +536,9 @@
         "microvia_drill": 0.1,
         "name": "12V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 2.5,
+        "track_width": 1.8,
         "tuning_profile": "",
         "via_diameter": 1.2,
         "via_drill": 0.6
@@ -553,7 +553,7 @@
         "microvia_drill": 0.1,
         "name": "3.3V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
         "tuning_profile": "",
@@ -571,7 +571,7 @@
         "microvia_drill": 0.1,
         "name": "5V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 1.1,
         "tuning_profile": "",
@@ -582,12 +582,27 @@
       {
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "5VUSB",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.6,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
         "diff_pair_width": 0.7,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "DC MOTOR",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.7,
         "tuning_profile": "",
@@ -604,7 +619,7 @@
         "microvia_drill": 0.1,
         "name": "Data Line",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "tuning_profile": "",
@@ -622,7 +637,7 @@
         "microvia_drill": 0.1,
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.6,
         "tuning_profile": "",
@@ -640,7 +655,7 @@
         "microvia_drill": 0.1,
         "name": "NEMA",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.75,
         "tuning_profile": "",
@@ -744,7 +759,7 @@
         "pattern": "VCC_5V_GLOBAL"
       },
       {
-        "netclass": "5V",
+        "netclass": "5VUSB",
         "pattern": "VCC_5V_USB"
       },
       {
@@ -1001,7 +1016,7 @@
         "uuid": "ea97f20c-9bc4-49f4-bc03-d8d68656df8b"
       }
     ],
-    "used_designators": "J2,#PWR2",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [
