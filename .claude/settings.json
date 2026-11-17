@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git fetch:*)",
+      "Bash(pio run:*)"
+    ],
+    "deny": [
+      "Read(./fw/.pio/**)",
+      "Read(./ecad/**/*-backups/**)",
+      "Read(./ecad/**/Footprint/**)",
+      "Read(./ecad/**/3D/**)",
+      "Read(./docs/images/**)",
+      "Read(./docs/journaux/**/medias/**)"
+    ]
+  }
+}

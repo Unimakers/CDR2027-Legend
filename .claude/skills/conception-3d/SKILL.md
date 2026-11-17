@@ -28,7 +28,7 @@ Pour travailler sur une pièce, demander à l'utilisateur, dans cet ordre de pr�
 
 Relire à jour avec `python .claude/skills/conception-3d/extraire_pcb.py` (sous Windows, prendre le Python qui a Pillow/pip, cf. skill `journaux`).
 État au 2026-11-03 du fichier du dépôt :
-- **90 × 66 mm**, 1,6 mm, déclarée **4 couches** (vérifier avec l'équipe si c'est bien la nouvelle carte, cf. `electronique-pami`).
+- **90 × 66 mm**, 1,6 mm, déclarée **4 couches** (snapshot du 2026-11-03, avant simplification). Depuis le 2026-11-17 la carte est en **2 couches** : ces cotes sont à relire (cf. `electronique-pami`).
 - 4 trous **M3** (Ø 3,2) à 3,5 mm des bords : entraxe **83 × 59 mm**.
 - Bord gauche (x ≈ 4) : USB-C `J1` (y 13,4), XT30 `J15` (y 26,1). Autres XT30 : `J10` (32,8 ; 36), `J6` (58,5 ; 36).
 - TMC2209 `U9` (12,1 ; 48,2) et `U8` (82,1 ; 48,2) : modules debout, prévoir la hauteur et l'air.

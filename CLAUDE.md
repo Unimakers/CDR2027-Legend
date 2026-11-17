@@ -26,7 +26,7 @@ Le robot principal n'a encore **pas de code** ; son schéma KiCad est commencé 
 
 ## Règles
 
-- Commits au format `[TAG] Message` : `[FW]`, `[DOC]`, `[GLOBAL]` (vus dans l'historique). Pas de commit ni de push sans demande explicite.
+- Commits au format `[TAG] Message` : `[FW]`, `[DOC]`, `[ECAD]`, `[GLOBAL]` (vus dans l'historique). Pas de commit ni de push sans demande explicite.
 - Journaux : ne rien inventer, ne pas réécrire un log publié, médias < 2 Mo. Procédure : skill `journaux`.
 - Ne pas exposer les identifiants Wi-Fi/SSH du dépôt hors du dépôt.
 
@@ -39,4 +39,24 @@ Après une modification qui change ce que décrit un skill (nouveau component, p
 - Rester court : un skill dépasse rarement 150 lignes. Pointer vers le fichier source plutôt que recopier du code.
 - Nouveau domaine (robot principal, CAO, stratégie de match...) : créer `.claude/skills/<nom>/SKILL.md` et l'ajouter au tableau ci-dessus.
 
-Commande existante : `/verifier-journaux` (contrôle de forme des logs).
+Commandes : `/verifier-journaux` (contrôle de forme des logs), `/synchro-journaux` (routine hebdo, lance l'agent `journaux`), `/avant-commit` (lance l'agent `relecteur`).
+
+## Agents (économie de tokens)
+
+Les agents de `.claude/agents/` travaillent dans leur propre contexte et ne renvoient qu'un rapport court. **Déléguer quand la tâche lit beaucoup de fichiers et renvoie peu ; faire en direct pour une petite tâche** (un agent repart de zéro). Les décisions de conception et d'architecture restent dans la conversation principale.
+
+| Tâche | Agent | Modèle | Accès |
+|:--|:--|:--|:--|
+| Trouver un pin, un composant, une constante, un mot (`fichier:ligne`) | `chercheur` | haiku | lecture |
+| Renommer / déplacer des fichiers, corriger les liens | `fichiers` | haiku | `git mv`, édition |
+| Question de conformité au règlement 2027 | `reglement` | haiku | lecture |
+| Mettre à jour un skill après un changement (avec date) | `skills-maj` | haiku | édition |
+| Ajouter, corriger, synchroniser des logs | `journaux` | sonnet | édition, `journal.py` |
+| Analyser ou comparer des fichiers KiCad sans les lire en entier | `kicad` | sonnet | lecture |
+| Modifier `fw/` et vérifier que ça compile (`pio run`) | `firmware` | sonnet | édition, `pio run` |
+| Relire les modifications avant un commit | `relecteur` | sonnet | lecture |
+
+- Un agent **informe, il ne décide pas** et ne commit jamais : tout ce qu'il modifie est relu avant commit (`/avant-commit`).
+- `firmware` ne flashe jamais (ni upload, ni env OTA).
+- **Cohérence carte / firmware** : la carte est en cours de conception, des liaisons non terminées sont normales, et le firmware suit la carte avec retard (voir `etat-projet`). Si le firmware s'appuie sur un composant ou un signal absent de la carte et que `etat-projet` ne le documente pas comme décision, l'agent `kicad` le signale comme problème ouvert, sans corriger.
+- Permissions et dossiers interdits : `.claude/settings.json`.

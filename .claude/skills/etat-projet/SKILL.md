@@ -5,7 +5,7 @@ description: État actuel du projet CDR2027 (PAMI et robot principal) — ce qui
 
 # État du projet
 
-Dernière mise à jour : 2026-11-03 (depuis le code `fw/`, le schéma KiCad et les journaux jusqu'au 2026-10-01).
+Dernière mise à jour : 2026-11-17 (carte PAMI 2 couches, MCP23008 retiré) ; reste : 2026-11-03 (depuis le code `fw/`, le schéma KiCad et les journaux jusqu'au 2026-10-01).
 Sources : `docs/journaux/pami/logs/`, tableau « Points ouverts » de `docs/journaux/pami/index.md`, code.
 
 ## Robot principal
@@ -48,11 +48,27 @@ Pas de code. Carte électronique : schéma KiCad commencé le 2026-11-07, 8 feui
 - Pont diviseur : le schéma indique 270 kΩ, mais une autre valeur est soudée (270 kΩ indisponible). C'est `R1`/`R2` dans `pamiboard.h` qui fait foi (200 kΩ / 33 kΩ, soit environ 0 à 23,3 V). La plage suit les résistances soudées : `Vmax = 3,3 V × (R1 + R2) / R2`.
 - **2 NEMA / 2 TMC2209 par PAMI.** Le moteur 3 du firmware (`stepper3`, GPIO 11/12) n'est pas câblé.
 
+## Nouvelle carte PAMI : MCP23008 retiré, tout sur l'ESP32 (décision 2026-11-17)
+
+Le MCP23008 (U10) est supprimé pour gagner de la place : tous les signaux vont directement sur des GPIO de l'ESP32. **Le firmware (`fw/`) est encore celui de l'ancienne carte** (il utilise `fw/lib/MCP23008`, pins `PAMI_MCP_*` de `pamiboard.h`, `mcp_setup_board()` appelée par `main.cpp:260`) et suivra quand la nouvelle carte sera terminée. Le schéma est en cours : des labels non reliés sont normaux.
+
+Signaux aujourd'hui portés par le MCP, à réaffecter à des GPIO de l'ESP32 (analyse de l'agent `kicad`) :
+
+| Signal (pin MCP) | Fonction | Schéma actuel |
+|:--|:--|:--|
+| RST (0) | reset écran | label présent, non relié |
+| TEAM_BTN (1), LAUNCHPULL (2) | bouton d'équipe, tirette | labels présents, non reliés (lecture non vue dans `fw/src`) |
+| EN (3) | enable des TMC2209 | label présent, non relié |
+| XSHUT0 (7) | coupure du ToF (un seul ToF sur la nouvelle carte, 2026-11-17) | label présent, non relié |
+| XSHUT1 à 3 (6, 5, 4) | ToF 1 à 3 | **plus nécessaires** (1 seul ToF) |
+
+Reste à faire au moment de l'adaptation : choisir les GPIO disponibles, mettre à jour `pamiboard.h`, retirer ou remplacer `lib/MCP23008`, et adapter `lib/VL53L0X` (4 ToF et leurs XSHUT via le MCP dans le code actuel, 1 seul ToF sur la nouvelle carte). Soit 5 GPIO ESP32 à trouver : RST, TEAM_BTN, LAUNCHPULL, EN, XSHUT. Relevé du 2026-11-17 : 11 GPIO libres sur la nouvelle carte (3, 4, 5, 6, 7, 8, 11, 12, 18, 45, 46 ; 45 et 46 sont des broches de strapping), `EN` des TMC2209 flottant, pas de connecteur I2C2, J17 (radio) sans empreinte, PCB non routé avec 17 empreintes hors contour (détail dans `electronique-pami`).
+
 ## Décisions prises
 
 - Batterie traversant le PCB (carte v1).
 - Moteurs pas à pas NEMA 17 pour la propulsion (odométrie sur les pas).
-- Nouvelle carte PAMI **4 couches**, strict nécessaire, pour gagner de la place (en conception, 2026-09-27).
+- Nouvelle carte PAMI, strict nécessaire, pour gagner de la place (en conception, 2026-09-27). **Passée de 4 à 2 couches le 2026-11-17** : plus simple à router, mais moins de place. Alimentation simplifiée (diodes SS34 D2/D3 à la place des LTC4412 et PMOS AO4407, buck AP63300 conservé).
 - Luckfox Pico Mini B en coprocesseur pour les calculs lourds (path finding).
 
 ## Points ouverts
