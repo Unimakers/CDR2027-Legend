@@ -2,6 +2,7 @@
 #include "pamiboard.h"
 #include <Arduino.h>
 #include <math.h>
+#include "soc/gpio_struct.h"  // GPIO.out_w1ts (plus inclus implicitement depuis Arduino core 3.x)
 
 // Réglage de la luminosité (0 à 100 %)
 static volatile uint8_t luminosite_pct = 40;

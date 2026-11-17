@@ -266,7 +266,7 @@ void setup() {
     dcmotors_init();
 
     // Activation des drivers avant nema_init() pour que le self-test NEMA puisse faire tourner les moteurs
-    if (battery_get_voltage() > 10.0f) {
+    if (battery_get_voltage() > 7.0f) {
         mcp_enable_motors(true);
     } else {
         Serial.printf("[NEMA] Batterie %.2fV < 10V : drivers desactives\n", battery_get_voltage());
