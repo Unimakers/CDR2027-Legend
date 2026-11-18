@@ -4994,7 +4994,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d4af8d4-3143-47a1-b6a6-6b8fe6ad03fd")
-		(property "Reference" "C32"
+		(property "Reference" "C34"
 			(at 273.05 130.8099 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5058,7 +5058,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C32")
+					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -5707,7 +5707,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5f1dee2d-6298-4404-b0ac-b34cd0058111")
-		(property "Reference" "C31"
+		(property "Reference" "C33"
 			(at 273.05 120.6499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5771,7 +5771,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C31")
+					(reference "C33")
 					(unit 1)
 				)
 			)
@@ -5870,7 +5870,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6f7e8d3f-0a53-4a92-9dcd-8073f17e1bf3")
-		(property "Reference" "C26"
+		(property "Reference" "C28"
 			(at 158.75 132.0799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5934,7 +5934,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C26")
+					(reference "C28")
 					(unit 1)
 				)
 			)
@@ -6061,7 +6061,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7bca9e30-8d47-48c5-8ac0-c1558496a395")
-		(property "Reference" "C27"
+		(property "Reference" "C29"
 			(at 158.75 142.2399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6125,7 +6125,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C27")
+					(reference "C29")
 					(unit 1)
 				)
 			)
@@ -6143,7 +6143,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c1450e4-8c42-4d58-b329-fcb85106b4ae")
-		(property "Reference" "C29"
+		(property "Reference" "C31"
 			(at 233.68 139.6999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6207,7 +6207,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C29")
+					(reference "C31")
 					(unit 1)
 				)
 			)
@@ -6225,7 +6225,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b64990c9-3182-4496-b6a4-fd4813d55dba")
-		(property "Reference" "C25"
+		(property "Reference" "C27"
 			(at 158.75 121.9199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6289,7 +6289,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C25")
+					(reference "C27")
 					(unit 1)
 				)
 			)
@@ -6306,7 +6306,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b89047e3-cd2e-45ae-8d8b-ad3fcdd4a1ae")
-		(property "Reference" "C30"
+		(property "Reference" "C32"
 			(at 260.35 120.6499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6328,7 +6328,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.80mm"
 			(at 257.81 121.92 0)
 			(hide yes)
 			(show_name no)
@@ -6370,7 +6370,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C30")
+					(reference "C32")
 					(unit 1)
 				)
 			)
@@ -6631,7 +6631,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d6960fd0-f722-4f98-a50b-7e2df4dbbc03")
-		(property "Reference" "C28"
+		(property "Reference" "C30"
 			(at 158.75 152.3999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6695,7 +6695,7 @@
 		(instances
 			(project "head V1"
 				(path "/b0306bf7-4fe9-406b-bc9c-1a8a198c5765/b0578549-5098-4bd2-9cba-8eae320f6000"
-					(reference "C28")
+					(reference "C30")
 					(unit 1)
 				)
 			)
