@@ -5,7 +5,7 @@ description: État actuel du projet CDR2027 (PAMI et robot principal) — ce qui
 
 # État du projet
 
-Dernière mise à jour : 2026-11-17 (carte PAMI 2 couches, MCP23008 retiré) ; reste : 2026-11-03 (depuis le code `fw/`, le schéma KiCad et les journaux jusqu'au 2026-10-01).
+Dernière mise à jour : 2026-11-18 (nouvelle carte PAMI routée, GPIO réaffectés ; 2026-11-17 : 2 couches, MCP23008 retiré) ; reste : 2026-11-03 (depuis le code `fw/`, le schéma KiCad et les journaux jusqu'au 2026-10-01).
 Sources : `docs/journaux/pami/logs/`, tableau « Points ouverts » de `docs/journaux/pami/index.md`, code.
 
 ## Robot principal
@@ -48,21 +48,17 @@ Pas de code. Carte électronique : schéma KiCad commencé le 2026-11-07, 8 feui
 - Pont diviseur : le schéma indique 270 kΩ, mais une autre valeur est soudée (270 kΩ indisponible). C'est `R1`/`R2` dans `pamiboard.h` qui fait foi (200 kΩ / 33 kΩ, soit environ 0 à 23,3 V). La plage suit les résistances soudées : `Vmax = 3,3 V × (R1 + R2) / R2`.
 - **2 NEMA / 2 TMC2209 par PAMI.** Le moteur 3 du firmware (`stepper3`, GPIO 11/12) n'est pas câblé.
 
-## Nouvelle carte PAMI : MCP23008 retiré, tout sur l'ESP32 (décision 2026-11-17)
+## Nouvelle carte PAMI : tout sur l'ESP32, PCB routé (2026-11-18)
 
-Le MCP23008 (U10) est supprimé pour gagner de la place : tous les signaux vont directement sur des GPIO de l'ESP32. **Le firmware (`fw/`) est encore celui de l'ancienne carte** (il utilise `fw/lib/MCP23008`, pins `PAMI_MCP_*` de `pamiboard.h`, `mcp_setup_board()` appelée par `main.cpp:260`) et suivra quand la nouvelle carte sera terminée. Le schéma est en cours : des labels non reliés sont normaux.
+Le MCP23008 (U10) est supprimé (décision 2026-11-17) : tous les signaux vont directement sur des GPIO de l'ESP32. **Le firmware (`fw/`) est encore celui de l'ancienne carte** (il utilise `fw/lib/MCP23008`, pins `PAMI_MCP_*` de `pamiboard.h`, `mcp_setup_board()` appelée par `main.cpp:260`) et suivra quand la carte sera finie. Brochage complet : skill `electronique-pami`.
 
-Signaux aujourd'hui portés par le MCP, à réaffecter à des GPIO de l'ESP32 (analyse de l'agent `kicad`) :
+**Fait le 2026-11-18** (commit `def6408`) : tous les signaux ont un GPIO, PCB routé (539 pistes, 246 vias, zones GND), placement du buck refait (FB court), schéma redessiné. Rien n'est fabriqué ni testé.
 
-| Signal (pin MCP) | Fonction | Schéma actuel |
-|:--|:--|:--|
-| RST (0) | reset écran | label présent, non relié |
-| TEAM_BTN (1), LAUNCHPULL (2) | bouton d'équipe, tirette | labels présents, non reliés (lecture non vue dans `fw/src`) |
-| EN (3) | enable des TMC2209 | label présent, non relié |
-| XSHUT0 (7) | coupure du ToF (un seul ToF sur la nouvelle carte, 2026-11-17) | label présent, non relié |
-| XSHUT1 à 3 (6, 5, 4) | ToF 1 à 3 | **plus nécessaires** (1 seul ToF) |
+GPIO attribués aux anciens signaux du MCP : RST écran IO37, TEAM_BTN IO13, LAUNCHPULL IO47, EN des TMC2209 IO17, XSHUT0 IO4 (un seul ToF). Autres changements par rapport à la v1 : servos 8/18, STEP1/DIR1 15/16, STEP2/DIR2 14/21, MS1/MS2 9/10, M1_IN1 5, tension (`VCC_CALC`) sur IO6 (ADC1). Libres : IO7 et IO12.
 
-Reste à faire au moment de l'adaptation : choisir les GPIO disponibles, mettre à jour `pamiboard.h`, retirer ou remplacer `lib/MCP23008`, et adapter `lib/VL53L0X` (4 ToF et leurs XSHUT via le MCP dans le code actuel, 1 seul ToF sur la nouvelle carte). Soit 5 GPIO ESP32 à trouver : RST, TEAM_BTN, LAUNCHPULL, EN, XSHUT. Relevé du 2026-11-17 : 11 GPIO libres sur la nouvelle carte (3, 4, 5, 6, 7, 8, 11, 12, 18, 45, 46 ; 45 et 46 sont des broches de strapping), `EN` des TMC2209 flottant, pas de connecteur I2C2, J17 (radio) sans empreinte, PCB non routé avec 17 empreintes hors contour (détail dans `electronique-pami`).
+À faire dans le firmware au moment de l'adaptation : mettre à jour `pamiboard.h`, retirer ou remplacer `lib/MCP23008`, adapter `lib/VL53L0X` (1 seul ToF, XSHUT direct sur IO4), activer les pull-up internes de TEAM_BTN et LAUNCHPULL, ne pas utiliser `Serial0` (IO43 = CS écran), garder `correctionFactor` pour la tension.
+
+
 
 ## Décisions prises
 
@@ -74,7 +70,7 @@ Reste à faire au moment de l'adaptation : choisir les GPIO disponibles, mettre 
 ## Points ouverts
 
 Copie du tableau de `docs/journaux/pami/index.md` (c'est lui qui fait foi) :
-câble management ; nouvelle carte 4 couches ; supports ToF ; ToF à 35° gênés par un pilier ; support écran +3 mm ; autonomie batterie ; choix de la batterie (courant instantané vs couple NEMA 17, piste : batterie d'appareil photo 7 V USB-C) ; appui sur têtes de vis à valider ; catapulte (ressort chargé à la main, libéré par servo, tir visé ~70° à plus de 40 cm) : premier test le 2026-11-03, portée insuffisante selon les ressorts, encoche de retenue du projectile cassée lors d’un déclenchement manuel (renforcer ou imprimer autrement).
+câble management ; nouvelle carte PAMI 2 couches (routée) ; supports ToF ; ToF à 35° gênés par un pilier ; support écran +3 mm ; autonomie batterie ; choix de la batterie (courant instantané vs couple NEMA 17, piste : batterie d'appareil photo 7 V USB-C) ; appui sur têtes de vis à valider ; catapulte (ressort chargé à la main, libéré par servo, tir visé ~70° à plus de 40 cm) : premier test le 2026-11-03, portée insuffisante selon les ressorts, encoche de retenue du projectile cassée lors d’un déclenchement manuel (renforcer ou imprimer autrement).
 
 ## Historique mécanique (résumé des logs)
 

@@ -42,24 +42,24 @@ Carte 4 couches de 90 × 66 puis 75 × 75 mm (trou central Ø 30 mm), « strict 
 
 # Nouvelle carte (2 couches, en cours)
 
-Relevé du **2026-11-17** (agent `kicad`). Le firmware `fw/` est encore celui de la v1 et suivra.
+Relevé du **2026-11-18** (agent `kicad`, schéma + PCB routé, commit `def6408`). Le firmware `fw/` est encore celui de la v1 et suivra.
 
 ## Décisions
 
 - **2 couches** (F.Cu / B.Cu, 1,6 mm), contour 60 × 50 mm : plus simple à router, moins de place. Pas de plans internes, pas de trou central.
-- **Tout sur l'ESP32** : MCP23008 retiré. **Un seul ToF**, un seul driver DC, pas de Luckfox, de LiDAR, ni de mesure de tension batterie.
+- **Tout sur l'ESP32** : MCP23008 retiré. **Un seul ToF**, un seul driver DC, pas de Luckfox ni de LiDAR. **Mesure de tension conservée** : `VCC_CALC` sur IO6 (ADC1_CH5), pont R14 270 k / R15 33 k + C13, lu côté drain du PMOS du BAU (la valeur tombe à 0 quand le BAU coupe).
 - Sélection 5 V par OU de Schottky (décision 2026-11-10) : D2 SS34 (`VCC_5V_USB`) et D3 SS34 (`VCC_5V_BUCK`) vers `VCC_5V_GLOBAL`, à la place des 2 LTC4412 + AO4407A1/A2. L'USB-C ne sert qu'à programmer sans batterie ; D3 est prévue pour être shuntée. En USB seul, le 5 V tombe vers 4,6 V.
 - Alimentation : LiPo 12 V (20 V max) sur XT30. Choix de la batterie pas tranché.
 
-## Composants (61 références)
+## Composants (62 références, 62 empreintes, aucun écart schéma/PCB)
 
 | Réf | Valeur | Rôle |
 |:--|:--|:--|
-| U6 | ESP32-S3-WROOM-1 (empreinte WROOM-1**U**) | MCU |
+| U6 | ESP32-S3-WROOM-1 (empreinte WROOM-1**U**, antenne U.FL externe) | MCU. Référence exacte (N4/N8/N16, R) non écrite : le schéma note « No PSRAM ». **Ne pas prendre un module R8** (PSRAM octale = IO35/36/37 indisponibles) |
 | U8 / U9 | TMC2209 SilentStepStick | NEMA B (STEP2/DIR2, J14) / NEMA A (STEP1/DIR1, J22). MS1 et MS2 partagés |
-| U1 | RZ7899 (SOIC-8) | Un driver DC, un seul sens (broches 1 et 3 à GND), entrée GPIO15, moteur sur J12 |
+| U1 | RZ7899 (SOIC-8) | Un driver DC, un seul sens (broches 1 et 3 à GND), entrée IO5 (`M1_IN1`, sans pull-down), moteur sur J12 |
 | U4 | AMS1117-3.3 | 3V3 depuis `VCC_5V_GLOBAL` |
-| U11 | AP63300WU (symbole AP63200WU) | Buck 12 V → 5 V. L1 6,8 µH (empreinte `L_Coilcraft_XAL5030-XXX` ; la XAL5050-682MEC est prévue, la XAL5030 n'existe pas en 6,8 µH), C22 10 µF 50 V, C23/C24 22 µF, R16 27 k / R17 5,1 k (5,04 V). Sortie `VCC_5V_BUCK`. Conseil non appliqué : R16 = 28 k (5,19 V) pour que le buck reste prioritaire sur l'USB |
+| U11 | AP63300WU (symbole AP63200WU) | Buck 12 V → 5 V. L1 6,8 µH (empreinte `L_Coilcraft_XAL5030-XXX` ; la XAL5050-682MEC est prévue, la XAL5030 n'existe pas en 6,8 µH), C22 10 µF 50 V, C23/C24 22 µF, R16 27 k / R17 5,1 k (5,04 V). Sortie `VCC_5V_BUCK`. **Placement refait le 2026-11-18** : C22 collé à VIN, SW court et large (1 mm) vers L1.1, BST/C21 serrés, R16/R17 à côté du FB (nœud FB très court), haut de R16 ramené au pad de C23 par une piste 0,2 mm sur F.Cu contournant L1 et C21 par la gauche. Conseil non appliqué : R16 = 28 k (5,19 V) pour que le buck reste prioritaire sur l'USB |
 | AO4407A4 | PMOS | Coupure de puissance par le BAU : source `VCC_12V_IN`, drain `VCC_12V`, grille `BAU+` (J9), R13 10 k |
 | D6 | WS2812B | NeoPixel embarqué, DIN via R12 470 Ω depuis GPIO48 |
 | D1 | (valeur vide) | LED témoin sur 3V3 avec R4 330 Ω ; bibliothèque `LED:SFH482` (LED IR) : à vérifier |
@@ -72,42 +72,50 @@ Relevé du **2026-11-17** (agent `kicad`). Le firmware `fw/` est encore celui de
 | J9 | 2 | BAU (`BAU+`, GND) |
 | J12 | 2 | Moteur DC (M1+/M1-) |
 | J14 / J22 | 4 / 4 | NEMA B / NEMA A |
-| J23 / J26 | 3 / 3 | Servo 1 (GPIO10) / servo 0 (GPIO9), 5 V |
-| J8 | 3 | NeoPixel externe : 5 V, `NEOPIXEL+`, GND (la ligne DATA n'y est pas : à vérifier) |
+| J23 / J26 | 3 / 3 | Servo 1 (IO18) / servo 0 (IO8), 5 V |
+| J8 | 3 | NeoPixel externe : 5 V, `NEOPIXEL+`, GND. `NEOPIXEL+` est le DOUT de D6 (chaînage) ; la ligne DATA de l'ESP32 n'y va pas |
 | J3 | 8 | Écran SPI : GND, 3V3, SCLK, MOSI, RST, DC, CS, 3V3 |
-| J17 | 7 | Radio RFM69 : GND, 3V3, SCLK, MOSI, MISO, CS2, IRQ (**sans empreinte**, pas de RST) |
-| **J2** | 6 | **ToF unique** : 5 V, GND, SCL1, SDA1, GPIOX, XSHUT0 |
+| ~~J17~~ | | Radio RFM69 **retirée** du schéma et du PCB (2026-11-18). MISO et IRQ n'ont plus de destination |
+| **J2** | 6 | **ToF unique** : 5 V, GND, SCL1, SDA1, GPIOX (IO11), XSHUT0 (IO4) |
 | MPU1 | 4 | SDA1, SCL1, GND, 5 V |
 | J5 / J7 | 2 / 2 | Bouton d'équipe (`TEAM_BTN`) / tirette (`LAUNCHPULL`), vers GND |
-| H1 à H4 | | 4 trous M3 au schéma |
+| H1, H3, H4 | | 3 trous M3 (H2 absent du schéma et du PCB) |
 
-Pull-ups : R5/R6 4,7 k (SCL1/SDA1), R7/R8 4,7 k (SCL2/SDA2, bus sans connecteur). Autres passifs : C4/C6 100 µF (12 V), C11 470 µF (5 V), C5/C7/C9 10 µF, C10/C12/C16/C21 100 nF, C18 100 nF (parasites moteur DC).
+Pull-ups : R5/R6 4,7 k (SCL1/SDA1, J2), R7/R8 4,7 k (SCL2/SDA2, MPU1 seul). Autres passifs : C4/C6 100 µF (12 V), C11 470 µF (5 V), C5/C7/C9 10 µF, C10/C12/C16/C21 100 nF, C18 100 nF (parasites moteur DC).
 
 ## Brochage ESP32 (schéma)
 
-| Signal | GPIO |
-|:--|:--|
-| BOOT | 0 |
-| SDA1 / SCL1 | 2 / 1 |
-| SDA2 / SCL2 | 41 / 42 |
-| SERVO0 / SERVO1 | 9 / 10 |
-| STEP1 / DIR1, STEP2 / DIR2 | 13 / 14, 16 / 17 |
-| M1_IN1 (driver DC) | 15 |
-| MS1 / MS2 | 47 / 21 |
-| NeoPixel | 48 |
-| SCLK / MOSI / MISO | 35 / 36 / 38 |
-| DC écran / CS écran | 37 / 39 |
-| CS radio / IRQ radio | 43 (TXD0) / 40 |
-| USB_N / USB_P | 19 / 20 |
+Relevé du 2026-11-18. Les GPIO ont changé par rapport à la v1 : le firmware devra être aligné (`pamiboard.h`).
+
+| Signal | GPIO | Remarque |
+|:--|:--|:--|
+| BOOT | 0 | strapping, usage correct |
+| SDA1 / SCL1 | 2 / 1 | J2 (ToF) |
+| SDA2 / SCL2 | 41 / 42 | MPU1 ; JTAG par défaut, OK en GPIO |
+| XSHUT0 / GPIOX | 4 / 11 | J2.6 / J2.5 |
+| M1_IN1 (driver DC) | 5 | |
+| VCC_CALC (mesure tension) | 6 | ADC1_CH5, 270 k / 33 k |
+| STEP1 / DIR1 | 15 / 16 | NEMA A (U9) |
+| EN des TMC2209 | 17 | U8.16 et U9.16 |
+| SERVO1 / SERVO0 | 18 / 8 | J23 / J26 |
+| MS1 / MS2 | 9 / 10 | partagés U8 et U9 |
+| STEP2 / DIR2 | 14 / 21 | NEMA B (U8) |
+| TEAM_BTN / LAUNCHPULL | 13 / 47 | J5 / J7 |
+| NeoPixel | 48 | via R12 470 Ω |
+| SCLK / MOSI / RST écran | 35 / 36 / 37 | IO35-37 : modules sans PSRAM octale seulement |
+| MISO / IRQ | 38 / 40 | sans destination (radio retirée) |
+| DC écran / CS écran | 39 / 43 | IO43 = TXD0 |
+| UART0_RX- | 44 | label orphelin |
+| USB_N / USB_P | 19 / 20 | J1 |
+| Libres | 7, 12 | non connectés, sans marqueur NC. IO7 = ADC1 (analogique possible), IO12 = ADC2 (inutilisable avec le Wi-Fi). 3, 45, 46 : strapping, NC |
 
 ## Ce qui marche / ne marche pas (nouvelle carte)
 
 **Rien n'est testé** : la carte n'est pas fabriquée.
 
-- Fait au schéma : alimentation (XT30, BAU par PMOS, buck, OU de Schottky, 3V3), ESP32 avec BOOT/EN, USB-C, 2 TMC2209, driver DC, servos, ToF, MPU, écran, NeoPixel.
-- **Pas encore relié à un GPIO** : `RST` (reset écran), `TEAM_BTN`, `LAUNCHPULL`, `XSHUT0`, `GPIOX` (J2.5), `EN` des TMC2209 (broche 16 de U8/U9, flottante), label orphelin `UART0_RX-` sur IO44. **GPIO libres** : 3, 4, 5, 6, 7, 8, 11, 12, 18, 45, 46 (45 et 46 : strapping).
-- **PCB non routé** : 0 piste, 0 via, 0 zone. 59 empreintes pour 61 références : manquent J17 (sans empreinte) et H2. 17 empreintes encore hors contour (J5, J7, J9, J8, J12, D6, U1, AO4407A4, C18, C16, C11, C12, R12, R13, U4, C5, C7). Un 2e rectangle Edge.Cuts de 70 × 50 mm en (25,80)-(95,130) est vide.
-- Netclasses : Default 0,2 mm ; 12V 2,5 mm ; 5V 1,1 mm ; 3.3V 0,3 mm ; DC MOTOR 0,7 mm ; NEMA 0,75 mm ; GND 0,6 mm ; Data Line 0,2 mm. Assignations restantes pour des nets disparus (MOTORC1-4, M2±, TX0+, RX0-, VCC_5Vin, VCC_5Vout). Règles : cuivre/bord 0,5 mm, via min 0,5 mm, trou min 0,3 mm.
+- Schéma complet : alimentation, ESP32 (tous les signaux reliés à un GPIO), USB-C, 2 TMC2209, driver DC, servos, ToF, MPU, écran, NeoPixel, mesure de tension. Aucun écart de net schéma/PCB.
+- **PCB routé** (commit `def6408`) : contour 60 × 50 mm (30,25)-(90,75), coins R3,5 ; 539 pistes (352 F.Cu, 187 B.Cu), 246 vias (186 sur GND), 5 zones (GND F.Cu et B.Cu, VCC_12V, VCC_5V_BUCK, VCC_5V_USB). Seul J1 déborde (normal pour un USB-C).
+- Netclasses : Default 0,2 mm ; 12V 1,8 mm ; 5V 1,1 mm ; 5VUSB 0,6 mm ; 3.3V 0,3 mm ; DC MOTOR 0,7 mm ; NEMA 0,75 mm ; GND 0,6 mm ; signaux 0,2 mm. Règles : cuivre/bord 0,5 mm, via min 0,5 mm, trou min 0,3 mm. Vias posés : 0,6/0,3 mm.
 
 ## Pour une modification
 
