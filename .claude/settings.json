@@ -1,4 +1,6 @@
 {
+  "attribution": { "commit": "", "pr": "" },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(git status:*)",
