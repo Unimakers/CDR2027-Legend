@@ -23,7 +23,7 @@ L'ESP32-S3 pilote tout le robot : drivers, capteurs, IHM et actionneurs. La feui
 
 ## Puissance
 
-Elle produit toutes les tensions de la carte à partir de la batterie, branchée sur un XT60 et protégée par un fusible de 15 A. Un relais G2RL-1-E commandé par l'arrêt d'urgence (connecteur « BAU ») coupe le 24 V qui alimente les moteurs et les actionneurs. Les régulateurs Traco de la logique (TSR1-2433E pour le 3,3 V, TSR2-2450 pour le 5 V) sont branchés avant ce relais. Quatre convertisseurs 24 V de 5 A fournissent deux rails 12 V et deux rails 5 V de puissance. Un TEN 50-2411 est prévu « au cas où le buck 5 A serait trop faible pour les servomoteurs ». Une LED par rail indique sa présence.
+Elle produit toutes les tensions de la carte à partir de la batterie, branchée sur un XT60 et protégée par un fusible de 15 A. Un relais G2RL-1-E commandé par l'arrêt d'urgence (connecteur « BAU ») coupe le 24 V qui alimente les moteurs et les actionneurs. Les régulateurs Traco de la logique (TSR1-2433E pour le 3,3 V, TSR2-2450 pour le 5 V) sont branchés avant ce relais. Quatre convertisseurs 24 V de 5 A fournissent deux rails 12 V et deux rails 5 V de puissance. Un TEN 50-2411 est prévu au cas où le buck 5 A serait trop faible pour les servomoteurs. Une LED par rail indique sa présence.
 
 {% include media.html fichier="2026-11-12-electronique-50bd1059b466.jpg" legende="Feuille puissance : XT60, fusible, relais d'arrêt d'urgence, régulateurs et LED témoins" %}
 
