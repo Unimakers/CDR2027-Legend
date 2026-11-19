@@ -23,7 +23,7 @@ Les sujets qui ne sont pas encore tranchés. Ils sortent du tableau une fois la 
 | Sujet | État |
 |:--|:--|
 | Câble management | Trop de câbles. Prévoir un guidage, la nouvelle carte doit aussi aider. |
-| Nouvelle carte 2 couches | En préparation. Simplifiée le 2026-11-17 : passage de 4 à 2 couches, plus simple à router, moins de place. |
+| Nouvelle carte 2 couches | En préparation. Refonte le 2026-11-18 : 60x50 mm au lieu de 95x95 mm, 2 couches, buck intégré, un seul connecteur ToF, fixation à 3 vis en triangle à tester. |
 | Supports capteurs ToF | Pas assez solides sur la première version, vis extérieures inaccessibles. |
 | Capteurs ToF à 35° | Frôlent un pilier du châssis, bloque les tests d'évitement. |
 | Support écran élargi de 3 mm | À faire. |

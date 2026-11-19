@@ -64,7 +64,7 @@ GPIO attribués aux anciens signaux du MCP : RST écran IO37, TEAM_BTN IO13, LAU
 
 - Batterie traversant le PCB (carte v1).
 - Moteurs pas à pas NEMA 17 pour la propulsion (odométrie sur les pas).
-- Nouvelle carte PAMI, strict nécessaire, pour gagner de la place (en conception, 2026-09-27). **Passée de 4 à 2 couches le 2026-11-17** : plus simple à router, mais moins de place. Alimentation simplifiée (diodes SS34 D2/D3 à la place des LTC4412 et PMOS AO4407, buck AP63300 conservé).
+- Nouvelle carte PAMI, strict nécessaire, pour gagner de la place (en conception, 2026-09-27). **Passée de 4 à 2 couches le 2026-11-17** : plus simple à router, mais moins de place. Journal du 2026-11-18 : refonte totale, 60 × 50 mm (au lieu de 95 × 95), un seul connecteur ToF à l'avant (plus de ToF à 35°), driver RZ7899 ajouté sous un TMC2209 (vitesse seule), module radio retiré, fixation par 3 vis en triangle à valider. Alimentation simplifiée (diodes SS34 D2/D3 à la place des LTC4412 et PMOS AO4407, buck AP63300 conservé).
 - Luckfox Pico Mini B en coprocesseur pour les calculs lourds (path finding).
 
 ## Points ouverts
