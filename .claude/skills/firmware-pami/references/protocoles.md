@@ -2,7 +2,7 @@
 
 À lire seulement pour modifier l'interface web, la liaison Luckfox ou le format des stratégies.
 
-## WebSocket (navigateur ↔ ESP32), `fw/lib/WEB_INTERFACE/`
+## WebSocket (navigateur ↔ ESP32), `fw/fw-pami-carte-v1/lib/WEB_INTERFACE/`
 
 Navigateur → ESP32 (JSON) :
 - `{"cmd":"strategy","action":"save|load|rename|delete|list|play|stop","name":"...","newName":"...","steps":[...]}`. Réponses : `strategy_ack` (save), `strategy_data` (load), `strategy_list`.
@@ -42,4 +42,4 @@ Au démarrage, le Luckfox envoie `<READY>`.
 {"type":"ACTION","cmd":"ATTENTE","param":500}
 ```
 
-Côté ESP32 : x, y en mm, theta en degrés (0° = +X, sens anti-horaire). `fw/fw-luckfox/strategy.json` utilise des mètres.
+Côté ESP32 : x, y en mm, theta en degrés (0° = +X, sens anti-horaire). `fw/fw-pami-carte-v1/fw-luckfox/strategy.json` utilise des mètres.

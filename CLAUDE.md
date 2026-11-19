@@ -7,7 +7,7 @@ Dépôt de l'équipe **Unimakers** (MakerSpace Amiens) pour la **Coupe de France
 | Dossier | Contenu | Skill |
 |:--|:--|:--|
 | `fw/` | Firmware PAMI ESP32-S3 (PlatformIO, Arduino) + `fw-luckfox/` (Python, Linux) | `firmware-pami` |
-| `ecad/pcb-pami/` | Carte PAMI sous KiCad | `electronique-pami` |
+| `ecad/pcb-pami-v1/`, `ecad/pcb-pami-v2/` | Cartes PAMI V1 (en service) et V2 (en conception) sous KiCad | `electronique-pami` |
 | `ecad/robot principal/` | Carte du robot principal sous KiCad (`head V1`) | `electronique-robot-principal` |
 | `mcad/` | Exports seulement (STL de l'actionneur du robot principal) : la CAO est sur Onshape (lien dans `docs/index.md`) | `conception-3d` |
 | `docs/` | Site Jekyll « Just the Docs », publié sur GitHub Pages | `site-doc` |
@@ -21,7 +21,7 @@ Le robot principal n'a encore **pas de code** ; son schéma KiCad est commencé 
 1. Ce fichier suffit pour s'orienter. **Ne pas explorer le dépôt à l'aveugle.**
 2. Charger **uniquement** le skill de `.claude/skills/` qui correspond à la demande. Pour « où en est-on / qu'est-ce qui marche ? », c'est `etat-projet`.
 3. Lire un fichier source seulement si le skill ne répond pas, et seulement la partie utile.
-4. Ne jamais lire : `fw/.pio/`, `ecad/**/*-backups/`, `ecad/**/Footprint/`, `ecad/**/3D/`, `docs/images/`, `docs/journaux/*/medias/`, `*.kicad_pcb` en entier (fichiers énormes).
+4. Ne jamais lire : `fw/**/.pio/`, `ecad/**/*-backups/`, `ecad/**/Footprint/`, `ecad/**/3D/`, `docs/images/`, `docs/journaux/*/medias/`, `*.kicad_pcb` en entier (fichiers énormes).
 5. La source de vérité reste le code et les journaux. Si un skill contredit le code, le code a raison : corriger le skill.
 
 ## Règles

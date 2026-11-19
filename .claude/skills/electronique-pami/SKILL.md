@@ -1,15 +1,15 @@
 ---
 name: electronique-pami
-description: Cartes électroniques des PAMI (KiCad, ecad/pcb-pami) — l'ancienne carte v1 (en service, historique Git) et la nouvelle carte 2 couches en cours : composants, connecteurs, alimentation, brochage ESP32, ce qui marche / ne marche pas pour chacune. À charger pour toute question sur le PCB, le schéma, le câblage, les tensions ou le choix de composants.
+description: Cartes électroniques des PAMI (KiCad, ecad/pcb-pami-v1 et ecad/pcb-pami-v2) — l'ancienne carte v1 (en service, historique Git) et la nouvelle carte 2 couches en cours : composants, connecteurs, alimentation, brochage ESP32, ce qui marche / ne marche pas pour chacune. À charger pour toute question sur le PCB, le schéma, le câblage, les tensions ou le choix de composants.
 ---
 
 # Électronique PAMI
 
-Deux cartes. **Ancienne carte (v1)** : celle des PAMI actuels, pilotée par le firmware `fw/`. **Nouvelle carte** : `ecad/pcb-pami/` dans l'arbre de travail, en conception. Projet KiCad : `ecad/pcb-pami/pcb-pami.kicad_pro` (schéma `pcb-pami.kicad_sch`, titre « ESP32-S3 PAMI »). Cahier des charges de la nouvelle carte : `ecad/pcb-pami/README.md`. Source de vérité du brochage : le schéma pour la nouvelle carte, `fw/include/pamiboard.h` pour la v1.
+Deux cartes. **Ancienne carte (V1)** : `ecad/pcb-pami-v1/`, celle des PAMI actuels, pilotée par le firmware `fw/`. **Nouvelle carte (V2)** : `ecad/pcb-pami-v2/`, en conception. Projet KiCad : `ecad/pcb-pami-v2/pcb-pami.kicad_pro` (schéma `pcb-pami.kicad_sch`, titre « ESP32-S3 PAMI »). Cahier des charges de la nouvelle carte : `ecad/pcb-pami-v2/README.md`. Source de vérité du brochage : le schéma pour la nouvelle carte, `fw/fw-pami-carte-v1/include/pamiboard.h` pour la v1.
 
 ## Ne pas lire en entier
 
-`*.kicad_pcb`, `*.kicad_sch` (~600 Ko), `PCB-backups/`, `pcb-pami-backups/`, `Footprint/`, `3D/`, `fp-info-cache`. Pour le schéma, chercher (Grep) une référence ou une valeur précise. Pour lister composants et nets : agent `kicad` (netlist via `kicad-cli`, ou script qui extrait les blocs `(symbol (lib_id ...) ... (property "Reference" ...))`). La v1 se relit avec `git show 070d910:ecad/pcb-pami/<fichier>`.
+`*.kicad_pcb`, `*.kicad_sch` (~600 Ko), `PCB-backups/`, `pcb-pami-backups/`, `Footprint/`, `3D/`, `fp-info-cache`. Pour le schéma, chercher (Grep) une référence ou une valeur précise. Pour lister composants et nets : agent `kicad` (netlist via `kicad-cli`, ou script qui extrait les blocs `(symbol (lib_id ...) ... (property "Reference" ...))`). La V1 est dans `ecad/pcb-pami-v1/` (avant la restructuration : `git show 070d910:ecad/pcb-pami/<fichier>`).
 
 ---
 

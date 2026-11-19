@@ -5,7 +5,7 @@ description: État actuel du projet CDR2027 (PAMI et robot principal) — ce qui
 
 # État du projet
 
-Dernière mise à jour : 2026-11-18 (nouvelle carte PAMI routée, GPIO réaffectés ; 2026-11-17 : 2 couches, MCP23008 retiré) ; reste : 2026-11-03 (depuis le code `fw/`, le schéma KiCad et les journaux jusqu'au 2026-10-01).
+Dernière mise à jour : 2026-11-19 (restructuration : `ecad/pcb-pami-v1|v2`, `fw/fw-pami-carte-v1|v2`, firmware V2 vide) ; 2026-11-18 (nouvelle carte PAMI routée, GPIO réaffectés ; 2026-11-17 : 2 couches, MCP23008 retiré) ; reste : 2026-11-03 (depuis le code `fw/`, le schéma KiCad et les journaux jusqu'au 2026-10-01).
 Sources : `docs/journaux/pami/logs/`, tableau « Points ouverts » de `docs/journaux/pami/index.md`, code.
 
 ## Robot principal
@@ -17,7 +17,7 @@ Pas de code. Carte électronique : schéma KiCad commencé le 2026-11-07, 8 feui
 | Élément | Détail | Depuis |
 |:--|:--|:--|
 | Carte ESP32-S3 v1 | PCB 2 couches, DRC OK, câblée et sertie | 2026-08-29 |
-| Firmware en components | un dossier par fonction dans `fw/lib/`, pins dans `pamiboard.h` | 2026-09-03 |
+| Firmware en components | un dossier par fonction dans `fw/fw-pami-carte-v1/lib/`, pins dans `pamiboard.h` | 2026-09-03 |
 | Odométrie | pas des NEMA + cap du MPU9250 | code |
 | MPU au-dessus des NEMA | pas de perturbation magnétique ; mouvement < 1° compté comme drift | 2026-09-25 |
 | Stratégies | JSON MOVE/ACTION, stockées en LittleFS, lancées depuis l'interface web | code |
@@ -50,7 +50,7 @@ Pas de code. Carte électronique : schéma KiCad commencé le 2026-11-07, 8 feui
 
 ## Nouvelle carte PAMI : tout sur l'ESP32, PCB routé (2026-11-18)
 
-Le MCP23008 (U10) est supprimé (décision 2026-11-17) : tous les signaux vont directement sur des GPIO de l'ESP32. **Le firmware (`fw/`) est encore celui de l'ancienne carte** (il utilise `fw/lib/MCP23008`, pins `PAMI_MCP_*` de `pamiboard.h`, `mcp_setup_board()` appelée par `main.cpp:260`) et suivra quand la carte sera finie. Brochage complet : skill `electronique-pami`.
+Le MCP23008 (U10) est supprimé (décision 2026-11-17) : tous les signaux vont directement sur des GPIO de l'ESP32. **Le firmware (`fw/`) est encore celui de l'ancienne carte** (il utilise `fw/fw-pami-carte-v1/lib/MCP23008`, pins `PAMI_MCP_*` de `pamiboard.h`, `mcp_setup_board()` appelée par `main.cpp:260`) et suivra quand la carte sera finie. Brochage complet : skill `electronique-pami`.
 
 **Fait le 2026-11-18** (commit `def6408`) : tous les signaux ont un GPIO, PCB routé (539 pistes, 246 vias, zones GND), placement du buck refait (FB court), schéma redessiné. Rien n'est fabriqué ni testé.
 

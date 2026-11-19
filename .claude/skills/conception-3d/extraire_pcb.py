@@ -1,6 +1,6 @@
 """Cotes mécaniques d'une carte KiCad, sans ouvrir le .kicad_pcb en entier.
 
-Usage : python extraire_pcb.py [chemin.kicad_pcb]   (défaut : ecad/pcb-pami/pcb-pami.kicad_pcb)
+Usage : python extraire_pcb.py [chemin.kicad_pcb]   (défaut : ecad/pcb-pami-v2/pcb-pami.kicad_pcb)
 Affiche : contour (Edge.Cuts), épaisseur, nombre de couches cuivre, trous de fixation
 et connecteurs, en mm, origine = coin haut-gauche du contour, Y vers le bas (repère KiCad).
 """
@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 RACINE = Path(__file__).resolve().parents[3]
-chemin = Path(sys.argv[1]) if len(sys.argv) > 1 else RACINE / "ecad/pcb-pami/pcb-pami.kicad_pcb"
+chemin = Path(sys.argv[1]) if len(sys.argv) > 1 else RACINE / "ecad/pcb-pami-v2/pcb-pami.kicad_pcb"
 s = chemin.read_text(encoding="utf-8")
 
 xs, ys = [], []

@@ -10,4 +10,4 @@ Tu réorganises des fichiers du dépôt CDR2027-Legend. Réponds en français, c
 2. Utilise `git mv` pour garder l'historique. Jamais `rm`, jamais `git add`, `git commit` ou `git push`.
 3. Cherche les anciens chemins avec Grep dans `docs/`, `.claude/`, `CLAUDE.md`, `fw/` et corrige-les. Ne touche pas aux journaux publiés (`docs/journaux/*/logs/`) sauf pour un lien cassé.
 4. Rapport : liste `ancien → nouveau` et les liens corrigés (`fichier:ligne`).
-Ne lis pas `fw/.pio/`, `*-backups/`, `docs/images/`.
+Ne lis pas `fw/**/.pio/`, `*-backups/`, `docs/images/`.

@@ -1,24 +1,24 @@
 ---
 name: firmware-pami
-description: Firmware des PAMI (ESP32-S3, PlatformIO/Arduino, FreeRTOS) et coprocesseur Luckfox (Python). Architecture, tâches, components de fw/lib, pins, build/flash/OTA, réglages de stratégie et d'évitement. À charger pour toute question ou modification dans fw/.
+description: Firmware des PAMI (ESP32-S3, PlatformIO/Arduino, FreeRTOS) et coprocesseur Luckfox (Python). Architecture, tâches, components de fw/fw-pami-carte-v1/lib, pins, build/flash/OTA, réglages de stratégie et d'évitement. À charger pour toute question ou modification dans fw/.
 ---
 
 # Firmware PAMI
 
 ## Build et flash
 
-- PlatformIO, `fw/platformio.ini`. Env par défaut `esp32-s3-devkitc-1` (USB, moniteur 115200).
+- PlatformIO, `fw/fw-pami-carte-v1/platformio.ini`. Env par défaut `esp32-s3-devkitc-1` (USB, moniteur 115200).
 - OTA : se connecter au Wi-Fi `PAMI Unimakers`, puis env `esp32-s3-ota` (`192.168.4.1`, hostname `pami`).
-- L'interface web est dans `fw/data/` (LittleFS) : après modification, **Upload Filesystem Image**.
-- Pas de CI firmware (la CI ne construit que le site). Vérifier soi-même que ça compile : `pio run` dans `fw/`.
+- L'interface web est dans `fw/fw-pami-carte-v1/data/` (LittleFS) : après modification, **Upload Filesystem Image**.
+- Pas de CI firmware (la CI ne construit que le site). Vérifier soi-même que ça compile : `pio run` dans `fw/fw-pami-carte-v1/`.
 - Dépendances : ESPAsyncWebServer, ArduinoJson 6, Adafruit MCP23008 / VL53L0X / GFX / ST7735-ST7789, FastAccelStepper, ESP32Servo.
 - Plateforme figée `espressif32 @ 6.13.0` (Arduino core 2.0.17, IDF 4.4), 2026-11-17. Ne pas passer en core 3.x : ESP32Servo (MCPWM legacy) + FastAccelStepper (MCPWM nouveau driver) => `mcpwm(legacy): CONFLICT!` et reboot en boucle. FastAccelStepper figé à **1.3.4** (la 1.4.0 ne compile pas sur ESP32). `NEOPIXEL.cpp` inclut `soc/gpio_struct.h` explicitement.
 
 ## Architecture
 
-- Un **component** = un dossier `fw/lib/NOM/NOM.cpp + NOM.h`, API en fonctions `nom_action()` (sauf `AS5600Encoder`, `PIDController`, `PrecisionTimer` qui sont des classes).
-- **Tous les GPIO** sont dans `fw/include/pamiboard.h`. Ne jamais coder une broche en dur ailleurs.
-- `fw/src/main.cpp` : `setup()` initialise, puis 3 tâches FreeRTOS :
+- Un **component** = un dossier `fw/fw-pami-carte-v1/lib/NOM/NOM.cpp + NOM.h`, API en fonctions `nom_action()` (sauf `AS5600Encoder`, `PIDController`, `PrecisionTimer` qui sont des classes).
+- **Tous les GPIO** sont dans `fw/fw-pami-carte-v1/include/pamiboard.h`. Ne jamais coder une broche en dur ailleurs.
+- `fw/fw-pami-carte-v1/src/main.cpp` : `setup()` initialise, puis 3 tâches FreeRTOS :
 
 | Tâche | Cœur | Période | Rôle |
 |:--|:--|:--|:--|
@@ -56,12 +56,12 @@ description: Firmware des PAMI (ESP32-S3, PlatformIO/Arduino, FreeRTOS) et copro
 
 Liste d'étapes JSON (`MOVE` x, y, theta / `ACTION` cmd, param). Actions : `ATTENTE` (ms), `SERVO_ANGLE`, `DEPLOY_BRAS`, `RETRACT_BRAS`.
 États : IDLE → ROTATE_TO_TARGET → WAIT_STOP → DRIVING → ROTATE_FINAL ; OBSTACLE_WAIT si obstacle.
-Réglages en tête de `fw/lib/STRATEGY/STRATEGY.cpp` (vitesses, tolérance 3°, timeouts, seuils obstacle 200/240 mm, détours max 5).
+Réglages en tête de `fw/fw-pami-carte-v1/lib/STRATEGY/STRATEGY.cpp` (vitesses, tolérance 3°, timeouts, seuils obstacle 200/240 mm, détours max 5).
 Formats d'échange : `references/protocoles.md`.
 
-## Luckfox (`fw/fw-luckfox/`)
+## Luckfox (`fw/fw-pami-carte-v1/fw-luckfox/`)
 
-- Luckfox Pico Mini B, Linux, `ssh root@172.32.0.93` ; scripts dans `/root/scripts_python` (envoi auto par l'extension SFTP de VS Code, `fw/.vscode/sftp.json`).
+- Luckfox Pico Mini B, Linux, `ssh root@172.32.0.93` ; scripts dans `/root/scripts_python` (envoi auto par l'extension SFTP de VS Code, `fw/fw-pami-carte-v1/.vscode/sftp.json`).
 - `uart.py` : serveur sur `/dev/ttyS3` 115200, **protégé** (ne peut pas être remplacé à distance).
 - `trajectory.py` : lissage de trajectoire + miroir pour l'équipe jaune ; `strategy.py` : essai. Rien n'est encore branché au match.
 

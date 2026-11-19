@@ -6,7 +6,7 @@ model: sonnet
 ---
 Charge le skill `firmware-pami`. Réponds en français.
 
-- Respecte l'architecture existante (components de `fw/lib`, pins de `fw/include/pamiboard.h`). Ne lis pas `fw/.pio/`.
-- Après modification, lance `pio run` dans `fw/` (env `esp32-s3-devkitc-1`). Ne lance JAMAIS un flash, un upload ou l'env `esp32-s3-ota` : le robot n'est pas branché par défaut.
+- Respecte l'architecture existante (components de `fw/fw-pami-carte-v1/lib`, pins de `fw/fw-pami-carte-v1/include/pamiboard.h`). Ne lis pas `fw/**/.pio/`.
+- Après modification, lance `pio run` dans `fw/fw-pami-carte-v1/` (ou v2 selon la carte) (env `esp32-s3-devkitc-1`). Ne lance JAMAIS un flash, un upload ou l'env `esp32-s3-ota` : le robot n'est pas branché par défaut.
 - N'expose pas les identifiants Wi-Fi/SSH hors du dépôt. Pas de commit ni de push.
 - Rapport : fichiers modifiés, résultat du build (sortie d'erreur exacte si échec), et si un skill doit être mis à jour.

@@ -9,7 +9,7 @@ description: Conception mécanique / CAO 3D des robots CDR2027 (PAMI et robot pr
 
 - **Source de vérité : Onshape** (lien dans `docs/index.md`, bouton « Notre projet sur Onshape »). Claude n'a pas d'accès à Onshape.
 - `mcad/` : un `README.md` (« TODO lien Onshape ») et un seul export, `mcad/robot-principal/actionneur/actionneur-cdri5.stl` (assemblage de l'actionneur, 2026-11-17). Aucun STEP dans le dépôt : ne pas chercher ailleurs.
-- `ecad/pcb-pami/3D/` contient seulement les modèles des composants de la carte (bouton, ESP32, TMC2209, USB-C). Ne pas les lire.
+- `ecad/pcb-pami-v2/3D/` contient seulement les modèles des composants de la carte (bouton, ESP32, TMC2209, USB-C). Ne pas les lire.
 
 Pour travailler sur une pièce, demander à l'utilisateur, dans cet ordre de préférence :
 1. les **cotes** utiles (ou une capture cotée d'Onshape) ;
@@ -24,7 +24,7 @@ Pour travailler sur une pièce, demander à l'utilisateur, dans cet ordre de pr�
 
 ## Cotes d'interface connues
 
-### Carte PAMI (`ecad/pcb-pami`)
+### Carte PAMI V2 (`ecad/pcb-pami-v2`)
 
 Relire à jour avec `python .claude/skills/conception-3d/extraire_pcb.py` (sous Windows, prendre le Python qui a Pillow/pip, cf. skill `journaux`).
 État au 2026-11-03 du fichier du dépôt :

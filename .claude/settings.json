@@ -12,7 +12,7 @@
       "Bash(pio run:*)"
     ],
     "deny": [
-      "Read(./fw/.pio/**)",
+      "Read(./fw/**/.pio/**)",
       "Read(./ecad/**/*-backups/**)",
       "Read(./ecad/**/Footprint/**)",
       "Read(./ecad/**/3D/**)",
