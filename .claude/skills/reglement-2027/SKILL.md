@@ -43,18 +43,19 @@ La FAQ (www.eurobot.org/faq/) et les documents complémentaires peuvent modifier
 | Action | Points |
 |:--|:--|
 | **Construction** : pierre posée dans une zone de construction | 1 / pierre |
-| Mur : 3 pierres à l'horizontale, empilées, dans une zone mur | +5 |
-| Tour : 1 pierre debout, dans une zone tour | +5 |
-| Porte : 2 pierres debout + 1 à l'horizontale dessus, dans une zone mur (1 seule par château) | +20 |
+| Mur : 3 pierres à l'horizontale, empilées, dans une zone mur | 5 / mur |
+| Tour : 1 pierre debout, dans une zone tour | 5 / tour |
+| Porte : 2 pierres debout + 1 à l'horizontale dessus, dans une zone mur (1 seule par château) | 20 |
 | **Graal** présent dans le château | 5 |
-| Graal surélevé : niveau 1 = 1 pierre à l'horizontale, 2 = 2 pierres, 3 = 3 pierres à l'horizontale ou 1 debout, 4 = sur le toit du robot (> 30 cm), libre de tout actionneur | +5 / niveau |
+| Graal surélevé : niveau 1 = 1 pierre à l'horizontale, 2 = 2 pierres, 3 = 3 pierres à l'horizontale ou 1 debout, 4 = sur le toit du robot (> 30 cm), libre de tout actionneur | 5 / niveau |
 | **Retour du roi** : robot principal dans la salle du trône à la fin, partiellement / complètement (PAMI exclus) | 5 / 10 |
 | **Assaut** : douve du château adverse occupée par un PAMI | 5 / douve |
 | Au moins un PAMI qui touche un PAMI adverse | 5 |
 | Au moins 1 boulet dans la cour du château adverse | 5 |
-| Au moins 3 boulets dans la cour du château adverse | +15 |
+| Au moins 3 boulets dans la cour du château adverse | 15 |
 
 Règles associées :
+- Les points se cumulent : mur = 3 + 5 = 8, porte = 3 + 20 = 23, 3 boulets = 5 + 15 = 20. Le retour du roi vaut 5 **ou** 10, pas les deux.
 - Un élément encore tenu par un robot à la fin ne compte pas.
 - On peut stocker jusqu'à 3 pierres dans sa cour.
 - On peut voler des pierres au château adverse seulement quand toutes les carrières sont vides, et sans le détruire. Sinon, pénalité d'au moins 50 points.

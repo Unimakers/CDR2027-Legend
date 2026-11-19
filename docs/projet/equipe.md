@@ -9,7 +9,7 @@ nav_order: 2
 
 ## Unimakers
 
-Équipe du **MakerSpace Amiens**. *À compléter : présentation, participations précédentes.*
+Équipe d' UniMakers Amiens **Légend**. *À compléter : présentation, participations précédentes.*
 
 ## Les membres
 

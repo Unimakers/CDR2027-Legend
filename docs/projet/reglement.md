@@ -59,17 +59,19 @@ Table de **3000 × 2000 mm**, bordures de 70 mm.
 | Action | Points |
 |:--|:--|
 | **Construction** : pierre posée dans une zone de construction | 1 par pierre |
-| Mur (3 pierres à l'horizontale, empilées) | +5 |
-| Tour (1 pierre debout) | +5 |
-| Porte (2 pierres debout + 1 à l'horizontale ; une par château) | +20 |
+| Mur (3 pierres à l'horizontale, empilées) | 5 par mur |
+| Tour (1 pierre debout) | 5 par tour |
+| Porte (2 pierres debout + 1 à l'horizontale ; une par château) | 20 |
 | **Graal** présent dans le château | 5 |
-| Graal surélevé (niveaux 1 à 4, jusqu'au toit du robot) | +5 par niveau |
-| **Retour du roi** : robot partiellement / complètement dans la salle du trône | 5 / 10 |
+| Graal surélevé (niveaux 1 à 4, jusqu'au toit du robot) | 5 par niveau |
+| **Retour du roi** : robot partiellement dans la salle du trône | 5 |
+| Robot complètement dans la salle du trône | 10 |
 | **Assaut** : PAMI dans une douve du château adverse | 5 par douve |
 | Un PAMI touche un PAMI adverse | 5 |
 | Au moins 1 boulet dans la cour adverse | 5 |
-| Au moins 3 boulets dans la cour adverse | +15 |
+| Au moins 3 boulets dans la cour adverse | 15 |
 
+- Les points se cumulent : un mur rapporte 3 + 5 = 8 points, une porte 3 + 20 = 23 points, et 3 boulets 5 + 15 = 20 points. Le robot ne marque que l'un des deux retours (5 ou 10).
 - La **phase d'attaque** va de **85 s à la fin du match** : un PAMI qui sort de l'écurie avant est retiré de la table.
 - Un élément encore tenu par un robot à la fin ne compte pas.
 
@@ -108,10 +110,10 @@ Table de **3000 × 2000 mm**, bordures de 70 mm.
 
 [Télécharger le PDF]({{ '/projet/pdf/reglement-eurobot-2027-v1.0.pdf' | relative_url }}){: .btn .btn-primary }
 
-<iframe class="pdf-viewer" src="{{ '/projet/pdf/reglement-eurobot-2027-v1.0.pdf' | relative_url }}" title="Règlement Eurobot 2027"></iframe>
+<iframe class="pdf-viewer" src="{{ '/projet/pdf/reglement-eurobot-2027-v1.0.pdf' | relative_url }}#view=FitH" title="Règlement Eurobot 2027" width="100%" height="900" style="display:block;width:100%;height:85vh;min-height:600px;border:1px solid #ccc;"></iframe>
 
 ### Règlement général Eurobot (v1.4)
 
 [Télécharger le PDF]({{ '/projet/pdf/reglement-general-eurobot-v1.4.pdf' | relative_url }}){: .btn .btn-primary }
 
-<iframe class="pdf-viewer" src="{{ '/projet/pdf/reglement-general-eurobot-v1.4.pdf' | relative_url }}" title="Règlement général Eurobot"></iframe>
+<iframe class="pdf-viewer" src="{{ '/projet/pdf/reglement-general-eurobot-v1.4.pdf' | relative_url }}#view=FitH" title="Règlement général Eurobot" width="100%" height="900" style="display:block;width:100%;height:85vh;min-height:600px;border:1px solid #ccc;"></iframe>
