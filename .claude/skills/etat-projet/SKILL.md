@@ -78,4 +78,4 @@ câble management ; nouvelle carte PAMI 2 couches (routée) ; supports ToF ; ToF
 
 ## Documentation du site
 
-La plupart des pages de `docs/` sont encore le **modèle** du MakerSpace (lorem ipsum, « projet XY »). Seuls les journaux sont rédigés. Voir skill `site-doc`.
+Depuis le 2026-11-19, le site a un accueil, des pages Objectifs, Robot principal et PAMI rédigées à partir des journaux, et les journaux. Les tutoriels du modèle ont été retirés. Voir skill `site-doc`.

@@ -13,15 +13,13 @@ description: Site de documentation Jekyll du projet (docs/, thème Just the Docs
 
 | Page | nav_order | État |
 |:--|:--|:--|
-| `index.md` Accueil | 1 | modèle (« projet XY », poster et vidéo d'exemple) ; lien Onshape réel |
-| `premiers-pas/` | 2 | guides du modèle (Jekyll, Markdown, Git) : à garder |
-| `objectifs.md` | 3 | lorem ipsum |
-| `etudes.md` Études et choix techniques | 4 | vide |
-| `conception.md` Conception et prototypage | 5 | vide |
-| `etapes/` Étapes de fabrication | 6 | exemple générique |
-| `journaux/` | 7 | rédigé (skill `journaux`) |
+| `index.md` Accueil | 1 | rédigé le 2026-11-19 (présentation, avancement, plan) ; lien Onshape et iframe réels |
+| `objectifs.md` | 2 | rédigé (défi, règlement, approche) |
+| `robot-principal.md` Le robot principal | 3 | rédigé (carte, encodeur, levage des murs) |
+| `pami.md` Les PAMI | 4 | rédigé (carte, firmware, mécanique, points ouverts) |
+| `journaux/` | 5 | rédigé (skill `journaux`) |
 
-Le `README.md` racine est aussi celui du modèle.
+Le 2026-11-19, le site a été aligné sur celui du projet RATP 2025 (https://unimakers.fr/CDR-2025-I3-RATP/, même thème just-the-docs) : lien « Unimakers sur GitHub » sous le menu (`aux_links`) et pied de page dans `_config.yml`. Les pages du modèle (`premiers-pas/`, `etapes/`, `etudes.md`, `conception.md`, poster et vidéo d'exemple) ont été supprimées. Le `README.md` racine est encore celui du modèle.
 
 ## Rédiger une page
 

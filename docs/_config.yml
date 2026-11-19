@@ -1,11 +1,12 @@
-title: Doc Projet
-description: Documentation du projet
+title: CDR 2027 - Legend (Unimakers)
+description: Documentation de l'équipe Unimakers pour la Coupe de France de Robotique 2027
 
 # NE RIEN MODIFIER CI-DESSOUS SI VOUS N'ETES PAS CERTAINS DE CE QUE VOUS FAITES
 
 # Thème
 # remote_theme: Makerspace-Amiens/CraftTheDocs-V1.0
 theme: just-the-docs
+color_scheme: unimakers
 url: https://github.com/Makerspace-Amiens
 
 # Paramètres optionnels de "Just the Docs"
@@ -13,6 +14,33 @@ just_the_docs:
   navigation_depth: 5
   search_enabled: true
   search_indexing: true
+
+  # Bouton de copie sur les blocs de code
+  enable_copy_code_button: true
+
+# Lien de retour en haut de page
+back_to_top: true
+back_to_top_text: "Revenir en haut"
+
+footer_content: ""
+
+# Liens externes sous le menu latéral
+nav_external_links:
+  - title: Github UniMakers
+    url: https://github.com/Unimakers
+    hide_icon: false
+    opens_in_new_tab: true
+
+# Encadrés
+callouts:
+  warning:
+    title: Attention
+    color: red
+  note:
+    title: Note
+    color: purple
+  highlight:
+    color: blue
 
 # Journaux de bord : réglages communs à tous les logs d'un journal.
 # Un log n'a donc à déclarer que son titre, sa date, sa description et son sujet.

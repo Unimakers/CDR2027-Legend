@@ -7,39 +7,43 @@ permalink: /
 
 # Bienvenue sur notre documentation
 
-Bienvenue dans la documentation du projet XY. Ce site a pour but de fournir toutes les informations nécessaires pour comprendre, utiliser et reproduire efficacement notre projet.
+Cette documentation présente le travail de l'équipe **Unimakers** (MakerSpace Amiens) pour la **Coupe de France de Robotique 2027**, dont le thème est « The Legend of Camelot ». Elle décrit nos robots, nos choix techniques et l'avancement du projet.
 
-[Notre projet sur Onshape](https://cad.onshape.com/documents/2860ed3d58f1b518e6857770/w/82b3c0e474623135ccb76fa3/e/0cab16137cd459ee83ebe56e?renderMode=0&uiState=6936dc0e23fecc27d34268b2){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[Notre repo GitHub](https://github.com/Makerspace-Amiens/template-project){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Notre projet sur Onshape](https://cad.onshape.com/documents/a1dd7e986cf35e5710cc0af1/v/c28c25944dc0cfd69f9db5c7/e/192be7f926e66b5b2fba6ecb?renderMode=0&uiState=6afeac0e3c4294782866774f){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Notre dépôt GitHub](https://github.com/Unimakers/CDR2027-Legend){: .btn .fs-5 .mb-4 .mb-md-0 }
 
-<iframe height="600" width="100%" src="https://modelembedder.net/embed?did=2860ed3d58f1b518e6857770&wvm=v&wvmid=6280fca954e7770df59e5a2f&eid=0cab16137cd459ee83ebe56e&elementType=ASSEMBLY" frameborder="0"></iframe>
+## À propos du projet
 
-{: .warning }
->Pour intégrer la visualisation de votre projet Onshape, utilisez le site https://modelembedder.net . Activez le partage par lien via l'outil de partage de Onshape. n'oubliez pas d'activer l'option "export". Puis completez l'iframe ci-dessus avec le lien généré par le site https://modelembedder.net. Vous pouvez mettre à jour également le bouton avec le lien de partage de votre modèle.
+Nous préparons deux types de robots :
 
+- un **robot principal**, qui réalise les actions de jeu sur la table ;
+- des **PAMI**, petits robots autonomes qui partent de l'écurie en fin de match.
 
-## À propos du Projet
+Le projet est développé au MakerSpace Amiens. Tout le code, les cartes électroniques et cette documentation sont dans le dépôt [Unimakers/CDR2027-Legend](https://github.com/Unimakers/CDR2027-Legend).
 
-Décrivez ici en quelques lignes l'objectif et l'aperçu général de votre projet. Quel est son but ? À qui est-il destiné ? Quels problèmes cherche-t-il à résoudre ?
+## Où en sommes-nous ?
 
+Les journaux de bord gardent la trace du développement, semaine après semaine.
 
-## Poster
+**Robot principal**
 
-Ici vous publierez le poster de votre projet.
+- La carte électronique est en cours de routage sous KiCad (schéma commencé le 7 novembre 2026).
+- Un module encodeur a été développé et testé.
+- Un actionneur de levage des murs est monté en prototype.
+- Il n'y a pas encore de code.
 
-![Poster projet](images/poster.jpg)
+**PAMI**
 
-## Vidéo
+- Une première carte à base d'ESP32-S3 est câblée, avec un firmware organisé en composants : odométrie, stratégies en JSON, interface web, mise à jour sans fil.
+- Le châssis a été refait plusieurs fois et une catapulte embarquée a été testée.
+- Une nouvelle carte, plus petite (60 × 50 mm, 2 couches), est routée mais ni fabriquée ni testée.
+- L'évitement d'obstacles n'est pas encore testé.
 
-Ici vous publierez la vidéo de votre projet. 
-- 1min30 au format vertical
-- Présentation du projet 
-- Des explication du fonctionnement du projet
-- Des vues du projet / Prototype / Application etc... 
-- Des plans du fonctionnement (même basique ou des éléments séparés)
-- Une conclusion
-- Si en stockage local : <50mo
+## Parcourir la documentation
 
-<video src="images/intro_amiens.mp4" controls title="Title"  style="width: 100%;"></video>
-
----
+| Page | Contenu |
+|:--|:--|
+| [Objectifs](objectifs.md) | Le défi, les règles principales et nos deux robots |
+| [Le robot principal](robot-principal.md) | Carte électronique, actionneur de levage, module encodeur |
+| [Les PAMI](pami.md) | Carte, firmware, châssis, catapulte |
+| [Journaux de bord](journaux/index.md) | Le détail du développement, log par log |
