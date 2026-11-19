@@ -19,7 +19,7 @@ description: Site de documentation Jekyll du projet (docs/, thème Just the Docs
 | `pami.md` Les PAMI | 4 | rédigé (carte, firmware, mécanique, points ouverts) |
 | `journaux/` | 5 | rédigé (skill `journaux`) |
 
-Le 2026-11-19, le site a été aligné sur celui du projet RATP 2025 (https://unimakers.fr/CDR-2025-I3-RATP/, même thème just-the-docs) : lien « Unimakers sur GitHub » sous le menu (`aux_links`) et pied de page dans `_config.yml`. Les pages du modèle (`premiers-pas/`, `etapes/`, `etudes.md`, `conception.md`, poster et vidéo d'exemple) ont été supprimées. Le `README.md` racine est encore celui du modèle.
+Le 2026-11-19, le site a été aligné sur celui du projet RATP 2025 (https://unimakers.fr/CDR-2025-I3-RATP/, même thème just-the-docs) : lien « Unimakers sur GitHub » sous le menu (`aux_links`) et pied de page dans `_config.yml`. Les pages du modèle (`premiers-pas/`, `etapes/`, `etudes.md`, `conception.md`, poster et vidéo d'exemple) ont été supprimées. Le `README.md` racine a été réécrit le 2026-11-19 : présentation courte, liens site et Onshape, carte du dépôt, avancement, commandes de démarrage. Il renvoie vers le site pour le détail, sans le recopier.
 
 ## Rédiger une page
 
