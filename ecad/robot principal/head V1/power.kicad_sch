@@ -5444,7 +5444,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "Polarized capacitor"
 			(at 109.22 96.52 0)
 			(hide yes)
 			(show_name no)

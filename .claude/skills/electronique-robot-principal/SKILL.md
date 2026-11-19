@@ -61,6 +61,6 @@ U15 → `+3.3V`, U16 → `+5V`, U18 → `+12V1`, U20 → `+12V2`, U19 → `+5VP1
 
 ## Reste à faire
 
-Routage du PCB (2026-11-18) : logique, 4 modules moteurs, alimentations 24 V/5 V et masse routés ; Dynamixel routés mais susceptibles de bouger ; reste la partie actionneurs (pompes, électrovannes, servos). Carte d’environ 170 mm avec un trou central pour le passage des câbles.
+Routage du PCB (2026-11-18) : logique, 4 modules moteurs, alimentations 24 V/5 V et masse routés ; Dynamixel routés mais susceptibles de bouger ; reste la partie actionneurs (pompes, électrovannes, servos). Carte d’environ 170 mm avec un trou central pour le passage des câbles. PCB mis à jour depuis le schéma le 2026-11-19 (appariement par UUID, rien de déplacé) : C39 à C41 et RN1 à RN4 placés le 2026-11-20, C27 à C30 (découplage des PCA9685) encore hors carte vers x = 212 mm ; D1 supprimée, des bouts de piste restent à son ancien emplacement (≈ 66, 170 mm).
 
 Points ouverts de la revue du 2026-11-19 : niveau 3,3 V vers les WS2812B (hors spécification à 5 V) ; pas de tirage sur les boutons J12 à J16 (activer GPPU du MCP23008) ; micro-pas des EZ2209 non câblé ; PDN_UART des TMC2209 non relié ; à vérifier : brochage UART du Luckfox (IO_D0/D1/D2), connecteur AMT102-V, connecteur et niveau logique des Dynamixel ; tension de C40 (`24VD`, ≥ 35 V) et de C31 à C34 à fixer ; nettoyage ERC (PWR_FLAG, symbole Luckfox absent des librairies, broches `VDD` cachées du symbole servo).
