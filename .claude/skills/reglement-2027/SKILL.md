@@ -5,7 +5,7 @@ description: Règlement de la Coupe de France de Robotique / Eurobot 2027 « The
 
 # Règlement 2027 : The Legend of Camelot
 
-Sources : « Règlement général Eurobot », version officielle 1.4, et « Règlement Eurobot et Eurobot Junior 2027 », version officielle 1.0. Résumé fait le 2026-11-03. Les PDF ne sont pas dans le dépôt.
+Sources : « Règlement général Eurobot », version officielle 1.4, et « Règlement Eurobot et Eurobot Junior 2027 », version officielle 1.0. Résumé fait le 2026-11-03. Depuis le 2026-11-19, les PDF sont dans `docs/projet/pdf/` et affichés sur la page `docs/projet/reglement.md` : ne les ouvrir qu'en dernier recours (15 Mo). Une nouvelle version du règlement = remplacer le PDF, mettre à jour ce skill et la page.
 La FAQ (www.eurobot.org/faq/) et les documents complémentaires peuvent modifier ces règles. Si une règle change, mettre à jour ce skill et dater la modification. En cas de doute, écrire à referee@planete-sciences.org.
 
 ## Match

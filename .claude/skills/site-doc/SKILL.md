@@ -18,7 +18,7 @@ Structure posée le 2026-11-19 : des squelettes (titres, puces courtes, `*À com
 | Section (nav_order) | Dossier | Sous-pages |
 |:--|:--|:--|
 | Accueil (1) | `index.md` | — ; **seul endroit de l'avancement** (+ README en deux lignes) |
-| Le projet (2) | `projet/` | `competition.md` → `reglement.md` (3e niveau, `grand_parent: Le projet`), `equipe.md` |
+| Le projet (2) | `projet/` | `competition.md` (rédigée le 2026-11-19 d'après coupederobotique.fr) → `reglement.md` (3e niveau, `grand_parent: Le projet` ; résumé tiré du skill `reglement-2027` + PDF officiels de `projet/pdf/` intégrés), `equipe.md` |
 | Le robot principal (3) | `robot-principal/` | `electronique.md`, `mecanique.md`, `logiciel.md` (pas de code) |
 | Les PAMI (4) | `pami/` | `electronique.md` (V1, V2), `firmware.md`, `mecanique.md` |
 | Journaux (5) | `journaux/` | skill `journaux` |
@@ -31,6 +31,7 @@ Le 2026-11-19, le site a été aligné sur celui du projet RATP 2025 (https://un
 
 - En-tête : `layout: default`, `title`, `nav_order`, et `parent` / `has_children` pour une sous-page (`grand_parent` au 3e niveau).
 - La doc décrit l'état **final** et les choix, sans dates ; l'avancement va sur l'accueil, le cheminement dans les journaux. Partir des décisions du skill `etat-projet` et citer les logs.
+- PDF intégré : `<iframe class="pdf-viewer" src="{{ '/chemin.pdf' | relative_url }}">` (style dans `_sass/custom/custom.scss`) précédé d'un bouton de téléchargement, car les navigateurs mobiles affichent mal les PDF en iframe.
 - Liens internes en `.md` relatifs (`../pami/index.md`) ; liens vers le code en URL GitHub `tree/main/...`.
 - Médias dans `docs/images/`, moins de 50 Mo pour une vidéo.
 - Encadrés Just the Docs : `{: .warning }` / `{: .note }` avant un bloc `>`.
