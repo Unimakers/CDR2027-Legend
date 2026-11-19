@@ -5325,7 +5325,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ESP32-S3-WROOM-1 no psram"
+		(property "Value" "ESP32-S3-WROOM-1U no psram"
 			(at 120.904 82.042 0)
 			(show_name no)
 			(do_not_autoplace no)

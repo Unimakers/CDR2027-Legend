@@ -483,3 +483,6 @@ pyrightconfig.json
 !/docs/journaux/*/logs/
 # Fichiers de travail de la synchro (exports du Google Doc, originaux non compresses)
 /docs/journaux/_sync/tmp/
+
+# Verrous KiCad (fichiers temporaires)
+*.lck
