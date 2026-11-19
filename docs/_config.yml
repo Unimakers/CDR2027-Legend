@@ -7,7 +7,8 @@ description: Documentation de l'équipe Unimakers pour la Coupe de France de Rob
 # remote_theme: Makerspace-Amiens/CraftTheDocs-V1.0
 theme: just-the-docs
 color_scheme: unimakers
-url: https://github.com/Makerspace-Amiens
+# baseurl (/CDR2027-Legend) : fourni par la CI au build (actions/configure-pages)
+url: https://unimakers.fr
 
 # Paramètres optionnels de "Just the Docs"
 just_the_docs:

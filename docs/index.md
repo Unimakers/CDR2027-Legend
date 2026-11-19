@@ -38,12 +38,13 @@ Les journaux de bord gardent la trace du développement, semaine après semaine.
 - Le châssis a été refait plusieurs fois et une catapulte embarquée a été testée.
 - Une nouvelle carte, plus petite (60 × 50 mm, 2 couches), est routée mais ni fabriquée ni testée.
 - L'évitement d'obstacles n'est pas encore testé.
+- Restent ouverts : gestion des câbles, supports ToF, choix et autonomie de la batterie, validation de l'appui sur les têtes de vis. La liste à jour est dans le [journal des PAMI](journaux/pami/index.md).
 
 ## Parcourir la documentation
 
-| Page | Contenu |
+| Section | Contenu |
 |:--|:--|
-| [Objectifs](objectifs.md) | Le défi, les règles principales et nos deux robots |
-| [Le robot principal](robot-principal.md) | Carte électronique, actionneur de levage, module encodeur |
-| [Les PAMI](pami.md) | Carte, firmware, châssis, catapulte |
+| [Le projet](projet/index.md) | La compétition, le règlement 2027, l'équipe |
+| [Le robot principal](robot-principal/index.md) | Électronique, mécanique, logiciel |
+| [Les PAMI](pami/index.md) | Électronique, firmware, mécanique |
 | [Journaux de bord](journaux/index.md) | Le détail du développement, log par log |
