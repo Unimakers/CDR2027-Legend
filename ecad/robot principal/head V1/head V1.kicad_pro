@@ -40,8 +40,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 1.45,
-          "width": 1.175
+          "height": 1.4,
+          "width": 1.15
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -91,6 +91,10 @@
         ],
         [
           "courtyards_overlap|59675000|106873664|880194b1-466b-409e-b419-3cd82265984a|d045abb5-5cf2-4ee1-9cff-2b919f36b701",
+          ""
+        ],
+        [
+          "diff_pair_gap_out_of_range|61470000|172570590|2a369ed5-e7f3-44fc-a120-66e031ad6828|e75c7cbe-880a-46ce-9f43-5fbe8015df98",
           ""
         ]
       ],
@@ -1025,7 +1029,7 @@
         "uuid": "b0306bf7-4fe9-406b-bc9c-1a8a198c5765"
       }
     ],
-    "used_designators": "#PWR1-32,#PWR42-45,#PWR102,#PWR104,#PWR141,#PWR143-144,#PWR148,#PWR157,Bat1,C1-71,D1-23,F1,H1-4,IC1-10,J1-36,JP1-8,K1,PS1,Q1-8,R1-44,RN1-4,SW1-8,U1-21",
+    "used_designators": "#PWR1-32,#PWR42-45,#PWR102,#PWR104,#PWR141,#PWR143-144,#PWR148,#PWR157,Bat1,C1-71,D1-23,F1,H1-4,IC1-10,J1-36,JP1-8,K1,PS1,Q1-8,R1-60,RN1-4,SW1-8,U1-22",
     "variants": []
   },
   "sheets": [
