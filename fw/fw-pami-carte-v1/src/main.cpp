@@ -172,6 +172,35 @@ void TaskUI(void *pvParameters) {
     }
 }
 
+// Conduite manuelle (fleches de l'interface) : le navigateur renvoie la commande toutes les ~100 ms
+// tant que la fleche est maintenue ; sans rafraichissement, loop() arrete les moteurs.
+static volatile unsigned long joy_last_ms = 0;
+static volatile bool joy_active = false;
+
+static void joy_stop() {
+    nema_stop(1, false);
+    nema_stop(2, false);
+    joy_active = false;
+}
+
+static void joy_drive(const String& dir, uint32_t speed) {
+    if (strategy_is_running()) return;
+    if (dir == "stop") { joy_stop(); return; }
+    // Convention de STRATEGY.cpp : avancer = 2 moteurs forward ; rotation anti-horaire = M1 forward, M2 backward
+    bool m1_fwd, m2_fwd;
+    if      (dir == "avant")  { m1_fwd = true;  m2_fwd = true;  }
+    else if (dir == "arriere"){ m1_fwd = false; m2_fwd = false; }
+    else if (dir == "gauche") { m1_fwd = true;  m2_fwd = false; }
+    else if (dir == "droite") { m1_fwd = false; m2_fwd = true;  }
+    else return;
+    nema_set_profile(1, speed, 2000);
+    nema_set_profile(2, speed, 2000);
+    if (m1_fwd) nema_run_forward(1); else nema_run_backward(1);
+    if (m2_fwd) nema_run_forward(2); else nema_run_backward(2);
+    joy_last_ms = millis();
+    joy_active = true;
+}
+
 void executer_commande_web(String composant, int id, String valeur) {
     Serial.printf("[WEB] Composant : %s | ID: %d | Valeur: %s\n", composant.c_str(), id, valeur.c_str());
 
@@ -224,6 +253,22 @@ void executer_commande_web(String composant, int id, String valeur) {
                 if (cible > 0) nema_run_forward(id);
                 else nema_run_backward(id);
             }
+        }
+    }
+    else if (composant == "joy") {
+        // id = vitesse en pas/s (0 = 1000) ; valeur = avant | arriere | gauche | droite | stop
+        joy_drive(valeur, id > 0 ? (uint32_t)id : 1000);
+    }
+    else if (composant == "drive") {
+        // Avance (>0) ou recule (<0) en ligne droite de `valeur` mm, hors strategie (ex. panneau Actionneur).
+        // id = vitesse en pas/s (0 = 1000)
+        if (!strategy_is_running()) {
+            long steps = (long)motion_mm_to_steps((float)valeur.toInt());
+            uint32_t v = id > 0 ? (uint32_t)id : 1000;
+            nema_set_profile(1, v, 2000);
+            nema_set_profile(2, v, 2000);
+            nema_move_to(1, nema_get_position(1) + steps);
+            nema_move_to(2, nema_get_position(2) + steps);
         }
     }
     else if (composant == "avoid") {
@@ -315,6 +360,8 @@ void setup() {
 void loop() {
     ota_handle();
     web_cleanup();
+
+    if (joy_active && millis() - joy_last_ms > 300) joy_stop();   // liaison perdue / fleche relachee sans stop
 
     String luckfox_msg;
     if (luckfox_receive(luckfox_msg)) {

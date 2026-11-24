@@ -69,6 +69,11 @@
         .nema-block { background: rgba(0,0,0,0.03); border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; margin-top: 10px; }
         .nema-block input { padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 0.85em; width: 100%; box-sizing: border-box; }
         .nema-row { display: flex; gap: 8px; margin-top: 8px; }
+        .act-row { display:flex; gap:8px; }
+        .act-b { flex:1; height:48px; font-size:0.95em; border-radius:8px; }
+        .act-l { font-size:0.85em; font-weight:bold; color:var(--acc, #8b4513); }
+        [data-joy] { touch-action: none; user-select: none; -webkit-user-select: none; }
+        .act-on { background:#27ae60 !important; color:#fff !important; }
     </style>
 </head>
 <body>
@@ -282,19 +287,19 @@
             <div class="panel-header"><span>Commande Automate</span></div>
             <div class="cmd-container">
                 <div class="arrows">
-                    <button class="btn" style="grid-column:2" onmousedown="sM(0,1)" onmouseup="sM(0,0)">▲</button>
-                    <button class="btn" style="grid-column:1;grid-row:2" onmousedown="sM(-1,0)" onmouseup="sM(0,0)">◀</button>
-                    <button class="btn" style="grid-column:2;grid-row:2" onmousedown="sM(0,-1)" onmouseup="sM(0,0)">▼</button>
-                    <button class="btn" style="grid-column:3;grid-row:2" onmousedown="sM(1,0)" onmouseup="sM(0,0)">▶</button>
+                    <button class="btn" style="grid-column:2" data-joy="avant">▲</button>
+                    <button class="btn" style="grid-column:1;grid-row:2" data-joy="gauche">◀</button>
+                    <button class="btn" style="grid-column:2;grid-row:2" data-joy="arriere">▼</button>
+                    <button class="btn" style="grid-column:3;grid-row:2" data-joy="droite">▶</button>
                 </div>
                 <div class="shape-btns">
-                    <button class="btn-s" style="background:#e74c3c;" onclick="sA('X')">X</button>
-                    <button class="btn-s" style="background:#3498db;" onclick="sA('O')">O</button>
-                    <button class="btn-s" style="background:#f1c40f;" onclick="sA('A')">A</button>
+                    <button class="btn-s" style="background:#e74c3c;" onclick="actPump(1,true)" title="Allumer pompe 1">X</button>
+                    <button class="btn-s" style="background:#3498db;" onclick="actPump(2,true)" title="Allumer pompe 2">O</button>
+                    <button class="btn-s" style="background:#f1c40f;" onclick="actPump(1,false);actPump(2,false)" title="Stopper les 2 pompes">A</button>
                 </div>
                 <div style="flex-grow:1; display:flex; flex-direction:column; gap:10px;">
-                    <div class="slider-row"><label>Slider 1 <span id="s1_v">50</span></label><input type="range" class="full-slider" min="0" max="100" value="50" oninput="sS(1, this.value)"></div>
-                    <div class="slider-row"><label>Slider 2 <span id="s2_v">50</span></label><input type="range" class="full-slider" min="0" max="100" value="50" oninput="sS(2, this.value)"></div>
+                    <div class="slider-row"><label>Servo 0 (hauteur) <span id="s1_v">90</span>°</label><input type="range" class="full-slider" min="0" max="180" value="90" oninput="sS(1, this.value)"></div>
+                    <div class="slider-row"><label>Servo 1 (orientation) <span id="s2_v">90</span>°</label><input type="range" class="full-slider" min="0" max="180" value="90" oninput="sS(2, this.value)"></div>
                 </div>
             </div>
         </div>
@@ -404,6 +409,51 @@
         </div>
     </template>
 
+    <template id="tpl-actionneur">
+        <div class="panel wide">
+            <div class="panel-header"><span>🧲 Actionneur (ventouses)</span><span id="act_state" style="font-size:0.8em;">Haut. 90° · Orient. 90°</span></div>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+                <div class="act-row">
+                    <button class="btn act-b" style="background:#27ae60; color:#fff;" onclick="actPrendre()">➡️🧲⬆️ PRENDRE</button>
+                    <button class="btn act-b" style="background:#2980b9; color:#fff;" onclick="actDeposer()">⬇️💨 DÉPOSER</button>
+                    <button class="btn act-b" style="background:#8e44ad; color:#fff;" onclick="actDeposerVertical()">⟳💨 DÉPOSER VERTICAL</button>
+                </div>
+                <div id="act_seq_msg" style="font-size:0.8em; min-height:1.2em; text-align:center;"></div>
+
+                <label class="act-l">Hauteur (servo 0)</label>
+                <div class="act-row">
+                    <button class="btn act-b" onclick="actHeight(ACT.hBas)">Bas</button>
+                    <button class="btn act-b" onclick="actNudge(0,-ACT.pas)">▼</button>
+                    <button class="btn act-b" onclick="actNudge(0,ACT.pas)">▲</button>
+                    <button class="btn act-b" onclick="actHeight(ACT.hHaut)">Haut</button>
+                </div>
+
+                <label class="act-l">Orientation plateforme (servo 1)</label>
+                <div class="act-row">
+                    <button class="btn act-b" onclick="actOrient(ACT.oGauche)">⟲ Gauche</button>
+                    <button class="btn act-b" onclick="actNudge(1,-ACT.pas)">◀</button>
+                    <button class="btn act-b" onclick="actNudge(1,ACT.pas)">▶</button>
+                    <button class="btn act-b" onclick="actOrient(ACT.oDroite)">Droite ⟳</button>
+                </div>
+
+                <label class="act-l">Pompes (ventouses)</label>
+                <div class="act-row">
+                    <button class="btn act-b" id="act_p1" onclick="actPump(1,!ACT.pump[1])">Pompe 1 : OFF</button>
+                    <button class="btn act-b" id="act_p2" onclick="actPump(2,!ACT.pump[2])">Pompe 2 : OFF</button>
+                </div>
+                <div class="act-row">
+                    <button class="btn act-b" style="background:#27ae60; color:#fff;" onclick="actPump(1,true);actPump(2,true)">Aspirer tout</button>
+                    <button class="btn act-b" style="background:#e67e22; color:#fff;" onclick="actPump(1,false);actPump(2,false)">Relâcher tout</button>
+                </div>
+
+                <div class="act-row">
+                    <button class="btn act-b" style="background:#7f8c8d; color:#fff;" onclick="actInit()">Init 90° / 90°</button>
+                    <button class="btn act-b" style="background:#e74c3c; color:#fff;" onclick="actStop()">⛔ STOP</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <template id="tpl-luckfox">
         <div class="panel wide">
             <div class="panel-header"><span>🦊 Gestion Luckfox</span></div>
@@ -446,10 +496,13 @@
             { id: 'pid', name: 'Réglages PID', show: true, color: '#27ae60' },
             { id: 'cmd', name: 'Contrôleur', show: true, color: '#8e44ad' },
             { id: 'manual', name: 'Contrôle Matériel', show: true, color: '#d35400' },
+            { id: 'actionneur', name: 'Actionneur', show: true, color: '#16a085' },
             { id: 'luckfox', name: 'Gestion Luckfox', show: true, color: '#8e44ad' }
         ];
 
         let currentConfig = JSON.parse(localStorage.getItem('pamiConfig')) || defaultLayout;
+        // Ajoute les widgets apparus depuis la derniere sauvegarde de la config
+        defaultLayout.forEach(w => { if (!currentConfig.some(c => c.id === w.id)) currentConfig.push({...w}); });
 
         function renderDashboard() {
             const dash = document.getElementById('dash');
@@ -793,7 +846,142 @@
         function sP(t,v){ if(document.getElementById(t+'_v')) document.getElementById(t+'_v').innerText=v; ws.send(JSON.stringify({type:t,value:parseFloat(v)})); }
         function sM(x,y){ ws.send(JSON.stringify({type:'move',x:x,y:y})); }
         function sA(b){ ws.send(JSON.stringify({type:'action',btn:b})); }
-        function sS(id,v){ if(document.getElementById('s'+id+'_v')) document.getElementById('s'+id+'_v').innerText=v; ws.send(JSON.stringify({type:'slider',id:id,val:parseFloat(v)})); }
+        function sS(id, v) {  // sliders de la commande automate : 1 = servo 0, 2 = servo 1
+            const el = document.getElementById('s'+id+'_v'); if (el) el.innerText = v;
+            const i = id - 1; v = parseInt(v);
+            ACT.ang[i] = ACT.cible[i] = v;
+            sendCmd('servo', i, v);
+            actRefresh();
+        }
+
+        // Fleches : avance / recule / tourne tant que le bouton est maintenu, stop au relachement
+        const JOY_SPEED = 1000;   // pas/s
+        let joyTimer = null;
+        function joyStop() {
+            if (joyTimer) { clearInterval(joyTimer); joyTimer = null; sendCmd('joy', 0, 'stop'); }
+        }
+        function joyStart(dir) {
+            joyStop();
+            sendCmd('joy', JOY_SPEED, dir);
+            joyTimer = setInterval(() => sendCmd('joy', JOY_SPEED, dir), 100);  // evite l'arret de securite du firmware
+        }
+        document.addEventListener('pointerdown', e => {
+            const b = e.target.closest && e.target.closest('[data-joy]');
+            if (b) { e.preventDefault(); joyStart(b.dataset.joy); }
+        });
+        ['pointerup', 'pointercancel'].forEach(t => document.addEventListener(t, joyStop));
+        window.addEventListener('blur', joyStop);
+        document.addEventListener('contextmenu', e => { if (e.target.closest && e.target.closest('[data-joy]')) e.preventDefault(); });
+
+
+
+        // ===== Actionneur (ventouses) : reglages a ajuster apres essais mecaniques =====
+        const ACT = {
+            hHaut: 150, hBas: 30,        // servo 0 : hauteur (angles a regler selon la cremaillere)
+            oGauche: 45, oDroite: 135,   // servo 1 : orientation plateforme
+            pas: 5,                      // pas des fleches (degres)
+            vitesse: 3,                  // degres par 20 ms (rampe douce)
+            pompe: 255,                  // PWM des pompes (-255..255)
+            dist: 50,                    // approche / recul du robot (mm)
+            vAvance: 1000,               // vitesse d'approche (pas/s)
+            tAspi: 1000, tLache: 1000,   // attente compression / relache (ms)
+            oVert: 180,                  // servo 1 : plateforme tournee de 90 deg (carton vertical), 0 pour l'autre sens
+            ang: [90, 90], cible: [90, 90], pump: {1:false, 2:false}, timer: null, seqId: 0
+        };
+        const actSleep = ms => new Promise(r => setTimeout(r, ms));
+        function actRefresh() {
+            const st = document.getElementById('act_state');
+            if (st) st.innerText = `Haut. ${Math.round(ACT.ang[0])}° · Orient. ${Math.round(ACT.ang[1])}°`;
+            [1,2].forEach(i => {
+                const b = document.getElementById('act_p'+i);
+                if (!b) return;
+                b.innerText = `Pompe ${i} : ${ACT.pump[i] ? 'ON' : 'OFF'}`;
+                b.classList.toggle('act-on', ACT.pump[i]);
+            });
+        }
+        // Rampe : les servos rejoignent la cible progressivement (evite les a-coups sur la cremaillere)
+        function actTick() {
+            let fini = true;
+            for (let i = 0; i < 2; i++) {
+                const d = ACT.cible[i] - ACT.ang[i];
+                if (Math.abs(d) > 0.01) {
+                    ACT.ang[i] += Math.abs(d) <= ACT.vitesse ? d : Math.sign(d) * ACT.vitesse;
+                    sendCmd('servo', i, Math.round(ACT.ang[i]));
+                    fini = false;
+                }
+            }
+            actRefresh();
+            if (fini) { clearInterval(ACT.timer); ACT.timer = null; }
+        }
+        function actGo(i, deg) {
+            ACT.cible[i] = Math.max(0, Math.min(180, deg));
+            if (!ACT.timer) ACT.timer = setInterval(actTick, 20);
+        }
+        function actWait(i) {  // attend que le servo i atteigne sa cible
+            return new Promise(res => { const t = setInterval(() => { if (Math.abs(ACT.cible[i]-ACT.ang[i]) < 0.5) { clearInterval(t); res(); } }, 20); });
+        }
+        function actHeight(d) { actAbort(); actGo(0, d); }
+        function actOrient(d) { actAbort(); actGo(1, d); }
+        function actNudge(i, d) { actAbort(); actGo(i, ACT.cible[i] + d); }
+        function actPump(n, on) {
+            ACT.pump[n] = on;
+            sendCmd('dc', n, on ? ACT.pompe : 0);
+            actRefresh();
+        }
+        function actAbort() { ACT.seqId++; actMsg(''); }
+        function actMsg(t) { const e = document.getElementById('act_seq_msg'); if (e) e.innerText = t; }
+        async function actSeq(nom, etapes) {
+            const id = ++ACT.seqId;
+            for (const [txt, fn] of etapes) {
+                if (id !== ACT.seqId) return;   // interrompue par une autre commande
+                actMsg(nom + ' : ' + txt);
+                await fn();
+            }
+            if (id === ACT.seqId) actMsg(nom + ' : terminé ✔');
+        }
+        // Avance (>0) ou recule (<0) le robot de mm, puis attend la fin du mouvement (estimation : 17,56 pas/mm)
+        async function actDrive(mm) {
+            sendCmd('drive', ACT.vAvance, mm);
+            const pas = Math.abs(mm) * 17.56;
+            await actSleep(pas / ACT.vAvance * 1000 + 600);
+        }
+        const actUp = async () => { actGo(0, ACT.hHaut); await actWait(0); };
+        const actDown = async () => { actGo(0, ACT.hBas); await actWait(0); };
+        const actPumps = on => async () => { actPump(1, on); actPump(2, on); };
+        // PRENDRE : pompes ON, avance, attente compression, remontee
+        function actPrendre() {
+            actSeq('Prendre', [
+                ['pompes ON', actPumps(true)],
+                ['approche', () => actDrive(ACT.dist)],
+                ['compression', () => actSleep(ACT.tAspi)],
+                ['remontée', actUp]
+            ]);
+        }
+        // DEPOSER (sens inverse) : descente, attente, pompes OFF, recul
+        function actDeposer() {
+            actSeq('Déposer', [
+                ['descente', actDown],
+                ['attente', () => actSleep(ACT.tLache)],
+                ['pompes OFF', actPumps(false)],
+                ['recul', () => actDrive(-ACT.dist)]
+            ]);
+        }
+        // DEPOSER VERTICAL : (en haut) plateforme a 90 deg, relache directement sans descendre, recul, plateforme a plat
+        function actDeposerVertical() {
+            actSeq('Dépôt vertical', [
+                ['rotation 90°', async () => { actGo(1, ACT.oVert); await actWait(1); }],
+                ['attente', () => actSleep(ACT.tLache)],
+                ['pompes OFF', actPumps(false)],
+                ['recul', () => actDrive(-ACT.dist)],
+                ['plateforme à plat', async () => { actGo(1, 90); await actWait(1); }]
+            ]);
+        }
+        function actInit() { actAbort(); actGo(0, 90); actGo(1, 90); }
+        function actStop() {
+            actAbort();
+            ACT.cible = [ACT.ang[0], ACT.ang[1]];
+            actPump(1, false); actPump(2, false);
+        }
 
         function sendCmd(composant, id, valeur) {
             if(ws.readyState === WebSocket.OPEN) {
